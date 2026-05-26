@@ -188,7 +188,7 @@
       <!-- ===== Main ===== -->
       <main id="main-content"><section class="container py-16">
             <div class="hero lg:grid-cols-2">
-              <div class="hero__media"></div>
+              <div class="hero__media"><button data-klar-injected data-klar-htmlblocks-placeholder type="button" style="display: flex; align-items: center; justify-content: center; gap: 8px; margin: 32px auto; padding: 14px 24px; font: 600 13px / 1.2 system-ui, -apple-system, sans-serif; color: rgb(8, 116, 197); background: rgba(8, 116, 197, 0.06); border: 1.5px dashed rgba(8, 116, 197, 0.45); border-radius: 10px; cursor: pointer; transition: background 0.15s, border-color 0.15s, color 0.15s;"><svg data-klar-injected width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg><span data-klar-injected>Add block</span></button></div>
               <div class="hero__content">
                 <h1 class="featured-title">En blogg för alla de som älskar att skriva och skratta</h1>
                 <div class="flex items-center gap-4 text-sm">
@@ -199,8 +199,66 @@
                   <time class="blog-meta" datetime="2026-05-02">May 2, 2026</time>
                 </div>
                 <p class="text-lg text-muted-foreground leading-relaxed">Fashion blogging began as personal style diaries and grew into a billion-dollar force that reshapes trends, brands, and the way we shop.</p>
-                <div class="pt-4">
-                  <a href="/blog/blog-post-1.html" class="btn">Read more <span aria-hidden="true">→</span></a>
+                <div class="pt-4"><a href="/blog/blog-post-1.html" class="btn">Read more <span aria-hidden="true">→</span></a>
+<a href="/blog/blog-post-1.html" class="btn">Read more <span aria-hidden="true">→</span></a></div>
+              </div>
+            </div>
+          </section>
+<section class="container py-16">
+            <div class="max-w-4xl mx-auto">
+              <div class="text-center mb-12">
+                <h2 class="page-title md:text-5xl mb-4">Get in Touch</h2>
+                <p class="lead max-w-2xl mx-auto">Have a question, a suggestion, or a story to pitch? We'd love to hear from you.</p>
+              </div>
+              <div class="grid lg:grid-cols-2 gap-12">
+                <div class="card">
+                  <div class="card__header">
+                    <h3 class="card__title">Send us a message</h3>
+                    <p class="card__description">Fill out the form and we'll get back to you soon.</p>
+                  </div>
+                  <div class="card__body">
+                    <form class="flex flex-col gap-6">
+                      <div class="field">
+                        <label class="label" for="ct-name">Name</label>
+                        <input class="input" id="ct-name" type="text" placeholder="Your full name">
+                      </div>
+                      <div class="field">
+                        <label class="label" for="ct-email">Email</label>
+                        <input class="input" id="ct-email" type="email" placeholder="your.email@example.com">
+                      </div>
+                      <div class="field">
+                        <label class="label" for="ct-msg">Message</label>
+                        <textarea class="textarea" id="ct-msg" placeholder="Tell us more about your inquiry…"></textarea>
+                      </div>
+                      <button class="btn btn-primary btn-block" type="submit">Send message</button>
+                    </form>
+                  </div>
+                </div>
+                <div class="flex flex-col gap-6">
+                  <div class="card">
+                    <div class="card__body pt-6 flex flex-col gap-6">
+                      <div class="flex items-start gap-4">
+                        <div class="p-2 bg-muted rounded-lg">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+                        </div>
+                        <div>
+                          <h3 class="font-medium text-foreground">Email</h3>
+                          <p class="text-muted-foreground">hello@nexusblog.com</p>
+                          <p class="text-sm text-muted-foreground">We typically respond within 24 hours</p>
+                        </div>
+                      </div>
+                      <div class="flex items-start gap-4">
+                        <div class="p-2 bg-muted rounded-lg">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        </div>
+                        <div>
+                          <h3 class="font-medium text-foreground">Location</h3>
+                          <p class="text-muted-foreground">Global</p>
+                          <p class="text-sm text-muted-foreground">A distributed team working worldwide</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
