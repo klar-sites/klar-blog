@@ -581,6 +581,14 @@ ul, ol { list-style: none; padding: 0; }
 .prose a { text-decoration: underline; text-underline-offset: 2px; }
 .prose a:hover { color: var(--muted-foreground); }
 .prose strong { font-weight: var(--font-semibold); }
+.prose code {
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: var(--text-sm);
+  background-color: var(--muted);
+  color: var(--foreground);
+  padding: 0.125em 0.375em;
+  border-radius: var(--radius-sm);
+}
 .prose blockquote {
   padding-left: var(--space-6);
   border-left: 3px solid var(--border);
