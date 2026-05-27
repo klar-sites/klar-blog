@@ -430,6 +430,71 @@
             </div>
           </div>
         </div>
+
+        <h3 class="ds-subhead">Container</h3>
+        <div class="ds-specimens ds-specimens--stack" data-klar-ds-elements="containers" data-klar-ds-label="Container">
+          <div class="container" data-klar-ds-label="Default">
+            <h3 class="text-2xl font-bold">The Evolution of Fashion Influence</h3>
+            <p class="text-muted-foreground mt-2">How a new generation of creators reshaped what taste means online.</p>
+          </div>
+          <div class="container-narrow" data-klar-ds-label="Narrow">
+            <h3 class="text-2xl font-bold">The Evolution of Fashion Influence</h3>
+            <p class="text-muted-foreground mt-2">How a new generation of creators reshaped what taste means online.</p>
+          </div>
+        </div>
+
+        <h3 class="ds-subhead">Grid</h3>
+        <div class="ds-specimens ds-specimens--stack" data-klar-ds-elements="grids" data-klar-ds-label="Grid">
+          <div class="grid grid-cols-2 gap-6" data-klar-ds-label="2 columns">
+            <div class="bg-muted rounded-md p-6"><p class="font-medium">Lifestyle</p></div>
+            <div class="bg-muted rounded-md p-6"><p class="font-medium">Business</p></div>
+          </div>
+          <div class="grid grid-cols-3 gap-6" data-klar-ds-label="3 columns">
+            <div class="bg-muted rounded-md p-6"><p class="font-medium">Lifestyle</p></div>
+            <div class="bg-muted rounded-md p-6"><p class="font-medium">Business</p></div>
+            <div class="bg-muted rounded-md p-6"><p class="font-medium">Technology</p></div>
+          </div>
+          <div class="grid grid-cols-4 gap-6" data-klar-ds-label="4 columns">
+            <div class="bg-muted rounded-md p-6"><p class="font-medium">Lifestyle</p></div>
+            <div class="bg-muted rounded-md p-6"><p class="font-medium">Business</p></div>
+            <div class="bg-muted rounded-md p-6"><p class="font-medium">Technology</p></div>
+            <div class="bg-muted rounded-md p-6"><p class="font-medium">Culture</p></div>
+          </div>
+        </div>
+
+        <h3 class="ds-subhead">Container and Grid</h3>
+        <div class="ds-specimens ds-specimens--stack" data-klar-ds-elements="containers-and-grids" data-klar-ds-label="Container and Grid">
+          <div class="container grid grid-cols-2 gap-6" data-klar-ds-label="Default · 2 cols">
+            <div class="bg-muted rounded-md p-6"><p class="font-medium">Lifestyle</p></div>
+            <div class="bg-muted rounded-md p-6"><p class="font-medium">Business</p></div>
+          </div>
+          <div class="container grid grid-cols-3 gap-6" data-klar-ds-label="Default · 3 cols">
+            <div class="bg-muted rounded-md p-6"><p class="font-medium">Lifestyle</p></div>
+            <div class="bg-muted rounded-md p-6"><p class="font-medium">Business</p></div>
+            <div class="bg-muted rounded-md p-6"><p class="font-medium">Technology</p></div>
+          </div>
+          <div class="container grid grid-cols-4 gap-6" data-klar-ds-label="Default · 4 cols">
+            <div class="bg-muted rounded-md p-6"><p class="font-medium">Lifestyle</p></div>
+            <div class="bg-muted rounded-md p-6"><p class="font-medium">Business</p></div>
+            <div class="bg-muted rounded-md p-6"><p class="font-medium">Technology</p></div>
+            <div class="bg-muted rounded-md p-6"><p class="font-medium">Culture</p></div>
+          </div>
+          <div class="container-narrow grid grid-cols-2 gap-6" data-klar-ds-label="Narrow · 2 cols">
+            <div class="bg-muted rounded-md p-6"><p class="font-medium">Lifestyle</p></div>
+            <div class="bg-muted rounded-md p-6"><p class="font-medium">Business</p></div>
+          </div>
+          <div class="container-narrow grid grid-cols-3 gap-6" data-klar-ds-label="Narrow · 3 cols">
+            <div class="bg-muted rounded-md p-6"><p class="font-medium">Lifestyle</p></div>
+            <div class="bg-muted rounded-md p-6"><p class="font-medium">Business</p></div>
+            <div class="bg-muted rounded-md p-6"><p class="font-medium">Technology</p></div>
+          </div>
+          <div class="container-narrow grid grid-cols-4 gap-6" data-klar-ds-label="Narrow · 4 cols">
+            <div class="bg-muted rounded-md p-6"><p class="font-medium">Lifestyle</p></div>
+            <div class="bg-muted rounded-md p-6"><p class="font-medium">Business</p></div>
+            <div class="bg-muted rounded-md p-6"><p class="font-medium">Technology</p></div>
+            <div class="bg-muted rounded-md p-6"><p class="font-medium">Culture</p></div>
+          </div>
+        </div>
       </section>
 
       <!-- ============================== SECTIONS ============================== -->
@@ -796,7 +861,7 @@
           { "label": "Row", "value": "sm:flex-row" },
           { "label": "Row", "value": "md:flex-row" }
         ],
-        "Grid": [
+        "Grid columns": [
           { "label": "1 column", "value": "grid-cols-1" },
           { "label": "2 columns", "value": "grid-cols-2" },
           { "label": "3 columns", "value": "grid-cols-3" },
@@ -915,6 +980,19 @@
         "Container": [
           { "label": "Default", "value": "container" },
           { "label": "Narrow", "value": "container-narrow" }
+        ],
+        "Grid": [
+          { "label": "2 columns", "value": "grid grid-cols-2" },
+          { "label": "3 columns", "value": "grid grid-cols-3" },
+          { "label": "4 columns", "value": "grid grid-cols-4" }
+        ],
+        "Container and Grid": [
+          { "label": "Default · 2 cols", "value": "container grid grid-cols-2" },
+          { "label": "Default · 3 cols", "value": "container grid grid-cols-3" },
+          { "label": "Default · 4 cols", "value": "container grid grid-cols-4" },
+          { "label": "Narrow · 2 cols", "value": "container-narrow grid grid-cols-2" },
+          { "label": "Narrow · 3 cols", "value": "container-narrow grid grid-cols-3" },
+          { "label": "Narrow · 4 cols", "value": "container-narrow grid grid-cols-4" }
         ]
       }
     }
