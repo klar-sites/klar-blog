@@ -507,7 +507,7 @@ ul, ol { list-style: none; padding: 0; }
 .site-header {
   position: sticky;
   top: 0;
-  z-index: 99999;
+  z-index: 50;
   background-color: color-mix(in srgb, var(--background) 85%, transparent);
   backdrop-filter: saturate(150%) blur(8px);
   border-bottom: 1px solid var(--border);
