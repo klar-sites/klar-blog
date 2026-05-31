@@ -40,12 +40,6 @@
 .field-list         :field(title: List, name: list, type:array, options(layout:list)),
 .field-text      	:field(title: Content, name: text, type:array, options(layout:blocks)),
                  	:field(title: Lead, name: lead, type:text, default: 'Blog post excerpt — Brief description of the article content for preview.', order:3, section:'Content', col: 6, options(layout:editor))`,
-          vocabularies: {
-            categories: ["Technology", "Podcast", "Lifestyle"],
-            topics: ["Digital Marketing", "Personal Branding"],
-            tags: ["Leadership", "Authenticity"],
-            authors: ["Lisa Eriksson", "Klar Karlsson", "Niklas Svensson"],
-          },
         }],
         pages: [{
             name: "blog/blog-post-1.html",
@@ -92,6 +86,12 @@
             }
           },
         ],
+        vocabularies: {
+          categories: ["Technology", "Podcast", "Lifestyle"],
+          topics: ["Digital Marketing", "Personal Branding"],
+          tags: ["Leadership", "Authenticity"],
+          authors: ["Lisa Eriksson", "Klar Karlsson", "Niklas Svensson"],
+        }
       };
     </script>
   </head>
