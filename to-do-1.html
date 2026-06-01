@@ -200,39 +200,46 @@
 
     const h = React.createElement;
     const STORAGE_KEY = "nexus-training-app-v1";
+    const WEEK_DAYS = [
+      { key: "monday", label: "Monday", short: "Mon" },
+      { key: "tuesday", label: "Tuesday", short: "Tue" },
+      { key: "wednesday", label: "Wednesday", short: "Wed" },
+      { key: "thursday", label: "Thursday", short: "Thu" },
+      { key: "friday", label: "Friday", short: "Fri" },
+      { key: "saturday", label: "Saturday", short: "Sat" },
+      { key: "sunday", label: "Sunday", short: "Sun" }
+    ];
 
-    function pad(value) {
-      return String(value).padStart(2, "0");
+    function getTodayDayKey() {
+      const day = new Date().getDay();
+      return WEEK_DAYS[day === 0 ? 6 : day - 1].key;
     }
 
-    function dateKey(date = new Date()) {
-      return date.getFullYear() + "-" + pad(date.getMonth() + 1) + "-" + pad(date.getDate());
+    function dateKeyToWeekdayKey(key) {
+      if (WEEK_DAYS.some((day) => day.key === key)) return key;
+
+      if (/^\d{4}-\d{2}-\d{2}$/.test(key || "")) {
+        const parts = key.split("-").map(Number);
+        const date = new Date(parts[0], parts[1] - 1, parts[2]);
+        const day = date.getDay();
+        return WEEK_DAYS[day === 0 ? 6 : day - 1].key;
+      }
+
+      return getTodayDayKey();
     }
 
     function readableDate(key) {
-      const parts = key.split("-").map(Number);
-      const date = new Date(parts[0], parts[1] - 1, parts[2]);
-      return date.toLocaleDateString(undefined, { weekday: "long", month: "short", day: "numeric" });
+      const day = WEEK_DAYS.find((item) => item.key === key);
+      return day ? day.label : "Today";
     }
 
     function shortDay(key) {
-      const parts = key.split("-").map(Number);
-      const date = new Date(parts[0], parts[1] - 1, parts[2]);
-      return date.toLocaleDateString(undefined, { weekday: "short" });
+      const day = WEEK_DAYS.find((item) => item.key === key);
+      return day ? day.short : "Today";
     }
 
     function getWeekDays() {
-      const today = new Date();
-      const day = today.getDay();
-      const diffToMonday = day === 0 ? -6 : 1 - day;
-      const monday = new Date(today);
-      monday.setDate(today.getDate() + diffToMonday);
-
-      return Array.from({ length: 7 }, (_, index) => {
-        const next = new Date(monday);
-        next.setDate(monday.getDate() + index);
-        return dateKey(next);
-      });
+      return WEEK_DAYS.map((day) => day.key);
     }
 
     function percent(done, total) {
@@ -241,7 +248,7 @@
     }
 
     function createSeedExercises() {
-      const today = dateKey();
+      const today = getTodayDayKey();
       return [
         {
           id: "nexus-training-" + Date.now() + "-1",
@@ -273,7 +280,15 @@
     function loadExercises() {
       try {
         const saved = localStorage.getItem(STORAGE_KEY);
-        if (saved) return JSON.parse(saved);
+        if (saved) {
+          const parsed = JSON.parse(saved);
+          return Array.isArray(parsed)
+            ? parsed.map((exercise) => ({
+                ...exercise,
+                date: dateKeyToWeekdayKey(exercise.date)
+              }))
+            : createSeedExercises();
+        }
       } catch (error) {}
       return createSeedExercises();
     }
@@ -312,7 +327,7 @@
     }
 
     function TrainingApp() {
-      const today = dateKey();
+      const today = getTodayDayKey();
       const weekDays = useMemo(getWeekDays, []);
       const [view, setView] = useState("today");
       const [selectedDay, setSelectedDay] = useState(today);
@@ -430,7 +445,7 @@
             { className: "card__body pt-6 flex flex-col gap-4" },
             h("span", { className: "blog-meta" }, "Selected day"),
             h("strong", { className: "text-4xl" }, selectedDayExercises.length || "0"),
-            h("p", { className: "text-sm text-muted-foreground" }, selectedDayExercises.length === 1 ? "exercise planned for " + shortDay(selectedDay) : "exercises planned for " + shortDay(selectedDay))
+            h("p", { className: "text-sm text-muted-foreground" }, selectedDayExercises.length === 1 ? "exercise planned for every " + readableDate(selectedDay) : "exercises planned for every " + readableDate(selectedDay))
           )
         )
       );
@@ -522,7 +537,7 @@
             )
           : h(EmptyState, {
               title: "No exercises planned for this day",
-              message: "Choose a weekday and add your first exercise to start building that day’s training list."
+              message: "Choose a weekday and add your first exercise to start building that recurring training list."
             });
 
       const todayView = h(
@@ -538,7 +553,7 @@
               "div",
               { className: "card__header" },
               h("h2", { className: "card__title" }, "Add exercise"),
-              h("p", { className: "card__description" }, "Create a workout item for any weekday and mark it complete when finished.")
+              h("p", { className: "card__description" }, "Create a recurring workout item for any weekday and mark it complete when finished.")
             ),
             h(
               "div",
@@ -624,7 +639,7 @@
             h(
               "div",
               { className: "flex flex-col gap-2" },
-              h("span", { className: "blog-meta" }, readableDate(selectedDay)),
+              h("span", { className: "blog-meta" }, "Every " + readableDate(selectedDay)),
               h("h2", { className: "section-title" }, "Training for " + shortDay(selectedDay))
             ),
             h("span", { className: "badge badge-secondary" }, percent(selectedDayDone, selectedDayExercises.length) + "% complete")
@@ -670,7 +685,7 @@
                         "div",
                         { className: "flex flex-col gap-1" },
                         h("h3", { className: "text-xl font-bold" }, shortDay(day)),
-                        h("span", { className: "text-sm text-muted-foreground" }, readableDate(day))
+                        h("span", { className: "text-sm text-muted-foreground" }, "Every " + readableDate(day))
                       ),
                       isToday ? h("span", { className: "badge badge-secondary" }, "Today") : null
                     ),
@@ -697,7 +712,7 @@
             )
           : h(EmptyState, {
               title: "No weekly activity yet",
-              message: "Add exercises in Day view to build your weekly training history."
+              message: "Add exercises in Day view to build your recurring weekly training plan."
             })
       );
 
