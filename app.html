@@ -207,7 +207,7 @@
             <div class="card__body pt-6">
               <p class="blog-meta mb-2">Planerade</p>
               <p class="text-3xl font-bold" id="nexus-training-day-plan-total">0</p>
-              <p class="text-sm text-muted-foreground mt-2">övningar denna vecka</p>
+              <p class="text-sm text-muted-foreground mt-2" id="nexus-training-day-plan-total-label">övningar idag</p>
             </div>
           </div>
 
@@ -215,7 +215,7 @@
             <div class="card__body pt-6">
               <p class="blog-meta mb-2">Uppfyllda</p>
               <p class="text-3xl font-bold" id="nexus-training-day-plan-completed">0</p>
-              <p class="text-sm text-muted-foreground mt-2">avklarade övningar</p>
+              <p class="text-sm text-muted-foreground mt-2" id="nexus-training-day-plan-completed-label">avklarade idag</p>
             </div>
           </div>
 
@@ -223,7 +223,7 @@
             <div class="card__body pt-6">
               <p class="blog-meta mb-2">Progress</p>
               <p class="text-3xl font-bold" id="nexus-training-day-plan-percent">0%</p>
-              <p class="text-sm text-muted-foreground mt-2">av veckans plan</p>
+              <p class="text-sm text-muted-foreground mt-2" id="nexus-training-day-plan-percent-label">av dagens plan</p>
             </div>
           </div>
         </div>
@@ -256,6 +256,9 @@
       var totalEl = root.querySelector("#nexus-training-day-plan-total");
       var completedEl = root.querySelector("#nexus-training-day-plan-completed");
       var percentEl = root.querySelector("#nexus-training-day-plan-percent");
+      var totalLabel = root.querySelector("#nexus-training-day-plan-total-label");
+      var completedLabel = root.querySelector("#nexus-training-day-plan-completed-label");
+      var percentLabel = root.querySelector("#nexus-training-day-plan-percent-label");
       var clearButton = root.querySelector("#nexus-training-day-plan-clear");
       var todayViewButton = root.querySelector("#nexus-training-day-plan-view-today");
       var weekViewButton = root.querySelector("#nexus-training-day-plan-view-week");
@@ -376,8 +379,9 @@
       function renderStats() {
         var total = 0;
         var completed = 0;
+        var statsDays = currentView === "today" ? getVisibleDays() : days;
 
-        days.forEach(function (day) {
+        statsDays.forEach(function (day) {
           ensureDay(day.key);
           plan[day.key].forEach(function (exercise) {
             total += 1;
@@ -389,6 +393,16 @@
         totalEl.textContent = String(total);
         completedEl.textContent = String(completed);
         percentEl.textContent = percent + "%";
+
+        if (currentView === "today") {
+          totalLabel.textContent = "övningar idag";
+          completedLabel.textContent = "avklarade idag";
+          percentLabel.textContent = "av dagens plan";
+        } else {
+          totalLabel.textContent = "övningar denna vecka";
+          completedLabel.textContent = "avklarade övningar";
+          percentLabel.textContent = "av veckans plan";
+        }
       }
 
       function render() {
