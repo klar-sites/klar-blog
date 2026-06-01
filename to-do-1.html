@@ -312,9 +312,13 @@
     }
 
     function TrainingApp() {
+      const today = dateKey();
+      const weekDays = useMemo(getWeekDays, []);
       const [view, setView] = useState("today");
+      const [selectedDay, setSelectedDay] = useState(today);
       const [exercises, setExercises] = useState(loadExercises);
       const [form, setForm] = useState({
+        date: today,
         name: "",
         focus: "Strength",
         target: ""
@@ -326,19 +330,23 @@
         } catch (error) {}
       }, [exercises]);
 
-      const today = dateKey();
       const todayExercises = useMemo(
         () => exercises.filter((exercise) => exercise.date === today),
         [exercises, today]
       );
 
-      const weekDays = useMemo(getWeekDays, []);
+      const selectedDayExercises = useMemo(
+        () => exercises.filter((exercise) => exercise.date === selectedDay),
+        [exercises, selectedDay]
+      );
+
       const weekExercises = useMemo(
         () => exercises.filter((exercise) => weekDays.includes(exercise.date)),
         [exercises, weekDays]
       );
 
       const todayDone = todayExercises.filter((exercise) => exercise.done).length;
+      const selectedDayDone = selectedDayExercises.filter((exercise) => exercise.done).length;
       const weekDone = weekExercises.filter((exercise) => exercise.done).length;
 
       function addExercise(event) {
@@ -352,7 +360,7 @@
         setExercises((current) => [
           {
             id: "nexus-training-" + Date.now(),
-            date: today,
+            date: form.date,
             name,
             focus: form.focus,
             target: target || "Open goal",
@@ -361,7 +369,10 @@
           ...current
         ]);
 
+        setSelectedDay(form.date);
+
         setForm({
+          date: form.date,
           name: "",
           focus: form.focus,
           target: ""
@@ -417,19 +428,19 @@
           h(
             "div",
             { className: "card__body pt-6 flex flex-col gap-4" },
-            h("span", { className: "blog-meta" }, "Focus"),
-            h("strong", { className: "text-4xl" }, todayExercises.length || "0"),
-            h("p", { className: "text-sm text-muted-foreground" }, todayExercises.length === 1 ? "exercise planned for today" : "exercises planned for today")
+            h("span", { className: "blog-meta" }, "Selected day"),
+            h("strong", { className: "text-4xl" }, selectedDayExercises.length || "0"),
+            h("p", { className: "text-sm text-muted-foreground" }, selectedDayExercises.length === 1 ? "exercise planned for " + shortDay(selectedDay) : "exercises planned for " + shortDay(selectedDay))
           )
         )
       );
 
       const exerciseList =
-        todayExercises.length > 0
+        selectedDayExercises.length > 0
           ? h(
               "div",
               { className: "flex flex-col gap-4" },
-              todayExercises.map((exercise) =>
+              selectedDayExercises.map((exercise) =>
                 h(
                   "article",
                   {
@@ -510,8 +521,8 @@
               )
             )
           : h(EmptyState, {
-              title: "No exercises planned today",
-              message: "Add your first exercise to start tracking today’s training progress."
+              title: "No exercises planned for this day",
+              message: "Choose a weekday and add your first exercise to start building that day’s training list."
             });
 
       const todayView = h(
@@ -527,11 +538,32 @@
               "div",
               { className: "card__header" },
               h("h2", { className: "card__title" }, "Add exercise"),
-              h("p", { className: "card__description" }, "Create a workout item for today and mark it complete when finished.")
+              h("p", { className: "card__description" }, "Create a workout item for any weekday and mark it complete when finished.")
             ),
             h(
               "div",
               { className: "card__body flex flex-col gap-6" },
+              h(
+                "div",
+                { className: "field" },
+                h("label", { className: "label", htmlFor: "nexus-training-exercise-day" }, "Week day"),
+                h(
+                  "select",
+                  {
+                    className: "select",
+                    id: "nexus-training-exercise-day",
+                    value: form.date,
+                    onChange: (event) => {
+                      const nextDay = event.target.value;
+                      setForm((current) => ({ ...current, date: nextDay }));
+                      setSelectedDay(nextDay);
+                    }
+                  },
+                  weekDays.map((day) =>
+                    h("option", { key: day, value: day }, readableDate(day))
+                  )
+                )
+              ),
               h(
                 "div",
                 { className: "field" },
@@ -540,7 +572,7 @@
                   className: "input",
                   id: "nexus-training-exercise-name",
                   type: "text",
-                  placeholder: "e.g. Goblet squats",
+                  placeholder: "e.g. Triceps",
                   value: form.name,
                   onChange: (event) => setForm((current) => ({ ...current, name: event.target.value }))
                 })
@@ -579,7 +611,7 @@
             h(
               "div",
               { className: "card__footer" },
-              h("button", { className: "btn btn-primary btn-block", type: "submit" }, "Add to today")
+              h("button", { className: "btn btn-primary btn-block", type: "submit" }, "Add to week")
             )
           )
         ),
@@ -592,10 +624,10 @@
             h(
               "div",
               { className: "flex flex-col gap-2" },
-              h("span", { className: "blog-meta" }, readableDate(today)),
-              h("h2", { className: "section-title" }, "Today’s training")
+              h("span", { className: "blog-meta" }, readableDate(selectedDay)),
+              h("h2", { className: "section-title" }, "Training for " + shortDay(selectedDay))
             ),
-            h("span", { className: "badge badge-secondary" }, percent(todayDone, todayExercises.length) + "% complete")
+            h("span", { className: "badge badge-secondary" }, percent(selectedDayDone, selectedDayExercises.length) + "% complete")
           ),
           exerciseList
         )
@@ -665,7 +697,7 @@
             )
           : h(EmptyState, {
               title: "No weekly activity yet",
-              message: "Add exercises in Today’s view to build your weekly training history."
+              message: "Add exercises in Day view to build your weekly training history."
             })
       );
 
@@ -688,7 +720,7 @@
                 "aria-selected": view === "today",
                 onClick: () => setView("today")
               },
-              "Today’s view"
+              "Day view"
             ),
             h(
               "button",
