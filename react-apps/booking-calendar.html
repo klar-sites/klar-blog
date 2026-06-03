@@ -5,18 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
     <title>Nexus - Personal Blog | Fashion, Technology &amp; Lifestyle</title>
-    <meta name="description" content="Explore the latest in fashion trends, technology insights, business strategies, and lifestyle inspiration on Nexus personal blog.">
+    <meta name="description"
+      content="Explore the latest in fashion trends, technology insights, business strategies, and lifestyle inspiration on Nexus personal blog.">
     <link rel="stylesheet" href="/style.css">
     <style>
       .klar-suzannes-booking-calendar-layout {
         display: grid;
         gap: var(--space-8);
       }
+
       .klar-suzannes-booking-calendar-calendar-grid {
         display: grid;
         grid-template-columns: repeat(7, minmax(0, 1fr));
         gap: var(--space-2);
       }
+
       .klar-suzannes-booking-calendar-day-name {
         text-align: center;
         font-size: var(--text-xs);
@@ -25,6 +28,7 @@
         text-transform: uppercase;
         letter-spacing: var(--tracking-wide);
       }
+
       .klar-suzannes-booking-calendar-day-button {
         width: 100%;
         aspect-ratio: 1 / 1;
@@ -35,37 +39,46 @@
         font-size: var(--text-sm);
         transition: background-color var(--transition), color var(--transition), border-color var(--transition);
       }
+
       .klar-suzannes-booking-calendar-day-button:hover {
         background-color: var(--muted);
       }
+
       .klar-suzannes-booking-calendar-day-button.is-selected {
         background-color: var(--primary);
         color: var(--primary-foreground);
         border-color: var(--primary);
       }
+
       .klar-suzannes-booking-calendar-day-button.is-today {
         box-shadow: inset 0 0 0 2px var(--ring);
       }
+
       .klar-suzannes-booking-calendar-empty-day {
         aspect-ratio: 1 / 1;
       }
+
       .klar-suzannes-booking-calendar-time-grid {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: var(--space-3);
       }
+
       .klar-suzannes-booking-calendar-time-button.is-selected {
         background-color: var(--primary);
         color: var(--primary-foreground);
         border-color: var(--primary);
       }
+
       .klar-suzannes-booking-calendar-time-button.is-booked {
         text-decoration: line-through;
       }
+
       .klar-suzannes-booking-calendar-booking-list {
         max-height: 16rem;
         overflow: auto;
       }
+
       @media (min-width: 768px) {
         .klar-suzannes-booking-calendar-layout {
           grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
@@ -163,82 +176,48 @@
     </script>
   </head>
   <body>
-    <!-- Klar dynamic templates: rendered into #hero / #all-posts when CMS data loads -->
-    <template data-for="hero" data-query="list('blog-post', {order: 'updated_at:desc', limit: 1})">
-      {% for post in items %}
-      <div class="hero lg:grid-cols-2">
-        <div class="hero__media">
-          <img src="{{ post.image.src }}" alt="Featured article: {{ post.title }}" width="592" height="444" fetchpriority="high">
-        </div>
-        <div class="hero__content">
-          <h1 class="featured-title">{{ post.title }}</h1>
-          <div class="flex items-center gap-4 text-sm">
-            <span class="blog-meta">{{ post.author }} / Writer</span>
-            <span class="text-muted-foreground" aria-hidden="true">—</span>
-            <span class="blog-meta">{{ post.category }}</span>
-            <span class="text-muted-foreground" aria-hidden="true">—</span>
-            <time class="blog-meta" datetime="2026-05-02">May 2, 2026</time>
-          </div>
-          <p class="text-lg text-muted-foreground leading-relaxed">
-            Featured article description — This is where your main content
-            excerpt would appear to give readers a preview of the full article.
-          </p>
-          <div class="pt-4">
-            <a href="{{ post.url }}" class="btn" aria-label="Read more">Read more <span aria-hidden="true">→</span></a>
-          </div>
-        </div>
-      </div>
-      {% endfor %}
-    </template>
-    <template data-for="all-posts" data-query="list('blog-post', {order: 'updated_at:desc', limit: 10})">
-      {% for post in items %}
-      <article class="blog-card">
-        <a class="block" href="{{ post.filePath }}" aria-label="Read article">
-          <div class="blog-card__media">
-            <img src="{{ post.image.src }}" alt="" width="387" height="291" loading="lazy">
-          </div>
-          <div class="blog-card__body">
-            <div class="flex items-center gap-2">
-              <span class="blog-meta">{{ post.category }}</span><span class="text-muted-foreground text-xs" aria-hidden="true">—</span><time class="blog-meta" datetime="2026-05-10">May 10, 2026</time>
-            </div>
-            <h3 class="blog-card__title">{{ post.title }}</h3>
-            <p class="blog-card__excerpt">{{ post.lead }}</p>
-          </div>
-        </a>
-      </article>
-      {% endfor %}
-    </template>
-
     <div class="min-h-screen bg-background">
       <!-- ===== Header ===== -->
       <header class="site-header" id="header">
         <div class="container">
           <div class="site-header__bar">
             <a class="brand" href="/index.html">nexus</a>
-            <nav class="nav-desktop items-center gap-8" aria-label="Main navigation"><a class="nav-link" href="/posts.html">ALL POST</a>
-<a class="nav-link" href="/business.html">BUSINESS</a>
-<a class="nav-link" href="/technology.html">TECHNOLOGY</a>
-<a class="nav-link" href="/podcast.html">PODCAST</a>
-<a class="nav-link" href="react-apps/training-app.html">Workout</a></nav>
+            <nav class="nav-desktop items-center gap-8" aria-label="Main navigation"><a class="nav-link"
+                href="/posts.html">ALL POST</a>
+              <a class="nav-link" href="/business.html">BUSINESS</a>
+              <a class="nav-link" href="/technology.html">TECHNOLOGY</a>
+              <a class="nav-link" href="/podcast.html">PODCAST</a>
+              <a class="nav-link" href="react-apps/training-app.html">Workout</a>
+            </nav>
             <div class="nav-desktop items-center gap-2">
-              <a href="#" class="btn btn-icon" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <a href="#" class="btn btn-icon" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                  height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
                   <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
                 </svg></a>
-              <a href="#" class="btn btn-icon" aria-label="Twitter"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z">
+              <a href="#" class="btn btn-icon" aria-label="Twitter"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                  height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path
+                    d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z">
                   </path>
                 </svg></a>
-              <a href="#" class="btn btn-icon" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <a href="#" class="btn btn-icon" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                  height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
                   <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
                   <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
                   <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
                 </svg></a>
-              <a href="/search.html" class="btn btn-icon" aria-label="Search articles"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <a href="/search.html" class="btn btn-icon" aria-label="Search articles"><svg
+                  xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <circle cx="11" cy="11" r="8"></circle>
                   <path d="m21 21-4.3-4.3"></path>
                 </svg></a>
               <button class="btn btn-icon" aria-label="Toggle theme">
-                <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <circle cx="12" cy="12" r="4"></circle>
                   <path d="M12 2v2"></path>
                   <path d="M12 20v2"></path>
@@ -249,13 +228,15 @@
                   <path d="m6.34 17.66-1.41 1.41"></path>
                   <path d="m19.07 4.93-1.41 1.41"></path>
                 </svg>
-                <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
                 </svg>
               </button>
             </div>
             <button id="mobile-menu-toggle" class="btn btn-icon nav-mobile-toggle" aria-label="Toggle menu">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <line x1="4" x2="20" y1="12" y2="12"></line>
                 <line x1="4" x2="20" y1="6" y2="6"></line>
                 <line x1="4" x2="20" y1="18" y2="18"></line>
@@ -275,138 +256,10 @@
 
       <!-- ===== Main ===== -->
       <main id="main-content">
-        <!-- Hero (static fallback; replaced by the data-for="hero" template when CMS data loads) -->
-        <article class="container py-16" id="hero" data-klar-readonly>
-      
-      <div class="hero lg:grid-cols-2">
-        <div class="hero__media">
-          <img src="/images/business-post-6IsrfXyD.jpg" alt="Featured article: En blogg för alla de som tycker det är kul att blogg" width="592" height="444" fetchpriority="high">
-        </div>
-        <div class="hero__content">
-          <h1 class="featured-title">En blogg för alla de som tycker det är kul att blogg</h1>
-          <div class="flex items-center gap-4 text-sm">
-            <span class="blog-meta">Niklas Svensson / Writer</span>
-            <span class="text-muted-foreground" aria-hidden="true">—</span>
-            <span class="blog-meta">Technology</span>
-            <span class="text-muted-foreground" aria-hidden="true">—</span>
-            <time class="blog-meta" datetime="2026-05-02">May 2, 2026</time>
-          </div>
-          <p class="text-lg text-muted-foreground leading-relaxed">
-            Featured article description — This is where your main content
-            excerpt would appear to give readers a preview of the full article.
-          </p>
-          <div class="pt-4">
-            <a href="/blog/blog-post-6.html" class="btn" aria-label="Read more">Read more <span aria-hidden="true">→</span></a>
-          </div>
-        </div>
-      </div>
-      
-    </article>
-
         <!-- Suzannes booking calendar -->
         <section aria-labelledby="suzannes-booking-calendar-heading">
           <div class="container py-16">
             <div id="suzannes-booking-calendar-root" data-klar-readonly></div>
-          </div>
-        </section>
-
-        <!-- All posts -->
-        <section aria-labelledby="all-posts-heading">
-          <div class="container py-16">
-            <h2 id="all-posts-heading" class="section-title mb-8">All Posts</h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="all-posts" data-klar-readonly>
-      
-      <article class="blog-card">
-        <a class="block" href="blog/blog-post-6.html" aria-label="Read article">
-          <div class="blog-card__media">
-            <img src="/images/business-post-6IsrfXyD.jpg" alt="" width="387" height="291" loading="lazy">
-          </div>
-          <div class="blog-card__body">
-            <div class="flex items-center gap-2">
-              <span class="blog-meta">Technology</span><span class="text-muted-foreground text-xs" aria-hidden="true">—</span><time class="blog-meta" datetime="2026-05-10">May 10, 2026</time>
-            </div>
-            <h3 class="blog-card__title">En blogg för alla de som tycker det är kul att blogg</h3>
-            <p class="blog-card__excerpt"></p>
-          </div>
-        </a>
-      </article>
-      
-      <article class="blog-card">
-        <a class="block" href="blog/blog-post-5.html" aria-label="Read article">
-          <div class="blog-card__media">
-            <img src="/images/lifestyle-post-B2o5gHGK.jpg" alt="" width="387" height="291" loading="lazy">
-          </div>
-          <div class="blog-card__body">
-            <div class="flex items-center gap-2">
-              <span class="blog-meta">Business</span><span class="text-muted-foreground text-xs" aria-hidden="true">—</span><time class="blog-meta" datetime="2026-05-10">May 10, 2026</time>
-            </div>
-            <h3 class="blog-card__title">En blogg för alla de som tycker det är kul att blogg</h3>
-            <p class="blog-card__excerpt"></p>
-          </div>
-        </a>
-      </article>
-      
-      <article class="blog-card">
-        <a class="block" href="blog/blog-post-4.html" aria-label="Read article">
-          <div class="blog-card__media">
-            <img src="/images/hero-image-xUp6gwWA.jpg" alt="" width="387" height="291" loading="lazy">
-          </div>
-          <div class="blog-card__body">
-            <div class="flex items-center gap-2">
-              <span class="blog-meta">Technology</span><span class="text-muted-foreground text-xs" aria-hidden="true">—</span><time class="blog-meta" datetime="2026-05-10">May 10, 2026</time>
-            </div>
-            <h3 class="blog-card__title">En blogg för alla de som tycker det är kul att blogg</h3>
-            <p class="blog-card__excerpt"></p>
-          </div>
-        </a>
-      </article>
-      
-      <article class="blog-card">
-        <a class="block" href="blog/blog-post-3.html" aria-label="Read article">
-          <div class="blog-card__media">
-            <img src="/images/fashion-post-4m_ykv-I.jpg" alt="" width="387" height="291" loading="lazy">
-          </div>
-          <div class="blog-card__body">
-            <div class="flex items-center gap-2">
-              <span class="blog-meta">Business</span><span class="text-muted-foreground text-xs" aria-hidden="true">—</span><time class="blog-meta" datetime="2026-05-10">May 10, 2026</time>
-            </div>
-            <h3 class="blog-card__title">En blogg för alla de som tycker det är kul att blogg</h3>
-            <p class="blog-card__excerpt"></p>
-          </div>
-        </a>
-      </article>
-      
-      <article class="blog-card">
-        <a class="block" href="blog/blog-post-2.html" aria-label="Read article">
-          <div class="blog-card__media">
-            <img src="/images/fashion-lifestyle-tBv1CS6f (1).jpg" alt="" width="387" height="291" loading="lazy">
-          </div>
-          <div class="blog-card__body">
-            <div class="flex items-center gap-2">
-              <span class="blog-meta">Lifestyle</span><span class="text-muted-foreground text-xs" aria-hidden="true">—</span><time class="blog-meta" datetime="2026-05-10">May 10, 2026</time>
-            </div>
-            <h3 class="blog-card__title">En blogg för alla de som tycker det är kul att blogga</h3>
-            <p class="blog-card__excerpt"></p>
-          </div>
-        </a>
-      </article>
-      
-      <article class="blog-card">
-        <a class="block" href="blog/blog-post-1.html" aria-label="Read article">
-          <div class="blog-card__media">
-            <img src="/images/work-lifestyle-Bg_wzXQT.jpg" alt="" width="387" height="291" loading="lazy">
-          </div>
-          <div class="blog-card__body">
-            <div class="flex items-center gap-2">
-              <span class="blog-meta">Lifestyle</span><span class="text-muted-foreground text-xs" aria-hidden="true">—</span><time class="blog-meta" datetime="2026-05-10">May 10, 2026</time>
-            </div>
-            <h3 class="blog-card__title">En blogg för alla de som älskar att skriva och skratta</h3>
-            <p class="blog-card__excerpt"></p>
-          </div>
-        </a>
-      </article>
-      
-    </div>
           </div>
         </section>
       </main>
@@ -462,7 +315,7 @@
       </footer>
     </div>
     <script>
-      (function () {
+      (function() {
         var root = document.getElementById("suzannes-booking-calendar-root");
         if (!root || !window.React || !window.ReactDOM) return;
 
@@ -523,12 +376,12 @@
           var visibleMonth = visibleMonthState[0];
           var setVisibleMonth = visibleMonthState[1];
 
-          useEffect(function () {
+          useEffect(function() {
             localStorage.setItem(storageKey, JSON.stringify(bookings));
           }, [bookings]);
 
           function isBooked(dateKey, time) {
-            return bookings.some(function (booking) {
+            return bookings.some(function(booking) {
               return booking.date === dateKey && booking.time === time;
             });
           }
@@ -579,31 +432,76 @@
             year: "numeric"
           });
 
-          var upcomingBookings = bookings.slice().sort(function (a, b) {
+          var upcomingBookings = bookings.slice().sort(function(a, b) {
             return (a.date + a.time).localeCompare(b.date + b.time);
           });
 
-          return h("div", { className: "card" },
-            h("div", { className: "card__header" },
-              h("p", { className: "blog-meta" }, "Book an appointment"),
-              h("h2", { id: "suzannes-booking-calendar-heading", className: "card__title" }, "Suzannes booking calendar"),
-              h("p", { className: "card__description" }, "Select a date, choose an available time slot, enter your details, and confirm your booking. Bookings are saved locally in this browser.")
+          return h("div", {
+              className: "card"
+            },
+            h("div", {
+                className: "card__header"
+              },
+              h("p", {
+                className: "blog-meta"
+              }, "Book an appointment"),
+              h("h2", {
+                id: "suzannes-booking-calendar-heading",
+                className: "card__title"
+              }, "Suzannes booking calendar"),
+              h("p", {
+                  className: "card__description"
+                },
+                "Select a date, choose an available time slot, enter your details, and confirm your booking. Bookings are saved locally in this browser."
+                )
             ),
-            h("div", { className: "card__body" },
-              h("div", { className: "klar-suzannes-booking-calendar-layout" },
-                h("div", { className: "flex flex-col gap-6" },
-                  h("div", { className: "flex items-center justify-between gap-4" },
-                    h("button", { type: "button", className: "btn btn-sm btn-outline", onClick: function () { changeMonth(-1); } }, "Previous"),
-                    h("h3", { className: "text-xl font-bold" }, monthLabel),
-                    h("button", { type: "button", className: "btn btn-sm btn-outline", onClick: function () { changeMonth(1); } }, "Next")
+            h("div", {
+                className: "card__body"
+              },
+              h("div", {
+                  className: "klar-suzannes-booking-calendar-layout"
+                },
+                h("div", {
+                    className: "flex flex-col gap-6"
+                  },
+                  h("div", {
+                      className: "flex items-center justify-between gap-4"
+                    },
+                    h("button", {
+                      type: "button",
+                      className: "btn btn-sm btn-outline",
+                      onClick: function() {
+                        changeMonth(-1);
+                      }
+                    }, "Previous"),
+                    h("h3", {
+                      className: "text-xl font-bold"
+                    }, monthLabel),
+                    h("button", {
+                      type: "button",
+                      className: "btn btn-sm btn-outline",
+                      onClick: function() {
+                        changeMonth(1);
+                      }
+                    }, "Next")
                   ),
-                  h("div", { className: "klar-suzannes-booking-calendar-calendar-grid", role: "grid", "aria-label": "Choose a booking date" },
-                    ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map(function (dayName) {
-                      return h("div", { key: dayName, className: "klar-suzannes-booking-calendar-day-name" }, dayName);
+                  h("div", {
+                      className: "klar-suzannes-booking-calendar-calendar-grid",
+                      role: "grid",
+                      "aria-label": "Choose a booking date"
+                    },
+                    ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map(function(dayName) {
+                      return h("div", {
+                        key: dayName,
+                        className: "klar-suzannes-booking-calendar-day-name"
+                      }, dayName);
                     }),
-                    getCalendarDays().map(function (date, index) {
+                    getCalendarDays().map(function(date, index) {
                       if (!date) {
-                        return h("div", { key: "empty-" + index, className: "klar-suzannes-booking-calendar-empty-day" });
+                        return h("div", {
+                          key: "empty-" + index,
+                          className: "klar-suzannes-booking-calendar-empty-day"
+                        });
                       }
                       var dateKey = formatDateKey(date);
                       var isSelected = selectedDate === dateKey;
@@ -611,8 +509,9 @@
                       return h("button", {
                         key: dateKey,
                         type: "button",
-                        className: "klar-suzannes-booking-calendar-day-button" + (isSelected ? " is-selected" : "") + (isToday ? " is-today" : ""),
-                        onClick: function () {
+                        className: "klar-suzannes-booking-calendar-day-button" + (isSelected ?
+                          " is-selected" : "") + (isToday ? " is-today" : ""),
+                        onClick: function() {
                           setSelectedDate(dateKey);
                           setSelectedTime("");
                           setMessage("");
@@ -622,19 +521,31 @@
                     })
                   )
                 ),
-                h("form", { className: "flex flex-col gap-6", onSubmit: confirmBooking },
-                  h("div", { className: "flex flex-col gap-3" },
-                    h("h3", { className: "text-xl font-bold" }, selectedDate ? formatDisplayDate(selectedDate) : "Select a date"),
-                    h("div", { className: "klar-suzannes-booking-calendar-time-grid", role: "group", "aria-label": "Choose a time slot" },
-                      timeSlots.map(function (time) {
+                h("form", {
+                    className: "flex flex-col gap-6",
+                    onSubmit: confirmBooking
+                  },
+                  h("div", {
+                      className: "flex flex-col gap-3"
+                    },
+                    h("h3", {
+                      className: "text-xl font-bold"
+                    }, selectedDate ? formatDisplayDate(selectedDate) : "Select a date"),
+                    h("div", {
+                        className: "klar-suzannes-booking-calendar-time-grid",
+                        role: "group",
+                        "aria-label": "Choose a time slot"
+                      },
+                      timeSlots.map(function(time) {
                         var booked = isBooked(selectedDate, time);
                         var selected = selectedTime === time;
                         return h("button", {
                           key: time,
                           type: "button",
-                          className: "btn btn-outline klar-suzannes-booking-calendar-time-button" + (selected ? " is-selected" : "") + (booked ? " is-booked" : ""),
+                          className: "btn btn-outline klar-suzannes-booking-calendar-time-button" + (
+                            selected ? " is-selected" : "") + (booked ? " is-booked" : ""),
                           disabled: booked,
-                          onClick: function () {
+                          onClick: function() {
                             setSelectedTime(time);
                             setMessage("");
                           },
@@ -643,44 +554,79 @@
                       })
                     )
                   ),
-                  h("div", { className: "field" },
-                    h("label", { className: "label", htmlFor: "klar-suzannes-booking-calendar-name" }, "Name"),
+                  h("div", {
+                      className: "field"
+                    },
+                    h("label", {
+                      className: "label",
+                      htmlFor: "klar-suzannes-booking-calendar-name"
+                    }, "Name"),
                     h("input", {
                       id: "klar-suzannes-booking-calendar-name",
                       className: "input",
                       type: "text",
                       value: name,
                       placeholder: "Your name",
-                      onChange: function (event) { setName(event.target.value); }
+                      onChange: function(event) {
+                        setName(event.target.value);
+                      }
                     })
                   ),
-                  h("div", { className: "field" },
-                    h("label", { className: "label", htmlFor: "klar-suzannes-booking-calendar-email" }, "Email"),
+                  h("div", {
+                      className: "field"
+                    },
+                    h("label", {
+                      className: "label",
+                      htmlFor: "klar-suzannes-booking-calendar-email"
+                    }, "Email"),
                     h("input", {
                       id: "klar-suzannes-booking-calendar-email",
                       className: "input",
                       type: "email",
                       value: email,
                       placeholder: "you@example.com",
-                      onChange: function (event) { setEmail(event.target.value); }
+                      onChange: function(event) {
+                        setEmail(event.target.value);
+                      }
                     })
                   ),
-                  h("button", { type: "submit", className: "btn btn-primary btn-block" }, "Confirm booking"),
-                  message ? h("p", { className: "text-sm text-muted-foreground", role: "status" }, message) : null
+                  h("button", {
+                    type: "submit",
+                    className: "btn btn-primary btn-block"
+                  }, "Confirm booking"),
+                  message ? h("p", {
+                    className: "text-sm text-muted-foreground",
+                    role: "status"
+                  }, message) : null
                 )
               ),
-              h("div", { className: "mt-8 pt-8 border-t" },
-                h("h3", { className: "text-xl font-bold mb-4" }, "Local bookings"),
-                upcomingBookings.length
-                  ? h("ul", { className: "klar-suzannes-booking-calendar-booking-list flex flex-col gap-3" },
-                      upcomingBookings.map(function (booking) {
-                        return h("li", { key: booking.id, className: "border rounded-md p-4 flex flex-col gap-1" },
-                          h("span", { className: "font-medium" }, formatDisplayDate(booking.date) + " at " + booking.time),
-                          h("span", { className: "text-sm text-muted-foreground" }, booking.name + " · " + booking.email)
-                        );
-                      })
-                    )
-                  : h("p", { className: "text-sm text-muted-foreground" }, "No bookings yet.")
+              h("div", {
+                  className: "mt-8 pt-8 border-t"
+                },
+                h("h3", {
+                  className: "text-xl font-bold mb-4"
+                }, "Local bookings"),
+                upcomingBookings.length ?
+                h("ul", {
+                    className: "klar-suzannes-booking-calendar-booking-list flex flex-col gap-3"
+                  },
+                  upcomingBookings.map(function(booking) {
+                    return h("li", {
+                        key: booking.id,
+                        className: "border rounded-md p-4 flex flex-col gap-1"
+                      },
+                      h("span", {
+                        className: "font-medium"
+                      }, formatDisplayDate(booking.date) + " at " + booking.time),
+                      h("span", {
+                        className: "text-sm text-muted-foreground"
+                      }, booking.name + " · " + booking.email)
+                    );
+                  })
+                ) :
+                h("p", {
+                  className: "text-sm text-muted-foreground"
+                }, "No bookings yet.")
               )
             )
           );
