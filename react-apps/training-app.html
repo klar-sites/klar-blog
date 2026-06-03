@@ -174,44 +174,27 @@
       </div>
     </header>
     <main style="min-height: calc(100vh - 81px);">
-      <div class="container p-4">
-        <button id="login" class="btn btn-primary">Sign in</button>
-        <button id="logout" class="btn btn-primary">Sign out</button>
-      </div>
-      <div id="user"></div>
-
-      <script type="module">
-        import {
-          createKlarAuth
-        } from 'http://localhost:5173/sdk/auth.js';
-        const auth = createKlarAuth({
-          projectId: 427
-        });
-
-        function paint(u) {
-          document.querySelector('#user').textContent = u ? `Hi, ${u.name}` : '';
-        }
-        paint(auth.getUser());
-        auth.onChange(paint);
-        try {
-          await auth.data.set('todos', [{
-            text: 'buy milk',
-            done: false
-          }]);
-          const todos = await auth.data.get('todos');
-          console.log(todos)
-        } catch (error) {
-          console.log(error);
-        }
-        document.querySelector('#login').onclick = () => auth.signIn().catch(console.warn);
-        document.querySelector('#logout').onclick = () => auth.signOut();
-      </script>
-
       <div id="nexus-training-day-plan-root"></div>
       <script>
         (function() {
           var e = React.createElement;
           var storageKey = "nexus-training-day-plan-v2";
+          var authProjectId = 427;
+          var authClient = null;
+          var authClientPromise = null;
+
+          function getAuthClient() {
+            if (authClient) return Promise.resolve(authClient);
+            if (!authClientPromise) {
+              authClientPromise = import("http://localhost:5173/sdk/auth.js").then(function(module) {
+                authClient = module.createKlarAuth({
+                  projectId: authProjectId
+                });
+                return authClient;
+              });
+            }
+            return authClientPromise;
+          }
 
           var days = [{
               key: "mon",
@@ -344,11 +327,62 @@
             var exerciseName = exerciseState[0];
             var setExerciseName = exerciseState[1];
 
+            var authState = React.useState(null);
+            var auth = authState[0];
+            var setAuth = authState[1];
+
+            var userState = React.useState(null);
+            var user = userState[0];
+            var setUser = userState[1];
+
+            var authStatusState = React.useState("loading");
+            var authStatus = authStatusState[0];
+            var setAuthStatus = authStatusState[1];
+
+            var canEdit = !!user;
+
+            React.useEffect(function() {
+              var active = true;
+              var unsubscribe;
+
+              getAuthClient().then(function(client) {
+                if (!active) return;
+                setAuth(client);
+                setUser(client.getUser());
+                setAuthStatus("ready");
+                unsubscribe = client.onChange(function(nextUser) {
+                  if (active) setUser(nextUser);
+                });
+              }).catch(function(error) {
+                console.warn(error);
+                if (active) setAuthStatus("error");
+              });
+
+              return function() {
+                active = false;
+                if (typeof unsubscribe === "function") unsubscribe();
+              };
+            }, []);
+
             React.useEffect(function() {
               try {
                 localStorage.setItem(storageKey, JSON.stringify(plan));
               } catch (error) {}
             }, [plan]);
+
+            function handleSignIn() {
+              if (!auth) return;
+              setAuthStatus("loading");
+              auth.signIn().catch(console.warn).finally(function() {
+                setAuthStatus("ready");
+              });
+            }
+
+            function handleSignOut() {
+              if (!auth) return;
+              var result = auth.signOut();
+              if (result && typeof result.catch === "function") result.catch(console.warn);
+            }
 
             function visibleDays() {
               if (currentView === "today") {
@@ -385,6 +419,8 @@
             function handleSubmit(event) {
               event.preventDefault();
 
+              if (!canEdit) return;
+
               var name = exerciseName.trim();
               if (!name) return;
 
@@ -406,6 +442,8 @@
             }
 
             function clearPlan() {
+              if (!canEdit) return;
+
               setPlan(function(currentPlan) {
                 var next = {};
                 days.forEach(function(day) {
@@ -420,6 +458,8 @@
             }
 
             function toggleExercise(dayKey, exerciseId) {
+              if (!canEdit) return;
+
               setPlan(function(currentPlan) {
                 var next = Object.assign({}, currentPlan);
                 next[dayKey] = (next[dayKey] || []).map(function(exercise) {
@@ -433,6 +473,8 @@
             }
 
             function removeExercise(dayKey, exerciseId) {
+              if (!canEdit) return;
+
               setPlan(function(currentPlan) {
                 var next = Object.assign({}, currentPlan);
                 next[dayKey] = (next[dayKey] || []).filter(function(exercise) {
@@ -455,6 +497,8 @@
               "Veckans plan";
             var daysMountClassName = currentView === "today" ? "grid grid-cols-1 gap-6" :
               "grid md:grid-cols-2 gap-6";
+            var authDescriptionText = user ? "Inloggad som " + (user.name || user.email || "användare") + ". Du kan redigera träningsplanen." : authStatus === "error" ? "Inloggningen kunde inte laddas. Redigering är låst." : "Logga in för att lägga till, bocka av och ta bort övningar.";
+            var authButtonText = user ? "Logga ut" : authStatus === "loading" ? "Kontrollerar..." : "Logga in";
 
             return e("section", {
                 className: "container py-16 min-h-70vh",
@@ -518,8 +562,22 @@
                       }, "Välj dag och skriv in övningen som ska uppfyllas.")
                     ),
                     e("div", {
-                        className: "card__body"
+                        className: "card__body flex flex-col gap-6"
                       },
+                      e("div", {
+                          className: "bg-muted rounded-md p-4 flex flex-col gap-3"
+                        },
+                        e("p", {
+                          className: "text-sm text-muted-foreground"
+                        }, authDescriptionText),
+                        e("button", {
+                          className: user ? "btn btn-outline btn-sm" : "btn btn-primary btn-sm",
+                          type: "button",
+                          id: "nexus-training-day-plan-auth",
+                          disabled: authStatus === "loading" || !auth,
+                          onClick: user ? handleSignOut : handleSignIn
+                        }, authButtonText)
+                      ),
                       e("form", {
                           className: "flex flex-col gap-6",
                           id: "nexus-training-day-plan-form",
@@ -537,6 +595,7 @@
                               id: "nexus-training-day-plan-day",
                               name: "day",
                               value: formDay,
+                              disabled: !canEdit,
                               onChange: function(event) {
                                 setFormDay(event.target.value);
                               }
@@ -579,6 +638,7 @@
                             type: "text",
                             placeholder: "Ex. Triceps, Armhävningar",
                             value: exerciseName,
+                            disabled: !canEdit,
                             onChange: function(event) {
                               setExerciseName(event.target.value);
                             }
@@ -587,7 +647,8 @@
 
                         e("button", {
                           className: "btn btn-primary btn-block",
-                          type: "submit"
+                          type: "submit",
+                          disabled: !canEdit
                         }, "Lägg till")
                       )
                     )
@@ -678,6 +739,7 @@
                           className: "btn btn-outline btn-sm",
                           type: "button",
                           id: "nexus-training-day-plan-clear",
+                          disabled: !canEdit,
                           onClick: clearPlan
                         }, "Rensa avbockningar")
                       ),
@@ -735,6 +797,7 @@
                                         type: "button",
                                         className: exercise.done ? "btn btn-primary btn-sm" :
                                           "btn btn-sm",
+                                        disabled: !canEdit,
                                         "aria-pressed": exercise.done ? "true" : "false",
                                         onClick: function() {
                                           toggleExercise(day.key, exercise.id);
@@ -743,6 +806,7 @@
                                       e("button", {
                                         type: "button",
                                         className: "btn btn-ghost btn-sm",
+                                        disabled: !canEdit,
                                         "aria-label": "Ta bort " + exercise.name + " från " + day.label,
                                         onClick: function() {
                                           removeExercise(day.key, exercise.id);
