@@ -179,7 +179,7 @@
         (function() {
           var e = React.createElement;
           var storageKey = "nexus-training-day-plan-v2";
-          var authDataName = "training-app";
+          var authDataName = "training-app-1";
           var authProjectId = 427;
           var authClient = null;
           var authClientPromise = null;
@@ -629,7 +629,10 @@
               "Veckans plan";
             var daysMountClassName = currentView === "today" ? "grid grid-cols-1 gap-6" :
               "grid md:grid-cols-2 gap-6";
-            var authDescriptionText = user ? "Inloggad som " + (user.name || user.email || "användare") + ". Du kan redigera träningsplanen." : authStatus === "error" ? "Inloggningen kunde inte laddas. Redigering är låst." : "Logga in för att lägga till, bocka av och ta bort övningar.";
+            var authDescriptionText = user ? "Inloggad som " + (user.name || user.email || "användare") +
+              ". Du kan redigera träningsplanen." : authStatus === "error" ?
+              "Inloggningen kunde inte laddas. Redigering är låst." :
+              "Logga in för att lägga till, bocka av och ta bort övningar.";
             var authButtonText = user ? "Logga ut" : authStatus === "loading" ? "Kontrollerar..." : "Logga in";
 
             return e("section", {
