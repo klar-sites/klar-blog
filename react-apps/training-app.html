@@ -193,9 +193,16 @@
         }
         paint(auth.getUser());
         auth.onChange(paint);
-        await auth.data.set('todos', [{ text: 'buy milk', done: false }]);
-        const todos = await auth.data.get('todos');
-        console.log(todos)
+        try {
+          await auth.data.set('todos', [{
+            text: 'buy milk',
+            done: false
+          }]);
+          const todos = await auth.data.get('todos');
+          console.log(todos)
+        } catch (error) {
+          console.log(error);
+        }
         document.querySelector('#login').onclick = () => auth.signIn().catch(console.warn);
         document.querySelector('#logout').onclick = () => auth.signOut();
       </script>
