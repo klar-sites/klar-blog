@@ -179,7 +179,7 @@
         (function() {
           var e = React.createElement;
           var storageKey = "nexus-training-day-plan-v2";
-          var authDataName = "training-app-1";
+          var authDataName = "training-app";
           var authProjectId = 427;
           var authClient = null;
           var authClientPromise = null;
@@ -319,7 +319,59 @@
             }
           ];
 
-          var defaultPlan = {"mon":[{"id":"mon-1","name":"Triceps","done":false},{"id":"mon-2","name":"Armhävningar","done":false}],"tue":[{"id":"tue-1","name":"Benböj","done":false},{"id":"tue-2","name":"Plankan","done":false}],"wed":[{"id":"wed-1","name":"Promenad","done":false},{"id":"wed-1780501754125","name":"Kreatin","done":false}],"thu":[{"id":"thu-1","name":"Rygglyft","done":false},{"id":"thu-2","name":"Biceps","done":false}],"fri":[{"id":"fri-1","name":"Löpning","done":false}],"sat":[{"id":"sat-1","name":"Rörlighet","done":false}],"sun":[{"id":"sun-1","name":"Vila eller lätt promenad","done":false}]};
+          var defaultPlan = {
+            "mon": [{
+              "id": "mon-1",
+              "name": "Triceps",
+              "done": false
+            }, {
+              "id": "mon-2",
+              "name": "Armhävningar",
+              "done": false
+            }],
+            "tue": [{
+              "id": "tue-1",
+              "name": "Benböj",
+              "done": false
+            }, {
+              "id": "tue-2",
+              "name": "Plankan",
+              "done": false
+            }],
+            "wed": [{
+              "id": "wed-1",
+              "name": "Promenad",
+              "done": false
+            }, {
+              "id": "wed-1780501754125",
+              "name": "Kreatin",
+              "done": false
+            }],
+            "thu": [{
+              "id": "thu-1",
+              "name": "Rygglyft",
+              "done": false
+            }, {
+              "id": "thu-2",
+              "name": "Biceps",
+              "done": false
+            }],
+            "fri": [{
+              "id": "fri-1",
+              "name": "Löpning",
+              "done": false
+            }],
+            "sat": [{
+              "id": "sat-1",
+              "name": "Rörlighet",
+              "done": false
+            }],
+            "sun": [{
+              "id": "sun-1",
+              "name": "Vila eller lätt promenad",
+              "done": false
+            }]
+          };
 
           function cloneDefaultPlan() {
             return JSON.parse(JSON.stringify(defaultPlan));
