@@ -173,15 +173,20 @@
         </div>
       </div>
     </header>
-    <main>
-      
+    <main style="min-height: calc(100vh - 81px);">
+
       <button id="login">Sign in</button>
       <button id="logout">Sign out</button>
       <div id="user"></div>
-      
+
       <script type="module">
-        import { createKlarAuth } from 'http://localhost:5173/sdk/auth.js';
-        const auth = createKlarAuth({ projectId: 123 });
+        import {
+          createKlarAuth
+        } from 'http://localhost:5173/sdk/auth.js';
+        const auth = createKlarAuth({
+          projectId: 123
+        });
+
         function paint(u) {
           document.querySelector('#user').textContent = u ? `Hi, ${u.name}` : '';
         }
@@ -190,7 +195,7 @@
         document.querySelector('#login').onclick = () => auth.signIn().catch(console.warn);
         document.querySelector('#logout').onclick = () => auth.signOut();
       </script>
-      
+
       <div id="nexus-training-day-plan-root"></div>
       <script>
         (function() {
