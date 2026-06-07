@@ -188,7 +188,7 @@
             if (authClient) return Promise.resolve(authClient);
             if (!authClientPromise) {
               authClientPromise = import("http://localhost:5173/sdk/users.js").then(function(module) {
-                authClient = module.createKlarUsers({
+                authClient = module.createKlarUser({
                   projectId: authProjectId
                 });
                 return authClient;
