@@ -187,8 +187,8 @@
           function getAuthClient() {
             if (authClient) return Promise.resolve(authClient);
             if (!authClientPromise) {
-              authClientPromise = import("http://localhost:5173/sdk/auth.js").then(function(module) {
-                authClient = module.createKlarAuth({
+              authClientPromise = import("http://localhost:5173/sdk/users.js").then(function(module) {
+                authClient = module.createKlarUsers({
                   projectId: authProjectId
                 });
                 return authClient;
@@ -197,96 +197,20 @@
             return authClientPromise;
           }
 
-          function getAuthStore(client) {
-            if (!client) return null;
-            return client.db || client.database || client.data || client.storage || client;
-          }
-
-          function runAuthDbAttempt(attempts) {
-            var index = 0;
-
-            function next() {
-              if (index >= attempts.length) return Promise.resolve(null);
-
-              var attempt = attempts[index];
-              index += 1;
-
-              try {
-                var result = attempt();
-                if (result === undefined || result === null) return next();
-                return Promise.resolve(result).catch(next);
-              } catch (error) {
-                return next();
-              }
-            }
-
-            return next();
-          }
-
-          function getPlanFromAuthValue(value) {
-            if (!value || typeof value !== "object") return null;
-            if (value.plan && typeof value.plan === "object") return value.plan;
-            if (value.data && value.data.plan && typeof value.data.plan === "object") return value.data.plan;
-            if (value.value && value.value.plan && typeof value.value.plan === "object") return value.value.plan;
-            return value;
-          }
-
           function loadAuthPlan(client) {
-            var store = getAuthStore(client);
-            if (!store) return Promise.resolve(null);
-
-            return runAuthDbAttempt([
-              function() {
-                if (store.get) return store.get(authDataName);
-              },
-              function() {
-                if (store.getData) return store.getData(authDataName);
-              },
-              function() {
-                if (store.load) return store.load(authDataName);
-              },
-              function() {
-                if (client.getData) return client.getData(authDataName);
+            return client.data.get(authDataName).then(function(value) {
+              if (value && typeof value === "object" && value.plan && typeof value.plan === "object") {
+                return value.plan;
               }
-            ]).then(getPlanFromAuthValue);
+              return value && typeof value === "object" ? value : null;
+            });
           }
 
           function saveAuthPlan(client, plan) {
-            var store = getAuthStore(client);
-            if (!store) return Promise.resolve(null);
-
-            var payload = {
-              name: authDataName,
+            return client.data.set(authDataName, {
               plan: plan,
               updatedAt: new Date().toISOString()
-            };
-
-            return runAuthDbAttempt([
-              function() {
-                if (store.set) return store.set(authDataName, payload);
-              },
-              function() {
-                if (store.save) return store.save(authDataName, payload);
-              },
-              function() {
-                if (store.setData) return store.setData(authDataName, payload);
-              },
-              function() {
-                if (store.saveData) return store.saveData(authDataName, payload);
-              },
-              function() {
-                if (store.put) return store.put(authDataName, payload);
-              },
-              function() {
-                if (store.update) return store.update(authDataName, payload);
-              },
-              function() {
-                if (client.setData) return client.setData(authDataName, payload);
-              },
-              function() {
-                if (client.saveData) return client.saveData(authDataName, payload);
-              }
-            ]);
+            });
           }
 
           var days = [{
