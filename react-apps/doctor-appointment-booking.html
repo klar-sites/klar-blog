@@ -2116,6 +2116,11 @@
         const x = startOfDay(d);
         return addDays(x, -x.getDay());
       }
+      function startOfWeekMon(d) {
+        const x = startOfDay(d);
+        const day = (x.getDay() + 6) % 7; // Monday = 0
+        return addDays(x, -day);
+      }
       function isSameDay(a, b) {
         return (
           a.getFullYear() === b.getFullYear() &&
@@ -2782,7 +2787,7 @@
         }, [selected]);
 
         const first = new Date(cursor.getFullYear(), cursor.getMonth(), 1);
-        const gridStart = startOfWeekSun(first);
+        const gridStart = startOfWeekMon(first);
         const cells = Array.from({ length: 42 }, (_, i) => addDays(gridStart, i));
         const today = startOfDay(new Date());
         const step = (dir) => {
@@ -2790,7 +2795,7 @@
           x.setMonth(x.getMonth() + dir);
           setCursor(startOfDay(x));
         };
-        const dows = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+        const dows = ["Mån", "Tis", "Ons", "Tor", "Fre", "Lör", "Sön"];
 
         return (
           <div>
@@ -2809,7 +2814,7 @@
             </div>
             <div className="cal-grid">
               {dows.map((d, i) => (
-                <div key={d} className={"cal-dow" + (i === 0 ? " sun" : "")}>
+                <div key={d} className={"cal-dow" + (i === 6 ? " sun" : "")}>
                   {d}
                 </div>
               ))}
