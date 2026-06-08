@@ -545,8 +545,14 @@
         color: var(--text-tertiary);
         border-radius: 999px;
         cursor: pointer;
-        display: grid;
-        place-items: center;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        font: inherit;
+        font-size: 13px;
+        font-weight: 600;
+        white-space: nowrap;
       }
       .theme-seg button svg {
         width: 16px;
@@ -849,7 +855,8 @@
         border-color: var(--accent);
         color: var(--accent);
       }
-      .slot.selected {
+      .slot.selected,
+      .slot.selected:hover:not(:disabled) {
         background: var(--accent);
         border-color: var(--accent);
         color: #fff;
