@@ -1591,6 +1591,8 @@
         min-height: 100vh;
         display: flex;
         flex-direction: column;
+        position: relative;
+        overflow: hidden;
       }
       .landing-top {
         height: var(--topbar-h);
@@ -1598,6 +1600,8 @@
         align-items: center;
         padding: 0 28px;
         gap: 12px;
+        position: relative;
+        z-index: 1;
       }
       .landing-brand {
         display: flex;
@@ -1626,14 +1630,14 @@
         place-items: center;
         padding: var(--space-2xl) var(--space-lg);
         position: relative;
-        overflow: hidden;
+        z-index: 1;
       }
       .landing-glow {
         position: absolute;
-        width: 720px;
-        height: 520px;
+        width: 820px;
+        height: 600px;
         left: 50%;
-        top: -120px;
+        top: -200px;
         transform: translateX(-50%);
         background: radial-gradient(
           ellipse,
@@ -1642,6 +1646,7 @@
         );
         filter: blur(40px);
         pointer-events: none;
+        z-index: 0;
       }
       .hero {
         text-align: center;
@@ -2693,6 +2698,7 @@
         ];
         return (
           <div className="landing">
+            <div className="landing-glow" />
             <div className="landing-top">
               <div className="landing-brand">
                 <span className="landing-mark">
@@ -2718,7 +2724,6 @@
               </div>
             </div>
             <div className="landing-body">
-              <div className="landing-glow" />
               <div className="hero">
                 <span className="eyebrow">
                   <Icon name="stethoscope" /> Doctor appointments
