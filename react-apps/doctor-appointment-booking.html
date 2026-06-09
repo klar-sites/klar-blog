@@ -4533,10 +4533,14 @@
         const loadUsers = useCallback(async () => {
           try {
             // Only this app's users (they get the APP_MEMBER_KEY marker at login),
-            // so a project shared with other apps doesn't list their users here.
+            // and scope each row's key/record counts to this app too (keyPrefix
+            // "booking:" + collection "appointments"), so a shared project
+            // doesn't inflate the counts with other apps' data.
             const r = await client.admin.listUsers({
               limit: 200,
               hasKey: APP_MEMBER_KEY,
+              keyPrefix: APP_DATA_PREFIX,
+              collection: "appointments",
             });
             setUsers(r.users);
             setErr(null);
