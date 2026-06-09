@@ -169,14 +169,17 @@
 
       /* Hide scrollbars everywhere (scrolling still works) */
       * {
-        scrollbar-width: none; /* Firefox */
-        -ms-overflow-style: none; /* old Edge/IE */
+        scrollbar-width: none;
+        /* Firefox */
+        -ms-overflow-style: none;
+        /* old Edge/IE */
       }
 
       ::-webkit-scrollbar {
         width: 0;
         height: 0;
-        display: none; /* Chrome, Safari, Edge */
+        display: none;
+        /* Chrome, Safari, Edge */
       }
 
       /* ───────────── Buttons ───────────── */
@@ -1427,6 +1430,7 @@
         padding: 4px 0;
         scroll-snap-type: x proximity;
       }
+
       .avail-day {
         flex: 0 0 auto;
         width: 58px;
@@ -1444,36 +1448,44 @@
         transition: all 0.15s var(--ease);
         scroll-snap-align: start;
       }
+
       .avail-day:hover:not(:disabled) {
         border-color: var(--accent);
         transform: translateY(-2px);
       }
+
       .avail-day.sel {
         border-color: var(--accent);
         background: var(--accent-soft);
       }
+
       .avail-day:disabled {
         cursor: default;
         opacity: 0.5;
       }
+
       .avail-day .ad-dow {
         font-size: 11px;
         color: var(--text-tertiary);
       }
+
       .avail-day .ad-num {
         font-size: 17px;
         font-weight: 700;
         line-height: 1.1;
       }
+
       .avail-day.sel .ad-num {
         color: var(--accent);
       }
+
       .avail-day .ad-free {
         font-size: 10.5px;
         font-weight: 600;
         color: var(--success);
         white-space: nowrap;
       }
+
       .avail-day.full .ad-free {
         color: var(--text-tertiary);
       }
@@ -2176,7 +2188,7 @@
       } = React;
 
       /* ════════════════ Config ════════════════ */
-      const PROJECT_ID = 434; // ← set to your Klar project id
+      const PROJECT_ID = 427; // ← set to your Klar project id
       const KLAR_HOST = "http://localhost:5173";
 
       // Email automations this app self-provisions (owner-gated, create-if-absent).
