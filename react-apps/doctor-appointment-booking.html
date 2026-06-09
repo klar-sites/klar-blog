@@ -1,12 +1,12 @@
 <!doctype html>
-<html lang="en" data-theme="dark">
+<html lang="sv" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pulse — Doctor appointment booking</title>
+    <title>Pulse — Boka läkartid</title>
     <meta
       name="description"
-      content="Pulse is a premium doctor appointment booking platform. Browse specialists, pick a time, and book in seconds."
+      content="Pulse är en premiumplattform för att boka läkartider. Bläddra bland specialister, välj en tid och boka på sekunder."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -1896,10 +1896,10 @@
           collection: "appointments",
           on: "create",
           to: "owner",
-          subject: "Appointment confirmed — {{ data.doctorName }}",
-          body: `<p>Hi {{ data.userName }},</p>
-<p>Your appointment with <strong>{{ data.doctorName }}</strong> ({{ data.specialty }}) on {{ data.start | date: "%b %-d, %H:%M" }} is confirmed.</p>
-<p>We look forward to seeing you!</p>`,
+          subject: "Bokning bekräftad — {{ data.doctorName }}",
+          body: `<p>Hej {{ data.userName }},</p>
+<p>Din tid hos <strong>{{ data.doctorName }}</strong> ({{ data.specialty }}) den {{ data.start | date: "%-d %b, %H:%M" }} är bekräftad.</p>
+<p>Vi ser fram emot att träffa dig!</p>`,
         },
         appointmentReminder: {
           collection: "appointments",
@@ -1907,9 +1907,9 @@
           window: { dateField: "start", withinHours: 24 },
           where: { status: "confirmed" },
           to: "owner",
-          subject: "Reminder — your appointment with {{ data.doctorName }}",
-          body: `<p>Hi {{ data.userName }},</p>
-<p>A reminder that you have an appointment with <strong>{{ data.doctorName }}</strong> on {{ data.start | date: "%b %-d, %H:%M" }}.</p>`,
+          subject: "Påminnelse — din tid hos {{ data.doctorName }}",
+          body: `<p>Hej {{ data.userName }},</p>
+<p>En påminnelse om att du har en tid hos <strong>{{ data.doctorName }}</strong> den {{ data.start | date: "%-d %b, %H:%M" }}.</p>`,
         },
         // Cancelling is an `update` to status:"cancelled" (the patient's "Cancel"
         // and the admin's both hit this). Fires only on that transition.
@@ -1918,10 +1918,10 @@
           on: "update",
           where: { status: "cancelled" },
           to: "owner",
-          subject: "Appointment cancelled — {{ data.doctorName }}",
-          body: `<p>Hi {{ data.userName }},</p>
-<p>Your appointment with <strong>{{ data.doctorName }}</strong> on {{ data.start | date: "%b %-d, %H:%M" }} has been cancelled.</p>
-<p>If you didn't request this, please get in touch.</p>`,
+          subject: "Bokning avbokad — {{ data.doctorName }}",
+          body: `<p>Hej {{ data.userName }},</p>
+<p>Din tid hos <strong>{{ data.doctorName }}</strong> den {{ data.start | date: "%-d %b, %H:%M" }} har avbokats.</p>
+<p>Om du inte begärde detta, kontakta oss gärna.</p>`,
         },
         // SMS versions sent to the phone the patient entered → to:"field:phone".
         // Only fire when a phone was provided AND the Klar host has 46elks
@@ -1931,7 +1931,7 @@
           on: "create",
           channel: "sms",
           to: "field:phone",
-          text: "Appointment with {{ data.doctorName }} on {{ data.start | date: '%b %-d, %H:%M' }} is confirmed.",
+          text: "Din tid hos {{ data.doctorName }} den {{ data.start | date: '%-d %b, %H:%M' }} är bekräftad.",
         },
         appointmentReminderSms: {
           collection: "appointments",
@@ -1940,64 +1940,64 @@
           where: { status: "confirmed" },
           channel: "sms",
           to: "field:phone",
-          text: "Reminder: appointment with {{ data.doctorName }} on {{ data.start | date: '%b %-d, %H:%M' }}.",
+          text: "Påminnelse: tid hos {{ data.doctorName }} den {{ data.start | date: '%-d %b, %H:%M' }}.",
         },
       };
 
       /* ════════════════ Doctor data ════════════════ */
       const SPECIALTY_INFO = {
-        Dermatologist: {
+        Hudläkare: {
           experience:
-            "Over 10 years in clinical dermatology, treating a wide range of conditions from eczema and acne to autoimmune skin disorders.",
-          tags: ["General Dermatology", "Skin Allergy Treatment", "Acne & Scarring Care"],
+            "Över 10 års erfarenhet av klinisk dermatologi och behandlar allt från eksem och akne till autoimmuna hudsjukdomar.",
+          tags: ["Allmän hudvård", "Behandling av hudallergier", "Akne- och ärrvård"],
         },
-        Neurologist: {
+        Neurolog: {
           experience:
-            "More than 12 years diagnosing and treating disorders of the brain and nervous system, with a focus on migraine and movement disorders.",
-          tags: ["Headache & Migraine", "Epilepsy Care", "Movement Disorders"],
+            "Mer än 12 års erfarenhet av att diagnostisera och behandla sjukdomar i hjärnan och nervsystemet, med fokus på migrän och rörelsestörningar.",
+          tags: ["Huvudvärk och migrän", "Epilepsivård", "Rörelsestörningar"],
         },
-        Dentist: {
+        Tandläkare: {
           experience:
-            "8 years of general and cosmetic dentistry, from routine cleanings to restorative and aesthetic procedures.",
-          tags: ["Preventive Dentistry", "Cosmetic Dentistry", "Root Canal Therapy"],
+            "8 års erfarenhet av allmän och kosmetisk tandvård, från rutinkontroller till restaurativa och estetiska behandlingar.",
+          tags: ["Förebyggande tandvård", "Kosmetisk tandvård", "Rotfyllning"],
         },
-        Psychiatrist: {
+        Psykiater: {
           experience:
-            "Over 9 years supporting patients with anxiety, mood and sleep disorders through evidence-based, compassionate care.",
-          tags: ["Anxiety & Depression", "Sleep Disorders", "Cognitive Therapy"],
+            "Över 9 års erfarenhet av att stödja patienter med ångest, nedstämdhet och sömnproblem genom evidensbaserad och omtänksam vård.",
+          tags: ["Ångest och depression", "Sömnstörningar", "Kognitiv terapi"],
         },
-        "General Practitioner": {
+        Allmänläkare: {
           experience:
-            "15+ years in family medicine, providing comprehensive primary care for patients of every age.",
-          tags: ["Primary Care", "Preventive Checkups", "Chronic Care"],
+            "Över 15 års erfarenhet av familjemedicin och ger heltäckande primärvård för patienter i alla åldrar.",
+          tags: ["Primärvård", "Förebyggande hälsokontroller", "Kronisk vård"],
         },
-        Cardiologist: {
+        Kardiolog: {
           experience:
-            "Over 14 years in cardiovascular medicine, specialising in heart health, hypertension and preventive cardiology.",
-          tags: ["Heart Health", "Hypertension Care", "Preventive Cardiology"],
+            "Över 14 års erfarenhet av kardiovaskulär medicin med inriktning på hjärthälsa, högt blodtryck och förebyggande kardiologi.",
+          tags: ["Hjärthälsa", "Behandling av högt blodtryck", "Förebyggande kardiologi"],
         },
       };
 
       const REVIEW_POOL = [
         {
-          name: "Sarah M.",
+          name: "Sara M.",
           stars: 5,
-          text: "Clear, caring and professional. My results improved quickly thanks to the treatment plan. Highly recommended!",
+          text: "Tydlig, omtänksam och professionell. Mina besvär blev snabbt bättre tack vare behandlingsplanen. Varmt rekommenderad!",
         },
         {
-          name: "James P.",
+          name: "Jonas P.",
           stars: 4,
-          text: "Really took the time to explain everything and made me feel at ease during the whole visit.",
+          text: "Tog sig verkligen tid att förklara allt och fick mig att känna mig trygg under hela besöket.",
         },
         {
           name: "Aisha K.",
           stars: 5,
-          text: "Wonderful experience from start to finish. The staff were kind and the doctor was thorough.",
+          text: "Fantastisk upplevelse från början till slut. Personalen var vänlig och läkaren noggrann.",
         },
         {
-          name: "Tom R.",
+          name: "Tobias R.",
           stars: 4,
-          text: "Knowledgeable and patient. Answered all of my questions without ever rushing me.",
+          text: "Kunnig och tålmodig. Svarade på alla mina frågor utan att stressa.",
         },
       ];
 
@@ -2053,16 +2053,16 @@
       }
 
       const DOCTORS = [
-        mkDoctor("ralph-edwards", "Dr. Ralph Edwards", "Dermatologist", 20, 4.5, 128, "1612349317150-e413f6a5b16d"),
-        mkDoctor("ronald-richards", "Dr. Ronald Richards", "Neurologist", 20, 4.7, 96, "1612531386530-97286d97c2d2"),
-        mkDoctor("albert-boje", "Dr. Albert Boje", "Dentist", 20, 4.4, 74, "1622902046580-2b47f47f5471"),
-        mkDoctor("floyd-miles", "Dr. Floyd Miles", "Neurologist", 20, 4.6, 112, "1622253692010-333f2da6031d"),
-        mkDoctor("leslie-alexander", "Dr. Leslie Alexander", "Psychiatrist", 20, 4.8, 145, "1594824476967-48c8b964273f"),
-        mkDoctor("brooklyn-crean", "Prof. Brooklyn Crean", "General Practitioner", 30, 4.9, 203, "1560250097-0b93528c311a"),
-        mkDoctor("courtney-henry", "Dr. Courtney Henry", "Cardiologist", 20, 4.6, 88, "1633332755192-727a05c4013d"),
-        mkDoctor("eleanor-pena", "Prof. Eleanor Pena", "Psychiatrist", 32, 4.7, 167, "1651008376811-b90baee60c1f"),
-        mkDoctor("chieko-chute", "Dr. Chieko Chute", "Dermatologist", 20, 4.3, 61, "1500648767791-00dcc994a43e"),
-        mkDoctor("tyra-dhillon", "Dr. Tyra Dhillon", "Dentist", 20, 4.5, 79, "1666214280557-f1b5022eb634"),
+        mkDoctor("ralph-edwards", "Dr. Ralph Edwards", "Hudläkare", 20, 4.5, 128, "1612349317150-e413f6a5b16d"),
+        mkDoctor("ronald-richards", "Dr. Ronald Richards", "Neurolog", 20, 4.7, 96, "1612531386530-97286d97c2d2"),
+        mkDoctor("albert-boje", "Dr. Albert Boje", "Tandläkare", 20, 4.4, 74, "1622902046580-2b47f47f5471"),
+        mkDoctor("floyd-miles", "Dr. Floyd Miles", "Neurolog", 20, 4.6, 112, "1622253692010-333f2da6031d"),
+        mkDoctor("leslie-alexander", "Dr. Leslie Alexander", "Psykiater", 20, 4.8, 145, "1594824476967-48c8b964273f"),
+        mkDoctor("brooklyn-crean", "Prof. Brooklyn Crean", "Allmänläkare", 30, 4.9, 203, "1560250097-0b93528c311a"),
+        mkDoctor("courtney-henry", "Dr. Courtney Henry", "Kardiolog", 20, 4.6, 88, "1633332755192-727a05c4013d"),
+        mkDoctor("eleanor-pena", "Prof. Eleanor Pena", "Psykiater", 32, 4.7, 167, "1651008376811-b90baee60c1f"),
+        mkDoctor("chieko-chute", "Dr. Chieko Chute", "Hudläkare", 20, 4.3, 61, "1500648767791-00dcc994a43e"),
+        mkDoctor("tyra-dhillon", "Dr. Tyra Dhillon", "Tandläkare", 20, 4.5, 79, "1666214280557-f1b5022eb634"),
       ];
       const DOC_BY_ID = Object.fromEntries(DOCTORS.map((d) => [d.id, d]));
       const SPECIALTIES = Array.from(new Set(DOCTORS.map((d) => d.specialty)));
@@ -2093,10 +2093,10 @@
         );
       }
       const pad = (n) => String(n).padStart(2, "0");
-      const WD = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+      const WD = ["Sön", "Mån", "Tis", "Ons", "Tor", "Fre", "Lör"];
       const MONTHS = [
-        "January", "February", "March", "April", "May", "June",
-        "July", "August", "September", "October", "November", "December",
+        "januari", "februari", "mars", "april", "maj", "juni",
+        "juli", "augusti", "september", "oktober", "november", "december",
       ];
 
       function addDays(d, n) {
@@ -2134,14 +2134,11 @@
         x.setHours(t.h, t.m, 0, 0);
         return x;
       }
-      function to12h(h, m) {
-        const ap = h < 12 ? "AM" : "PM";
-        let hh = h % 12;
-        if (hh === 0) hh = 12;
-        return pad(hh) + ":" + pad(m) + " " + ap;
+      function fmtClock(h, m) {
+        return pad(h) + ":" + pad(m); // 24-hour (Swedish convention)
       }
       function fmtTimeD(d) {
-        return to12h(d.getHours(), d.getMinutes());
+        return fmtClock(d.getHours(), d.getMinutes());
       }
       function fmtLongDate(d) {
         return WD[d.getDay()] + ", " + d.getDate() + " " + MONTHS[d.getMonth()] + " " + d.getFullYear();
@@ -2178,12 +2175,12 @@
         },
         async create(data) {
           const col = this._col();
-          if (!col) throw new Error("Sign in to book.");
+          if (!col) throw new Error("Logga in för att boka.");
           const start = new Date(data.start).getTime();
           const end = new Date(data.end).getTime();
-          if (!(end > start)) throw new Error("End must be after start.");
+          if (!(end > start)) throw new Error("Sluttiden måste vara efter starttiden.");
           if (start < Date.now())
-            throw new Error("Can't book a time in the past.");
+            throw new Error("Det går inte att boka en tid som har passerat.");
           // Instant client-side check for a friendly message. The real
           // guarantee is the collection's no-overlap rule, enforced atomically
           // on the server — handled by the 409 case below.
@@ -2199,12 +2196,12 @@
             ),
           );
           if (clash)
-            throw new Error("That time was just taken — pick another slot.");
+            throw new Error("Den tiden togs precis — välj en annan tid.");
           try {
             return await col.create({ status: "confirmed", ...data });
           } catch (e) {
             if (e && e.status === 409)
-              throw new Error("That slot was just taken — pick another time.");
+              throw new Error("Den tiden togs precis — välj en annan tid.");
             throw e;
           }
         },
@@ -2525,8 +2522,8 @@
       /* ════════════════ Sidebar ════════════════ */
       function Sidebar({ view, setView, isAdmin, onSignOut }) {
         const nav = [
-          ["appointment", "calPlus", "Book appointment"],
-          ["my", "cal", "My appointments"],
+          ["appointment", "calPlus", "Boka tid"],
+          ["my", "cal", "Mina bokningar"],
           ...(isAdmin ? [["admin", "grid", "Admin"]] : []),
         ];
         return (
@@ -2534,7 +2531,7 @@
             <div className="side-brand">
               <Icon name="stethoscope" />
             </div>
-            <div className="side-label">Menu</div>
+            <div className="side-label">Meny</div>
             <div className="side-nav">
               {nav.map(([k, ic, tip]) => (
                 <button
@@ -2553,15 +2550,15 @@
                 onClick={() => setView("settings")}
               >
                 <Icon name="settings" />
-                <span className="side-tip">Settings</span>
+                <span className="side-tip">Inställningar</span>
               </button>
               <button className="side-btn side-info">
                 <Icon name="info" />
-                <span className="side-tip">Help</span>
+                <span className="side-tip">Hjälp</span>
               </button>
               <button className="side-btn" onClick={onSignOut}>
                 <Icon name="logout" />
-                <span className="side-tip">Sign out</span>
+                <span className="side-tip">Logga ut</span>
               </button>
             </div>
           </aside>
@@ -2602,16 +2599,16 @@
                 <button
                   className={"icon-btn" + (upcoming.length ? " dot" : "")}
                   onClick={() => setNotif((m) => !m)}
-                  aria-label="Notifications"
+                  aria-label="Aviseringar"
                 >
                   <Icon name="bell" />
                 </button>
                 {notif && (
                   <div className="menu notif">
-                    <div className="notif-head">Upcoming appointments</div>
+                    <div className="notif-head">Kommande tider</div>
                     {upcoming.length === 0 ? (
                       <div style={{ padding: "16px 8px", color: "var(--text-tertiary)", fontSize: 14 }}>
-                        Nothing booked yet.
+                        Inget bokat ännu.
                       </div>
                     ) : (
                       upcoming.map((b) => (
@@ -2638,14 +2635,14 @@
                 <button
                   className={theme === "light" ? "active" : ""}
                   onClick={() => setTheme("light")}
-                  aria-label="Light mode"
+                  aria-label="Ljust läge"
                 >
                   <Icon name="sun" />
                 </button>
                 <button
                   className={theme === "dark" ? "active" : ""}
                   onClick={() => setTheme("dark")}
-                  aria-label="Dark mode"
+                  aria-label="Mörkt läge"
                 >
                   <Icon name="moon" />
                 </button>
@@ -2657,7 +2654,7 @@
                 <div className="user-chip" onClick={() => setMenu((m) => !m)}>
                   <Avatar user={user} />
                   <div className="user-meta">
-                    <div className="n">{user.name || "Signed in"}</div>
+                    <div className="n">{user.name || "Inloggad"}</div>
                     <div className="e">{user.email}</div>
                   </div>
                   <Icon name="chevD" style={{ width: 16, height: 16, color: "var(--text-tertiary)" }} />
@@ -2665,7 +2662,7 @@
                 {menu && (
                   <div className="menu">
                     <div className="menu-head">
-                      <div className="menu-name">{user.name || "Signed in"}</div>
+                      <div className="menu-name">{user.name || "Inloggad"}</div>
                       <div className="menu-mail">{user.email}</div>
                     </div>
                     <button
@@ -2675,7 +2672,7 @@
                         setMenu(false);
                       }}
                     >
-                      <Icon name="settings" /> Settings
+                      <Icon name="settings" /> Inställningar
                     </button>
                     <button
                       className="menu-item"
@@ -2684,7 +2681,7 @@
                         onSignOut();
                       }}
                     >
-                      <Icon name="logout" /> Sign out
+                      <Icon name="logout" /> Logga ut
                     </button>
                   </div>
                 )}
@@ -2697,9 +2694,9 @@
       /* ════════════════ Landing ════════════════ */
       function Landing({ onSignIn, signingIn, sdkError, host, theme, setTheme }) {
         const feats = [
-          ["bolt", "Book in seconds", "Pick a doctor, choose a slot, done. No phone calls, no waiting on hold."],
-          ["shield", "Conflict-free", "Availability is checked the moment you book — double-bookings are impossible."],
-          ["heart", "Care you trust", "Browse verified specialists with real reviews and clear pricing up front."],
+          ["bolt", "Boka på sekunder", "Välj en läkare, välj en tid – klart. Inga telefonsamtal, ingen väntan i kö."],
+          ["shield", "Inga krockar", "Tillgängligheten kontrolleras i samma stund du bokar — dubbelbokningar är omöjliga."],
+          ["heart", "Vård du kan lita på", "Bläddra bland verifierade specialister med riktiga omdömen och tydliga priser."],
         ];
         return (
           <div className="landing">
@@ -2731,12 +2728,12 @@
             <div className="landing-body">
               <div className="hero">
                 <span className="eyebrow">
-                  <Icon name="stethoscope" /> Doctor appointments
+                  <Icon name="stethoscope" /> Läkartider
                 </span>
-                <h1>Find a doctor and book in seconds</h1>
+                <h1>Hitta en läkare och boka på sekunder</h1>
                 <p>
-                  Pulse is a calm, fast way to book appointments with trusted
-                  specialists. See who's available, pick a time, and you're set.
+                  Pulse är ett lugnt och snabbt sätt att boka tid hos pålitliga
+                  specialister. Se vem som är tillgänglig, välj en tid – så är det klart.
                 </p>
                 <div className="hero-cta">
                   <button
@@ -2744,17 +2741,17 @@
                     onClick={onSignIn}
                     disabled={signingIn}
                   >
-                    {signingIn ? "Opening…" : "Sign in with Google"}
+                    {signingIn ? "Öppnar…" : "Logga in med Google"}
                   </button>
                 </div>
                 <p className="tiny" style={{ marginTop: 14 }}>
-                  Sign-in is handled securely by Klar — no setup required.
+                  Inloggningen hanteras säkert av Klar — ingen installation krävs.
                 </p>
                 {sdkError && (
                   <p className="tiny" style={{ marginTop: 8, color: "var(--danger)" }}>
-                    Couldn't load sign-in from {host}: {sdkError}. Make sure that
-                    host is running and serving <code>/sdk/users.js</code> with
-                    CORS, and open this page over http(s) (not file://).
+                    Kunde inte ladda inloggningen från {host}: {sdkError}. Kontrollera
+                    att värden körs och serverar <code>/sdk/users.js</code> med
+                    CORS, och öppna sidan via http(s) (inte file://).
                   </p>
                 )}
                 <div className="features">
@@ -2804,10 +2801,10 @@
                 {MONTHS[cursor.getMonth()]} {cursor.getFullYear()}
               </div>
               <div className="cal-navs">
-                <button className="cal-nav" onClick={() => step(-1)} aria-label="Previous month">
+                <button className="cal-nav" onClick={() => step(-1)} aria-label="Föregående månad">
                   <Icon name="chevL" />
                 </button>
-                <button className="cal-nav" onClick={() => step(1)} aria-label="Next month">
+                <button className="cal-nav" onClick={() => step(1)} aria-label="Nästa månad">
                   <Icon name="chevR" />
                 </button>
               </div>
@@ -2886,7 +2883,7 @@
         return (
           <div className="panel">
             <div className="panel-scroll">
-              <div className="panel-title">Booking Appointment</div>
+              <div className="panel-title">Boka tid</div>
               <MiniCalendar
                 selected={selectedDate}
                 onSelect={(d) => {
@@ -2908,34 +2905,34 @@
                       disabled={!free}
                       onClick={() => setSelectedSlot(t)}
                     >
-                      {to12h(t.h, t.m)}
+                      {fmtClock(t.h, t.m)}
                     </button>
                   );
                 })}
               </div>
 
               <div className="sel-date" style={{ marginBottom: 12 }}>
-                Patient Concerns
+                Patientens besvär
               </div>
               <div className="concerns-box">
                 <textarea
                   className="concerns-area"
-                  placeholder={"Describe your symptoms or concerns…\nE.g. Red, itchy skin for a week. Worse after sun."}
+                  placeholder={"Beskriv dina symtom eller besvär…\nT.ex. Röd, kliande hud i en vecka. Värre efter sol."}
                   value={concerns}
                   onChange={(e) => setConcerns(e.target.value)}
                 />
                 <div className="concerns-foot">
                   <button
                     className="concerns-attach"
-                    onClick={() => toast("Attachments are coming soon.", "info")}
-                    aria-label="Attach a file"
+                    onClick={() => toast("Bifogade filer kommer snart.", "info")}
+                    aria-label="Bifoga en fil"
                   >
                     <Icon name="clip" />
                   </button>
                   <div className="concerns-thumb">
                     <Icon name="image" />
                   </div>
-                  <div className="concerns-count">{wordCount} words</div>
+                  <div className="concerns-count">{wordCount} ord</div>
                 </div>
               </div>
             </div>
@@ -2971,13 +2968,13 @@
           <div className="panel doc-list-panel">
             <div className="doclist-head">
               <div className="panel-title" style={{ marginRight: "auto" }}>
-                Doctor List
+                Läkarlista
               </div>
               <div className="doc-search">
                 <Icon name="search" />
                 <input
                   className="input"
-                  placeholder="Search Doctor"
+                  placeholder="Sök läkare"
                   value={q}
                   onChange={(e) => setQ(e.target.value)}
                 />
@@ -2988,7 +2985,7 @@
                   onClick={() => setFilterOpen((o) => !o)}
                 >
                   <Icon name="filter" />
-                  {filter === "all" ? "Filter" : filter}
+                  {filter === "all" ? "Filtrera" : filter}
                 </button>
                 {filterOpen && (
                   <div className="filter-menu">
@@ -2999,7 +2996,7 @@
                         setFilterOpen(false);
                       }}
                     >
-                      All specialties
+                      Alla specialiteter
                       {filter === "all" && <Icon name="check" />}
                     </button>
                     {SPECIALTIES.map((sp) => (
@@ -3024,8 +3021,8 @@
               <div style={{ padding: 24 }}>
                 <EmptyState
                   icon="search"
-                  title="No doctors found"
-                  text="Try a different search or filter."
+                  title="Inga läkare hittades"
+                  text="Prova en annan sökning eller ett annat filter."
                 />
               </div>
             ) : (
@@ -3057,21 +3054,21 @@
                   <Icon name="stethoscope" /> {doctor.specialty}
                 </div>
                 <div className="doc-meta-row">
-                  <Icon name="tag" /> ${doctor.price}/hour
+                  <Icon name="tag" /> ${doctor.price}/tim
                 </div>
               </div>
             </div>
             <div className="doc-card-actions">
               <button className="btn btn-primary btn-sm" onClick={() => onBook(doctor)}>
-                Book Now
+                Boka nu
               </button>
               <button className="btn btn-secondary btn-sm" onClick={() => onView(doctor)}>
-                Detail
+                Detaljer
               </button>
               <button
                 className="chat-btn"
-                onClick={() => toast("Chat with " + doctor.name + " is coming soon.", "info")}
-                aria-label="Chat"
+                onClick={() => toast("Chatt med " + doctor.name + " kommer snart.", "info")}
+                aria-label="Chatt"
               >
                 <Icon name="chat" />
               </button>
@@ -3089,16 +3086,16 @@
               <div style={{ padding: 24, flex: 1, display: "grid", placeItems: "center" }}>
                 <EmptyState
                   icon="users"
-                  title="No doctor selected"
-                  text="Pick a doctor from the list to see their profile."
+                  title="Ingen läkare vald"
+                  text="Välj en läkare i listan för att se profilen."
                 />
               </div>
             ) : (
               <>
                 <div className="panel-scroll" style={{ padding: 0 }}>
                   <div className="detail-head">
-                    <div className="panel-title">Detail Doctor</div>
-                    <button className="icon-btn" onClick={onClose} aria-label="Close">
+                    <div className="panel-title">Om läkaren</div>
+                    <button className="icon-btn" onClick={onClose} aria-label="Stäng">
                       <Icon name="x" />
                     </button>
                   </div>
@@ -3110,20 +3107,20 @@
                         <Icon name="stethoscope" /> {doctor.specialty}
                       </span>
                       <span className="detail-tag">
-                        <Icon name="tag" /> ${doctor.price}/hour
+                        <Icon name="tag" /> ${doctor.price}/tim
                       </span>
                     </div>
 
                     <div className="detail-section">
                       <div className="detail-h">
-                        <Icon name="cap" /> Experience
+                        <Icon name="cap" /> Erfarenhet
                       </div>
                       <p className="detail-p">{doctor.experience}</p>
                     </div>
 
                     <div className="detail-section">
                       <div className="detail-h">
-                        <Icon name="stethoscope" /> Speciality
+                        <Icon name="stethoscope" /> Specialiteter
                       </div>
                       <ul className="spec-list">
                         {doctor.tags.map((t) => (
@@ -3134,7 +3131,7 @@
 
                     <div className="detail-section">
                       <div className="detail-h" style={{ justifyContent: "space-between" }}>
-                        <span>Reviews</span>
+                        <span>Omdömen</span>
                         <span style={{ display: "inline-flex", alignItems: "center", gap: 6, fontWeight: 500, color: "var(--text-secondary)", fontSize: 13 }}>
                           <Stars value={doctor.rating} /> {doctor.rating} ({doctor.reviewsCount})
                         </span>
@@ -3155,13 +3152,13 @@
                 </div>
                 <div className="detail-foot">
                   <button className="btn btn-primary" onClick={() => onBook(doctor)}>
-                    Book Now
+                    Boka nu
                   </button>
                   <button
                     className="btn btn-secondary"
-                    onClick={() => toast("Chat with " + doctor.name + " is coming soon.", "info")}
+                    onClick={() => toast("Chatt med " + doctor.name + " kommer snart.", "info")}
                   >
-                    <Icon name="chat" /> Chat
+                    <Icon name="chat" /> Chatt
                   </button>
                 </div>
               </>
@@ -3191,12 +3188,12 @@
         const startBooking = (doctor) => {
           setSelectedDoctor(doctor);
           if (!selectedSlot) {
-            toast("Please pick a date and time first.", "error");
+            toast("Välj ett datum och en tid först.", "error");
             return;
           }
           const start = slotStart(selectedDate, selectedSlot);
           if (start.getTime() < Date.now()) {
-            toast("That time is in the past — pick another.", "error");
+            toast("Den tiden har passerat — välj en annan.", "error");
             return;
           }
           openModal({
@@ -3253,6 +3250,7 @@
             price: doctor.price,
             userId: me.sub,
             userName: me.name || me.email || "Patient",
+            // (userName fallback kept as "Patient" — same word in Swedish)
             start: start.toISOString(),
             end: end.toISOString(),
             concerns: concerns || "",
@@ -3265,8 +3263,8 @@
           <div className="overlay" onClick={onClose}>
             <div className="modal" onClick={(e) => e.stopPropagation()}>
               <div className="modal-head">
-                <div className="modal-title">Confirm appointment</div>
-                <button className="icon-btn" onClick={onClose} aria-label="Close">
+                <div className="modal-title">Bekräfta bokning</div>
+                <button className="icon-btn" onClick={onClose} aria-label="Stäng">
                   <Icon name="x" />
                 </button>
               </div>
@@ -3277,7 +3275,7 @@
                     <div>
                       <div style={{ fontWeight: 700 }}>{doctor.name}</div>
                       <div style={{ fontSize: 13, color: "var(--text-secondary)" }}>
-                        {doctor.specialty} · ${doctor.price}/hour
+                        {doctor.specialty} · ${doctor.price}/tim
                       </div>
                     </div>
                   </div>
@@ -3296,7 +3294,7 @@
                 </div>
                 <div className="field">
                   <label className="label">
-                    Phone — for an SMS confirmation (optional)
+                    Telefon — för en SMS-bekräftelse (valfritt)
                   </label>
                   <input
                     className="input"
@@ -3309,10 +3307,10 @@
               </div>
               <div className="modal-foot">
                 <button className="btn btn-secondary" onClick={onClose} disabled={busy}>
-                  Cancel
+                  Avbryt
                 </button>
                 <button className="btn btn-primary" onClick={confirm} disabled={busy}>
-                  {busy ? "Booking…" : "Confirm appointment"}
+                  {busy ? "Bokar…" : "Bekräfta bokning"}
                 </button>
               </div>
             </div>
@@ -3330,7 +3328,7 @@
             <DocPhoto doctor={doctor} />
             <div className="appt-main">
               <div className="r">{b.doctorName}</div>
-              <div className="u">{b.specialty || "Appointment"}</div>
+              <div className="u">{b.specialty || "Bokning"}</div>
             </div>
             <div className="appt-time">
               <div className="d">{fmtShortDate(s)}</div>
@@ -3345,11 +3343,11 @@
                   (b.status === "cancelled" ? "cancelled" : past ? "past" : "confirmed")
                 }
               >
-                {b.status === "cancelled" ? "cancelled" : past ? "past" : "confirmed"}
+                {b.status === "cancelled" ? "avbokad" : past ? "tidigare" : "bekräftad"}
               </span>
               {onCancel && b.status === "confirmed" && !past && (
                 <button className="btn btn-danger btn-sm" onClick={() => onCancel(b)}>
-                  Cancel
+                  Avboka
                 </button>
               )}
             </div>
@@ -3374,52 +3372,52 @@
           <div className="page">
             <div className="page-head">
               <div>
-                <div className="page-title">My appointments</div>
-                <div className="page-sub">Everything you've booked, in one place.</div>
+                <div className="page-title">Mina bokningar</div>
+                <div className="page-sub">Allt du har bokat, samlat på ett ställe.</div>
               </div>
               <button className="btn btn-primary" onClick={() => setView("appointment")}>
-                <Icon name="plus" /> Book appointment
+                <Icon name="plus" /> Boka tid
               </button>
             </div>
 
             <div className="grid-3">
               <div className="card stat">
                 <div className="stat-label">
-                  <Icon name="cal" /> Upcoming
+                  <Icon name="cal" /> Kommande
                 </div>
                 <div className="stat-value">{upcoming.length}</div>
-                <div className="stat-hint">confirmed appointments ahead</div>
+                <div className="stat-hint">bekräftade tider framåt</div>
               </div>
               <div className="card stat">
                 <div className="stat-label">
-                  <Icon name="clock" /> Today
+                  <Icon name="clock" /> Idag
                 </div>
                 <div className="stat-value">{todayCount}</div>
                 <div className="stat-hint">
-                  {todayCount === 1 ? "appointment today" : "appointments today"}
+                  {todayCount === 1 ? "tid idag" : "tider idag"}
                 </div>
               </div>
               <div className="card stat">
                 <div className="stat-label">
-                  <Icon name="users" /> Doctors
+                  <Icon name="users" /> Läkare
                 </div>
                 <div className="stat-value">{DOCTORS.length}</div>
-                <div className="stat-hint">specialists available</div>
+                <div className="stat-hint">tillgängliga specialister</div>
               </div>
             </div>
 
-            <div className="section-title">Upcoming</div>
+            <div className="section-title">Kommande</div>
             {loading ? (
               <SkeletonRows />
             ) : upcoming.length === 0 ? (
               <div className="card">
                 <EmptyState
                   icon="cal"
-                  title="No upcoming appointments"
-                  text="Book with a specialist to see it here."
+                  title="Inga kommande tider"
+                  text="Boka hos en specialist så syns det här."
                   action={
                     <button className="btn btn-primary" onClick={() => setView("appointment")}>
-                      Find a doctor
+                      Hitta en läkare
                     </button>
                   }
                 />
@@ -3433,12 +3431,12 @@
             )}
 
             <div className="section-title" style={{ marginTop: 32 }}>
-              Past &amp; cancelled
+              Tidigare &amp; avbokade
             </div>
             {past.length === 0 ? (
               <div className="card">
                 <div className="empty" style={{ padding: 28 }}>
-                  <p className="muted">Nothing here yet.</p>
+                  <p className="muted">Inget här ännu.</p>
                 </div>
               </div>
             ) : (
@@ -3463,9 +3461,9 @@
           setSaving(true);
           try {
             await onSave(local);
-            toast("Settings saved", "success");
+            toast("Inställningarna sparades", "success");
           } catch {
-            toast("Could not save settings", "error");
+            toast("Kunde inte spara inställningarna", "error");
           }
           setSaving(false);
         };
@@ -3478,9 +3476,9 @@
           <div className="page" style={{ maxWidth: 720 }}>
             <div className="page-head">
               <div>
-                <div className="page-title">Settings</div>
+                <div className="page-title">Inställningar</div>
                 <div className="page-sub">
-                  Preferences are stored privately to your account.
+                  Inställningarna lagras privat på ditt konto.
                 </div>
               </div>
             </div>
@@ -3488,8 +3486,8 @@
             <div className="card card-pad" style={{ display: "flex", flexDirection: "column", gap: 24 }}>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 16 }}>
                 <div>
-                  <div style={{ fontWeight: 600 }}>Appearance</div>
-                  <div className="tiny">Choose light or dark mode.</div>
+                  <div style={{ fontWeight: 600 }}>Utseende</div>
+                  <div className="tiny">Välj ljust eller mörkt läge.</div>
                 </div>
                 <div className="theme-seg">
                   <button
@@ -3497,14 +3495,14 @@
                     onClick={() => setTheme2("light")}
                     style={{ width: "auto", padding: "0 14px", gap: 6 }}
                   >
-                    <Icon name="sun" /> Light
+                    <Icon name="sun" /> Ljust
                   </button>
                   <button
                     className={local.theme === "dark" ? "active" : ""}
                     onClick={() => setTheme2("dark")}
                     style={{ width: "auto", padding: "0 14px", gap: 6 }}
                   >
-                    <Icon name="moon" /> Dark
+                    <Icon name="moon" /> Mörkt
                   </button>
                 </div>
               </div>
@@ -3512,7 +3510,7 @@
               <div style={{ borderTop: "1px solid var(--border-color)" }} />
 
               <div className="field">
-                <label className="label">Timezone</label>
+                <label className="label">Tidszon</label>
                 <select
                   className="select"
                   value={local.timezone}
@@ -3528,8 +3526,8 @@
 
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 16 }}>
                 <div>
-                  <div style={{ fontWeight: 600 }}>Notifications</div>
-                  <div className="tiny">Appointment reminders and updates.</div>
+                  <div style={{ fontWeight: 600 }}>Aviseringar</div>
+                  <div className="tiny">Påminnelser och uppdateringar om tider.</div>
                 </div>
                 <div
                   className={"toggle" + (local.notifications ? " on" : "")}
@@ -3541,7 +3539,7 @@
 
               <div style={{ display: "flex", justifyContent: "flex-end" }}>
                 <button className="btn btn-primary" onClick={save} disabled={saving}>
-                  {saving ? "Saving…" : "Save changes"}
+                  {saving ? "Sparar…" : "Spara ändringar"}
                 </button>
               </div>
             </div>
@@ -3566,10 +3564,10 @@
             <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: editing ? "var(--space-sm)" : 0 }}>
               <code style={{ fontSize: "13px", fontWeight: 600 }}>{dataKey}</code>
               <div style={{ display: "flex", gap: "var(--space-xs)" }}>
-                {!editing && <button style={miniBtn} onClick={() => { setDraft(pretty); setEditing(true); }}>Edit</button>}
-                {editing && <button style={miniBtn} onClick={() => { onSave(draft); setEditing(false); }}>Save</button>}
-                {editing && <button style={miniBtn} onClick={() => setEditing(false)}>Cancel</button>}
-                <button style={{ ...miniBtn, color: "var(--danger)" }} onClick={onDelete}>Delete</button>
+                {!editing && <button style={miniBtn} onClick={() => { setDraft(pretty); setEditing(true); }}>Redigera</button>}
+                {editing && <button style={miniBtn} onClick={() => { onSave(draft); setEditing(false); }}>Spara</button>}
+                {editing && <button style={miniBtn} onClick={() => setEditing(false)}>Avbryt</button>}
+                <button style={{ ...miniBtn, color: "var(--danger)" }} onClick={onDelete}>Ta bort</button>
               </div>
             </div>
             {editing ? (
@@ -3593,14 +3591,14 @@
 
         const loadUsers = useCallback(async () => {
           try { const r = await client.admin.listUsers({ limit: 200 }); setUsers(r.users); setErr(null); }
-          catch (e) { setErr(e && e.status === 403 ? "You're not the admin of this project." : e.message || "Failed to load users"); }
+          catch (e) { setErr(e && e.status === 403 ? "Du är inte administratör för det här projektet." : e.message || "Kunde inte ladda användare"); }
         }, [client]);
         useEffect(() => { loadUsers(); }, [loadUsers]);
 
         const openUser = useCallback(async (id) => {
           setSelId(id); setDetail(null); setDetailLoading(true);
           try { setDetail(await client.admin.getUser(id)); }
-          catch (e) { alert(e.message || "Failed to load user"); }
+          catch (e) { alert(e.message || "Kunde inte ladda användaren"); }
           finally { setDetailLoading(false); }
         }, [client]);
         const refreshDetail = useCallback(() => { if (selId != null) openUser(selId); }, [selId, openUser]);
@@ -3608,33 +3606,33 @@
         const removeUser = async () => {
           if (!detail) return;
           const who = detail.profile.name || detail.profile.email;
-          if (!window.confirm(`Delete ${who}? Their saved data is removed; their appointments stay but lose their owner.`)) return;
+          if (!window.confirm(`Ta bort ${who}? Deras sparade data raderas; deras tider finns kvar men förlorar sin ägare.`)) return;
           try { await client.admin.deleteUser(detail.profile.id); setSelId(null); setDetail(null); loadUsers(); }
-          catch (e) { alert(e.message || "Delete failed"); }
+          catch (e) { alert(e.message || "Borttagningen misslyckades"); }
         };
         const cancelRec = async (rec) => {
           try { await client.admin.updateRecord(rec.collection, rec.id, { status: "cancelled" }); refreshDetail(); loadUsers(); }
-          catch (e) { alert(e.message || "Couldn't cancel"); }
+          catch (e) { alert(e.message || "Kunde inte avboka"); }
         };
         const deleteRec = async (rec) => {
-          if (!window.confirm("Delete this record permanently?")) return;
+          if (!window.confirm("Ta bort den här posten permanent?")) return;
           try { await client.admin.deleteRecord(rec.collection, rec.id); refreshDetail(); loadUsers(); }
-          catch (e) { alert(e.message || "Delete failed"); }
+          catch (e) { alert(e.message || "Borttagningen misslyckades"); }
         };
         const saveData = async (key, raw) => {
-          let value; try { value = JSON.parse(raw); } catch { alert("Value must be valid JSON."); return; }
+          let value; try { value = JSON.parse(raw); } catch { alert("Värdet måste vara giltig JSON."); return; }
           try { await client.admin.setUserData(detail.profile.id, key, value); refreshDetail(); }
-          catch (e) { alert(e.message || "Save failed"); }
+          catch (e) { alert(e.message || "Sparandet misslyckades"); }
         };
         const addKey = async () => {
           const k = newKey.trim(); if (!k) return;
           try { await client.admin.setUserData(detail.profile.id, k, null); setNewKey(""); refreshDetail(); }
-          catch (e) { alert(e.message || "Add failed"); }
+          catch (e) { alert(e.message || "Kunde inte lägga till"); }
         };
         const deleteData = async (key) => {
-          if (!window.confirm(`Delete data key "${key}"?`)) return;
+          if (!window.confirm(`Ta bort datanyckeln "${key}"?`)) return;
           try { await client.admin.deleteUserData(detail.profile.id, key); refreshDetail(); }
-          catch (e) { alert(e.message || "Delete failed"); }
+          catch (e) { alert(e.message || "Borttagningen misslyckades"); }
         };
 
         const s = q.trim().toLowerCase();
@@ -3644,18 +3642,18 @@
           <div className="page" style={{ maxWidth: 980 }}>
             <h1 style={{ marginBottom: "var(--space-xs)" }}>Admin</h1>
             <p style={{ color: "var(--text-secondary)", marginBottom: "var(--space-lg)" }}>
-              See everyone who signed in, and edit their appointments and data.
+              Se alla som har loggat in och redigera deras tider och data.
             </p>
             {err && <div style={{ padding: "var(--space-md)", borderRadius: "var(--radius-md)", background: "var(--danger-soft)", color: "var(--danger)", marginBottom: "var(--space-md)" }}>{err}</div>}
 
             <div style={{ display: "flex", gap: "var(--space-lg)", alignItems: "flex-start", flexWrap: "wrap" }}>
               <div style={{ flex: "1 1 280px", minWidth: "260px", maxWidth: "360px" }}>
-                <input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Search users…"
+                <input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Sök användare…"
                   style={{ width: "100%", padding: "10px 12px", marginBottom: "var(--space-sm)", borderRadius: "var(--radius-md)", border: "1px solid var(--border-color)", background: "var(--bg-elevated)", color: "var(--text-primary)", boxSizing: "border-box" }} />
                 {!users ? (
-                  <div style={{ color: "var(--text-tertiary)", padding: "var(--space-md)" }}>Loading…</div>
+                  <div style={{ color: "var(--text-tertiary)", padding: "var(--space-md)" }}>Läser in…</div>
                 ) : filtered.length === 0 ? (
-                  <div style={{ color: "var(--text-tertiary)", padding: "var(--space-md)" }}>No users.</div>
+                  <div style={{ color: "var(--text-tertiary)", padding: "var(--space-md)" }}>Inga användare.</div>
                 ) : (
                   filtered.map((u) => {
                     const active = u.id === selId;
@@ -3665,7 +3663,7 @@
                         <Avatar user={u} />
                         <span style={{ flex: 1, minWidth: 0 }}>
                           <span style={{ display: "block", fontWeight: 600, fontSize: "14px", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{u.name || u.email}</span>
-                          <span style={{ display: "block", fontSize: "12px", color: "var(--text-tertiary)" }}>{u.dataKeys} keys · {u.records} records</span>
+                          <span style={{ display: "block", fontSize: "12px", color: "var(--text-tertiary)" }}>{u.dataKeys} nycklar · {u.records} poster</span>
                         </span>
                       </button>
                     );
@@ -3676,10 +3674,10 @@
               <div style={{ flex: "2 1 420px", minWidth: "300px" }}>
                 {selId == null ? (
                   <div style={{ padding: "var(--space-2xl)", textAlign: "center", color: "var(--text-tertiary)", border: "1px dashed var(--border-color)", borderRadius: "var(--radius-lg)" }}>
-                    Select a user to see and edit their details.
+                    Välj en användare för att se och redigera detaljerna.
                   </div>
                 ) : detailLoading || !detail ? (
-                  <div style={{ padding: "var(--space-2xl)", textAlign: "center", color: "var(--text-tertiary)" }}>Loading…</div>
+                  <div style={{ padding: "var(--space-2xl)", textAlign: "center", color: "var(--text-tertiary)" }}>Läser in…</div>
                 ) : (
                   <>
                     <div style={{ display: "flex", alignItems: "center", gap: "var(--space-md)", padding: "var(--space-lg)", borderRadius: "var(--radius-lg)", background: "var(--bg-elevated)", border: "1px solid var(--border-color)", marginBottom: "var(--space-lg)" }}>
@@ -3688,11 +3686,11 @@
                         <div style={{ fontWeight: 700, fontSize: "17px" }}>{detail.profile.name || "—"}</div>
                         <div style={{ color: "var(--text-secondary)", fontSize: "13px" }}>{detail.profile.email}</div>
                       </div>
-                      <button onClick={removeUser} style={{ padding: "8px 14px", borderRadius: "var(--radius-sm)", border: "none", background: "var(--danger-soft)", color: "var(--danger)", fontWeight: 600, cursor: "pointer" }}>Delete user</button>
+                      <button onClick={removeUser} style={{ padding: "8px 14px", borderRadius: "var(--radius-sm)", border: "none", background: "var(--danger-soft)", color: "var(--danger)", fontWeight: 600, cursor: "pointer" }}>Ta bort användare</button>
                     </div>
 
-                    <h2 style={sectionTitle}>Appointments ({detail.records.length})</h2>
-                    {detail.records.length === 0 && <div style={{ color: "var(--text-tertiary)", marginBottom: "var(--space-md)" }}>No appointments.</div>}
+                    <h2 style={sectionTitle}>Tider ({detail.records.length})</h2>
+                    {detail.records.length === 0 && <div style={{ color: "var(--text-tertiary)", marginBottom: "var(--space-md)" }}>Inga tider.</div>}
                     {detail.records.map((rec) => {
                       const b = rec.data || {};
                       const cancelled = b.status === "cancelled";
@@ -3704,21 +3702,21 @@
                               {b.start ? `${fmtShortDate(new Date(b.start))} ${fmtTimeD(new Date(b.start))}` : ""} · {b.status || "—"}
                             </div>
                           </div>
-                          {!cancelled && <button style={miniBtn} onClick={() => cancelRec(rec)}>Cancel</button>}
-                          <button style={{ ...miniBtn, color: "var(--danger)" }} onClick={() => deleteRec(rec)}>Delete</button>
+                          {!cancelled && <button style={miniBtn} onClick={() => cancelRec(rec)}>Avboka</button>}
+                          <button style={{ ...miniBtn, color: "var(--danger)" }} onClick={() => deleteRec(rec)}>Ta bort</button>
                         </div>
                       );
                     })}
 
-                    <h2 style={{ ...sectionTitle, marginTop: "var(--space-xl)" }}>Saved data ({Object.keys(detail.data).length})</h2>
-                    {Object.keys(detail.data).length === 0 && <div style={{ color: "var(--text-tertiary)", marginBottom: "var(--space-sm)" }}>No stored data.</div>}
+                    <h2 style={{ ...sectionTitle, marginTop: "var(--space-xl)" }}>Sparad data ({Object.keys(detail.data).length})</h2>
+                    {Object.keys(detail.data).length === 0 && <div style={{ color: "var(--text-tertiary)", marginBottom: "var(--space-sm)" }}>Ingen sparad data.</div>}
                     {Object.entries(detail.data).map(([k, v]) => (
                       <AdminDataRow key={k} dataKey={k} value={v} onSave={(raw) => saveData(k, raw)} onDelete={() => deleteData(k)} />
                     ))}
                     <div style={{ display: "flex", gap: "var(--space-sm)", marginTop: "var(--space-sm)" }}>
-                      <input value={newKey} onChange={(e) => setNewKey(e.target.value)} placeholder="new-key"
+                      <input value={newKey} onChange={(e) => setNewKey(e.target.value)} placeholder="ny-nyckel"
                         style={{ flex: 1, padding: "8px 12px", borderRadius: "var(--radius-sm)", border: "1px solid var(--border-color)", background: "var(--bg-elevated)", color: "var(--text-primary)", boxSizing: "border-box" }} />
-                      <button style={miniBtn} onClick={addKey} disabled={!newKey.trim()}>Add key</button>
+                      <button style={miniBtn} onClick={addKey} disabled={!newKey.trim()}>Lägg till nyckel</button>
                     </div>
                   </>
                 )}
@@ -3730,9 +3728,9 @@
 
       /* ════════════════ App ════════════════ */
       const VIEW_TITLES = {
-        appointment: "Appointment",
-        my: "My Appointments",
-        settings: "Settings",
+        appointment: "Boka tid",
+        my: "Mina bokningar",
+        settings: "Inställningar",
         admin: "Admin",
       };
 
@@ -3823,8 +3821,8 @@
           if (!client) {
             toast(
               sdkError
-                ? "Sign-in unavailable: " + sdkError
-                : "Sign-in unavailable — the Klar SDK didn't load.",
+                ? "Inloggning ej tillgänglig: " + sdkError
+                : "Inloggning ej tillgänglig — Klar-SDK:n kunde inte laddas.",
               "error",
             );
             return;
@@ -3833,7 +3831,7 @@
           try {
             await client.signIn();
           } catch (e) {
-            toast("Sign-in cancelled.", "error");
+            toast("Inloggningen avbröts.", "error");
           }
           setSigningIn(false);
         };
@@ -3860,20 +3858,20 @@
             await AppointmentStore.create(data);
             setModalCtx(null);
             refreshBookings();
-            toast("Appointment confirmed", "success");
+            toast("Bokning bekräftad", "success");
           } catch (e) {
-            toast(e.message || "Could not book", "error");
+            toast(e.message || "Kunde inte boka", "error");
           }
         };
 
         const cancelBooking = async (b) => {
-          if (!window.confirm("Cancel this appointment?")) return;
+          if (!window.confirm("Vill du avboka den här tiden?")) return;
           try {
             await AppointmentStore.cancel(b.id);
             refreshBookings();
-            toast("Appointment cancelled", "success");
+            toast("Bokning avbokad", "success");
           } catch (e) {
-            toast(e.message || "Could not cancel", "error");
+            toast(e.message || "Kunde inte avboka", "error");
           }
         };
 
@@ -3903,7 +3901,7 @@
             <Sidebar view={view} setView={setView} isAdmin={isAdmin} onSignOut={signOut} />
             <div className="app-body">
               <Topbar
-                title={VIEW_TITLES[view] || "Appointment"}
+                title={VIEW_TITLES[view] || "Boka tid"}
                 user={me}
                 theme={theme}
                 setTheme={setTheme}
