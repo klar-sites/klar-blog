@@ -4,26 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pulse — Boka läkartid</title>
-    <meta
-      name="description"
-      content="Pulse är en premiumplattform för att boka läkartider. Bläddra bland specialister, välj en tid och boka på sekunder."
-    />
+    <meta name="description"
+      content="Pulse är en premiumplattform för att boka läkartider. Bläddra bland specialister, välj en tid och boka på sekunder." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet" />
 
     <!-- React + Babel via CDN (no build step) -->
-    <script
-      crossorigin
-      src="https://unpkg.com/react@18/umd/react.production.min.js"
-    ></script>
-    <script
-      crossorigin
-      src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"
-    ></script>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
     <style>
@@ -1804,12 +1794,10 @@
 
       /* ───────────── Skeleton / empty ───────────── */
       .skel {
-        background: linear-gradient(
-          90deg,
-          var(--bg-inset) 25%,
-          var(--bg-hover) 37%,
-          var(--bg-inset) 63%
-        );
+        background: linear-gradient(90deg,
+            var(--bg-inset) 25%,
+            var(--bg-hover) 37%,
+            var(--bg-inset) 63%);
         background-size: 400% 100%;
         animation: shimmer 1.3s ease infinite;
         border-radius: var(--radius-sm);
@@ -1908,11 +1896,9 @@
         left: 50%;
         top: -200px;
         transform: translateX(-50%);
-        background: radial-gradient(
-          ellipse,
-          var(--accent-soft),
-          transparent 65%
-        );
+        background: radial-gradient(ellipse,
+            var(--accent-soft),
+            transparent 65%);
         filter: blur(40px);
         pointer-events: none;
         z-index: 0;
@@ -5078,6 +5064,7 @@
           }
           let active = true;
           // Mark this user as a member of the booking app (once, at login).
+          console.log('hehe')
           UserSettingsStore.markMember();
           (async () => {
             const s = await UserSettingsStore.getSettings();
