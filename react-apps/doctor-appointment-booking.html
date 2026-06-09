@@ -1082,9 +1082,8 @@
         border-radius: 6px;
       }
       .doc-card .doc-photo {
-        width: 84px;
-        height: 104px;
-        border-radius: 14px;
+        width: 70px;
+        height: 70px;
       }
       .doc-info {
         min-width: 0;
@@ -2017,7 +2016,7 @@
       // id; photoUrl() builds a face-cropped, right-sized, optimised URL. If a
       // network image fails to load, DocPhoto falls back to the gradient tile.
       const PHOTO_SIZES = {
-        thumb: "w=240&h=300",
+        thumb: "w=180&h=180",
         hero: "w=760&h=560",
       };
       function photoUrl(photoId, variant = "thumb") {
