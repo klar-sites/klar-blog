@@ -5079,8 +5079,6 @@
             return;
           }
           let active = true;
-          // Mark this user as a member of the booking app (once, at login).
-          UserSettingsStore.markMember();
           (async () => {
             const s = await UserSettingsStore.getSettings();
             if (!active) return;
@@ -5092,6 +5090,13 @@
             active = false;
           };
         }, [me, applyTheme, refreshMyBookings]);
+
+        // Mark app membership once per signed-in user. Keyed on the user id (a
+        // stable primitive) — NOT the `me` object, which the SDK may replace on
+        // token refresh, which would otherwise re-run this on every change.
+        useEffect(() => {
+          if (me) UserSettingsStore.markMember();
+        }, [me && me.sub]);
 
         const signIn = async () => {
           if (!client) {
