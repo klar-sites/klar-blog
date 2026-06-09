@@ -4613,6 +4613,13 @@
             (u.email || "").toLowerCase().includes(s),
         );
 
+        // admin.getUser returns the user's records across EVERY collection in
+        // the project — scope to this app's own collection so a project shared
+        // with another app (e.g. a "bookings" app) doesn't leak its rows in.
+        const apptRecords = (detail?.records || []).filter(
+          (rec) => rec.collection === "appointments",
+        );
+
         return (
           <div className="page" style={{ maxWidth: 980 }}>
             <h1 style={{ marginBottom: "var(--space-xs)" }}>Admin</h1>
@@ -4809,10 +4816,8 @@
                       </button>
                     </div>
 
-                    <h2 style={sectionTitle}>
-                      Tider ({detail.records.length})
-                    </h2>
-                    {detail.records.length === 0 && (
+                    <h2 style={sectionTitle}>Tider ({apptRecords.length})</h2>
+                    {apptRecords.length === 0 && (
                       <div
                         style={{
                           color: "var(--text-tertiary)",
@@ -4822,7 +4827,7 @@
                         Inga tider.
                       </div>
                     )}
-                    {detail.records.map((rec) => {
+                    {apptRecords.map((rec) => {
                       const b = rec.data || {};
                       const cancelled = b.status === "cancelled";
                       return (
