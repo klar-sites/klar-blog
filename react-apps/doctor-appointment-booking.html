@@ -2191,6 +2191,14 @@
       const PROJECT_ID = 427; // ← set to your Klar project id
       const KLAR_HOST = "http://localhost:5173";
 
+      // App namespace — lets this app share a Klar project with other apps
+      // (a to-do, a training app, …) without their users/data bleeding into
+      // this admin. user.data keys are prefixed "booking:"; a membership marker
+      // "app:booking" is written at login so admin can list only booking users.
+      const APP_NS = "booking";
+      const APP_DATA_PREFIX = APP_NS + ":"; // e.g. "booking:settings"
+      const APP_MEMBER_KEY = "app:" + APP_NS; // membership marker key
+
       // Email automations this app self-provisions (owner-gated, create-if-absent).
       // Subjects/bodies are Liquid; recipient "owner" = the booker's email.
       const KLAR_AUTOMATIONS = {
@@ -2745,10 +2753,12 @@
         setUser(u) {
           this._user = u;
         },
+        // Keys are namespaced ("booking:settings") so they don't collide with
+        // other apps sharing this project and can be filtered in admin.
         async getSettings() {
           if (!this._user) return { ...DEFAULT_SETTINGS };
           try {
-            const s = await this._user.data.get("settings");
+            const s = await this._user.data.get(APP_DATA_PREFIX + "settings");
             return { ...DEFAULT_SETTINGS, ...(s || {}) };
           } catch {
             return { ...DEFAULT_SETTINGS };
@@ -2756,7 +2766,17 @@
         },
         async saveSettings(settings) {
           if (!this._user) return;
-          await this._user.data.set("settings", settings);
+          await this._user.data.set(APP_DATA_PREFIX + "settings", settings);
+        },
+        // Tag this user as a member of THIS app, once, at login — so admin can
+        // list only booking users (via listUsers({ hasKey: APP_MEMBER_KEY })).
+        async markMember() {
+          if (!this._user) return;
+          try {
+            const existing = await this._user.data.get(APP_MEMBER_KEY);
+            if (!existing)
+              await this._user.data.set(APP_MEMBER_KEY, { joinedAt: Date.now() });
+          } catch {}
         },
       };
 
@@ -4510,7 +4530,12 @@
 
         const loadUsers = useCallback(async () => {
           try {
-            const r = await client.admin.listUsers({ limit: 200 });
+            // Only this app's users (they get the APP_MEMBER_KEY marker at login),
+            // so a project shared with other apps doesn't list their users here.
+            const r = await client.admin.listUsers({
+              limit: 200,
+              hasKey: APP_MEMBER_KEY,
+            });
             setUsers(r.users);
             setErr(null);
           } catch (e) {
@@ -4599,8 +4624,11 @@
           }
         };
         const addKey = async () => {
-          const k = newKey.trim();
-          if (!k) return;
+          const raw = newKey.trim();
+          if (!raw) return;
+          // Keep added keys inside this app's namespace so they stay visible in
+          // the (prefix-filtered) panel rather than vanishing.
+          const k = raw.startsWith(APP_DATA_PREFIX) ? raw : APP_DATA_PREFIX + raw;
           try {
             await client.admin.setUserData(detail.profile.id, k, null);
             setNewKey("");
@@ -4632,6 +4660,11 @@
         // with another app (e.g. a "bookings" app) doesn't leak its rows in.
         const apptRecords = (detail?.records || []).filter(
           (rec) => rec.collection === "appointments",
+        );
+        // Likewise, user.data is a flat per-project bag — show only this app's
+        // namespaced keys ("booking:*"), hiding other apps' keys + the marker.
+        const appDataEntries = Object.entries(detail?.data || {}).filter(([k]) =>
+          k.startsWith(APP_DATA_PREFIX),
         );
 
         return (
@@ -4896,9 +4929,9 @@
                     <h2
                       style={{ ...sectionTitle, marginTop: "var(--space-xl)" }}
                     >
-                      Sparad data ({Object.keys(detail.data).length})
+                      Sparad data ({appDataEntries.length})
                     </h2>
-                    {Object.keys(detail.data).length === 0 && (
+                    {appDataEntries.length === 0 && (
                       <div
                         style={{
                           color: "var(--text-tertiary)",
@@ -4908,7 +4941,7 @@
                         Ingen sparad data.
                       </div>
                     )}
-                    {Object.entries(detail.data).map(([k, v]) => (
+                    {appDataEntries.map(([k, v]) => (
                       <AdminDataRow
                         key={k}
                         dataKey={k}
@@ -5044,6 +5077,8 @@
             return;
           }
           let active = true;
+          // Mark this user as a member of the booking app (once, at login).
+          UserSettingsStore.markMember();
           (async () => {
             const s = await UserSettingsStore.getSettings();
             if (!active) return;
