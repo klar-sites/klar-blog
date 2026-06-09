@@ -2776,7 +2776,9 @@
             const existing = await this._user.data.get(APP_MEMBER_KEY);
             if (!existing)
               await this._user.data.set(APP_MEMBER_KEY, { joinedAt: Date.now() });
-          } catch {}
+          } catch (e) {
+            console.warn("markMember failed", e);
+          }
         },
       };
 
