@@ -43,7 +43,7 @@
 
       /* ───────────── Variables (light) ───────────── */
       :root {
-        --bg-canvas: #e9ebf0;
+        --bg-canvas: #f8fafb;
         --bg-panel: #ffffff;
         --bg-elevated: #ffffff;
         --bg-secondary: #f6f7f9;
@@ -169,12 +169,14 @@
         width: 10px;
         height: 10px;
       }
+
       ::-webkit-scrollbar-thumb {
         background: var(--border-strong);
         border-radius: 999px;
         border: 3px solid transparent;
         background-clip: padding-box;
       }
+
       ::-webkit-scrollbar-track {
         background: transparent;
       }
@@ -199,59 +201,72 @@
         background: var(--bg-inset);
         color: var(--text-primary);
       }
+
       .btn:disabled {
         opacity: 0.55;
         cursor: not-allowed;
       }
+
       .btn svg {
         width: 16px;
         height: 16px;
       }
+
       .btn-primary {
         background: var(--accent);
         color: var(--accent-contrast);
       }
+
       .btn-primary:hover:not(:disabled) {
         background: var(--accent-hover);
         transform: translateY(-1px);
         box-shadow: 0 8px 20px var(--accent-soft);
       }
+
       .btn-secondary {
         background: var(--bg-elevated);
         border-color: var(--border-color);
         color: var(--text-primary);
       }
+
       .btn-secondary:hover:not(:disabled) {
         background: var(--bg-hover);
         border-color: var(--border-strong);
       }
+
       .btn-ghost {
         background: transparent;
         color: var(--text-secondary);
       }
+
       .btn-ghost:hover:not(:disabled) {
         background: var(--bg-hover);
         color: var(--text-primary);
       }
+
       .btn-danger {
         background: transparent;
         border-color: var(--border-color);
         color: var(--danger);
       }
+
       .btn-danger:hover:not(:disabled) {
         background: var(--danger-soft);
         border-color: transparent;
       }
+
       .btn-sm {
         height: 34px;
         padding: 0 13px;
         font-size: 13px;
       }
+
       .btn-lg {
         height: 48px;
         padding: 0 26px;
         font-size: 15px;
       }
+
       .btn-block {
         width: 100%;
       }
@@ -270,14 +285,17 @@
         flex-shrink: 0;
         position: relative;
       }
+
       .icon-btn:hover {
         color: var(--text-primary);
         background: var(--bg-hover);
       }
+
       .icon-btn svg {
         width: 18px;
         height: 18px;
       }
+
       .icon-btn.dot::after {
         content: "";
         position: absolute;
@@ -297,6 +315,7 @@
         border-radius: var(--radius-lg);
         box-shadow: var(--shadow-sm);
       }
+
       .card-pad {
         padding: var(--space-lg);
       }
@@ -307,11 +326,13 @@
         flex-direction: column;
         gap: 6px;
       }
+
       .label {
         font-size: 13px;
         font-weight: 600;
         color: var(--text-secondary);
       }
+
       .input,
       .select,
       .textarea {
@@ -328,25 +349,30 @@
           box-shadow 0.15s;
         width: 100%;
       }
+
       .input,
       .select {
         height: 42px;
       }
+
       .textarea {
         padding: 12px;
         resize: vertical;
         line-height: 1.55;
       }
+
       .input:focus,
       .select:focus,
       .textarea:focus {
         border-color: var(--accent);
         box-shadow: 0 0 0 3px var(--accent-soft);
       }
+
       .input::placeholder,
       .textarea::placeholder {
         color: var(--text-tertiary);
       }
+
       .select {
         appearance: none;
         background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2395a0b1' stroke-width='2' stroke-linecap='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
@@ -366,10 +392,12 @@
         transition: background 0.18s;
         flex-shrink: 0;
       }
+
       .toggle.on {
         background: var(--accent);
         border-color: var(--accent);
       }
+
       .toggle::after {
         content: "";
         position: absolute;
@@ -382,6 +410,7 @@
         transition: transform 0.18s var(--ease);
         box-shadow: var(--shadow-sm);
       }
+
       .toggle.on::after {
         transform: translateX(18px);
       }
@@ -404,6 +433,7 @@
         gap: 6px;
         z-index: 40;
       }
+
       .side-brand {
         width: 44px;
         height: 44px;
@@ -415,10 +445,12 @@
         box-shadow: 0 6px 16px rgba(91, 91, 242, 0.4);
         margin-bottom: 6px;
       }
+
       .side-brand svg {
         width: 22px;
         height: 22px;
       }
+
       .side-label {
         font-size: 10px;
         letter-spacing: 0.08em;
@@ -426,6 +458,7 @@
         color: var(--side-text);
         margin: 4px 0 6px;
       }
+
       .side-nav {
         display: flex;
         flex-direction: column;
@@ -434,6 +467,7 @@
         flex: 1;
         width: 100%;
       }
+
       .side-bottom {
         display: flex;
         flex-direction: column;
@@ -441,6 +475,7 @@
         align-items: center;
         width: 100%;
       }
+
       .side-btn {
         width: 44px;
         height: 44px;
@@ -454,18 +489,22 @@
         transition: all 0.16s var(--ease);
         position: relative;
       }
+
       .side-btn svg {
         width: 21px;
         height: 21px;
       }
+
       .side-btn:hover {
         color: var(--side-text-active);
         background: var(--side-elevated);
       }
+
       .side-btn.active {
         color: var(--side-text-active);
         background: var(--side-active);
       }
+
       .side-btn.active::before {
         content: "";
         position: absolute;
@@ -477,6 +516,7 @@
         border-radius: 0 3px 3px 0;
         background: var(--accent);
       }
+
       .side-tip {
         position: absolute;
         left: 54px;
@@ -496,6 +536,7 @@
         box-shadow: var(--shadow-md);
         z-index: 60;
       }
+
       .side-btn:hover .side-tip {
         opacity: 1;
         transform: translateY(-50%) scale(1);
@@ -519,16 +560,19 @@
         gap: var(--space-md);
         padding: 0 24px;
       }
+
       .topbar-title {
         font-size: 22px;
         font-weight: 700;
       }
+
       .topbar-right {
         margin-left: auto;
         display: flex;
         align-items: center;
         gap: 12px;
       }
+
       .theme-seg {
         display: inline-flex;
         background: var(--bg-inset);
@@ -537,6 +581,7 @@
         padding: 3px;
         gap: 2px;
       }
+
       .theme-seg button {
         width: 34px;
         height: 30px;
@@ -554,14 +599,17 @@
         font-weight: 600;
         white-space: nowrap;
       }
+
       .theme-seg button svg {
         width: 16px;
         height: 16px;
       }
+
       .theme-seg button.active {
         background: var(--accent);
         color: #fff;
       }
+
       .topbar-div {
         width: 1px;
         height: 30px;
@@ -578,17 +626,21 @@
         border: 1px solid transparent;
         transition: all 0.15s;
       }
+
       .user-chip:hover {
         background: var(--bg-hover);
       }
+
       .user-meta {
         line-height: 1.25;
         text-align: left;
       }
+
       .user-meta .n {
         font-size: 14px;
         font-weight: 600;
       }
+
       .user-meta .e {
         font-size: 12px;
         color: var(--text-tertiary);
@@ -612,6 +664,7 @@
       .menu-wrap {
         position: relative;
       }
+
       .menu {
         position: absolute;
         right: 0;
@@ -625,15 +678,18 @@
         z-index: 70;
         animation: pop 0.16s var(--ease);
       }
+
       .menu-head {
         padding: 10px 10px 12px;
         border-bottom: 1px solid var(--border-color);
         margin-bottom: 6px;
       }
+
       .menu-name {
         font-weight: 600;
         font-size: 14px;
       }
+
       .menu-mail {
         font-size: 12px;
         color: var(--text-tertiary);
@@ -641,6 +697,7 @@
         text-overflow: ellipsis;
         white-space: nowrap;
       }
+
       .menu-item {
         display: flex;
         align-items: center;
@@ -656,9 +713,11 @@
         cursor: pointer;
         text-align: left;
       }
+
       .menu-item:hover {
         background: var(--bg-hover);
       }
+
       .menu-item svg {
         width: 16px;
         height: 16px;
@@ -669,6 +728,7 @@
         width: 320px;
         padding: 10px;
       }
+
       .notif-head {
         font-weight: 700;
         font-size: 14px;
@@ -676,6 +736,7 @@
         border-bottom: 1px solid var(--border-color);
         margin-bottom: 6px;
       }
+
       .notif-row {
         display: flex;
         gap: 10px;
@@ -683,9 +744,11 @@
         padding: 9px 8px;
         border-radius: var(--radius-sm);
       }
+
       .notif-row:hover {
         background: var(--bg-hover);
       }
+
       .notif-ic {
         width: 32px;
         height: 32px;
@@ -696,6 +759,7 @@
         place-items: center;
         flex-shrink: 0;
       }
+
       .notif-ic svg {
         width: 16px;
         height: 16px;
@@ -716,6 +780,7 @@
         padding: 18px;
         height: 100%;
       }
+
       .panel {
         background: var(--bg-panel);
         border: 1px solid var(--border-color);
@@ -726,12 +791,14 @@
         min-height: 0;
         overflow: hidden;
       }
+
       .panel-scroll {
         overflow: auto;
         padding: var(--space-lg);
         flex: 1;
         min-height: 0;
       }
+
       .panel-title {
         font-size: 18px;
         font-weight: 700;
@@ -744,15 +811,18 @@
         justify-content: space-between;
         margin: 18px 0 12px;
       }
+
       .cal-month {
         font-size: 16px;
         font-weight: 700;
         text-transform: capitalize;
       }
+
       .cal-navs {
         display: flex;
         gap: 6px;
       }
+
       .cal-nav {
         width: 34px;
         height: 34px;
@@ -765,19 +835,23 @@
         cursor: pointer;
         transition: all 0.15s;
       }
+
       .cal-nav:hover {
         background: var(--bg-hover);
         color: var(--text-primary);
       }
+
       .cal-nav svg {
         width: 16px;
         height: 16px;
       }
+
       .cal-grid {
         display: grid;
         grid-template-columns: repeat(7, 1fr);
         gap: 2px;
       }
+
       .cal-dow {
         text-align: center;
         font-size: 12px;
@@ -785,9 +859,11 @@
         color: var(--text-tertiary);
         padding: 4px 0 8px;
       }
+
       .cal-dow.sun {
         color: var(--danger);
       }
+
       .cal-cell {
         aspect-ratio: 1;
         display: grid;
@@ -802,19 +878,24 @@
         font-weight: 500;
         transition: all 0.14s var(--ease);
       }
+
       .cal-cell:hover:not(:disabled) {
         background: var(--bg-hover);
       }
+
       .cal-cell.sun {
         color: var(--danger);
       }
+
       .cal-cell.dim {
         color: var(--text-tertiary);
         opacity: 0.5;
       }
+
       .cal-cell.today:not(.selected) {
         box-shadow: inset 0 0 0 1.5px var(--accent-soft);
       }
+
       .cal-cell.selected,
       .cal-cell.selected:hover:not(:disabled) {
         background: var(--accent);
@@ -822,6 +903,7 @@
         font-weight: 700;
         box-shadow: 0 6px 14px var(--accent-soft);
       }
+
       .cal-cell:disabled {
         cursor: not-allowed;
         color: var(--text-tertiary);
@@ -840,6 +922,7 @@
         grid-template-columns: 1fr 1fr;
         gap: 10px;
       }
+
       .slot {
         height: 46px;
         border-radius: var(--radius-sm);
@@ -853,10 +936,12 @@
         transition: all 0.15s var(--ease);
         font-variant-numeric: tabular-nums;
       }
+
       .slot:hover:not(:disabled) {
         border-color: var(--accent);
         color: var(--accent);
       }
+
       .slot.selected,
       .slot.selected:hover:not(:disabled) {
         background: var(--accent);
@@ -865,6 +950,7 @@
         font-weight: 600;
         box-shadow: 0 6px 14px var(--accent-soft);
       }
+
       .slot:disabled {
         cursor: not-allowed;
         color: var(--text-tertiary);
@@ -880,6 +966,7 @@
         padding: 12px;
         box-shadow: 0 0 0 3px var(--accent-soft);
       }
+
       .concerns-area {
         width: 100%;
         border: none;
@@ -892,15 +979,18 @@
         line-height: 1.6;
         min-height: 92px;
       }
+
       .concerns-area::placeholder {
         color: var(--text-tertiary);
       }
+
       .concerns-foot {
         display: flex;
         align-items: center;
         gap: 8px;
         margin-top: 8px;
       }
+
       .concerns-attach {
         width: 34px;
         height: 34px;
@@ -912,14 +1002,17 @@
         place-items: center;
         cursor: pointer;
       }
+
       .concerns-attach:hover {
         background: var(--bg-hover);
         color: var(--text-primary);
       }
+
       .concerns-attach svg {
         width: 16px;
         height: 16px;
       }
+
       .concerns-thumb {
         width: 34px;
         height: 34px;
@@ -929,10 +1022,12 @@
         place-items: center;
         color: #fff;
       }
+
       .concerns-thumb svg {
         width: 16px;
         height: 16px;
       }
+
       .concerns-count {
         margin-left: auto;
         font-size: 12px;
@@ -947,11 +1042,13 @@
         gap: 12px;
         flex-wrap: wrap;
       }
+
       .doc-search {
         position: relative;
         flex: 1;
         min-width: 180px;
       }
+
       .doc-search svg {
         position: absolute;
         left: 13px;
@@ -961,13 +1058,16 @@
         height: 17px;
         color: var(--text-tertiary);
       }
+
       .doc-search .input {
         padding-left: 40px;
         background: var(--bg-secondary);
       }
+
       .filter-wrap {
         position: relative;
       }
+
       .filter-menu {
         position: absolute;
         right: 0;
@@ -981,6 +1081,7 @@
         z-index: 30;
         animation: pop 0.16s var(--ease);
       }
+
       .filter-opt {
         display: flex;
         align-items: center;
@@ -996,13 +1097,16 @@
         cursor: pointer;
         text-align: left;
       }
+
       .filter-opt:hover {
         background: var(--bg-hover);
       }
+
       .filter-opt.on {
         color: var(--accent);
         font-weight: 600;
       }
+
       .filter-opt svg {
         width: 16px;
         height: 16px;
@@ -1018,6 +1122,7 @@
         flex: 1;
         min-height: 0;
       }
+
       .doc-card {
         border: 1px solid var(--border-color);
         border-radius: var(--radius-lg);
@@ -1031,20 +1136,24 @@
           border-color 0.18s,
           box-shadow 0.18s;
       }
+
       .doc-card:hover {
         border-color: var(--border-strong);
         box-shadow: var(--shadow-md);
         transform: translateY(-2px);
       }
+
       .doc-card.active {
         border-color: var(--accent);
         box-shadow: 0 0 0 3px var(--accent-soft);
       }
+
       .doc-card-top {
         display: flex;
         gap: 12px;
         align-items: center;
       }
+
       .doc-photo {
         border-radius: 13px;
         position: relative;
@@ -1053,6 +1162,7 @@
         place-items: center;
         flex-shrink: 0;
       }
+
       .doc-photo svg.doc-silhouette {
         width: 58%;
         height: 58%;
@@ -1060,6 +1170,7 @@
         position: relative;
         top: 8%;
       }
+
       .doc-photo .doc-img {
         position: absolute;
         inset: 0;
@@ -1069,6 +1180,7 @@
         display: block;
         transition: opacity 0.35s var(--ease);
       }
+
       .doc-photo .doc-initials {
         position: absolute;
         bottom: 5px;
@@ -1081,14 +1193,17 @@
         padding: 1px 6px;
         border-radius: 6px;
       }
+
       .doc-card .doc-photo {
         width: 70px;
         height: 70px;
       }
+
       .doc-info {
         min-width: 0;
         flex: 1;
       }
+
       .doc-name {
         font-size: 15px;
         font-weight: 700;
@@ -1096,6 +1211,7 @@
         overflow: hidden;
         text-overflow: ellipsis;
       }
+
       .doc-meta-row {
         display: flex;
         align-items: center;
@@ -1104,20 +1220,24 @@
         color: var(--text-secondary);
         margin-top: 5px;
       }
+
       .doc-meta-row svg {
         width: 14px;
         height: 14px;
         color: var(--text-tertiary);
         flex-shrink: 0;
       }
+
       .doc-card-actions {
         display: flex;
         gap: 8px;
         align-items: center;
       }
+
       .doc-card-actions .btn {
         flex: 1;
       }
+
       .chat-btn {
         width: 42px;
         height: 42px;
@@ -1131,11 +1251,13 @@
         cursor: pointer;
         transition: all 0.15s;
       }
+
       .chat-btn:hover {
         background: var(--accent-soft);
         color: var(--accent);
         border-color: transparent;
       }
+
       .chat-btn svg {
         width: 18px;
         height: 18px;
@@ -1148,21 +1270,25 @@
         justify-content: space-between;
         padding: var(--space-lg) var(--space-lg) 0;
       }
+
       .detail-photo {
         width: 100%;
         height: 230px;
         border-radius: var(--radius-lg);
         margin-top: var(--space-md);
       }
+
       .detail-photo svg.doc-silhouette {
         width: 130px;
         height: 130px;
       }
+
       .detail-name {
         font-size: 22px;
         font-weight: 700;
         margin-top: var(--space-md);
       }
+
       .detail-tags {
         display: flex;
         align-items: center;
@@ -1172,6 +1298,7 @@
         border-bottom: 1px solid var(--border-color);
         flex-wrap: wrap;
       }
+
       .detail-tag {
         display: flex;
         align-items: center;
@@ -1180,14 +1307,17 @@
         color: var(--text-secondary);
         font-weight: 500;
       }
+
       .detail-tag svg {
         width: 16px;
         height: 16px;
         color: var(--accent);
       }
+
       .detail-section {
         margin-top: var(--space-lg);
       }
+
       .detail-h {
         display: flex;
         align-items: center;
@@ -1196,22 +1326,26 @@
         font-weight: 700;
         margin-bottom: 10px;
       }
+
       .detail-h svg {
         width: 17px;
         height: 17px;
         color: var(--accent);
       }
+
       .detail-p {
         font-size: 14px;
         color: var(--text-secondary);
         line-height: 1.6;
       }
+
       .spec-list {
         list-style: none;
         display: flex;
         flex-direction: column;
         gap: 8px;
       }
+
       .spec-list li {
         display: flex;
         align-items: center;
@@ -1219,6 +1353,7 @@
         font-size: 14px;
         color: var(--text-secondary);
       }
+
       .spec-list li::before {
         content: "";
         width: 5px;
@@ -1232,11 +1367,13 @@
         display: inline-flex;
         gap: 2px;
       }
+
       .stars svg {
         width: 16px;
         height: 16px;
         color: var(--star);
       }
+
       .review-scroll {
         display: flex;
         gap: 12px;
@@ -1244,6 +1381,7 @@
         padding-bottom: 6px;
         scroll-snap-type: x mandatory;
       }
+
       .review-card {
         flex: 0 0 82%;
         scroll-snap-align: start;
@@ -1252,20 +1390,24 @@
         padding: 14px;
         background: var(--bg-secondary);
       }
+
       .review-stars {
         margin-bottom: 8px;
       }
+
       .review-text {
         font-size: 13.5px;
         color: var(--text-secondary);
         line-height: 1.55;
       }
+
       .review-author {
         font-size: 12px;
         font-weight: 600;
         color: var(--text-tertiary);
         margin-top: 8px;
       }
+
       .detail-foot {
         padding: var(--space-md) var(--space-lg) var(--space-lg);
         border-top: 1px solid var(--border-color);
@@ -1273,6 +1415,7 @@
         gap: 10px;
         background: var(--bg-panel);
       }
+
       .detail-foot .btn {
         flex: 1;
       }
@@ -1287,6 +1430,7 @@
         margin: 0 auto;
         padding: var(--space-xl) var(--space-lg) var(--space-2xl);
       }
+
       .page-head {
         display: flex;
         align-items: flex-end;
@@ -1295,24 +1439,29 @@
         margin-bottom: var(--space-xl);
         flex-wrap: wrap;
       }
+
       .page-title {
         font-size: 28px;
         font-weight: 700;
       }
+
       .page-sub {
         color: var(--text-secondary);
         margin-top: 4px;
         font-size: 15px;
       }
+
       .grid-3 {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: var(--space-md);
         margin-bottom: var(--space-xl);
       }
+
       .stat {
         padding: var(--space-lg);
       }
+
       .stat-label {
         font-size: 13px;
         color: var(--text-secondary);
@@ -1321,22 +1470,26 @@
         align-items: center;
         gap: 8px;
       }
+
       .stat-label svg {
         width: 16px;
         height: 16px;
         color: var(--accent);
       }
+
       .stat-value {
         font-size: 34px;
         font-weight: 700;
         margin-top: 10px;
         letter-spacing: -0.03em;
       }
+
       .stat-hint {
         font-size: 13px;
         color: var(--text-tertiary);
         margin-top: 4px;
       }
+
       .section-title {
         font-size: 16px;
         font-weight: 700;
@@ -1353,39 +1506,48 @@
         padding: 14px var(--space-lg);
         border-top: 1px solid var(--border-color);
       }
+
       .appt-row:first-child {
         border-top: none;
       }
+
       .appt-row .doc-photo {
         width: 48px;
         height: 48px;
         border-radius: 11px;
       }
+
       .appt-main {
         flex: 1;
         min-width: 0;
       }
+
       .appt-main .r {
         font-weight: 600;
         font-size: 14px;
       }
+
       .appt-main .u {
         font-size: 13px;
         color: var(--text-secondary);
       }
+
       .appt-time {
         text-align: right;
         flex-shrink: 0;
       }
+
       .appt-time .d {
         font-weight: 600;
         font-size: 14px;
       }
+
       .appt-time .t {
         font-size: 13px;
         color: var(--text-secondary);
         font-variant-numeric: tabular-nums;
       }
+
       .badge {
         font-size: 11px;
         font-weight: 600;
@@ -1393,14 +1555,17 @@
         border-radius: 999px;
         text-transform: capitalize;
       }
+
       .badge.confirmed {
         color: var(--success);
         background: var(--success-soft);
       }
+
       .badge.cancelled {
         color: var(--text-tertiary);
         background: var(--bg-inset);
       }
+
       .badge.past {
         color: var(--text-secondary);
         background: var(--bg-inset);
@@ -1418,11 +1583,13 @@
         padding: var(--space-md);
         animation: fade 0.18s var(--ease);
       }
+
       @keyframes fade {
         from {
           opacity: 0;
         }
       }
+
       .modal {
         width: 100%;
         max-width: 460px;
@@ -1434,12 +1601,14 @@
         max-height: 92vh;
         overflow: auto;
       }
+
       @keyframes pop {
         from {
           opacity: 0;
           transform: translateY(10px) scale(0.98);
         }
       }
+
       .modal-head {
         padding: var(--space-lg) var(--space-lg) var(--space-md);
         border-bottom: 1px solid var(--border-color);
@@ -1447,16 +1616,19 @@
         align-items: center;
         justify-content: space-between;
       }
+
       .modal-title {
         font-size: 18px;
         font-weight: 700;
       }
+
       .modal-body {
         padding: var(--space-lg);
         display: flex;
         flex-direction: column;
         gap: var(--space-md);
       }
+
       .summary {
         background: var(--bg-inset);
         border-radius: var(--radius-md);
@@ -1465,6 +1637,7 @@
         flex-direction: column;
         gap: 12px;
       }
+
       .summary-doc {
         display: flex;
         align-items: center;
@@ -1472,26 +1645,31 @@
         padding-bottom: 12px;
         border-bottom: 1px solid var(--border-color);
       }
+
       .summary-doc .doc-photo {
         width: 46px;
         height: 46px;
         border-radius: 11px;
       }
+
       .srow {
         display: flex;
         align-items: center;
         gap: 10px;
         font-size: 14px;
       }
+
       .srow svg {
         width: 16px;
         height: 16px;
         color: var(--text-tertiary);
         flex-shrink: 0;
       }
+
       .srow b {
         font-weight: 600;
       }
+
       .modal-foot {
         padding: var(--space-md) var(--space-lg) var(--space-lg);
         display: flex;
@@ -1510,6 +1688,7 @@
         gap: 10px;
         max-width: 360px;
       }
+
       .toast {
         display: flex;
         align-items: center;
@@ -1523,26 +1702,32 @@
         font-size: 14px;
         animation: slidein 0.22s var(--ease);
       }
+
       @keyframes slidein {
         from {
           opacity: 0;
           transform: translateX(20px);
         }
       }
+
       .toast.success {
         border-left-color: var(--success);
       }
+
       .toast.error {
         border-left-color: var(--danger);
       }
+
       .toast svg {
         width: 18px;
         height: 18px;
         flex-shrink: 0;
       }
+
       .toast.success svg {
         color: var(--success);
       }
+
       .toast.error svg {
         color: var(--danger);
       }
@@ -1559,30 +1744,36 @@
         animation: shimmer 1.3s ease infinite;
         border-radius: var(--radius-sm);
       }
+
       @keyframes shimmer {
         from {
           background-position: 100% 0;
         }
+
         to {
           background-position: -100% 0;
         }
       }
+
       .empty {
         text-align: center;
         padding: var(--space-2xl) var(--space-lg);
         color: var(--text-secondary);
       }
+
       .empty svg {
         width: 40px;
         height: 40px;
         color: var(--text-tertiary);
         margin-bottom: var(--space-md);
       }
+
       .empty h4 {
         font-size: 16px;
         color: var(--text-primary);
         margin-bottom: 6px;
       }
+
       .empty p {
         font-size: 14px;
         margin-bottom: var(--space-md);
@@ -1596,6 +1787,7 @@
         position: relative;
         overflow: hidden;
       }
+
       .landing-top {
         height: var(--topbar-h);
         display: flex;
@@ -1605,6 +1797,7 @@
         position: relative;
         z-index: 1;
       }
+
       .landing-brand {
         display: flex;
         align-items: center;
@@ -1612,6 +1805,7 @@
         font-weight: 700;
         font-size: 18px;
       }
+
       .landing-mark {
         width: 36px;
         height: 36px;
@@ -1622,10 +1816,12 @@
         color: #fff;
         box-shadow: var(--shadow-sm);
       }
+
       .landing-mark svg {
         width: 19px;
         height: 19px;
       }
+
       .landing-body {
         flex: 1;
         display: grid;
@@ -1634,6 +1830,7 @@
         position: relative;
         z-index: 1;
       }
+
       .landing-glow {
         position: absolute;
         width: 820px;
@@ -1650,11 +1847,13 @@
         pointer-events: none;
         z-index: 0;
       }
+
       .hero {
         text-align: center;
         max-width: 640px;
         position: relative;
       }
+
       .eyebrow {
         display: inline-flex;
         align-items: center;
@@ -1669,22 +1868,26 @@
         border-radius: 999px;
         background: var(--bg-elevated);
       }
+
       .eyebrow svg {
         width: 14px;
         height: 14px;
       }
+
       .hero h1 {
         font-size: clamp(34px, 6vw, 56px);
         font-weight: 800;
         margin: var(--space-lg) auto 0;
         max-width: 14ch;
       }
+
       .hero p {
         font-size: 18px;
         color: var(--text-secondary);
         max-width: 520px;
         margin: var(--space-md) auto 0;
       }
+
       .hero-cta {
         margin-top: var(--space-xl);
         display: flex;
@@ -1692,6 +1895,7 @@
         justify-content: center;
         flex-wrap: wrap;
       }
+
       .features {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -1700,10 +1904,12 @@
         max-width: 920px;
         width: 100%;
       }
+
       .feature {
         padding: var(--space-lg);
         text-align: left;
       }
+
       .feature-ic {
         width: 40px;
         height: 40px;
@@ -1714,14 +1920,17 @@
         place-items: center;
         margin-bottom: var(--space-md);
       }
+
       .feature-ic svg {
         width: 20px;
         height: 20px;
       }
+
       .feature h3 {
         font-size: 16px;
         margin-bottom: 6px;
       }
+
       .feature p {
         font-size: 14px;
         color: var(--text-secondary);
@@ -1734,6 +1943,7 @@
         place-items: center;
         background: var(--bg-canvas);
       }
+
       .spinner {
         width: 28px;
         height: 28px;
@@ -1742,6 +1952,7 @@
         border-radius: 50%;
         animation: spin 0.8s linear infinite;
       }
+
       @keyframes spin {
         to {
           transform: rotate(360deg);
@@ -1753,6 +1964,7 @@
         .booking-layout {
           grid-template-columns: 360px minmax(0, 1fr);
         }
+
         .detail-col {
           position: fixed;
           top: 0;
@@ -1767,9 +1979,11 @@
           z-index: 90;
           box-shadow: var(--shadow-lg);
         }
+
         .detail-col.open {
           transform: translateX(0);
         }
+
         .detail-backdrop.show {
           display: block;
           position: fixed;
@@ -1788,19 +2002,24 @@
           height: auto;
           overflow: visible;
         }
+
         .doc-grid {
           grid-template-columns: 1fr;
           overflow: visible;
         }
+
         .panel {
           overflow: visible;
         }
+
         .doc-list-panel {
           min-height: 60vh;
         }
+
         .grid-3 {
           grid-template-columns: 1fr;
         }
+
         .features {
           grid-template-columns: 1fr;
         }
@@ -1810,6 +2029,7 @@
         :root {
           --side-w: 0px;
         }
+
         .sidebar {
           position: fixed;
           bottom: 0;
@@ -1822,39 +2042,49 @@
           border-top: 1px solid var(--border-color);
           z-index: 95;
         }
+
         .side-brand,
         .side-label,
         .side-bottom .side-info {
           display: none;
         }
+
         .side-nav {
           flex-direction: row;
           justify-content: space-around;
           flex: 1;
         }
+
         .side-bottom {
           flex-direction: row;
           width: auto;
         }
+
         .side-btn.active::before {
           display: none;
         }
+
         .side-tip {
           display: none;
         }
+
         .app-body {
           padding-bottom: 62px;
         }
+
         .topbar {
           padding: 0 16px;
         }
+
         .user-meta {
           display: none;
         }
+
         .booking-layout {
           padding: 12px;
           gap: 12px;
         }
+
         .detail-col {
           width: 100%;
           max-width: 100%;
@@ -1951,7 +2181,11 @@
         Hudläkare: {
           experience:
             "Över 10 års erfarenhet av klinisk dermatologi och behandlar allt från eksem och akne till autoimmuna hudsjukdomar.",
-          tags: ["Allmän hudvård", "Behandling av hudallergier", "Akne- och ärrvård"],
+          tags: [
+            "Allmän hudvård",
+            "Behandling av hudallergier",
+            "Akne- och ärrvård",
+          ],
         },
         Neurolog: {
           experience:
@@ -1976,7 +2210,11 @@
         Kardiolog: {
           experience:
             "Över 14 års erfarenhet av kardiovaskulär medicin med inriktning på hjärthälsa, högt blodtryck och förebyggande kardiologi.",
-          tags: ["Hjärthälsa", "Behandling av högt blodtryck", "Förebyggande kardiologi"],
+          tags: [
+            "Hjärthälsa",
+            "Behandling av högt blodtryck",
+            "Förebyggande kardiologi",
+          ],
         },
       };
 
@@ -2032,7 +2270,15 @@
       }
 
       let _ri = 0;
-      function mkDoctor(id, name, specialty, price, rating, reviewsCount, photo) {
+      function mkDoctor(
+        id,
+        name,
+        specialty,
+        price,
+        rating,
+        reviewsCount,
+        photo,
+      ) {
         const info = SPECIALTY_INFO[specialty] || { experience: "", tags: [] };
         const reviews = [
           REVIEW_POOL[_ri % REVIEW_POOL.length],
@@ -2055,16 +2301,96 @@
       }
 
       const DOCTORS = [
-        mkDoctor("ralph-edwards", "Dr. Ralph Edwards", "Hudläkare", 20, 4.5, 128, "1612349317150-e413f6a5b16d"),
-        mkDoctor("ronald-richards", "Dr. Ronald Richards", "Neurolog", 20, 4.7, 96, "1612531386530-97286d97c2d2"),
-        mkDoctor("albert-boje", "Dr. Albert Boje", "Tandläkare", 20, 4.4, 74, "1622902046580-2b47f47f5471"),
-        mkDoctor("floyd-miles", "Dr. Floyd Miles", "Neurolog", 20, 4.6, 112, "1622253692010-333f2da6031d"),
-        mkDoctor("leslie-alexander", "Dr. Leslie Alexander", "Psykiater", 20, 4.8, 145, "1594824476967-48c8b964273f"),
-        mkDoctor("brooklyn-crean", "Prof. Brooklyn Crean", "Allmänläkare", 30, 4.9, 203, "1560250097-0b93528c311a"),
-        mkDoctor("courtney-henry", "Dr. Courtney Henry", "Kardiolog", 20, 4.6, 88, "1633332755192-727a05c4013d"),
-        mkDoctor("eleanor-pena", "Prof. Eleanor Pena", "Psykiater", 32, 4.7, 167, "1651008376811-b90baee60c1f"),
-        mkDoctor("chieko-chute", "Dr. Chieko Chute", "Hudläkare", 20, 4.3, 61, "1500648767791-00dcc994a43e"),
-        mkDoctor("tyra-dhillon", "Dr. Tyra Dhillon", "Tandläkare", 20, 4.5, 79, "1666214280557-f1b5022eb634"),
+        mkDoctor(
+          "ralph-edwards",
+          "Dr. Ralph Edwards",
+          "Hudläkare",
+          20,
+          4.5,
+          128,
+          "1612349317150-e413f6a5b16d",
+        ),
+        mkDoctor(
+          "ronald-richards",
+          "Dr. Ronald Richards",
+          "Neurolog",
+          20,
+          4.7,
+          96,
+          "1612531386530-97286d97c2d2",
+        ),
+        mkDoctor(
+          "albert-boje",
+          "Dr. Albert Boje",
+          "Tandläkare",
+          20,
+          4.4,
+          74,
+          "1622902046580-2b47f47f5471",
+        ),
+        mkDoctor(
+          "floyd-miles",
+          "Dr. Floyd Miles",
+          "Neurolog",
+          20,
+          4.6,
+          112,
+          "1622253692010-333f2da6031d",
+        ),
+        mkDoctor(
+          "leslie-alexander",
+          "Dr. Leslie Alexander",
+          "Psykiater",
+          20,
+          4.8,
+          145,
+          "1594824476967-48c8b964273f",
+        ),
+        mkDoctor(
+          "brooklyn-crean",
+          "Prof. Brooklyn Crean",
+          "Allmänläkare",
+          30,
+          4.9,
+          203,
+          "1560250097-0b93528c311a",
+        ),
+        mkDoctor(
+          "courtney-henry",
+          "Dr. Courtney Henry",
+          "Kardiolog",
+          20,
+          4.6,
+          88,
+          "1633332755192-727a05c4013d",
+        ),
+        mkDoctor(
+          "eleanor-pena",
+          "Prof. Eleanor Pena",
+          "Psykiater",
+          32,
+          4.7,
+          167,
+          "1651008376811-b90baee60c1f",
+        ),
+        mkDoctor(
+          "chieko-chute",
+          "Dr. Chieko Chute",
+          "Hudläkare",
+          20,
+          4.3,
+          61,
+          "1500648767791-00dcc994a43e",
+        ),
+        mkDoctor(
+          "tyra-dhillon",
+          "Dr. Tyra Dhillon",
+          "Tandläkare",
+          20,
+          4.5,
+          79,
+          "1666214280557-f1b5022eb634",
+        ),
       ];
       const DOC_BY_ID = Object.fromEntries(DOCTORS.map((d) => [d.id, d]));
       const SPECIALTIES = Array.from(new Set(DOCTORS.map((d) => d.specialty)));
@@ -2097,8 +2423,18 @@
       const pad = (n) => String(n).padStart(2, "0");
       const WD = ["Sön", "Mån", "Tis", "Ons", "Tor", "Fre", "Lör"];
       const MONTHS = [
-        "januari", "februari", "mars", "april", "maj", "juni",
-        "juli", "augusti", "september", "oktober", "november", "december",
+        "januari",
+        "februari",
+        "mars",
+        "april",
+        "maj",
+        "juni",
+        "juli",
+        "augusti",
+        "september",
+        "oktober",
+        "november",
+        "december",
       ];
 
       function addDays(d, n) {
@@ -2143,10 +2479,24 @@
         return fmtClock(d.getHours(), d.getMinutes());
       }
       function fmtLongDate(d) {
-        return WD[d.getDay()] + ", " + d.getDate() + " " + MONTHS[d.getMonth()] + " " + d.getFullYear();
+        return (
+          WD[d.getDay()] +
+          ", " +
+          d.getDate() +
+          " " +
+          MONTHS[d.getMonth()] +
+          " " +
+          d.getFullYear()
+        );
       }
       function fmtShortDate(d) {
-        return WD[d.getDay()] + ", " + d.getDate() + " " + MONTHS[d.getMonth()].slice(0, 3);
+        return (
+          WD[d.getDay()] +
+          ", " +
+          d.getDate() +
+          " " +
+          MONTHS[d.getMonth()].slice(0, 3)
+        );
       }
       function initials(name) {
         const clean = name.replace(/^(Dr\.|Prof\.|Mr\.|Ms\.|Mrs\.)\s*/i, "");
@@ -2180,7 +2530,8 @@
           if (!col) throw new Error("Logga in för att boka.");
           const start = new Date(data.start).getTime();
           const end = new Date(data.end).getTime();
-          if (!(end > start)) throw new Error("Sluttiden måste vara efter starttiden.");
+          if (!(end > start))
+            throw new Error("Sluttiden måste vara efter starttiden.");
           if (start < Date.now())
             throw new Error("Det går inte att boka en tid som har passerat.");
           // Instant client-side check for a friendly message. The real
@@ -2358,10 +2709,17 @@
           </>
         ),
         star: (
-          <path d="M12 2.5l2.9 5.9 6.5.95-4.7 4.58 1.1 6.47L12 17.4l-5.8 3.07 1.1-6.47L2.6 9.35l6.5-.95L12 2.5Z" fill="currentColor" stroke="none" />
+          <path
+            d="M12 2.5l2.9 5.9 6.5.95-4.7 4.58 1.1 6.47L12 17.4l-5.8 3.07 1.1-6.47L2.6 9.35l6.5-.95L12 2.5Z"
+            fill="currentColor"
+            stroke="none"
+          />
         ),
         starO: (
-          <path d="M12 2.5l2.9 5.9 6.5.95-4.7 4.58 1.1 6.47L12 17.4l-5.8 3.07 1.1-6.47L2.6 9.35l6.5-.95L12 2.5Z" fill="none" />
+          <path
+            d="M12 2.5l2.9 5.9 6.5.95-4.7 4.58 1.1 6.47L12 17.4l-5.8 3.07 1.1-6.47L2.6 9.35l6.5-.95L12 2.5Z"
+            fill="none"
+          />
         ),
         heart: (
           <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8Z" />
@@ -2463,7 +2821,10 @@
         const [loaded, setLoaded] = useState(false);
         const showFallback = !src || failed || !loaded;
         return (
-          <div className={"doc-photo " + (className || "")} style={{ background: bg }}>
+          <div
+            className={"doc-photo " + (className || "")}
+            style={{ background: bg }}
+          >
             {showFallback && (
               <>
                 <svg
@@ -2510,9 +2871,15 @@
           <div className="card">
             {Array.from({ length: n }).map((_, i) => (
               <div className="appt-row" key={i}>
-                <div className="skel" style={{ width: 48, height: 48, borderRadius: 11 }} />
+                <div
+                  className="skel"
+                  style={{ width: 48, height: 48, borderRadius: 11 }}
+                />
                 <div style={{ flex: 1 }}>
-                  <div className="skel" style={{ width: "40%", height: 14, marginBottom: 7 }} />
+                  <div
+                    className="skel"
+                    style={{ width: "40%", height: 14, marginBottom: 7 }}
+                  />
                   <div className="skel" style={{ width: "25%", height: 12 }} />
                 </div>
               </div>
@@ -2568,15 +2935,26 @@
       }
 
       /* ════════════════ Topbar ════════════════ */
-      function Topbar({ title, user, theme, setTheme, onSignOut, setView, bookings, me }) {
+      function Topbar({
+        title,
+        user,
+        theme,
+        setTheme,
+        onSignOut,
+        setView,
+        bookings,
+        me,
+      }) {
         const [menu, setMenu] = useState(false);
         const [notif, setNotif] = useState(false);
         const menuRef = useRef(null);
         const notifRef = useRef(null);
         useEffect(() => {
           const h = (e) => {
-            if (menuRef.current && !menuRef.current.contains(e.target)) setMenu(false);
-            if (notifRef.current && !notifRef.current.contains(e.target)) setNotif(false);
+            if (menuRef.current && !menuRef.current.contains(e.target))
+              setMenu(false);
+            if (notifRef.current && !notifRef.current.contains(e.target))
+              setNotif(false);
           };
           document.addEventListener("mousedown", h);
           return () => document.removeEventListener("mousedown", h);
@@ -2609,7 +2987,13 @@
                   <div className="menu notif">
                     <div className="notif-head">Kommande tider</div>
                     {upcoming.length === 0 ? (
-                      <div style={{ padding: "16px 8px", color: "var(--text-tertiary)", fontSize: 14 }}>
+                      <div
+                        style={{
+                          padding: "16px 8px",
+                          color: "var(--text-tertiary)",
+                          fontSize: 14,
+                        }}
+                      >
                         Inget bokat ännu.
                       </div>
                     ) : (
@@ -2622,8 +3006,14 @@
                             <div style={{ fontSize: 14, fontWeight: 600 }}>
                               {b.doctorName}
                             </div>
-                            <div style={{ fontSize: 12, color: "var(--text-tertiary)" }}>
-                              {fmtShortDate(new Date(b.start))} · {fmtTimeD(new Date(b.start))}
+                            <div
+                              style={{
+                                fontSize: 12,
+                                color: "var(--text-tertiary)",
+                              }}
+                            >
+                              {fmtShortDate(new Date(b.start))} ·{" "}
+                              {fmtTimeD(new Date(b.start))}
                             </div>
                           </div>
                         </div>
@@ -2659,7 +3049,14 @@
                     <div className="n">{user.name || "Inloggad"}</div>
                     <div className="e">{user.email}</div>
                   </div>
-                  <Icon name="chevD" style={{ width: 16, height: 16, color: "var(--text-tertiary)" }} />
+                  <Icon
+                    name="chevD"
+                    style={{
+                      width: 16,
+                      height: 16,
+                      color: "var(--text-tertiary)",
+                    }}
+                  />
                 </div>
                 {menu && (
                   <div className="menu">
@@ -2694,11 +3091,30 @@
       }
 
       /* ════════════════ Landing ════════════════ */
-      function Landing({ onSignIn, signingIn, sdkError, host, theme, setTheme }) {
+      function Landing({
+        onSignIn,
+        signingIn,
+        sdkError,
+        host,
+        theme,
+        setTheme,
+      }) {
         const feats = [
-          ["bolt", "Boka på sekunder", "Välj en läkare, välj en tid – klart. Inga telefonsamtal, ingen väntan i kö."],
-          ["shield", "Inga krockar", "Tillgängligheten kontrolleras i samma stund du bokar — dubbelbokningar är omöjliga."],
-          ["heart", "Vård du kan lita på", "Bläddra bland verifierade specialister med riktiga omdömen och tydliga priser."],
+          [
+            "bolt",
+            "Boka på sekunder",
+            "Välj en läkare, välj en tid – klart. Inga telefonsamtal, ingen väntan i kö.",
+          ],
+          [
+            "shield",
+            "Inga krockar",
+            "Tillgängligheten kontrolleras i samma stund du bokar — dubbelbokningar är omöjliga.",
+          ],
+          [
+            "heart",
+            "Vård du kan lita på",
+            "Bläddra bland verifierade specialister med riktiga omdömen och tydliga priser.",
+          ],
         ];
         return (
           <div className="landing">
@@ -2735,7 +3151,8 @@
                 <h1>Hitta en läkare och boka på sekunder</h1>
                 <p>
                   Pulse är ett lugnt och snabbt sätt att boka tid hos pålitliga
-                  specialister. Se vem som är tillgänglig, välj en tid – så är det klart.
+                  specialister. Se vem som är tillgänglig, välj en tid – så är
+                  det klart.
                 </p>
                 <div className="hero-cta">
                   <button
@@ -2747,13 +3164,18 @@
                   </button>
                 </div>
                 <p className="tiny" style={{ marginTop: 14 }}>
-                  Inloggningen hanteras säkert av Klar — ingen installation krävs.
+                  Inloggningen hanteras säkert av Klar — ingen installation
+                  krävs.
                 </p>
                 {sdkError && (
-                  <p className="tiny" style={{ marginTop: 8, color: "var(--danger)" }}>
-                    Kunde inte ladda inloggningen från {host}: {sdkError}. Kontrollera
-                    att värden körs och serverar <code>/sdk/users.js</code> med
-                    CORS, och öppna sidan via http(s) (inte file://).
+                  <p
+                    className="tiny"
+                    style={{ marginTop: 8, color: "var(--danger)" }}
+                  >
+                    Kunde inte ladda inloggningen från {host}: {sdkError}.
+                    Kontrollera att värden körs och serverar{" "}
+                    <code>/sdk/users.js</code> med CORS, och öppna sidan via
+                    http(s) (inte file://).
                   </p>
                 )}
                 <div className="features">
@@ -2787,7 +3209,9 @@
 
         const first = new Date(cursor.getFullYear(), cursor.getMonth(), 1);
         const gridStart = startOfWeekMon(first);
-        const cells = Array.from({ length: 42 }, (_, i) => addDays(gridStart, i));
+        const cells = Array.from({ length: 42 }, (_, i) =>
+          addDays(gridStart, i),
+        );
         const today = startOfDay(new Date());
         const step = (dir) => {
           const x = new Date(cursor);
@@ -2803,10 +3227,18 @@
                 {MONTHS[cursor.getMonth()]} {cursor.getFullYear()}
               </div>
               <div className="cal-navs">
-                <button className="cal-nav" onClick={() => step(-1)} aria-label="Föregående månad">
+                <button
+                  className="cal-nav"
+                  onClick={() => step(-1)}
+                  aria-label="Föregående månad"
+                >
                   <Icon name="chevL" />
                 </button>
-                <button className="cal-nav" onClick={() => step(1)} aria-label="Nästa månad">
+                <button
+                  className="cal-nav"
+                  onClick={() => step(1)}
+                  aria-label="Nästa månad"
+                >
                   <Icon name="chevR" />
                 </button>
               </div>
@@ -2880,7 +3312,9 @@
           return true;
         };
 
-        const wordCount = concerns.trim() ? concerns.trim().split(/\s+/).length : 0;
+        const wordCount = concerns.trim()
+          ? concerns.trim().split(/\s+/).length
+          : 0;
 
         return (
           <div className="panel">
@@ -2899,7 +3333,9 @@
                 {SLOT_TIMES.map((t, i) => {
                   const free = slotIsFree(t);
                   const isSel =
-                    selectedSlot && selectedSlot.h === t.h && selectedSlot.m === t.m;
+                    selectedSlot &&
+                    selectedSlot.h === t.h &&
+                    selectedSlot.m === t.m;
                   return (
                     <button
                       key={i}
@@ -2919,14 +3355,18 @@
               <div className="concerns-box">
                 <textarea
                   className="concerns-area"
-                  placeholder={"Beskriv dina symtom eller besvär…\nT.ex. Röd, kliande hud i en vecka. Värre efter sol."}
+                  placeholder={
+                    "Beskriv dina symtom eller besvär…\nT.ex. Röd, kliande hud i en vecka. Värre efter sol."
+                  }
                   value={concerns}
                   onChange={(e) => setConcerns(e.target.value)}
                 />
                 <div className="concerns-foot">
                   <button
                     className="concerns-attach"
-                    onClick={() => toast("Bifogade filer kommer snart.", "info")}
+                    onClick={() =>
+                      toast("Bifogade filer kommer snart.", "info")
+                    }
                     aria-label="Bifoga en fil"
                   >
                     <Icon name="clip" />
@@ -3061,15 +3501,23 @@
               </div>
             </div>
             <div className="doc-card-actions">
-              <button className="btn btn-primary btn-sm" onClick={() => onBook(doctor)}>
+              <button
+                className="btn btn-primary btn-sm"
+                onClick={() => onBook(doctor)}
+              >
                 Boka nu
               </button>
-              <button className="btn btn-secondary btn-sm" onClick={() => onView(doctor)}>
+              <button
+                className="btn btn-secondary btn-sm"
+                onClick={() => onView(doctor)}
+              >
                 Detaljer
               </button>
               <button
                 className="chat-btn"
-                onClick={() => toast("Chatt med " + doctor.name + " kommer snart.", "info")}
+                onClick={() =>
+                  toast("Chatt med " + doctor.name + " kommer snart.", "info")
+                }
                 aria-label="Chatt"
               >
                 <Icon name="chat" />
@@ -3085,7 +3533,14 @@
         return (
           <div className={"panel detail-col" + (open ? " open" : "")}>
             {!doctor ? (
-              <div style={{ padding: 24, flex: 1, display: "grid", placeItems: "center" }}>
+              <div
+                style={{
+                  padding: 24,
+                  flex: 1,
+                  display: "grid",
+                  placeItems: "center",
+                }}
+              >
                 <EmptyState
                   icon="users"
                   title="Ingen läkare vald"
@@ -3097,12 +3552,20 @@
                 <div className="panel-scroll" style={{ padding: 0 }}>
                   <div className="detail-head">
                     <div className="panel-title">Om läkaren</div>
-                    <button className="icon-btn" onClick={onClose} aria-label="Stäng">
+                    <button
+                      className="icon-btn"
+                      onClick={onClose}
+                      aria-label="Stäng"
+                    >
                       <Icon name="x" />
                     </button>
                   </div>
                   <div style={{ padding: "0 var(--space-lg) var(--space-lg)" }}>
-                    <DocPhoto doctor={doctor} className="detail-photo" variant="hero" />
+                    <DocPhoto
+                      doctor={doctor}
+                      className="detail-photo"
+                      variant="hero"
+                    />
                     <div className="detail-name">{doctor.name}</div>
                     <div className="detail-tags">
                       <span className="detail-tag">
@@ -3132,10 +3595,23 @@
                     </div>
 
                     <div className="detail-section">
-                      <div className="detail-h" style={{ justifyContent: "space-between" }}>
+                      <div
+                        className="detail-h"
+                        style={{ justifyContent: "space-between" }}
+                      >
                         <span>Omdömen</span>
-                        <span style={{ display: "inline-flex", alignItems: "center", gap: 6, fontWeight: 500, color: "var(--text-secondary)", fontSize: 13 }}>
-                          <Stars value={doctor.rating} /> {doctor.rating} ({doctor.reviewsCount})
+                        <span
+                          style={{
+                            display: "inline-flex",
+                            alignItems: "center",
+                            gap: 6,
+                            fontWeight: 500,
+                            color: "var(--text-secondary)",
+                            fontSize: 13,
+                          }}
+                        >
+                          <Stars value={doctor.rating} /> {doctor.rating} (
+                          {doctor.reviewsCount})
                         </span>
                       </div>
                       <div className="review-scroll">
@@ -3153,12 +3629,20 @@
                   </div>
                 </div>
                 <div className="detail-foot">
-                  <button className="btn btn-primary" onClick={() => onBook(doctor)}>
+                  <button
+                    className="btn btn-primary"
+                    onClick={() => onBook(doctor)}
+                  >
                     Boka nu
                   </button>
                   <button
                     className="btn btn-secondary"
-                    onClick={() => toast("Chatt med " + doctor.name + " kommer snart.", "info")}
+                    onClick={() =>
+                      toast(
+                        "Chatt med " + doctor.name + " kommer snart.",
+                        "info",
+                      )
+                    }
                   >
                     <Icon name="chat" /> Chatt
                   </button>
@@ -3171,7 +3655,9 @@
 
       /* ════════════════ Appointment view (3 columns) ════════════════ */
       function AppointmentView({ bookings, openModal }) {
-        const [selectedDate, setSelectedDate] = useState(() => startOfDay(new Date()));
+        const [selectedDate, setSelectedDate] = useState(() =>
+          startOfDay(new Date()),
+        );
         const [selectedSlot, setSelectedSlot] = useState(null);
         const [concerns, setConcerns] = useState("");
         const [selectedDoctor, setSelectedDoctor] = useState(DOCTORS[0]);
@@ -3266,7 +3752,11 @@
             <div className="modal" onClick={(e) => e.stopPropagation()}>
               <div className="modal-head">
                 <div className="modal-title">Bekräfta bokning</div>
-                <button className="icon-btn" onClick={onClose} aria-label="Stäng">
+                <button
+                  className="icon-btn"
+                  onClick={onClose}
+                  aria-label="Stäng"
+                >
                   <Icon name="x" />
                 </button>
               </div>
@@ -3276,7 +3766,9 @@
                     <DocPhoto doctor={doctor} />
                     <div>
                       <div style={{ fontWeight: 700 }}>{doctor.name}</div>
-                      <div style={{ fontSize: 13, color: "var(--text-secondary)" }}>
+                      <div
+                        style={{ fontSize: 13, color: "var(--text-secondary)" }}
+                      >
                         {doctor.specialty} · ${doctor.price}/tim
                       </div>
                     </div>
@@ -3290,7 +3782,9 @@
                   {concerns && (
                     <div className="srow" style={{ alignItems: "flex-start" }}>
                       <Icon name="info" />
-                      <span style={{ color: "var(--text-secondary)" }}>{concerns}</span>
+                      <span style={{ color: "var(--text-secondary)" }}>
+                        {concerns}
+                      </span>
                     </div>
                   )}
                 </div>
@@ -3308,10 +3802,18 @@
                 </div>
               </div>
               <div className="modal-foot">
-                <button className="btn btn-secondary" onClick={onClose} disabled={busy}>
+                <button
+                  className="btn btn-secondary"
+                  onClick={onClose}
+                  disabled={busy}
+                >
                   Avbryt
                 </button>
-                <button className="btn btn-primary" onClick={confirm} disabled={busy}>
+                <button
+                  className="btn btn-primary"
+                  onClick={confirm}
+                  disabled={busy}
+                >
                   {busy ? "Bokar…" : "Bekräfta bokning"}
                 </button>
               </div>
@@ -3324,7 +3826,10 @@
       function ApptRow({ b, onCancel, past }) {
         const s = new Date(b.start);
         const e = new Date(b.end);
-        const doctor = DOC_BY_ID[b.doctorId] || { id: b.doctorId, name: b.doctorName };
+        const doctor = DOC_BY_ID[b.doctorId] || {
+          id: b.doctorId,
+          name: b.doctorName,
+        };
         return (
           <div className="appt-row">
             <DocPhoto doctor={doctor} />
@@ -3342,13 +3847,24 @@
               <span
                 className={
                   "badge " +
-                  (b.status === "cancelled" ? "cancelled" : past ? "past" : "confirmed")
+                  (b.status === "cancelled"
+                    ? "cancelled"
+                    : past
+                      ? "past"
+                      : "confirmed")
                 }
               >
-                {b.status === "cancelled" ? "avbokad" : past ? "tidigare" : "bekräftad"}
+                {b.status === "cancelled"
+                  ? "avbokad"
+                  : past
+                    ? "tidigare"
+                    : "bekräftad"}
               </span>
               {onCancel && b.status === "confirmed" && !past && (
-                <button className="btn btn-danger btn-sm" onClick={() => onCancel(b)}>
+                <button
+                  className="btn btn-danger btn-sm"
+                  onClick={() => onCancel(b)}
+                >
                   Avboka
                 </button>
               )}
@@ -3361,10 +3877,14 @@
         const now = Date.now();
         const mine = bookings.filter((b) => b.userId === me.sub);
         const upcoming = mine
-          .filter((b) => b.status === "confirmed" && new Date(b.end).getTime() >= now)
+          .filter(
+            (b) => b.status === "confirmed" && new Date(b.end).getTime() >= now,
+          )
           .sort((a, b) => new Date(a.start) - new Date(b.start));
         const past = mine
-          .filter((b) => b.status !== "confirmed" || new Date(b.end).getTime() < now)
+          .filter(
+            (b) => b.status !== "confirmed" || new Date(b.end).getTime() < now,
+          )
           .sort((a, b) => new Date(b.start) - new Date(a.start));
         const todayCount = upcoming.filter((b) =>
           isSameDay(new Date(b.start), new Date()),
@@ -3375,9 +3895,14 @@
             <div className="page-head">
               <div>
                 <div className="page-title">Mina bokningar</div>
-                <div className="page-sub">Allt du har bokat, samlat på ett ställe.</div>
+                <div className="page-sub">
+                  Allt du har bokat, samlat på ett ställe.
+                </div>
               </div>
-              <button className="btn btn-primary" onClick={() => setView("appointment")}>
+              <button
+                className="btn btn-primary"
+                onClick={() => setView("appointment")}
+              >
                 <Icon name="plus" /> Boka tid
               </button>
             </div>
@@ -3418,7 +3943,10 @@
                   title="Inga kommande tider"
                   text="Boka hos en specialist så syns det här."
                   action={
-                    <button className="btn btn-primary" onClick={() => setView("appointment")}>
+                    <button
+                      className="btn btn-primary"
+                      onClick={() => setView("appointment")}
+                    >
                       Hitta en läkare
                     </button>
                   }
@@ -3485,8 +4013,18 @@
               </div>
             </div>
 
-            <div className="card card-pad" style={{ display: "flex", flexDirection: "column", gap: 24 }}>
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 16 }}>
+            <div
+              className="card card-pad"
+              style={{ display: "flex", flexDirection: "column", gap: 24 }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  gap: 16,
+                }}
+              >
                 <div>
                   <div style={{ fontWeight: 600 }}>Utseende</div>
                   <div className="tiny">Välj ljust eller mörkt läge.</div>
@@ -3516,7 +4054,9 @@
                 <select
                   className="select"
                   value={local.timezone}
-                  onChange={(e) => setLocal((s) => ({ ...s, timezone: e.target.value }))}
+                  onChange={(e) =>
+                    setLocal((s) => ({ ...s, timezone: e.target.value }))
+                  }
                 >
                   {TIMEZONES.map((tz) => (
                     <option key={tz} value={tz}>
@@ -3526,21 +4066,36 @@
                 </select>
               </div>
 
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 16 }}>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  gap: 16,
+                }}
+              >
                 <div>
                   <div style={{ fontWeight: 600 }}>Aviseringar</div>
-                  <div className="tiny">Påminnelser och uppdateringar om tider.</div>
+                  <div className="tiny">
+                    Påminnelser och uppdateringar om tider.
+                  </div>
                 </div>
                 <div
                   className={"toggle" + (local.notifications ? " on" : "")}
-                  onClick={() => setLocal((s) => ({ ...s, notifications: !s.notifications }))}
+                  onClick={() =>
+                    setLocal((s) => ({ ...s, notifications: !s.notifications }))
+                  }
                   role="switch"
                   aria-checked={local.notifications}
                 />
               </div>
 
               <div style={{ display: "flex", justifyContent: "flex-end" }}>
-                <button className="btn btn-primary" onClick={save} disabled={saving}>
+                <button
+                  className="btn btn-primary"
+                  onClick={save}
+                  disabled={saving}
+                >
                   {saving ? "Sparar…" : "Spara ändringar"}
                 </button>
               </div>
@@ -3551,32 +4106,112 @@
 
       /* ════════════════ Admin (project owner only) ════════════════ */
       const miniBtn = {
-        fontSize: "12px", padding: "5px 9px", border: "1px solid var(--border-color)",
-        borderRadius: "var(--radius-sm)", background: "var(--bg-elevated)",
-        color: "var(--text-secondary)", cursor: "pointer",
+        fontSize: "12px",
+        padding: "5px 9px",
+        border: "1px solid var(--border-color)",
+        borderRadius: "var(--radius-sm)",
+        background: "var(--bg-elevated)",
+        color: "var(--text-secondary)",
+        cursor: "pointer",
       };
-      const sectionTitle = { fontSize: "14px", fontWeight: 700, margin: "0 0 var(--space-sm)" };
+      const sectionTitle = {
+        fontSize: "14px",
+        fontWeight: 700,
+        margin: "0 0 var(--space-sm)",
+      };
 
       function AdminDataRow({ dataKey, value, onSave, onDelete }) {
         const [editing, setEditing] = useState(false);
         const [draft, setDraft] = useState("");
         const pretty = JSON.stringify(value, null, 2);
         return (
-          <div style={{ border: "1px solid var(--border-color)", borderRadius: "var(--radius-md)", padding: "var(--space-md)", marginBottom: "var(--space-sm)", background: "var(--bg-elevated)" }}>
-            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: editing ? "var(--space-sm)" : 0 }}>
-              <code style={{ fontSize: "13px", fontWeight: 600 }}>{dataKey}</code>
+          <div
+            style={{
+              border: "1px solid var(--border-color)",
+              borderRadius: "var(--radius-md)",
+              padding: "var(--space-md)",
+              marginBottom: "var(--space-sm)",
+              background: "var(--bg-elevated)",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                marginBottom: editing ? "var(--space-sm)" : 0,
+              }}
+            >
+              <code style={{ fontSize: "13px", fontWeight: 600 }}>
+                {dataKey}
+              </code>
               <div style={{ display: "flex", gap: "var(--space-xs)" }}>
-                {!editing && <button style={miniBtn} onClick={() => { setDraft(pretty); setEditing(true); }}>Redigera</button>}
-                {editing && <button style={miniBtn} onClick={() => { onSave(draft); setEditing(false); }}>Spara</button>}
-                {editing && <button style={miniBtn} onClick={() => setEditing(false)}>Avbryt</button>}
-                <button style={{ ...miniBtn, color: "var(--danger)" }} onClick={onDelete}>Ta bort</button>
+                {!editing && (
+                  <button
+                    style={miniBtn}
+                    onClick={() => {
+                      setDraft(pretty);
+                      setEditing(true);
+                    }}
+                  >
+                    Redigera
+                  </button>
+                )}
+                {editing && (
+                  <button
+                    style={miniBtn}
+                    onClick={() => {
+                      onSave(draft);
+                      setEditing(false);
+                    }}
+                  >
+                    Spara
+                  </button>
+                )}
+                {editing && (
+                  <button style={miniBtn} onClick={() => setEditing(false)}>
+                    Avbryt
+                  </button>
+                )}
+                <button
+                  style={{ ...miniBtn, color: "var(--danger)" }}
+                  onClick={onDelete}
+                >
+                  Ta bort
+                </button>
               </div>
             </div>
             {editing ? (
-              <textarea value={draft} onChange={(e) => setDraft(e.target.value)} spellCheck={false}
-                style={{ width: "100%", minHeight: "90px", fontFamily: "monospace", fontSize: "12px", padding: "var(--space-sm)", borderRadius: "var(--radius-sm)", border: "1px solid var(--border-color)", background: "var(--bg-secondary)", color: "var(--text-primary)", resize: "vertical", boxSizing: "border-box" }} />
+              <textarea
+                value={draft}
+                onChange={(e) => setDraft(e.target.value)}
+                spellCheck={false}
+                style={{
+                  width: "100%",
+                  minHeight: "90px",
+                  fontFamily: "monospace",
+                  fontSize: "12px",
+                  padding: "var(--space-sm)",
+                  borderRadius: "var(--radius-sm)",
+                  border: "1px solid var(--border-color)",
+                  background: "var(--bg-secondary)",
+                  color: "var(--text-primary)",
+                  resize: "vertical",
+                  boxSizing: "border-box",
+                }}
+              />
             ) : (
-              <pre style={{ margin: 0, fontSize: "12px", color: "var(--text-secondary)", whiteSpace: "pre-wrap", wordBreak: "break-word" }}>{pretty}</pre>
+              <pre
+                style={{
+                  margin: 0,
+                  fontSize: "12px",
+                  color: "var(--text-secondary)",
+                  whiteSpace: "pre-wrap",
+                  wordBreak: "break-word",
+                }}
+              >
+                {pretty}
+              </pre>
             )}
           </div>
         );
@@ -3592,80 +4227,246 @@
         const [newKey, setNewKey] = useState("");
 
         const loadUsers = useCallback(async () => {
-          try { const r = await client.admin.listUsers({ limit: 200 }); setUsers(r.users); setErr(null); }
-          catch (e) { setErr(e && e.status === 403 ? "Du är inte administratör för det här projektet." : e.message || "Kunde inte ladda användare"); }
+          try {
+            const r = await client.admin.listUsers({ limit: 200 });
+            setUsers(r.users);
+            setErr(null);
+          } catch (e) {
+            setErr(
+              e && e.status === 403
+                ? "Du är inte administratör för det här projektet."
+                : e.message || "Kunde inte ladda användare",
+            );
+          }
         }, [client]);
-        useEffect(() => { loadUsers(); }, [loadUsers]);
+        useEffect(() => {
+          loadUsers();
+        }, [loadUsers]);
 
-        const openUser = useCallback(async (id) => {
-          setSelId(id); setDetail(null); setDetailLoading(true);
-          try { setDetail(await client.admin.getUser(id)); }
-          catch (e) { alert(e.message || "Kunde inte ladda användaren"); }
-          finally { setDetailLoading(false); }
-        }, [client]);
-        const refreshDetail = useCallback(() => { if (selId != null) openUser(selId); }, [selId, openUser]);
+        const openUser = useCallback(
+          async (id) => {
+            setSelId(id);
+            setDetail(null);
+            setDetailLoading(true);
+            try {
+              setDetail(await client.admin.getUser(id));
+            } catch (e) {
+              alert(e.message || "Kunde inte ladda användaren");
+            } finally {
+              setDetailLoading(false);
+            }
+          },
+          [client],
+        );
+        const refreshDetail = useCallback(() => {
+          if (selId != null) openUser(selId);
+        }, [selId, openUser]);
 
         const removeUser = async () => {
           if (!detail) return;
           const who = detail.profile.name || detail.profile.email;
-          if (!window.confirm(`Ta bort ${who}? Deras sparade data raderas; deras tider finns kvar men förlorar sin ägare.`)) return;
-          try { await client.admin.deleteUser(detail.profile.id); setSelId(null); setDetail(null); loadUsers(); }
-          catch (e) { alert(e.message || "Borttagningen misslyckades"); }
+          if (
+            !window.confirm(
+              `Ta bort ${who}? Deras sparade data raderas; deras tider finns kvar men förlorar sin ägare.`,
+            )
+          )
+            return;
+          try {
+            await client.admin.deleteUser(detail.profile.id);
+            setSelId(null);
+            setDetail(null);
+            loadUsers();
+          } catch (e) {
+            alert(e.message || "Borttagningen misslyckades");
+          }
         };
         const cancelRec = async (rec) => {
-          try { await client.admin.updateRecord(rec.collection, rec.id, { status: "cancelled" }); refreshDetail(); loadUsers(); }
-          catch (e) { alert(e.message || "Kunde inte avboka"); }
+          try {
+            await client.admin.updateRecord(rec.collection, rec.id, {
+              status: "cancelled",
+            });
+            refreshDetail();
+            loadUsers();
+          } catch (e) {
+            alert(e.message || "Kunde inte avboka");
+          }
         };
         const deleteRec = async (rec) => {
           if (!window.confirm("Ta bort den här posten permanent?")) return;
-          try { await client.admin.deleteRecord(rec.collection, rec.id); refreshDetail(); loadUsers(); }
-          catch (e) { alert(e.message || "Borttagningen misslyckades"); }
+          try {
+            await client.admin.deleteRecord(rec.collection, rec.id);
+            refreshDetail();
+            loadUsers();
+          } catch (e) {
+            alert(e.message || "Borttagningen misslyckades");
+          }
         };
         const saveData = async (key, raw) => {
-          let value; try { value = JSON.parse(raw); } catch { alert("Värdet måste vara giltig JSON."); return; }
-          try { await client.admin.setUserData(detail.profile.id, key, value); refreshDetail(); }
-          catch (e) { alert(e.message || "Sparandet misslyckades"); }
+          let value;
+          try {
+            value = JSON.parse(raw);
+          } catch {
+            alert("Värdet måste vara giltig JSON.");
+            return;
+          }
+          try {
+            await client.admin.setUserData(detail.profile.id, key, value);
+            refreshDetail();
+          } catch (e) {
+            alert(e.message || "Sparandet misslyckades");
+          }
         };
         const addKey = async () => {
-          const k = newKey.trim(); if (!k) return;
-          try { await client.admin.setUserData(detail.profile.id, k, null); setNewKey(""); refreshDetail(); }
-          catch (e) { alert(e.message || "Kunde inte lägga till"); }
+          const k = newKey.trim();
+          if (!k) return;
+          try {
+            await client.admin.setUserData(detail.profile.id, k, null);
+            setNewKey("");
+            refreshDetail();
+          } catch (e) {
+            alert(e.message || "Kunde inte lägga till");
+          }
         };
         const deleteData = async (key) => {
           if (!window.confirm(`Ta bort datanyckeln "${key}"?`)) return;
-          try { await client.admin.deleteUserData(detail.profile.id, key); refreshDetail(); }
-          catch (e) { alert(e.message || "Borttagningen misslyckades"); }
+          try {
+            await client.admin.deleteUserData(detail.profile.id, key);
+            refreshDetail();
+          } catch (e) {
+            alert(e.message || "Borttagningen misslyckades");
+          }
         };
 
         const s = q.trim().toLowerCase();
-        const filtered = (users || []).filter((u) => !s || (u.name || "").toLowerCase().includes(s) || (u.email || "").toLowerCase().includes(s));
+        const filtered = (users || []).filter(
+          (u) =>
+            !s ||
+            (u.name || "").toLowerCase().includes(s) ||
+            (u.email || "").toLowerCase().includes(s),
+        );
 
         return (
           <div className="page" style={{ maxWidth: 980 }}>
             <h1 style={{ marginBottom: "var(--space-xs)" }}>Admin</h1>
-            <p style={{ color: "var(--text-secondary)", marginBottom: "var(--space-lg)" }}>
+            <p
+              style={{
+                color: "var(--text-secondary)",
+                marginBottom: "var(--space-lg)",
+              }}
+            >
               Se alla som har loggat in och redigera deras tider och data.
             </p>
-            {err && <div style={{ padding: "var(--space-md)", borderRadius: "var(--radius-md)", background: "var(--danger-soft)", color: "var(--danger)", marginBottom: "var(--space-md)" }}>{err}</div>}
+            {err && (
+              <div
+                style={{
+                  padding: "var(--space-md)",
+                  borderRadius: "var(--radius-md)",
+                  background: "var(--danger-soft)",
+                  color: "var(--danger)",
+                  marginBottom: "var(--space-md)",
+                }}
+              >
+                {err}
+              </div>
+            )}
 
-            <div style={{ display: "flex", gap: "var(--space-lg)", alignItems: "flex-start", flexWrap: "wrap" }}>
-              <div style={{ flex: "1 1 280px", minWidth: "260px", maxWidth: "360px" }}>
-                <input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Sök användare…"
-                  style={{ width: "100%", padding: "10px 12px", marginBottom: "var(--space-sm)", borderRadius: "var(--radius-md)", border: "1px solid var(--border-color)", background: "var(--bg-elevated)", color: "var(--text-primary)", boxSizing: "border-box" }} />
+            <div
+              style={{
+                display: "flex",
+                gap: "var(--space-lg)",
+                alignItems: "flex-start",
+                flexWrap: "wrap",
+              }}
+            >
+              <div
+                style={{
+                  flex: "1 1 280px",
+                  minWidth: "260px",
+                  maxWidth: "360px",
+                }}
+              >
+                <input
+                  value={q}
+                  onChange={(e) => setQ(e.target.value)}
+                  placeholder="Sök användare…"
+                  style={{
+                    width: "100%",
+                    padding: "10px 12px",
+                    marginBottom: "var(--space-sm)",
+                    borderRadius: "var(--radius-md)",
+                    border: "1px solid var(--border-color)",
+                    background: "var(--bg-elevated)",
+                    color: "var(--text-primary)",
+                    boxSizing: "border-box",
+                  }}
+                />
                 {!users ? (
-                  <div style={{ color: "var(--text-tertiary)", padding: "var(--space-md)" }}>Läser in…</div>
+                  <div
+                    style={{
+                      color: "var(--text-tertiary)",
+                      padding: "var(--space-md)",
+                    }}
+                  >
+                    Läser in…
+                  </div>
                 ) : filtered.length === 0 ? (
-                  <div style={{ color: "var(--text-tertiary)", padding: "var(--space-md)" }}>Inga användare.</div>
+                  <div
+                    style={{
+                      color: "var(--text-tertiary)",
+                      padding: "var(--space-md)",
+                    }}
+                  >
+                    Inga användare.
+                  </div>
                 ) : (
                   filtered.map((u) => {
                     const active = u.id === selId;
                     return (
-                      <button key={u.id} onClick={() => openUser(u.id)}
-                        style={{ display: "flex", alignItems: "center", gap: "var(--space-sm)", width: "100%", textAlign: "left", padding: "var(--space-sm)", marginBottom: "6px", borderRadius: "var(--radius-md)", cursor: "pointer", color: "var(--text-primary)", border: "1px solid " + (active ? "var(--accent)" : "var(--border-color)"), background: active ? "var(--accent-soft)" : "var(--bg-elevated)" }}>
+                      <button
+                        key={u.id}
+                        onClick={() => openUser(u.id)}
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: "var(--space-sm)",
+                          width: "100%",
+                          textAlign: "left",
+                          padding: "var(--space-sm)",
+                          marginBottom: "6px",
+                          borderRadius: "var(--radius-md)",
+                          cursor: "pointer",
+                          color: "var(--text-primary)",
+                          border:
+                            "1px solid " +
+                            (active ? "var(--accent)" : "var(--border-color)"),
+                          background: active
+                            ? "var(--accent-soft)"
+                            : "var(--bg-elevated)",
+                        }}
+                      >
                         <Avatar user={u} />
                         <span style={{ flex: 1, minWidth: 0 }}>
-                          <span style={{ display: "block", fontWeight: 600, fontSize: "14px", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{u.name || u.email}</span>
-                          <span style={{ display: "block", fontSize: "12px", color: "var(--text-tertiary)" }}>{u.dataKeys} nycklar · {u.records} poster</span>
+                          <span
+                            style={{
+                              display: "block",
+                              fontWeight: 600,
+                              fontSize: "14px",
+                              whiteSpace: "nowrap",
+                              overflow: "hidden",
+                              textOverflow: "ellipsis",
+                            }}
+                          >
+                            {u.name || u.email}
+                          </span>
+                          <span
+                            style={{
+                              display: "block",
+                              fontSize: "12px",
+                              color: "var(--text-tertiary)",
+                            }}
+                          >
+                            {u.dataKeys} nycklar · {u.records} poster
+                          </span>
                         </span>
                       </button>
                     );
@@ -3675,50 +4476,188 @@
 
               <div style={{ flex: "2 1 420px", minWidth: "300px" }}>
                 {selId == null ? (
-                  <div style={{ padding: "var(--space-2xl)", textAlign: "center", color: "var(--text-tertiary)", border: "1px dashed var(--border-color)", borderRadius: "var(--radius-lg)" }}>
+                  <div
+                    style={{
+                      padding: "var(--space-2xl)",
+                      textAlign: "center",
+                      color: "var(--text-tertiary)",
+                      border: "1px dashed var(--border-color)",
+                      borderRadius: "var(--radius-lg)",
+                    }}
+                  >
                     Välj en användare för att se och redigera detaljerna.
                   </div>
                 ) : detailLoading || !detail ? (
-                  <div style={{ padding: "var(--space-2xl)", textAlign: "center", color: "var(--text-tertiary)" }}>Läser in…</div>
+                  <div
+                    style={{
+                      padding: "var(--space-2xl)",
+                      textAlign: "center",
+                      color: "var(--text-tertiary)",
+                    }}
+                  >
+                    Läser in…
+                  </div>
                 ) : (
                   <>
-                    <div style={{ display: "flex", alignItems: "center", gap: "var(--space-md)", padding: "var(--space-lg)", borderRadius: "var(--radius-lg)", background: "var(--bg-elevated)", border: "1px solid var(--border-color)", marginBottom: "var(--space-lg)" }}>
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "var(--space-md)",
+                        padding: "var(--space-lg)",
+                        borderRadius: "var(--radius-lg)",
+                        background: "var(--bg-elevated)",
+                        border: "1px solid var(--border-color)",
+                        marginBottom: "var(--space-lg)",
+                      }}
+                    >
                       <Avatar user={detail.profile} />
                       <div style={{ flex: 1, minWidth: 0 }}>
-                        <div style={{ fontWeight: 700, fontSize: "17px" }}>{detail.profile.name || "—"}</div>
-                        <div style={{ color: "var(--text-secondary)", fontSize: "13px" }}>{detail.profile.email}</div>
+                        <div style={{ fontWeight: 700, fontSize: "17px" }}>
+                          {detail.profile.name || "—"}
+                        </div>
+                        <div
+                          style={{
+                            color: "var(--text-secondary)",
+                            fontSize: "13px",
+                          }}
+                        >
+                          {detail.profile.email}
+                        </div>
                       </div>
-                      <button onClick={removeUser} style={{ padding: "8px 14px", borderRadius: "var(--radius-sm)", border: "none", background: "var(--danger-soft)", color: "var(--danger)", fontWeight: 600, cursor: "pointer" }}>Ta bort användare</button>
+                      <button
+                        onClick={removeUser}
+                        style={{
+                          padding: "8px 14px",
+                          borderRadius: "var(--radius-sm)",
+                          border: "none",
+                          background: "var(--danger-soft)",
+                          color: "var(--danger)",
+                          fontWeight: 600,
+                          cursor: "pointer",
+                        }}
+                      >
+                        Ta bort användare
+                      </button>
                     </div>
 
-                    <h2 style={sectionTitle}>Tider ({detail.records.length})</h2>
-                    {detail.records.length === 0 && <div style={{ color: "var(--text-tertiary)", marginBottom: "var(--space-md)" }}>Inga tider.</div>}
+                    <h2 style={sectionTitle}>
+                      Tider ({detail.records.length})
+                    </h2>
+                    {detail.records.length === 0 && (
+                      <div
+                        style={{
+                          color: "var(--text-tertiary)",
+                          marginBottom: "var(--space-md)",
+                        }}
+                      >
+                        Inga tider.
+                      </div>
+                    )}
                     {detail.records.map((rec) => {
                       const b = rec.data || {};
                       const cancelled = b.status === "cancelled";
                       return (
-                        <div key={rec.id} style={{ display: "flex", alignItems: "center", gap: "var(--space-md)", padding: "var(--space-md)", marginBottom: "var(--space-sm)", borderRadius: "var(--radius-md)", border: "1px solid var(--border-color)", background: "var(--bg-elevated)", opacity: cancelled ? 0.6 : 1 }}>
+                        <div
+                          key={rec.id}
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                            gap: "var(--space-md)",
+                            padding: "var(--space-md)",
+                            marginBottom: "var(--space-sm)",
+                            borderRadius: "var(--radius-md)",
+                            border: "1px solid var(--border-color)",
+                            background: "var(--bg-elevated)",
+                            opacity: cancelled ? 0.6 : 1,
+                          }}
+                        >
                           <div style={{ flex: 1, minWidth: 0 }}>
-                            <div style={{ fontWeight: 600 }}>{b.doctorName || b.doctorId || rec.collection}</div>
-                            <div style={{ fontSize: "12px", color: "var(--text-tertiary)" }}>
-                              {b.start ? `${fmtShortDate(new Date(b.start))} ${fmtTimeD(new Date(b.start))}` : ""} · {b.status || "—"}
+                            <div style={{ fontWeight: 600 }}>
+                              {b.doctorName || b.doctorId || rec.collection}
+                            </div>
+                            <div
+                              style={{
+                                fontSize: "12px",
+                                color: "var(--text-tertiary)",
+                              }}
+                            >
+                              {b.start
+                                ? `${fmtShortDate(new Date(b.start))} ${fmtTimeD(new Date(b.start))}`
+                                : ""}{" "}
+                              · {b.status || "—"}
                             </div>
                           </div>
-                          {!cancelled && <button style={miniBtn} onClick={() => cancelRec(rec)}>Avboka</button>}
-                          <button style={{ ...miniBtn, color: "var(--danger)" }} onClick={() => deleteRec(rec)}>Ta bort</button>
+                          {!cancelled && (
+                            <button
+                              style={miniBtn}
+                              onClick={() => cancelRec(rec)}
+                            >
+                              Avboka
+                            </button>
+                          )}
+                          <button
+                            style={{ ...miniBtn, color: "var(--danger)" }}
+                            onClick={() => deleteRec(rec)}
+                          >
+                            Ta bort
+                          </button>
                         </div>
                       );
                     })}
 
-                    <h2 style={{ ...sectionTitle, marginTop: "var(--space-xl)" }}>Sparad data ({Object.keys(detail.data).length})</h2>
-                    {Object.keys(detail.data).length === 0 && <div style={{ color: "var(--text-tertiary)", marginBottom: "var(--space-sm)" }}>Ingen sparad data.</div>}
+                    <h2
+                      style={{ ...sectionTitle, marginTop: "var(--space-xl)" }}
+                    >
+                      Sparad data ({Object.keys(detail.data).length})
+                    </h2>
+                    {Object.keys(detail.data).length === 0 && (
+                      <div
+                        style={{
+                          color: "var(--text-tertiary)",
+                          marginBottom: "var(--space-sm)",
+                        }}
+                      >
+                        Ingen sparad data.
+                      </div>
+                    )}
                     {Object.entries(detail.data).map(([k, v]) => (
-                      <AdminDataRow key={k} dataKey={k} value={v} onSave={(raw) => saveData(k, raw)} onDelete={() => deleteData(k)} />
+                      <AdminDataRow
+                        key={k}
+                        dataKey={k}
+                        value={v}
+                        onSave={(raw) => saveData(k, raw)}
+                        onDelete={() => deleteData(k)}
+                      />
                     ))}
-                    <div style={{ display: "flex", gap: "var(--space-sm)", marginTop: "var(--space-sm)" }}>
-                      <input value={newKey} onChange={(e) => setNewKey(e.target.value)} placeholder="ny-nyckel"
-                        style={{ flex: 1, padding: "8px 12px", borderRadius: "var(--radius-sm)", border: "1px solid var(--border-color)", background: "var(--bg-elevated)", color: "var(--text-primary)", boxSizing: "border-box" }} />
-                      <button style={miniBtn} onClick={addKey} disabled={!newKey.trim()}>Lägg till nyckel</button>
+                    <div
+                      style={{
+                        display: "flex",
+                        gap: "var(--space-sm)",
+                        marginTop: "var(--space-sm)",
+                      }}
+                    >
+                      <input
+                        value={newKey}
+                        onChange={(e) => setNewKey(e.target.value)}
+                        placeholder="ny-nyckel"
+                        style={{
+                          flex: 1,
+                          padding: "8px 12px",
+                          borderRadius: "var(--radius-sm)",
+                          border: "1px solid var(--border-color)",
+                          background: "var(--bg-elevated)",
+                          color: "var(--text-primary)",
+                          boxSizing: "border-box",
+                        }}
+                      />
+                      <button
+                        style={miniBtn}
+                        onClick={addKey}
+                        disabled={!newKey.trim()}
+                      >
+                        Lägg till nyckel
+                      </button>
                     </div>
                   </>
                 )}
@@ -3770,7 +4709,9 @@
           let unsub;
           (async () => {
             try {
-              const mod = await import(/* @vite-ignore */ KLAR_HOST + "/sdk/users.js");
+              const mod = await import(
+                /* @vite-ignore */ KLAR_HOST + "/sdk/users.js"
+              );
               const c = mod.createKlarUser({ projectId: PROJECT_ID });
               UserSettingsStore.setUser(c);
               AppointmentStore.setUser(c);
@@ -3900,7 +4841,12 @@
 
         return (
           <div className="app-shell">
-            <Sidebar view={view} setView={setView} isAdmin={isAdmin} onSignOut={signOut} />
+            <Sidebar
+              view={view}
+              setView={setView}
+              isAdmin={isAdmin}
+              onSignOut={signOut}
+            />
             <div className="app-body">
               <Topbar
                 title={VIEW_TITLES[view] || "Boka tid"}
@@ -3914,7 +4860,10 @@
               />
               <div className="view-scroll">
                 {view === "appointment" ? (
-                  <AppointmentView bookings={bookings} openModal={setModalCtx} />
+                  <AppointmentView
+                    bookings={bookings}
+                    openModal={setModalCtx}
+                  />
                 ) : view === "my" ? (
                   <MyAppointments
                     me={me}
@@ -3933,7 +4882,10 @@
                 ) : view === "admin" && isAdmin ? (
                   <AdminView client={client} />
                 ) : (
-                  <AppointmentView bookings={bookings} openModal={setModalCtx} />
+                  <AppointmentView
+                    bookings={bookings}
+                    openModal={setModalCtx}
+                  />
                 )}
               </div>
             </div>
