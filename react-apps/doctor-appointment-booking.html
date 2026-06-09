@@ -1415,6 +1415,67 @@
         flex: 1;
       }
 
+      /* two-week availability strip */
+      .avail-strip {
+        display: flex;
+        gap: 8px;
+        overflow-x: auto;
+        /* top/bottom room so the hover lift isn't clipped (overflow-x:auto
+           forces overflow-y to compute as auto, which would otherwise cut it) */
+        padding: 4px 0;
+        scroll-snap-type: x proximity;
+      }
+      .avail-day {
+        flex: 0 0 auto;
+        width: 58px;
+        border: 1px solid var(--border-color);
+        border-radius: var(--radius-md);
+        background: var(--bg-elevated);
+        padding: 8px 4px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 3px;
+        cursor: pointer;
+        font: inherit;
+        color: var(--text-primary);
+        transition: all 0.15s var(--ease);
+        scroll-snap-align: start;
+      }
+      .avail-day:hover:not(:disabled) {
+        border-color: var(--accent);
+        transform: translateY(-2px);
+      }
+      .avail-day.sel {
+        border-color: var(--accent);
+        background: var(--accent-soft);
+      }
+      .avail-day:disabled {
+        cursor: default;
+        opacity: 0.5;
+      }
+      .avail-day .ad-dow {
+        font-size: 11px;
+        color: var(--text-tertiary);
+      }
+      .avail-day .ad-num {
+        font-size: 17px;
+        font-weight: 700;
+        line-height: 1.1;
+      }
+      .avail-day.sel .ad-num {
+        color: var(--accent);
+      }
+      .avail-day .ad-free {
+        font-size: 10.5px;
+        font-weight: 600;
+        color: var(--success);
+        white-space: nowrap;
+      }
+      .avail-day.full .ad-free {
+        color: var(--text-tertiary);
+      }
+
       .detail-backdrop {
         display: none;
       }
@@ -2556,6 +2617,55 @@
             limit: 1000,
           });
         },
+        // Range availability for one doctor over a window — WITHOUT a server
+        // range query. It fans out one narrow equality read per day (in
+        // parallel) and subtracts booked/past slots from the generated grid.
+        // The result set stays tiny (one doctor × N days), so it never nears
+        // the list() cap no matter how big the project's appointment table is.
+        // `fromDay` may be a Date or a "YYYY-MM-DD" string; `days` defaults to 14.
+        // Returns: [{ day, date, slots: [{ h, m, label, start, end, free }], freeCount }]
+        async getDoctorAvailability(doctorId, fromDay, days = 14) {
+          const startDay = startOfDay(new Date(fromDay));
+          const dates = Array.from({ length: days }, (_, i) =>
+            addDays(startDay, i),
+          );
+          const now = Date.now();
+          // One equality read per day, all in flight at once.
+          const booked = await Promise.all(
+            dates.map((d) => this.getForDoctorDay(doctorId, dayKey(d))),
+          );
+          return dates.map((date, i) => {
+            const dayRows = booked[i] || [];
+            const slots = SLOT_TIMES.map((t) => {
+              const start = slotStart(date, t);
+              const end = addMinutes(start, APPT_MIN);
+              const free =
+                start.getTime() >= now &&
+                !dayRows.some((b) =>
+                  hasOverlap(
+                    start.getTime(),
+                    end.getTime(),
+                    new Date(b.start).getTime(),
+                    new Date(b.end).getTime(),
+                  ),
+                );
+              return {
+                h: t.h,
+                m: t.m,
+                label: fmtClock(t.h, t.m),
+                start,
+                end,
+                free,
+              };
+            });
+            return {
+              day: dayKey(date),
+              date,
+              slots,
+              freeCount: slots.filter((s) => s.free).length,
+            };
+          });
+        },
         async create(data) {
           const col = this._col();
           if (!col) throw new Error("Logga in för att boka.");
@@ -3558,8 +3668,45 @@
       }
 
       /* ════════════════ Detail panel (right) ════════════════ */
-      function DetailPanel({ doctor, open, onClose, onBook }) {
+      function DetailPanel({
+        doctor,
+        open,
+        onClose,
+        onBook,
+        bookingsVersion,
+        selectedDate,
+        onPickDay,
+      }) {
         const toast = useToast();
+        const [availability, setAvailability] = useState([]);
+        const [availLoading, setAvailLoading] = useState(false);
+
+        // Two-week free-slot availability for this doctor. Refetches when the
+        // doctor changes or after any booking/cancel (bookingsVersion).
+        useEffect(() => {
+          if (!doctor) {
+            setAvailability([]);
+            return;
+          }
+          let active = true;
+          setAvailLoading(true);
+          Promise.resolve(
+            AppointmentStore.getDoctorAvailability(doctor.id, new Date(), 14),
+          )
+            .then((a) => {
+              if (active) setAvailability(a);
+            })
+            .catch(() => {
+              if (active) setAvailability([]);
+            })
+            .finally(() => {
+              if (active) setAvailLoading(false);
+            });
+          return () => {
+            active = false;
+          };
+        }, [doctor, bookingsVersion]);
+
         return (
           <div className={"panel detail-col" + (open ? " open" : "")}>
             {!doctor ? (
@@ -3622,6 +3769,55 @@
                           <li key={t}>{t}</li>
                         ))}
                       </ul>
+                    </div>
+
+                    <div className="detail-section">
+                      <div className="detail-h">
+                        <Icon name="cal" /> Tillgänglighet
+                      </div>
+                      <div className="avail-strip">
+                        {availLoading
+                          ? Array.from({ length: 7 }).map((_, i) => (
+                              <div
+                                key={i}
+                                className="skel"
+                                style={{
+                                  flex: "0 0 auto",
+                                  width: 58,
+                                  height: 74,
+                                  borderRadius: "var(--radius-md)",
+                                }}
+                              />
+                            ))
+                          : availability.map((d) => {
+                              const isSel =
+                                selectedDate && isSameDay(d.date, selectedDate);
+                              const full = d.freeCount === 0;
+                              return (
+                                <button
+                                  key={d.day}
+                                  className={
+                                    "avail-day" +
+                                    (full ? " full" : "") +
+                                    (isSel ? " sel" : "")
+                                  }
+                                  disabled={full}
+                                  onClick={() => onPickDay && onPickDay(d.date)}
+                                  title={fmtLongDate(d.date)}
+                                >
+                                  <span className="ad-dow">
+                                    {WD[d.date.getDay()]}
+                                  </span>
+                                  <span className="ad-num">
+                                    {d.date.getDate()}
+                                  </span>
+                                  <span className="ad-free">
+                                    {full ? "Fullt" : d.freeCount + " fria"}
+                                  </span>
+                                </button>
+                              );
+                            })}
+                      </div>
                     </div>
 
                     <div className="detail-section">
@@ -3735,6 +3931,12 @@
           setDetailOpen(false);
           setSelectedDoctor(null);
         };
+        // Clicking a day in the detail panel's availability strip jumps the
+        // calendar/slot grid on the left to that day.
+        const pickDay = (date) => {
+          setSelectedDate(startOfDay(date));
+          setSelectedSlot(null);
+        };
 
         const startBooking = (doctor) => {
           setSelectedDoctor(doctor);
@@ -3776,6 +3978,9 @@
               open={detailOpen}
               onClose={closeDetail}
               onBook={startBooking}
+              bookingsVersion={bookingsVersion}
+              selectedDate={selectedDate}
+              onPickDay={pickDay}
             />
             <div
               className={"detail-backdrop" + (detailOpen ? " show" : "")}
