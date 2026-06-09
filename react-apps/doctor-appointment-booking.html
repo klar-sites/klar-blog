@@ -2493,6 +2493,14 @@
           MONTHS[d.getMonth()].slice(0, 3)
         );
       }
+      function dayKey(d) {
+        // Local "YYYY-MM-DD" — the discrete field appointments are filtered by,
+        // so per-doctor-per-day reads stay an EQUALITY query (never a range scan
+        // or a fetch-all). See AppointmentStore.getForDoctorDay.
+        return (
+          d.getFullYear() + "-" + pad(d.getMonth() + 1) + "-" + pad(d.getDate())
+        );
+      }
       function initials(name) {
         const clean = name.replace(/^(Dr\.|Prof\.|Mr\.|Ms\.|Mrs\.)\s*/i, "");
         return clean
@@ -2506,7 +2514,16 @@
       /* ════════════════ Service layer ════════════════
          The ONLY place that touches storage. Components never call the SDK
          directly. Appointments live in a SHARED Klar Collection (a real
-         multi-user backend); per-user settings live in Klar user.data. */
+         multi-user backend); per-user settings live in Klar user.data.
+
+         Every read is a NARROW equality query (where: {...}) — never a
+         fetch-all-then-filter. A Klar collection list() caps at 1000 rows, so
+         "load everything and filter in the browser" silently truncates once a
+         project has >1000 appointments. Instead each view asks only for the
+         slice it needs:
+           • getForUser(userId)         → one patient's own appointments
+           • getForDoctorDay(doc, day)  → one doctor's confirmed slots on a day
+         Both stay tiny regardless of how many total appointments exist. */
       const AppointmentStore = {
         _user: null,
         setUser(u) {
@@ -2515,10 +2532,29 @@
         _col() {
           return this._user ? this._user.collection("appointments") : null;
         },
-        async getAll() {
+        // One patient's own appointments — naturally bounded (a person books a
+        // handful), so this single equality slice powers "My appointments" and
+        // the notifications bell without ever touching other users' rows.
+        async getForUser(userId) {
           const col = this._col();
           if (!col) return [];
-          return col.list({ order: "start:asc", limit: 1000 });
+          return col.list({
+            where: { userId },
+            order: "start:asc",
+            limit: 1000,
+          });
+        },
+        // The narrow slice the availability grid needs: one doctor's confirmed
+        // appointments on one calendar day (at most a handful). Equality on the
+        // stored `day` field keeps this off any range scan or fetch-all.
+        async getForDoctorDay(doctorId, day) {
+          const col = this._col();
+          if (!col) return [];
+          return col.list({
+            where: { doctorId, day, status: "confirmed" },
+            order: "start:asc",
+            limit: 1000,
+          });
         },
         async create(data) {
           const col = this._col();
@@ -2529,11 +2565,16 @@
             throw new Error("Sluttiden måste vara efter starttiden.");
           if (start < Date.now())
             throw new Error("Det går inte att boka en tid som har passerat.");
-          // Instant client-side check for a friendly message. The real
+          // Instant client-side check for a friendly message, scoped to the
+          // same doctor + day (equality query, not a table scan). The real
           // guarantee is the collection's no-overlap rule, enforced atomically
           // on the server — handled by the 409 case below.
           const existing = await col.list({
-            where: { doctorId: data.doctorId, status: "confirmed" },
+            where: {
+              doctorId: data.doctorId,
+              day: data.day,
+              status: "confirmed",
+            },
           });
           const clash = existing.some((b) =>
             hasOverlap(
@@ -3277,34 +3318,28 @@
         setSelectedDate,
         selectedSlot,
         setSelectedSlot,
-        doctor,
-        bookings,
+        dayBookings,
         concerns,
         setConcerns,
       }) {
         const now = Date.now();
         const toast = useToast();
 
+        // dayBookings is already the narrow slice for the selected doctor + day
+        // + status:"confirmed" (fetched server-side), so a slot is free unless
+        // it overlaps one of them — no client-side filtering by doctor/status.
         const slotIsFree = (t) => {
           const start = slotStart(selectedDate, t);
           const end = addMinutes(start, APPT_MIN);
           if (start.getTime() < now) return false;
-          if (
-            doctor &&
-            bookings.some(
-              (b) =>
-                b.doctorId === doctor.id &&
-                b.status === "confirmed" &&
-                hasOverlap(
-                  start.getTime(),
-                  end.getTime(),
-                  new Date(b.start).getTime(),
-                  new Date(b.end).getTime(),
-                ),
-            )
-          )
-            return false;
-          return true;
+          return !dayBookings.some((b) =>
+            hasOverlap(
+              start.getTime(),
+              end.getTime(),
+              new Date(b.start).getTime(),
+              new Date(b.end).getTime(),
+            ),
+          );
         };
 
         const wordCount = concerns.trim()
@@ -3649,7 +3684,7 @@
       }
 
       /* ════════════════ Appointment view (3 columns) ════════════════ */
-      function AppointmentView({ bookings, openModal }) {
+      function AppointmentView({ bookingsVersion, openModal }) {
         const [selectedDate, setSelectedDate] = useState(() =>
           startOfDay(new Date()),
         );
@@ -3657,7 +3692,40 @@
         const [concerns, setConcerns] = useState("");
         const [selectedDoctor, setSelectedDoctor] = useState(DOCTORS[0]);
         const [detailOpen, setDetailOpen] = useState(false);
+        const [dayBookings, setDayBookings] = useState([]);
         const toast = useToast();
+
+        // Narrow read: this doctor's confirmed appointments on the selected day
+        // (where: { doctorId, day, status }). Re-runs when the doctor or date
+        // changes, or after any booking/cancel (bookingsVersion) so a just-taken
+        // slot immediately shows as booked.
+        useEffect(() => {
+          if (!selectedDoctor) {
+            setDayBookings([]);
+            return;
+          }
+          let active = true;
+          Promise.resolve(
+            AppointmentStore.getForDoctorDay(
+              selectedDoctor.id,
+              dayKey(selectedDate),
+            ),
+          )
+            .then((b) => {
+              if (active) setDayBookings(b);
+            })
+            .catch(() => {
+              if (active) setDayBookings([]);
+            });
+          return () => {
+            active = false;
+          };
+        }, [selectedDoctor, selectedDate, bookingsVersion]);
+
+        // A booking was just made/cancelled — the chosen slot may be gone now.
+        useEffect(() => {
+          setSelectedSlot(null);
+        }, [bookingsVersion]);
 
         const viewDoctor = (d) => {
           setSelectedDoctor(d);
@@ -3694,8 +3762,7 @@
               setSelectedDate={setSelectedDate}
               selectedSlot={selectedSlot}
               setSelectedSlot={setSelectedSlot}
-              doctor={selectedDoctor}
-              bookings={bookings}
+              dayBookings={dayBookings}
               concerns={concerns}
               setConcerns={setConcerns}
             />
@@ -3734,6 +3801,7 @@
             userId: me.sub,
             userName: me.name || me.email || "Patient",
             // (userName fallback kept as "Patient" — same word in Swedish)
+            day: dayKey(start), // equality key for narrow per-doctor-per-day reads
             start: start.toISOString(),
             end: end.toISOString(),
             concerns: concerns || "",
@@ -4681,8 +4749,13 @@
         const [view, setView] = useState("appointment");
         const [theme, setThemeState] = useState("dark");
         const [settings, setSettings] = useState(DEFAULT_SETTINGS);
-        const [bookings, setBookings] = useState([]);
+        // Only the signed-in user's OWN appointments (a narrow where:{userId}
+        // slice) — powers the bell + "My appointments". The availability grid
+        // loads its own per-doctor-per-day slice inside AppointmentView.
+        const [myBookings, setMyBookings] = useState([]);
         const [loadingBookings, setLoadingBookings] = useState(true);
+        // Bumped on every create/cancel so AppointmentView re-reads its day slice.
+        const [bookingsVersion, setBookingsVersion] = useState(0);
         const [modalCtx, setModalCtx] = useState(null);
         const [isAdmin, setIsAdmin] = useState(false);
 
@@ -4691,13 +4764,17 @@
           document.documentElement.setAttribute("data-theme", t);
         }, []);
 
-        const refreshBookings = useCallback(() => {
+        const refreshMyBookings = useCallback(() => {
+          if (!me) {
+            setMyBookings([]);
+            return;
+          }
           setLoadingBookings(true);
-          Promise.resolve(AppointmentStore.getAll())
-            .then((b) => setBookings(b))
-            .catch(() => setBookings([]))
+          Promise.resolve(AppointmentStore.getForUser(me.sub))
+            .then((b) => setMyBookings(b))
+            .catch(() => setMyBookings([]))
             .finally(() => setLoadingBookings(false));
-        }, []);
+        }, [me]);
 
         // Load the Klar Users SDK + wire auth lifecycle
         useEffect(() => {
@@ -4749,11 +4826,11 @@
             setSettings(s);
             applyTheme(s.theme || "dark");
           })();
-          refreshBookings();
+          refreshMyBookings();
           return () => {
             active = false;
           };
-        }, [me, applyTheme, refreshBookings]);
+        }, [me, applyTheme, refreshMyBookings]);
 
         const signIn = async () => {
           if (!client) {
@@ -4795,7 +4872,8 @@
           try {
             await AppointmentStore.create(data);
             setModalCtx(null);
-            refreshBookings();
+            setBookingsVersion((v) => v + 1); // re-reads the day slice in the grid
+            refreshMyBookings();
             toast("Bokning bekräftad", "success");
           } catch (e) {
             toast(e.message || "Kunde inte boka", "error");
@@ -4806,7 +4884,8 @@
           if (!window.confirm("Vill du avboka den här tiden?")) return;
           try {
             await AppointmentStore.cancel(b.id);
-            refreshBookings();
+            setBookingsVersion((v) => v + 1);
+            refreshMyBookings();
             toast("Bokning avbokad", "success");
           } catch (e) {
             toast(e.message || "Kunde inte avboka", "error");
@@ -4850,19 +4929,19 @@
                 setTheme={setTheme}
                 onSignOut={signOut}
                 setView={setView}
-                bookings={bookings}
+                bookings={myBookings}
                 me={me}
               />
               <div className="view-scroll">
                 {view === "appointment" ? (
                   <AppointmentView
-                    bookings={bookings}
+                    bookingsVersion={bookingsVersion}
                     openModal={setModalCtx}
                   />
                 ) : view === "my" ? (
                   <MyAppointments
                     me={me}
-                    bookings={bookings}
+                    bookings={myBookings}
                     loading={loadingBookings}
                     onCancel={cancelBooking}
                     setView={setView}
@@ -4878,7 +4957,7 @@
                   <AdminView client={client} />
                 ) : (
                   <AppointmentView
-                    bookings={bookings}
+                    bookingsVersion={bookingsVersion}
                     openModal={setModalCtx}
                   />
                 )}
