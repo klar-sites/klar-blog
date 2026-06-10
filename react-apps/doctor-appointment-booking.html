@@ -1,29 +1,32 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="sv" data-theme="dark">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pulse — Boka läkartid</title>
-    <meta
-      name="description"
-      content="Pulse är en premiumplattform för att boka läkartider. Bläddra bland specialister, välj en tid och boka på sekunder."
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
+    <meta name="description" content="Pulse är en premiumplattform för att boka läkartider. Bläddra bland specialister, välj en tid och boka på sekunder.">
+
+    <!-- No-flash theme: apply the last-used theme synchronously, before first
+         paint, so light-mode users never see a dark flash (and vice-versa)
+         while the real preference loads async from Klar user.data. The React
+         app keeps "pulse-theme" in localStorage in sync via applyTheme(). -->
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem("pulse-theme");
+          if (t !== "light" && t !== "dark") t = "dark"; // app default
+          document.documentElement.setAttribute("data-theme", t);
+        } catch (e) {}
+      })();
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"><link rel="icon" href="/images/favicon.png">
 
     <!-- React + Babel via CDN (no build step) -->
-    <script
-      crossorigin
-      src="https://unpkg.com/react@18/umd/react.production.min.js"
-    ></script>
-    <script
-      crossorigin
-      src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"
-    ></script>
+    <script crossorigin="" src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin="" src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
     <style>
@@ -5010,7 +5013,15 @@
         const [sdkError, setSdkError] = useState(null);
 
         const [view, setView] = useState("appointment");
-        const [theme, setThemeState] = useState("dark");
+        const [theme, setThemeState] = useState(() => {
+          // Seed from the no-flash cache so initial render matches the DOM
+          // attribute the inline <head> script already applied.
+          try {
+            const t = localStorage.getItem("pulse-theme");
+            if (t === "light" || t === "dark") return t;
+          } catch {}
+          return "dark";
+        });
         const [settings, setSettings] = useState(DEFAULT_SETTINGS);
         // Only the signed-in user's OWN appointments (a narrow where:{userId}
         // slice) — powers the bell + "My appointments". The availability grid
@@ -5025,6 +5036,10 @@
         const applyTheme = useCallback((t) => {
           setThemeState(t);
           document.documentElement.setAttribute("data-theme", t);
+          // Keep the no-flash cache current so the next load opens in this theme.
+          try {
+            localStorage.setItem("pulse-theme", t);
+          } catch {}
         }, []);
 
         const refreshMyBookings = useCallback(() => {
