@@ -4,14 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pulse — Boka läkartid</title>
-    <meta name="description" content="Pulse är en premiumplattform för att boka läkartider. Bläddra bland specialister, välj en tid och boka på sekunder.">
+    <meta name="description"
+      content="Pulse är en premiumplattform för att boka läkartider. Bläddra bland specialister, välj en tid och boka på sekunder.">
 
     <!-- No-flash theme: apply the last-used theme synchronously, before first
          paint, so light-mode users never see a dark flash (and vice-versa)
          while the real preference loads async from Klar user.data. The React
          app keeps "pulse-theme" in localStorage in sync via applyTheme(). -->
     <script>
-      (function () {
+      (function() {
         try {
           var t = localStorage.getItem("pulse-theme");
           if (t !== "light" && t !== "dark") t = "dark"; // app default
@@ -22,7 +23,9 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"><link rel="icon" href="/images/favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap"
+      rel="stylesheet">
+    <link rel="icon" href="/images/favicon.png">
 
     <!-- React + Babel via CDN (no build step) -->
     <script crossorigin="" src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
@@ -1807,12 +1810,10 @@
 
       /* ───────────── Skeleton / empty ───────────── */
       .skel {
-        background: linear-gradient(
-          90deg,
-          var(--bg-inset) 25%,
-          var(--bg-hover) 37%,
-          var(--bg-inset) 63%
-        );
+        background: linear-gradient(90deg,
+            var(--bg-inset) 25%,
+            var(--bg-hover) 37%,
+            var(--bg-inset) 63%);
         background-size: 400% 100%;
         animation: shimmer 1.3s ease infinite;
         border-radius: var(--radius-sm);
@@ -1911,11 +1912,9 @@
         left: 50%;
         top: -200px;
         transform: translateX(-50%);
-        background: radial-gradient(
-          ellipse,
-          var(--accent-soft),
-          transparent 65%
-        );
+        background: radial-gradient(ellipse,
+            var(--accent-soft),
+            transparent 65%);
         filter: blur(40px);
         pointer-events: none;
         z-index: 0;
@@ -2192,7 +2191,7 @@
 
       /* ════════════════ Config ════════════════ */
       const PROJECT_ID = 427; // ← set to your Klar project id
-      const KLAR_HOST = "http://localhost:5173";
+      const KLAR_HOST = "https://editor.klar.website";
 
       // App namespace — lets this app share a Klar project with other apps
       // (a to-do, a training app, …) without their users/data bleeding into
