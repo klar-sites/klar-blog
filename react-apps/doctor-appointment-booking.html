@@ -2211,11 +2211,9 @@
       const CLINIC_TZ = "Europe/Stockholm";
 
       // Email automations this app self-provisions (owner-gated). Subjects/bodies
-      // are Liquid; recipient "owner" = the booker's email. ensureAutomations is
-      // create-if-absent (it never clobbers an existing one), so edits here don't
-      // reach an already-provisioned project on their own — bump AUTOMATIONS_VERSION
-      // and syncAutomations() deletes + recreates the set once to apply them.
-      const AUTOMATIONS_VERSION = 2;
+      // are Liquid; recipient "owner" = the booker's email. ensureAutomations
+      // creates missing automations and updates existing ones in place, so
+      // editing a template below propagates on the next owner load.
       const KLAR_AUTOMATIONS = {
         appointmentConfirmation: {
           collection: "appointments",
@@ -2805,7 +2803,6 @@
 
       const DEFAULT_SETTINGS = {
         theme: "dark",
-        timezone: "Europe/Stockholm",
         notifications: true,
       };
       const TIMEZONES = [
@@ -2848,6 +2845,46 @@
               await this._user.data.set(APP_MEMBER_KEY, { joinedAt: Date.now() });
           } catch (e) {
             console.warn("markMember failed", e);
+          }
+        },
+      };
+
+      // Clinic-wide config — ONE shared value (the timezone) every signed-in user
+      // reads so slots, the calendar and emails all use the same zone. There's no
+      // project-global store in the SDK, so it lives as a singleton row
+      // {key:"clinic", timezone} in a shared "config" collection: the owner writes
+      // it (admin.updateRecord / create), everyone else reads it. Falls back to
+      // CLINIC_TZ when unset. This is a CLINIC setting, not a per-user one.
+      const ClinicConfigStore = {
+        _user: null,
+        setUser(u) {
+          this._user = u;
+        },
+        _col() {
+          return this._user ? this._user.collection("config") : null;
+        },
+        async getRow() {
+          const col = this._col();
+          if (!col) return null;
+          try {
+            const rows = await col.list({ where: { key: "clinic" }, limit: 1 });
+            return rows[0] || null;
+          } catch {
+            return null;
+          }
+        },
+        async getTimezone() {
+          const row = await this.getRow();
+          return (row && row.timezone) || CLINIC_TZ;
+        },
+        async setTimezone(tz) {
+          const col = this._col();
+          if (!col) return;
+          const row = await this.getRow();
+          if (row) {
+            await this._user.admin.updateRecord("config", row.id, { timezone: tz });
+          } else {
+            await col.create({ key: "clinic", timezone: tz });
           }
         },
       };
@@ -4425,23 +4462,6 @@
 
               <div style={{ borderTop: "1px solid var(--border-color)" }} />
 
-              <div className="field">
-                <label className="label">Tidszon</label>
-                <select
-                  className="select"
-                  value={local.timezone}
-                  onChange={(e) =>
-                    setLocal((s) => ({ ...s, timezone: e.target.value }))
-                  }
-                >
-                  {TIMEZONES.map((tz) => (
-                    <option key={tz} value={tz}>
-                      {tz.replace("_", " ")}
-                    </option>
-                  ))}
-                </select>
-              </div>
-
               <div
                 style={{
                   display: "flex",
@@ -4593,7 +4613,7 @@
         );
       }
 
-      function AdminView({ client }) {
+      function AdminView({ client, clinicTz, onTimezoneSaved }) {
         const [users, setUsers] = useState(null);
         const [q, setQ] = useState("");
         const [selId, setSelId] = useState(null);
@@ -4601,6 +4621,21 @@
         const [detailLoading, setDetailLoading] = useState(false);
         const [err, setErr] = useState(null);
         const [newKey, setNewKey] = useState("");
+        const [tz, setTz] = useState(clinicTz);
+        const [savingTz, setSavingTz] = useState(false);
+        const toast = useToast();
+        useEffect(() => setTz(clinicTz), [clinicTz]);
+        const saveTimezone = async () => {
+          setSavingTz(true);
+          try {
+            await ClinicConfigStore.setTimezone(tz);
+            onTimezoneSaved && onTimezoneSaved(tz);
+            toast("Tidszon sparad", "success");
+          } catch {
+            toast("Kunde inte spara tidszonen", "error");
+          }
+          setSavingTz(false);
+        };
 
         const loadUsers = useCallback(async () => {
           try {
@@ -4756,6 +4791,38 @@
             >
               Se alla som har loggat in och redigera deras tider och data.
             </p>
+
+            <div
+              className="card card-pad"
+              style={{ marginBottom: "var(--space-lg)", maxWidth: 460 }}
+            >
+              <div style={{ fontWeight: 600, marginBottom: 4 }}>Tidszon</div>
+              <div className="tiny" style={{ marginBottom: 12 }}>
+                Klinikens tidszon — styr tider, kalender och påminnelser för alla.
+              </div>
+              <div style={{ display: "flex", gap: 8 }}>
+                <select
+                  className="select"
+                  value={tz}
+                  onChange={(e) => setTz(e.target.value)}
+                  style={{ flex: 1 }}
+                >
+                  {TIMEZONES.map((z) => (
+                    <option key={z} value={z}>
+                      {z.replace("_", " ")}
+                    </option>
+                  ))}
+                </select>
+                <button
+                  className="btn btn-primary"
+                  onClick={saveTimezone}
+                  disabled={savingTz || tz === clinicTz}
+                >
+                  {savingTz ? "Sparar…" : "Spara"}
+                </button>
+              </div>
+            </div>
+
             {err && (
               <div
                 style={{
@@ -5092,11 +5159,11 @@
           return "dark";
         });
         const [settings, setSettings] = useState(DEFAULT_SETTINGS);
-        // Drive the whole date layer from the chosen timezone. Done in render
-        // (not an effect) so children render with the correct ACTIVE_TZ on the
-        // very first pass after settings load/change — App renders before its
-        // children, so the module-level value is in place when they compute dates.
-        setActiveTz(settings.timezone);
+        // Clinic-wide timezone (shared config), loaded on sign-in below. Drives
+        // the whole date layer. Set in render — App renders before its children,
+        // so ACTIVE_TZ is in place when they compute dates.
+        const [clinicTz, setClinicTz] = useState(CLINIC_TZ);
+        setActiveTz(clinicTz);
         // Only the signed-in user's OWN appointments (a narrow where:{userId}
         // slice) — powers the bell + "My appointments". The availability grid
         // loads its own per-doctor-per-day slice inside AppointmentView.
@@ -5139,6 +5206,7 @@
               const c = mod.createKlarUser({ projectId: PROJECT_ID });
               UserSettingsStore.setUser(c);
               AppointmentStore.setUser(c);
+              ClinicConfigStore.setUser(c);
               setClient(c);
               setMe(c.getUser());
               setIsAdmin(!!(c.isAdmin && c.isAdmin()));
@@ -5159,40 +5227,14 @@
         }, []);
 
         // Once the owner is signed in, provision AND keep this app's email
-        // automations in sync. ensureAutomations only creates missing ones, so a
-        // template change won't reach already-provisioned automations. We track
-        // the template version in admin-owned data: when AUTOMATIONS_VERSION
-        // changes, delete the managed set once and recreate it from the current
-        // templates, then record the new version. Editing a template + bumping
-        // the version is now all it takes — no manual DB surgery.
+        // automations in sync. ensureAutomations creates missing automations and
+        // updates existing ones in place (server-side upsert), so editing a
+        // template here propagates on the next owner load — no versioning, no
+        // delete, and the scheduled "already-sent" memory is preserved.
         useEffect(() => {
-          if (!isAdmin || !client?.admin) return;
-          let active = true;
-          (async () => {
-            const VKEY = APP_DATA_PREFIX + "automations_version";
-            let stored = 0;
-            try {
-              stored = Number(await client.data.get(VKEY)) || 0;
-            } catch {}
-            try {
-              if (stored !== AUTOMATIONS_VERSION) {
-                // Force-replace so edited templates take effect (create-if-absent
-                // would otherwise skip the existing rows).
-                await Promise.all(
-                  Object.keys(KLAR_AUTOMATIONS).map((n) =>
-                    client.admin.deleteAutomation(n).catch(() => {}),
-                  ),
-                );
-              }
-              await client.admin.ensureAutomations(KLAR_AUTOMATIONS);
-              // Record the version only after a successful recreate, so a failed
-              // run retries next load instead of silently staying stale.
-              if (active) await client.data.set(VKEY, AUTOMATIONS_VERSION);
-            } catch {}
-          })();
-          return () => {
-            active = false;
-          };
+          if (isAdmin && client?.admin) {
+            client.admin.ensureAutomations(KLAR_AUTOMATIONS).catch(() => {});
+          }
         }, [isAdmin, client]);
 
         // When the signed-in user changes, load their settings + appointments
@@ -5207,6 +5249,12 @@
             if (!active) return;
             setSettings(s);
             applyTheme(s.theme || "dark");
+            // Clinic timezone is shared (not per-user) — every signed-in user
+            // reads it so the whole app reasons in the same zone.
+            try {
+              const tz = await ClinicConfigStore.getTimezone();
+              if (active) setClinicTz(tz);
+            } catch {}
           })();
           refreshMyBookings();
           return () => {
@@ -5343,7 +5391,11 @@
                     setTheme={applyTheme}
                   />
                 ) : view === "admin" && isAdmin ? (
-                  <AdminView client={client} />
+                  <AdminView
+                    client={client}
+                    clinicTz={clinicTz}
+                    onTimezoneSaved={setClinicTz}
+                  />
                 ) : (
                   <AppointmentView
                     bookingsVersion={bookingsVersion}
