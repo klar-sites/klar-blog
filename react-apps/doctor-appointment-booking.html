@@ -4,15 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pulse — Boka läkartid</title>
-    <meta name="description"
-      content="Pulse är en premiumplattform för att boka läkartider. Bläddra bland specialister, välj en tid och boka på sekunder.">
+    <meta name="description" content="Pulse är en premiumplattform för att boka läkartider. Bläddra bland specialister, välj en tid och boka på sekunder.">
 
     <!-- No-flash theme: apply the last-used theme synchronously, before first
          paint, so light-mode users never see a dark flash (and vice-versa)
          while the real preference loads async from Klar user.data. The React
          app keeps "pulse-theme" in localStorage in sync via applyTheme(). -->
     <script>
-      (function() {
+      (function () {
         try {
           var t = localStorage.getItem("pulse-theme");
           if (t !== "light" && t !== "dark") t = "dark"; // app default
@@ -23,9 +22,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap"
-      rel="stylesheet">
-    <link rel="icon" href="/images/favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"><link rel="icon" href="/images/favicon.png">
 
     <!-- React + Babel via CDN (no build step) -->
     <script crossorigin="" src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
@@ -1810,10 +1807,12 @@
 
       /* ───────────── Skeleton / empty ───────────── */
       .skel {
-        background: linear-gradient(90deg,
-            var(--bg-inset) 25%,
-            var(--bg-hover) 37%,
-            var(--bg-inset) 63%);
+        background: linear-gradient(
+          90deg,
+          var(--bg-inset) 25%,
+          var(--bg-hover) 37%,
+          var(--bg-inset) 63%
+        );
         background-size: 400% 100%;
         animation: shimmer 1.3s ease infinite;
         border-radius: var(--radius-sm);
@@ -1912,9 +1911,11 @@
         left: 50%;
         top: -200px;
         transform: translateX(-50%);
-        background: radial-gradient(ellipse,
-            var(--accent-soft),
-            transparent 65%);
+        background: radial-gradient(
+          ellipse,
+          var(--accent-soft),
+          transparent 65%
+        );
         filter: blur(40px);
         pointer-events: none;
         z-index: 0;
@@ -2201,6 +2202,14 @@
       const APP_DATA_PREFIX = APP_NS + ":"; // e.g. "booking:settings"
       const APP_MEMBER_KEY = "app:" + APP_NS; // membership marker key
 
+      // The clinic's timezone. Appointment instants are stored as UTC (start =
+      // toISOString()), but emails/SMS must show clinic-LOCAL time. The Klar
+      // server renders these Liquid templates, so without an explicit zone the
+      // `date` filter uses the SERVER's timezone — which is UTC in prod and was
+      // the cause of times rendering 2h off. Passing the zone to every `date`
+      // filter pins the display to the clinic regardless of where Klar runs.
+      const CLINIC_TZ = "Europe/Stockholm";
+
       // Email automations this app self-provisions (owner-gated, create-if-absent).
       // Subjects/bodies are Liquid; recipient "owner" = the booker's email.
       const KLAR_AUTOMATIONS = {
@@ -2209,8 +2218,8 @@
           on: "create",
           to: "owner",
           subject: "Bokning bekräftad — {{ data.doctorName }}",
-          body: `<p>Hej {{ data.userName }},</p>
-<p>Din tid hos <strong>{{ data.doctorName }}</strong> ({{ data.specialty }}) den {{ data.start | date: "%-d %b, %H:%M" }} är bekräftad.</p>
+          body: `{%- assign tz = data.tz | default: "${CLINIC_TZ}" -%}<p>Hej {{ data.userName }},</p>
+<p>Din tid hos <strong>{{ data.doctorName }}</strong> ({{ data.specialty }}) den {{ data.start | date: "%-d %b, %H:%M", tz }} är bekräftad.</p>
 <p>Vi ser fram emot att träffa dig!</p>`,
         },
         appointmentReminder: {
@@ -2220,8 +2229,8 @@
           where: { status: "confirmed" },
           to: "owner",
           subject: "Påminnelse — din tid hos {{ data.doctorName }}",
-          body: `<p>Hej {{ data.userName }},</p>
-<p>En påminnelse om att du har en tid hos <strong>{{ data.doctorName }}</strong> den {{ data.start | date: "%-d %b, %H:%M" }}.</p>`,
+          body: `{%- assign tz = data.tz | default: "${CLINIC_TZ}" -%}<p>Hej {{ data.userName }},</p>
+<p>En påminnelse om att du har en tid hos <strong>{{ data.doctorName }}</strong> den {{ data.start | date: "%-d %b, %H:%M", tz }}.</p>`,
         },
         // Cancelling is an `update` to status:"cancelled" (the patient's "Cancel"
         // and the admin's both hit this). Fires only on that transition.
@@ -2231,8 +2240,8 @@
           where: { status: "cancelled" },
           to: "owner",
           subject: "Bokning avbokad — {{ data.doctorName }}",
-          body: `<p>Hej {{ data.userName }},</p>
-<p>Din tid hos <strong>{{ data.doctorName }}</strong> den {{ data.start | date: "%-d %b, %H:%M" }} har avbokats.</p>
+          body: `{%- assign tz = data.tz | default: "${CLINIC_TZ}" -%}<p>Hej {{ data.userName }},</p>
+<p>Din tid hos <strong>{{ data.doctorName }}</strong> den {{ data.start | date: "%-d %b, %H:%M", tz }} har avbokats.</p>
 <p>Om du inte begärde detta, kontakta oss gärna.</p>`,
         },
         // SMS versions sent to the phone the patient entered → to:"field:phone".
@@ -2243,7 +2252,7 @@
           on: "create",
           channel: "sms",
           to: "field:phone",
-          text: "Din tid hos {{ data.doctorName }} den {{ data.start | date: '%-d %b, %H:%M' }} är bekräftad.",
+          text: `{%- assign tz = data.tz | default: '${CLINIC_TZ}' -%}Din tid hos {{ data.doctorName }} den {{ data.start | date: '%-d %b, %H:%M', tz }} är bekräftad.`,
         },
         appointmentReminderSms: {
           collection: "appointments",
@@ -2252,7 +2261,7 @@
           where: { status: "confirmed" },
           channel: "sms",
           to: "field:phone",
-          text: "Påminnelse: tid hos {{ data.doctorName }} den {{ data.start | date: '%-d %b, %H:%M' }}.",
+          text: `{%- assign tz = data.tz | default: '${CLINIC_TZ}' -%}Påminnelse: tid hos {{ data.doctorName }} den {{ data.start | date: '%-d %b, %H:%M', tz }}.`,
         },
       };
 
@@ -2517,74 +2526,129 @@
         "december",
       ];
 
+      // ── Timezone-aware date layer ──────────────────────────────────────
+      // The whole app reasons in ONE timezone — the clinic's — so slot times,
+      // the calendar and the emails are identical no matter where the visitor's
+      // browser or the Klar server happens to be. ACTIVE_TZ is set from user
+      // settings (App syncs it via setActiveTz); it defaults to CLINIC_TZ.
+      //
+      // A "day" is represented as the UTC instant of clinic-local midnight, so
+      // day anchors and appointment instants are the SAME kind of value and
+      // every helper below reads them through tzParts(ACTIVE_TZ) — no reliance
+      // on the browser's own timezone anywhere.
+      let ACTIVE_TZ = CLINIC_TZ;
+      function setActiveTz(tz) {
+        if (typeof tz === "string" && tz) ACTIVE_TZ = tz;
+      }
+      // Wall-clock parts of an instant in `tz` (no library; DST-correct).
+      function tzParts(instant, tz) {
+        const dtf = new Intl.DateTimeFormat("en-US", {
+          timeZone: tz,
+          hour12: false,
+          year: "numeric",
+          month: "2-digit",
+          day: "2-digit",
+          hour: "2-digit",
+          minute: "2-digit",
+          second: "2-digit",
+        });
+        const map = {};
+        for (const p of dtf.formatToParts(instant)) map[p.type] = p.value;
+        let hour = +map.hour;
+        if (hour === 24) hour = 0; // some engines emit "24" for midnight
+        return {
+          year: +map.year,
+          month: +map.month,
+          day: +map.day,
+          hour,
+          minute: +map.minute,
+          second: +map.second,
+        };
+      }
+      // Clinic-local weekday of an instant: 0=Sön … 6=Lör (matches WD).
+      const _DOW = { Sun: 0, Mon: 1, Tue: 2, Wed: 3, Thu: 4, Fri: 5, Sat: 6 };
+      function clinicDow(instant) {
+        const wd = new Intl.DateTimeFormat("en-US", {
+          timeZone: ACTIVE_TZ,
+          weekday: "short",
+        }).format(instant);
+        return _DOW[wd] ?? 0;
+      }
+      function offsetAt(utcMs, tz) {
+        const p = tzParts(new Date(utcMs), tz);
+        return (
+          Date.UTC(p.year, p.month - 1, p.day, p.hour, p.minute, p.second) -
+          utcMs
+        );
+      }
+      // UTC instant (ms) for a wall-clock Y-M-D h:m in `tz`, DST-correct. The
+      // two-pass offset resolves the spring-forward / fall-back hour edges.
+      function zonedToUtc(y, mo, d, h, mi, tz) {
+        const guess = Date.UTC(y, mo - 1, d, h, mi, 0, 0);
+        const off1 = offsetAt(guess, tz);
+        const off2 = offsetAt(guess - off1, tz);
+        return guess - off2;
+      }
+      // The instant of clinic-local midnight for a given clinic date. Date.UTC
+      // normalizes overflow, so callers may pass day/month out of range.
+      function clinicMidnight(y, mo, d) {
+        return new Date(zonedToUtc(y, mo, d, 0, 0, ACTIVE_TZ));
+      }
+
       function addDays(d, n) {
-        const x = new Date(d);
-        x.setDate(x.getDate() + n);
-        return x;
+        const p = tzParts(d, ACTIVE_TZ);
+        return clinicMidnight(p.year, p.month, p.day + n);
       }
       function addMinutes(d, m) {
         return new Date(d.getTime() + m * 60000);
       }
       function startOfDay(d) {
-        const x = new Date(d);
-        x.setHours(0, 0, 0, 0);
-        return x;
+        const p = tzParts(d, ACTIVE_TZ);
+        return clinicMidnight(p.year, p.month, p.day);
+      }
+      function clinicToday() {
+        return startOfDay(new Date());
       }
       function startOfWeekSun(d) {
-        const x = startOfDay(d);
-        return addDays(x, -x.getDay());
+        return addDays(startOfDay(d), -clinicDow(d));
       }
       function startOfWeekMon(d) {
-        const x = startOfDay(d);
-        const day = (x.getDay() + 6) % 7; // Monday = 0
-        return addDays(x, -day);
+        const day = (clinicDow(d) + 6) % 7; // Monday = 0
+        return addDays(startOfDay(d), -day);
       }
       function isSameDay(a, b) {
-        return (
-          a.getFullYear() === b.getFullYear() &&
-          a.getMonth() === b.getMonth() &&
-          a.getDate() === b.getDate()
-        );
+        return dayKey(a) === dayKey(b);
       }
       const isToday = (d) => isSameDay(d, new Date());
-      function slotStart(date, t) {
-        const x = new Date(date);
-        x.setHours(t.h, t.m, 0, 0);
-        return x;
+      function slotStart(dayAnchor, t) {
+        const p = tzParts(dayAnchor, ACTIVE_TZ);
+        return new Date(zonedToUtc(p.year, p.month, p.day, t.h, t.m, ACTIVE_TZ));
       }
       function fmtClock(h, m) {
         return pad(h) + ":" + pad(m); // 24-hour (Swedish convention)
       }
       function fmtTimeD(d) {
-        return fmtClock(d.getHours(), d.getMinutes());
+        const p = tzParts(d, ACTIVE_TZ);
+        return fmtClock(p.hour, p.minute);
       }
       function fmtLongDate(d) {
+        const p = tzParts(d, ACTIVE_TZ);
         return (
-          WD[d.getDay()] +
-          ", " +
-          d.getDate() +
-          " " +
-          MONTHS[d.getMonth()] +
-          " " +
-          d.getFullYear()
+          WD[clinicDow(d)] + ", " + p.day + " " + MONTHS[p.month - 1] + " " + p.year
         );
       }
       function fmtShortDate(d) {
-        return (
-          WD[d.getDay()] +
-          ", " +
-          d.getDate() +
-          " " +
-          MONTHS[d.getMonth()].slice(0, 3)
-        );
+        const p = tzParts(d, ACTIVE_TZ);
+        return WD[clinicDow(d)] + ", " + p.day + " " + MONTHS[p.month - 1].slice(0, 3);
       }
       function dayKey(d) {
-        // Local "YYYY-MM-DD" — the discrete field appointments are filtered by,
-        // so per-doctor-per-day reads stay an EQUALITY query (never a range scan
-        // or a fetch-all). See AppointmentStore.getForDoctorDay.
-        return (
-          d.getFullYear() + "-" + pad(d.getMonth() + 1) + "-" + pad(d.getDate())
-        );
+        // Clinic-local "YYYY-MM-DD" — the discrete field appointments are
+        // filtered by, so per-doctor-per-day reads stay an EQUALITY query
+        // (never a range scan or a fetch-all). Computed in ACTIVE_TZ so the day
+        // a booking belongs to never depends on the browser/server timezone.
+        // See AppointmentStore.getForDoctorDay.
+        const p = tzParts(d, ACTIVE_TZ);
+        return p.year + "-" + pad(p.month) + "-" + pad(p.day);
       }
       function initials(name) {
         const clean = name.replace(/^(Dr\.|Prof\.|Mr\.|Ms\.|Mrs\.)\s*/i, "");
@@ -3382,25 +3446,25 @@
       /* ════════════════ Mini calendar ════════════════ */
       function MiniCalendar({ selected, onSelect }) {
         const [cursor, setCursor] = useState(() => startOfDay(selected));
+        const selP = tzParts(selected, ACTIVE_TZ);
         useEffect(() => {
-          setCursor((c) =>
-            c.getMonth() === selected.getMonth() &&
-            c.getFullYear() === selected.getFullYear()
+          setCursor((c) => {
+            const cP = tzParts(c, ACTIVE_TZ);
+            return cP.month === selP.month && cP.year === selP.year
               ? c
-              : startOfDay(selected),
-          );
+              : startOfDay(selected);
+          });
         }, [selected]);
 
-        const first = new Date(cursor.getFullYear(), cursor.getMonth(), 1);
+        const curP = tzParts(cursor, ACTIVE_TZ);
+        const first = clinicMidnight(curP.year, curP.month, 1);
         const gridStart = startOfWeekMon(first);
         const cells = Array.from({ length: 42 }, (_, i) =>
           addDays(gridStart, i),
         );
-        const today = startOfDay(new Date());
+        const today = clinicToday();
         const step = (dir) => {
-          const x = new Date(cursor);
-          x.setMonth(x.getMonth() + dir);
-          setCursor(startOfDay(x));
+          setCursor(clinicMidnight(curP.year, curP.month + dir, 1));
         };
         const dows = ["Mån", "Tis", "Ons", "Tor", "Fre", "Lör", "Sön"];
 
@@ -3408,7 +3472,7 @@
           <div>
             <div className="cal-head">
               <div className="cal-month">
-                {MONTHS[cursor.getMonth()]} {cursor.getFullYear()}
+                {MONTHS[curP.month - 1]} {curP.year}
               </div>
               <div className="cal-navs">
                 <button
@@ -3434,10 +3498,11 @@
                 </div>
               ))}
               {cells.map((d, i) => {
-                const dim = d.getMonth() !== cursor.getMonth();
+                const dP = tzParts(d, ACTIVE_TZ);
+                const dim = dP.month !== curP.month;
                 const past = d < today;
                 const sel = isSameDay(d, selected);
-                const sun = d.getDay() === 0;
+                const sun = clinicDow(d) === 0;
                 return (
                   <button
                     key={i}
@@ -3451,7 +3516,7 @@
                     disabled={past}
                     onClick={() => onSelect(startOfDay(d))}
                   >
-                    {d.getDate()}
+                    {dP.day}
                   </button>
                 );
               })}
@@ -3844,10 +3909,10 @@
                                   title={fmtLongDate(d.date)}
                                 >
                                   <span className="ad-dow">
-                                    {WD[d.date.getDay()]}
+                                    {WD[clinicDow(d.date)]}
                                   </span>
                                   <span className="ad-num">
-                                    {d.date.getDate()}
+                                    {tzParts(d.date, ACTIVE_TZ).day}
                                   </span>
                                   <span className="ad-free">
                                     {full ? "Fullt" : d.freeCount + " fria"}
@@ -4045,6 +4110,7 @@
             userName: me.name || me.email || "Patient",
             // (userName fallback kept as "Patient" — same word in Swedish)
             day: dayKey(start), // equality key for narrow per-doctor-per-day reads
+            tz: ACTIVE_TZ, // clinic tz the time was chosen in → emails render in it
             start: start.toISOString(),
             end: end.toISOString(),
             concerns: concerns || "",
@@ -5022,6 +5088,11 @@
           return "dark";
         });
         const [settings, setSettings] = useState(DEFAULT_SETTINGS);
+        // Drive the whole date layer from the chosen timezone. Done in render
+        // (not an effect) so children render with the correct ACTIVE_TZ on the
+        // very first pass after settings load/change — App renders before its
+        // children, so the module-level value is in place when they compute dates.
+        setActiveTz(settings.timezone);
         // Only the signed-in user's OWN appointments (a narrow where:{userId}
         // slice) — powers the bell + "My appointments". The availability grid
         // loads its own per-doctor-per-day slice inside AppointmentView.
