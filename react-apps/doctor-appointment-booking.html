@@ -2210,8 +2210,12 @@
       // filter pins the display to the clinic regardless of where Klar runs.
       const CLINIC_TZ = "Europe/Stockholm";
 
-      // Email automations this app self-provisions (owner-gated, create-if-absent).
-      // Subjects/bodies are Liquid; recipient "owner" = the booker's email.
+      // Email automations this app self-provisions (owner-gated). Subjects/bodies
+      // are Liquid; recipient "owner" = the booker's email. ensureAutomations is
+      // create-if-absent (it never clobbers an existing one), so edits here don't
+      // reach an already-provisioned project on their own — bump AUTOMATIONS_VERSION
+      // and syncAutomations() deletes + recreates the set once to apply them.
+      const AUTOMATIONS_VERSION = 2;
       const KLAR_AUTOMATIONS = {
         appointmentConfirmation: {
           collection: "appointments",
@@ -5154,11 +5158,41 @@
           };
         }, []);
 
-        // Once the owner is signed in, self-provision this app's email automations.
+        // Once the owner is signed in, provision AND keep this app's email
+        // automations in sync. ensureAutomations only creates missing ones, so a
+        // template change won't reach already-provisioned automations. We track
+        // the template version in admin-owned data: when AUTOMATIONS_VERSION
+        // changes, delete the managed set once and recreate it from the current
+        // templates, then record the new version. Editing a template + bumping
+        // the version is now all it takes — no manual DB surgery.
         useEffect(() => {
-          if (isAdmin && client?.admin) {
-            client.admin.ensureAutomations(KLAR_AUTOMATIONS).catch(() => {});
-          }
+          if (!isAdmin || !client?.admin) return;
+          let active = true;
+          (async () => {
+            const VKEY = APP_DATA_PREFIX + "automations_version";
+            let stored = 0;
+            try {
+              stored = Number(await client.data.get(VKEY)) || 0;
+            } catch {}
+            try {
+              if (stored !== AUTOMATIONS_VERSION) {
+                // Force-replace so edited templates take effect (create-if-absent
+                // would otherwise skip the existing rows).
+                await Promise.all(
+                  Object.keys(KLAR_AUTOMATIONS).map((n) =>
+                    client.admin.deleteAutomation(n).catch(() => {}),
+                  ),
+                );
+              }
+              await client.admin.ensureAutomations(KLAR_AUTOMATIONS);
+              // Record the version only after a successful recreate, so a failed
+              // run retries next load instead of silently staying stale.
+              if (active) await client.data.set(VKEY, AUTOMATIONS_VERSION);
+            } catch {}
+          })();
+          return () => {
+            active = false;
+          };
         }, [isAdmin, client]);
 
         // When the signed-in user changes, load their settings + appointments
