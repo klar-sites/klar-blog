@@ -3598,7 +3598,11 @@
                   <button
                     className="btn btn-primary btn-lg"
                     onClick={onSignIn}
-                    disabled={signingIn}
+                    title={
+                      signingIn
+                        ? "Klicka för att ta fram inloggningsfönstret"
+                        : undefined
+                    }
                   >
                     {signingIn ? "Öppnar…" : "Logga in med Google"}
                   </button>
