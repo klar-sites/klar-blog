@@ -4792,37 +4792,6 @@
               Se alla som har loggat in och redigera deras tider och data.
             </p>
 
-            <div
-              className="card card-pad"
-              style={{ marginBottom: "var(--space-lg)", maxWidth: 460 }}
-            >
-              <div style={{ fontWeight: 600, marginBottom: 4 }}>Tidszon</div>
-              <div className="tiny" style={{ marginBottom: 12 }}>
-                Klinikens tidszon — styr tider, kalender och påminnelser för alla.
-              </div>
-              <div style={{ display: "flex", gap: 8 }}>
-                <select
-                  className="select"
-                  value={tz}
-                  onChange={(e) => setTz(e.target.value)}
-                  style={{ flex: 1 }}
-                >
-                  {TIMEZONES.map((z) => (
-                    <option key={z} value={z}>
-                      {z.replace("_", " ")}
-                    </option>
-                  ))}
-                </select>
-                <button
-                  className="btn btn-primary"
-                  onClick={saveTimezone}
-                  disabled={savingTz || tz === clinicTz}
-                >
-                  {savingTz ? "Sparar…" : "Spara"}
-                </button>
-              </div>
-            </div>
-
             {err && (
               <div
                 style={{
@@ -5126,6 +5095,37 @@
                     </div>
                   </>
                 )}
+              </div>
+            </div>
+
+            <div
+              className="card card-pad"
+              style={{ marginTop: "var(--space-lg)", maxWidth: 460 }}
+            >
+              <div style={{ fontWeight: 600, marginBottom: 4 }}>Tidszon</div>
+              <div className="tiny" style={{ marginBottom: 12 }}>
+                Klinikens tidszon — styr tider, kalender och påminnelser för alla.
+              </div>
+              <div style={{ display: "flex", gap: 8 }}>
+                <select
+                  className="select"
+                  value={tz}
+                  onChange={(e) => setTz(e.target.value)}
+                  style={{ flex: 1 }}
+                >
+                  {TIMEZONES.map((z) => (
+                    <option key={z} value={z}>
+                      {z.replace("_", " ")}
+                    </option>
+                  ))}
+                </select>
+                <button
+                  className="btn btn-primary"
+                  onClick={saveTimezone}
+                  disabled={savingTz || tz === clinicTz}
+                >
+                  {savingTz ? "Sparar…" : "Spara"}
+                </button>
               </div>
             </div>
           </div>
