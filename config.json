@@ -1105,6 +1105,10 @@
           "Authenticity"
         ]
       }
+    },
+    {
+      "name": "index.html",
+      "editableElements": "body,\nnav[]"
     }
   ],
   "vocabularies": {
