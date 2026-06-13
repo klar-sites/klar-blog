@@ -9,7 +9,175 @@
     {
       "name": "blog/blog-post-1.html",
       "type": "blog-post",
+      "editableElements": ".field-title        :field(title: Title, name: title, type:string, order:1, section: Content, sectionOrder:1),\n.field-image     \t:field(title: Image, name: image, type:image, order:2, col: 6, section:'Content'),\n.field-category  \t:field(title: Category, name: category, type:string, col:6, section:Meta, sectionOrder:2, options(vocab:categories)),\n.field-author    \t:field(title: Author, name: author, type:string, options(vocab:authors), col:6, section:'Meta', sectionOrder:2),\n.field-createdAt \t:field(title: Created, name: createdAt, type:string, format:date, options(dateFormat:'MMMM D, YYYY', dbField: createdAt)),\n.field-initial      :field(title: Initial, name: initial, type:string, order:5, col:6),\n.field-readTime  \t:field(title: Read time, name: readTime, type:string, order: 5, col: 6),\n.field-list         :field(title: List, name: list, type:array, options(layout:list)),\n.field-text      \t:field(title: Content, name: text, type:array, options(layout:blocks)),\n                 \t:field(title: Lead, name: lead, type:text, default: 'Blog post excerpt — Brief description of the article content for preview.', order:3, section:'Content', col: 6, options(layout:editor))",
       "content": {
+        "title": "En blogg för alla de som älskar att skriva och skratta",
+        "image": {
+          "src": "/images/work-lifestyle-Bg_wzXQT.jpg",
+          "alt": "En blogg för alla de som älskar att skriva och skratta"
+        },
+        "category": "Lifestyle",
+        "author": "Per Oscarsson",
+        "createdAt": "May 5, 2026",
+        "initial": "P",
+        "readTime": "8 min read",
+        "text": [
+          {
+            "tag": "p",
+            "html": "<p>\n                  The fashion industry has undergone a seismic shift in the past\n                  decade, with fashion blogging emerging as one of the most\n                  influential forces reshaping how we discover, consume, and\n                  interact with style. What began as personal style diaries has\n                  evolved into a billion-dollar industry that directly impacts\n                  fashion trends, consumer behavior, and brand strategies\n                  worldwide.\n                </p>",
+            "text": "The fashion industry has undergone a seismic shift in the past decade, with fashion blogging emerging as one of the most influential forces reshaping how we discover, consume, and interact with style. What began as personal style diaries has evolved into a billion-dollar industry that directly impacts fashion trends, consumer behavior, and brand strategies worldwide."
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  From the early days of pioneering bloggers like Susanna Lau of\n                  Style Bubble and Tavi Gevinson of Style Rookie, to today's\n                  Instagram influencers with millions of followers, fashion\n                  blogging has democratized fashion commentary and created new\n                  pathways to influence that bypass traditional gatekeepers.\n                </p>",
+            "text": "From the early days of pioneering bloggers like Susanna Lau of Style Bubble and Tavi Gevinson of Style Rookie, to today's Instagram influencers with millions of followers, fashion blogging has democratized fashion commentary and created new pathways to influence that bypass traditional gatekeepers."
+          },
+          {
+            "tag": "h2",
+            "html": "<h2>The Evolution of Fashion Influence</h2>",
+            "text": "The Evolution of Fashion Influence"
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  Traditional fashion journalism once held exclusive power over\n                  trend-setting and style validation. Magazine editors and\n                  fashion critics were the sole arbiters of what was considered\n                  fashionable. However, the rise of digital platforms has\n                  fundamentally disrupted this hierarchy.\n                </p>",
+            "text": "Traditional fashion journalism once held exclusive power over trend-setting and style validation. Magazine editors and fashion critics were the sole arbiters of what was considered fashionable. However, the rise of digital platforms has fundamentally disrupted this hierarchy."
+          },
+          {
+            "tag": "img",
+            "html": "<img src=\"/images/fashion-post-4m_ykv-I.jpg\" alt=\"Fashion blogger creating content\" loading=\"lazy\">",
+            "text": ""
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  Today's fashion influencers operate with unprecedented\n                  autonomy, building direct relationships with their audiences\n                  and creating authentic content that resonates on a personal\n                  level. This shift has forced established fashion media to\n                  adapt, with many traditional publications now collaborating\n                  with digital creators to maintain relevance.\n                </p>",
+            "text": "Today's fashion influencers operate with unprecedented autonomy, building direct relationships with their audiences and creating authentic content that resonates on a personal level. This shift has forced established fashion media to adapt, with many traditional publications now collaborating with digital creators to maintain relevance."
+          },
+          {
+            "tag": "h2",
+            "html": "<h2>The Anatomy of Modern Fashion Influence</h2>",
+            "text": "The Anatomy of Modern Fashion Influence"
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  Contemporary fashion influencers operate across multiple\n                  platforms, each serving different purposes in their overall\n                  strategy:\n                </p>",
+            "text": "Contemporary fashion influencers operate across multiple platforms, each serving different purposes in their overall strategy:"
+          },
+          {
+            "tag": "ul",
+            "html": "<ul>\n                  <li>\n                    <strong>Instagram:</strong> Visual storytelling through\n                    curated feeds and Stories\n                  </li>\n                  <li>\n                    <strong>TikTok:</strong> Trend creation and viral fashion\n                    content\n                  </li>\n                  <li>\n                    <strong>YouTube:</strong> Long-form content including\n                    lookbooks and shopping hauls\n                  </li>\n                  <li>\n                    <strong>Blogs:</strong> In-depth fashion analysis and\n                    personal narratives\n                  </li>\n                  <li>\n                    <strong>Pinterest:</strong> Style inspiration and trend\n                    forecasting\n                  </li>\n                </ul>",
+            "text": "Instagram: Visual storytelling through curated feeds and Stories TikTok: Trend creation and viral fashion content YouTube: Long-form content including lookbooks and shopping hauls Blogs: In-depth fashion analysis and personal narratives Pinterest: Style inspiration and trend forecasting"
+          },
+          {
+            "tag": "img",
+            "html": "<img src=\"/images/hero-image-xUp6gwWA.jpg\" alt=\"Multi-platform content creation setup\" loading=\"lazy\">",
+            "text": ""
+          },
+          {
+            "tag": "h2",
+            "html": "<h2>The Business of Fashion Blogging</h2>",
+            "text": "The Business of Fashion Blogging"
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  What started as passion projects have transformed into\n                  sophisticated business enterprises. Successful fashion\n                  influencers now operate as media companies, employing teams\n                  for content creation, brand partnerships, and business\n                  development.\n                </p>",
+            "text": "What started as passion projects have transformed into sophisticated business enterprises. Successful fashion influencers now operate as media companies, employing teams for content creation, brand partnerships, and business development."
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  The monetization strategies have diversified significantly:\n                </p>",
+            "text": "The monetization strategies have diversified significantly:"
+          },
+          {
+            "tag": "ul",
+            "html": "<ul>\n                  <li>\n                    <strong>Brand Partnerships:</strong> Sponsored content and\n                    ambassadorships\n                  </li>\n                  <li>\n                    <strong>Affiliate Marketing:</strong> Commission-based\n                    product recommendations\n                  </li>\n                  <li>\n                    <strong>Product Lines:</strong> Private label fashion and\n                    beauty collaborations\n                  </li>\n                  <li>\n                    <strong>Digital Products:</strong> Style guides, courses,\n                    and exclusive content\n                  </li>\n                  <li>\n                    <strong>Event Hosting:</strong> Fashion shows,\n                    meet-and-greets, and brand activations\n                  </li>\n                </ul>",
+            "text": "Brand Partnerships: Sponsored content and ambassadorships Affiliate Marketing: Commission-based product recommendations Product Lines: Private label fashion and beauty collaborations Digital Products: Style guides, courses, and exclusive content Event Hosting: Fashion shows, meet-and-greets, and brand activations"
+          },
+          {
+            "tag": "h2",
+            "html": "<h2>Impact on Consumer Behavior</h2>",
+            "text": "Impact on Consumer Behavior"
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  Fashion influencers have fundamentally altered how consumers\n                  discover and purchase clothing. The traditional seasonal\n                  fashion cycle has given way to constant content creation and\n                  immediate shopping opportunities through features like\n                  Instagram Shopping and \"link in bio\" tools.\n                </p>",
+            "text": "Fashion influencers have fundamentally altered how consumers discover and purchase clothing. The traditional seasonal fashion cycle has given way to constant content creation and immediate shopping opportunities through features like Instagram Shopping and \"link in bio\" tools."
+          },
+          {
+            "tag": "img",
+            "html": "<img src=\"/images/business-post-6IsrfXyD.jpg\" alt=\"Consumer shopping on mobile device\" loading=\"lazy\">",
+            "text": ""
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  Research indicates that 72% of Gen Z and millennial consumers\n                  have made fashion purchases directly influenced by social\n                  media content. This immediate connection between inspiration\n                  and purchase has created new challenges and opportunities for\n                  both brands and consumers.\n                </p>",
+            "text": "Research indicates that 72% of Gen Z and millennial consumers have made fashion purchases directly influenced by social media content. This immediate connection between inspiration and purchase has created new challenges and opportunities for both brands and consumers."
+          },
+          {
+            "tag": "h2",
+            "html": "<h2>Challenges in the Influencer Economy</h2>",
+            "text": "Challenges in the Influencer Economy"
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  Despite its growth, the fashion influencer industry faces\n                  significant challenges:\n                </p>",
+            "text": "Despite its growth, the fashion influencer industry faces significant challenges:"
+          },
+          {
+            "tag": "ul",
+            "html": "<ul>\n                  <li>\n                    <strong>Authenticity Concerns:</strong> Balancing genuine\n                    recommendations with commercial partnerships\n                  </li>\n                  <li>\n                    <strong>Market Saturation:</strong> Standing out in an\n                    increasingly crowded field\n                  </li>\n                  <li>\n                    <strong>Platform Dependencies:</strong> Vulnerability to\n                    algorithm changes and platform policies\n                  </li>\n                  <li>\n                    <strong>Sustainability Issues:</strong> Pressure to\n                    constantly showcase new products\n                  </li>\n                  <li>\n                    <strong>Mental Health:</strong> The psychological impact of\n                    constant public scrutiny\n                  </li>\n                </ul>",
+            "text": "Authenticity Concerns: Balancing genuine recommendations with commercial partnerships Market Saturation: Standing out in an increasingly crowded field Platform Dependencies: Vulnerability to algorithm changes and platform policies Sustainability Issues: Pressure to constantly showcase new products Mental Health: The psychological impact of constant public scrutiny"
+          },
+          {
+            "tag": "h2",
+            "html": "<h2>The Sustainability Movement</h2>",
+            "text": "The Sustainability Movement"
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  A growing number of fashion influencers are pivoting toward\n                  sustainable fashion advocacy, using their platforms to promote\n                  conscious consumption, vintage shopping, and ethical brands.\n                  This shift reflects broader consumer awareness about fashion's\n                  environmental impact.\n                </p>",
+            "text": "A growing number of fashion influencers are pivoting toward sustainable fashion advocacy, using their platforms to promote conscious consumption, vintage shopping, and ethical brands. This shift reflects broader consumer awareness about fashion's environmental impact."
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  Influencers like Venetia La Manna and Aditi Mayer have built\n                  substantial followings by focusing on sustainable fashion\n                  education, proving that conscious content can be both engaging\n                  and commercially successful.\n                </p>",
+            "text": "Influencers like Venetia La Manna and Aditi Mayer have built substantial followings by focusing on sustainable fashion education, proving that conscious content can be both engaging and commercially successful."
+          },
+          {
+            "tag": "h2",
+            "html": "<h2>Technology and the Future of Fashion Influence</h2>",
+            "text": "Technology and the Future of Fashion Influence"
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  Emerging technologies are reshaping the landscape once again.\n                  Virtual reality shopping experiences, AI-powered style\n                  recommendations, and augmented reality try-on features are\n                  creating new possibilities for fashion content creation and\n                  consumer engagement.\n                </p>",
+            "text": "Emerging technologies are reshaping the landscape once again. Virtual reality shopping experiences, AI-powered style recommendations, and augmented reality try-on features are creating new possibilities for fashion content creation and consumer engagement."
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  The rise of virtual influencers like Lil Miquela and the\n                  integration of NFTs in fashion are pushing the boundaries of\n                  what constitutes fashion influence in the digital age.\n                </p>",
+            "text": "The rise of virtual influencers like Lil Miquela and the integration of NFTs in fashion are pushing the boundaries of what constitutes fashion influence in the digital age."
+          },
+          {
+            "tag": "h2",
+            "html": "<h2>Looking Ahead: The Next Chapter</h2>",
+            "text": "Looking Ahead: The Next Chapter"
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  As we look toward the future, fashion blogging and influence\n                  will likely become even more integrated with e-commerce,\n                  sustainability initiatives, and immersive technologies. The\n                  most successful influencers will be those who can adapt to\n                  changing platforms while maintaining authentic connections\n                  with their audiences.\n                </p>",
+            "text": "As we look toward the future, fashion blogging and influence will likely become even more integrated with e-commerce, sustainability initiatives, and immersive technologies. The most successful influencers will be those who can adapt to changing platforms while maintaining authentic connections with their audiences."
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  The democratization of fashion influence has permanently\n                  changed the industry landscape, creating opportunities for\n                  diverse voices and perspectives that were previously\n                  marginalized. This evolution continues to challenge\n                  traditional fashion hierarchies and create new pathways for\n                  creative expression and commercial success.\n                </p>",
+            "text": "The democratization of fashion influence has permanently changed the industry landscape, creating opportunities for diverse voices and perspectives that were previously marginalized. This evolution continues to challenge traditional fashion hierarchies and create new pathways for creative expression and commercial success."
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  Fashion blogging has proven that influence in the digital age\n                  is not about gatekeeping access to style, but about fostering\n                  communities, inspiring creativity, and making fashion more\n                  accessible to everyone.\n                </p>",
+            "text": "Fashion blogging has proven that influence in the digital age is not about gatekeeping access to style, but about fostering communities, inspiring creativity, and making fashion more accessible to everyone."
+          }
+        ],
         "categories": [
           "Technology",
           "Podcast",
@@ -24,7 +192,175 @@
     {
       "name": "blog/blog-post-2.html",
       "type": "blog-post",
+      "editableElements": ".field-title        :field(title: Title, name: title, type:string, order:1, section: Content, sectionOrder:1),\n.field-image     \t:field(title: Image, name: image, type:image, order:2, col: 6, section:'Content'),\n.field-category  \t:field(title: Category, name: category, type:string, col:6, section:Meta, sectionOrder:2, options(vocab:categories)),\n.field-author    \t:field(title: Author, name: author, type:string, options(vocab:authors), col:6, section:'Meta', sectionOrder:2),\n.field-createdAt \t:field(title: Created, name: createdAt, type:string, format:date, options(dateFormat:'MMMM D, YYYY', dbField: createdAt)),\n.field-initial      :field(title: Initial, name: initial, type:string, order:5, col:6),\n.field-readTime  \t:field(title: Read time, name: readTime, type:string, order: 5, col: 6),\n.field-list         :field(title: List, name: list, type:array, options(layout:list)),\n.field-text      \t:field(title: Content, name: text, type:array, options(layout:blocks)),\n                 \t:field(title: Lead, name: lead, type:text, default: 'Blog post excerpt — Brief description of the article content for preview.', order:3, section:'Content', col: 6, options(layout:editor))",
       "content": {
+        "title": "En blogg för alla de som tycker det är kul att blogga",
+        "image": {
+          "src": "/images/fashion-lifestyle-tBv1CS6f (1).jpg",
+          "alt": "En blogg för alla de som tycker det är kul att blogga"
+        },
+        "category": "Podcast",
+        "author": "Niklas Svensson",
+        "createdAt": "May 5, 2026",
+        "initial": "L",
+        "readTime": "6 min read",
+        "text": [
+          {
+            "tag": "p",
+            "html": "<p>\n                  The fashion industry has undergone a seismic shift in the past\n                  decade, with fashion blogging emerging as one of the most\n                  influential forces reshaping how we discover, consume, and\n                  interact with style. What began as personal style diaries has\n                  evolved into a billion-dollar industry that directly impacts\n                  fashion trends, consumer behavior, and brand strategies\n                  worldwide.\n                </p>",
+            "text": "The fashion industry has undergone a seismic shift in the past decade, with fashion blogging emerging as one of the most influential forces reshaping how we discover, consume, and interact with style. What began as personal style diaries has evolved into a billion-dollar industry that directly impacts fashion trends, consumer behavior, and brand strategies worldwide."
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  From the early days of pioneering bloggers like Susanna Lau of\n                  Style Bubble and Tavi Gevinson of Style Rookie, to today's\n                  Instagram influencers with millions of followers, fashion\n                  blogging has democratized fashion commentary and created new\n                  pathways to influence that bypass traditional gatekeepers.\n                </p>",
+            "text": "From the early days of pioneering bloggers like Susanna Lau of Style Bubble and Tavi Gevinson of Style Rookie, to today's Instagram influencers with millions of followers, fashion blogging has democratized fashion commentary and created new pathways to influence that bypass traditional gatekeepers."
+          },
+          {
+            "tag": "h2",
+            "html": "<h2>The Evolution of Fashion Influence</h2>",
+            "text": "The Evolution of Fashion Influence"
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  Traditional fashion journalism once held exclusive power over\n                  trend-setting and style validation. Magazine editors and\n                  fashion critics were the sole arbiters of what was considered\n                  fashionable. However, the rise of digital platforms has\n                  fundamentally disrupted this hierarchy.\n                </p>",
+            "text": "Traditional fashion journalism once held exclusive power over trend-setting and style validation. Magazine editors and fashion critics were the sole arbiters of what was considered fashionable. However, the rise of digital platforms has fundamentally disrupted this hierarchy."
+          },
+          {
+            "tag": "img",
+            "html": "<img src=\"/images/fashion-post-4m_ykv-I.jpg\" alt=\"Fashion blogger creating content\" loading=\"lazy\">",
+            "text": ""
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  Today's fashion influencers operate with unprecedented\n                  autonomy, building direct relationships with their audiences\n                  and creating authentic content that resonates on a personal\n                  level. This shift has forced established fashion media to\n                  adapt, with many traditional publications now collaborating\n                  with digital creators to maintain relevance.\n                </p>",
+            "text": "Today's fashion influencers operate with unprecedented autonomy, building direct relationships with their audiences and creating authentic content that resonates on a personal level. This shift has forced established fashion media to adapt, with many traditional publications now collaborating with digital creators to maintain relevance."
+          },
+          {
+            "tag": "h2",
+            "html": "<h2>The Anatomy of Modern Fashion Influence</h2>",
+            "text": "The Anatomy of Modern Fashion Influence"
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  Contemporary fashion influencers operate across multiple\n                  platforms, each serving different purposes in their overall\n                  strategy:\n                </p>",
+            "text": "Contemporary fashion influencers operate across multiple platforms, each serving different purposes in their overall strategy:"
+          },
+          {
+            "tag": "ul",
+            "html": "<ul>\n                  <li>\n                    <strong>Instagram:</strong> Visual storytelling through\n                    curated feeds and Stories\n                  </li>\n                  <li>\n                    <strong>TikTok:</strong> Trend creation and viral fashion\n                    content\n                  </li>\n                  <li>\n                    <strong>YouTube:</strong> Long-form content including\n                    lookbooks and shopping hauls\n                  </li>\n                  <li>\n                    <strong>Blogs:</strong> In-depth fashion analysis and\n                    personal narratives\n                  </li>\n                  <li>\n                    <strong>Pinterest:</strong> Style inspiration and trend\n                    forecasting\n                  </li>\n                </ul>",
+            "text": "Instagram: Visual storytelling through curated feeds and Stories TikTok: Trend creation and viral fashion content YouTube: Long-form content including lookbooks and shopping hauls Blogs: In-depth fashion analysis and personal narratives Pinterest: Style inspiration and trend forecasting"
+          },
+          {
+            "tag": "img",
+            "html": "<img src=\"/images/hero-image-xUp6gwWA.jpg\" alt=\"Multi-platform content creation setup\" loading=\"lazy\">",
+            "text": ""
+          },
+          {
+            "tag": "h2",
+            "html": "<h2>The Business of Fashion Blogging</h2>",
+            "text": "The Business of Fashion Blogging"
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  What started as passion projects have transformed into\n                  sophisticated business enterprises. Successful fashion\n                  influencers now operate as media companies, employing teams\n                  for content creation, brand partnerships, and business\n                  development.\n                </p>",
+            "text": "What started as passion projects have transformed into sophisticated business enterprises. Successful fashion influencers now operate as media companies, employing teams for content creation, brand partnerships, and business development."
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  The monetization strategies have diversified significantly:\n                </p>",
+            "text": "The monetization strategies have diversified significantly:"
+          },
+          {
+            "tag": "ul",
+            "html": "<ul>\n                  <li>\n                    <strong>Brand Partnerships:</strong> Sponsored content and\n                    ambassadorships\n                  </li>\n                  <li>\n                    <strong>Affiliate Marketing:</strong> Commission-based\n                    product recommendations\n                  </li>\n                  <li>\n                    <strong>Product Lines:</strong> Private label fashion and\n                    beauty collaborations\n                  </li>\n                  <li>\n                    <strong>Digital Products:</strong> Style guides, courses,\n                    and exclusive content\n                  </li>\n                  <li>\n                    <strong>Event Hosting:</strong> Fashion shows,\n                    meet-and-greets, and brand activations\n                  </li>\n                </ul>",
+            "text": "Brand Partnerships: Sponsored content and ambassadorships Affiliate Marketing: Commission-based product recommendations Product Lines: Private label fashion and beauty collaborations Digital Products: Style guides, courses, and exclusive content Event Hosting: Fashion shows, meet-and-greets, and brand activations"
+          },
+          {
+            "tag": "h2",
+            "html": "<h2>Impact on Consumer Behavior</h2>",
+            "text": "Impact on Consumer Behavior"
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  Fashion influencers have fundamentally altered how consumers\n                  discover and purchase clothing. The traditional seasonal\n                  fashion cycle has given way to constant content creation and\n                  immediate shopping opportunities through features like\n                  Instagram Shopping and \"link in bio\" tools.\n                </p>",
+            "text": "Fashion influencers have fundamentally altered how consumers discover and purchase clothing. The traditional seasonal fashion cycle has given way to constant content creation and immediate shopping opportunities through features like Instagram Shopping and \"link in bio\" tools."
+          },
+          {
+            "tag": "img",
+            "html": "<img src=\"/images/business-post-6IsrfXyD.jpg\" alt=\"Consumer shopping on mobile device\" loading=\"lazy\">",
+            "text": ""
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  Research indicates that 72% of Gen Z and millennial consumers\n                  have made fashion purchases directly influenced by social\n                  media content. This immediate connection between inspiration\n                  and purchase has created new challenges and opportunities for\n                  both brands and consumers.\n                </p>",
+            "text": "Research indicates that 72% of Gen Z and millennial consumers have made fashion purchases directly influenced by social media content. This immediate connection between inspiration and purchase has created new challenges and opportunities for both brands and consumers."
+          },
+          {
+            "tag": "h2",
+            "html": "<h2>Challenges in the Influencer Economy</h2>",
+            "text": "Challenges in the Influencer Economy"
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  Despite its growth, the fashion influencer industry faces\n                  significant challenges:\n                </p>",
+            "text": "Despite its growth, the fashion influencer industry faces significant challenges:"
+          },
+          {
+            "tag": "ul",
+            "html": "<ul>\n                  <li>\n                    <strong>Authenticity Concerns:</strong> Balancing genuine\n                    recommendations with commercial partnerships\n                  </li>\n                  <li>\n                    <strong>Market Saturation:</strong> Standing out in an\n                    increasingly crowded field\n                  </li>\n                  <li>\n                    <strong>Platform Dependencies:</strong> Vulnerability to\n                    algorithm changes and platform policies\n                  </li>\n                  <li>\n                    <strong>Sustainability Issues:</strong> Pressure to\n                    constantly showcase new products\n                  </li>\n                  <li>\n                    <strong>Mental Health:</strong> The psychological impact of\n                    constant public scrutiny\n                  </li>\n                </ul>",
+            "text": "Authenticity Concerns: Balancing genuine recommendations with commercial partnerships Market Saturation: Standing out in an increasingly crowded field Platform Dependencies: Vulnerability to algorithm changes and platform policies Sustainability Issues: Pressure to constantly showcase new products Mental Health: The psychological impact of constant public scrutiny"
+          },
+          {
+            "tag": "h2",
+            "html": "<h2>The Sustainability Movement</h2>",
+            "text": "The Sustainability Movement"
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  A growing number of fashion influencers are pivoting toward\n                  sustainable fashion advocacy, using their platforms to promote\n                  conscious consumption, vintage shopping, and ethical brands.\n                  This shift reflects broader consumer awareness about fashion's\n                  environmental impact.\n                </p>",
+            "text": "A growing number of fashion influencers are pivoting toward sustainable fashion advocacy, using their platforms to promote conscious consumption, vintage shopping, and ethical brands. This shift reflects broader consumer awareness about fashion's environmental impact."
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  Influencers like Venetia La Manna and Aditi Mayer have built\n                  substantial followings by focusing on sustainable fashion\n                  education, proving that conscious content can be both engaging\n                  and commercially successful.\n                </p>",
+            "text": "Influencers like Venetia La Manna and Aditi Mayer have built substantial followings by focusing on sustainable fashion education, proving that conscious content can be both engaging and commercially successful."
+          },
+          {
+            "tag": "h2",
+            "html": "<h2>Technology and the Future of Fashion Influence</h2>",
+            "text": "Technology and the Future of Fashion Influence"
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  Emerging technologies are reshaping the landscape once again.\n                  Virtual reality shopping experiences, AI-powered style\n                  recommendations, and augmented reality try-on features are\n                  creating new possibilities for fashion content creation and\n                  consumer engagement.\n                </p>",
+            "text": "Emerging technologies are reshaping the landscape once again. Virtual reality shopping experiences, AI-powered style recommendations, and augmented reality try-on features are creating new possibilities for fashion content creation and consumer engagement."
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  The rise of virtual influencers like Lil Miquela and the\n                  integration of NFTs in fashion are pushing the boundaries of\n                  what constitutes fashion influence in the digital age.\n                </p>",
+            "text": "The rise of virtual influencers like Lil Miquela and the integration of NFTs in fashion are pushing the boundaries of what constitutes fashion influence in the digital age."
+          },
+          {
+            "tag": "h2",
+            "html": "<h2>Looking Ahead: The Next Chapter</h2>",
+            "text": "Looking Ahead: The Next Chapter"
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  As we look toward the future, fashion blogging and influence\n                  will likely become even more integrated with e-commerce,\n                  sustainability initiatives, and immersive technologies. The\n                  most successful influencers will be those who can adapt to\n                  changing platforms while maintaining authentic connections\n                  with their audiences.\n                </p>",
+            "text": "As we look toward the future, fashion blogging and influence will likely become even more integrated with e-commerce, sustainability initiatives, and immersive technologies. The most successful influencers will be those who can adapt to changing platforms while maintaining authentic connections with their audiences."
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  The democratization of fashion influence has permanently\n                  changed the industry landscape, creating opportunities for\n                  diverse voices and perspectives that were previously\n                  marginalized. This evolution continues to challenge\n                  traditional fashion hierarchies and create new pathways for\n                  creative expression and commercial success.\n                </p>",
+            "text": "The democratization of fashion influence has permanently changed the industry landscape, creating opportunities for diverse voices and perspectives that were previously marginalized. This evolution continues to challenge traditional fashion hierarchies and create new pathways for creative expression and commercial success."
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  Fashion blogging has proven that influence in the digital age\n                  is not about gatekeeping access to style, but about fostering\n                  communities, inspiring creativity, and making fashion more\n                  accessible to everyone.\n                </p>",
+            "text": "Fashion blogging has proven that influence in the digital age is not about gatekeeping access to style, but about fostering communities, inspiring creativity, and making fashion more accessible to everyone."
+          }
+        ],
         "categories": [
           "Technology",
           "Business",
@@ -38,7 +374,175 @@
     {
       "name": "blog/blog-post-3.html",
       "type": "blog-post",
+      "editableElements": ".field-title        :field(title: Title, name: title, type:string, order:1, section: Content, sectionOrder:1),\n.field-image     \t:field(title: Image, name: image, type:image, order:2, col: 6, section:'Content'),\n.field-category  \t:field(title: Category, name: category, type:string, col:6, section:Meta, sectionOrder:2, options(vocab:categories)),\n.field-author    \t:field(title: Author, name: author, type:string, options(vocab:authors), col:6, section:'Meta', sectionOrder:2),\n.field-createdAt \t:field(title: Created, name: createdAt, type:string, format:date, options(dateFormat:'MMMM D, YYYY', dbField: createdAt)),\n.field-initial      :field(title: Initial, name: initial, type:string, order:5, col:6),\n.field-readTime  \t:field(title: Read time, name: readTime, type:string, order: 5, col: 6),\n.field-list         :field(title: List, name: list, type:array, options(layout:list)),\n.field-text      \t:field(title: Content, name: text, type:array, options(layout:blocks)),\n                 \t:field(title: Lead, name: lead, type:text, default: 'Blog post excerpt — Brief description of the article content for preview.', order:3, section:'Content', col: 6, options(layout:editor))",
       "content": {
+        "title": "En blogg för alla de som tycker det är kul att blogg",
+        "image": {
+          "src": "/images/fashion-post-4m_ykv-I.jpg",
+          "alt": "En blogg för alla de som tycker det är kul att blogg 1"
+        },
+        "category": "Business",
+        "author": "Klar Karlsson",
+        "createdAt": "May 6, 2026",
+        "initial": "K",
+        "readTime": "5 min read",
+        "text": [
+          {
+            "tag": "p",
+            "html": "<p>\n                  The fashion industry has undergone a seismic shift in the past\n                  decade, with fashion blogging emerging as one of the most\n                  influential forces reshaping how we discover, consume, and\n                  interact with style. What began as personal style diaries has\n                  evolved into a billion-dollar industry that directly impacts\n                  fashion trends, consumer behavior, and brand strategies\n                  worldwide.\n                </p>",
+            "text": "The fashion industry has undergone a seismic shift in the past decade, with fashion blogging emerging as one of the most influential forces reshaping how we discover, consume, and interact with style. What began as personal style diaries has evolved into a billion-dollar industry that directly impacts fashion trends, consumer behavior, and brand strategies worldwide."
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  From the early days of pioneering bloggers like Susanna Lau of\n                  Style Bubble and Tavi Gevinson of Style Rookie, to today's\n                  Instagram influencers with millions of followers, fashion\n                  blogging has democratized fashion commentary and created new\n                  pathways to influence that bypass traditional gatekeepers.\n                </p>",
+            "text": "From the early days of pioneering bloggers like Susanna Lau of Style Bubble and Tavi Gevinson of Style Rookie, to today's Instagram influencers with millions of followers, fashion blogging has democratized fashion commentary and created new pathways to influence that bypass traditional gatekeepers."
+          },
+          {
+            "tag": "h2",
+            "html": "<h2>The Evolution of Fashion Influence</h2>",
+            "text": "The Evolution of Fashion Influence"
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  Traditional fashion journalism once held exclusive power over\n                  trend-setting and style validation. Magazine editors and\n                  fashion critics were the sole arbiters of what was considered\n                  fashionable. However, the rise of digital platforms has\n                  fundamentally disrupted this hierarchy.\n                </p>",
+            "text": "Traditional fashion journalism once held exclusive power over trend-setting and style validation. Magazine editors and fashion critics were the sole arbiters of what was considered fashionable. However, the rise of digital platforms has fundamentally disrupted this hierarchy."
+          },
+          {
+            "tag": "img",
+            "html": "<img src=\"/images/fashion-post-4m_ykv-I.jpg\" alt=\"Fashion blogger creating content\" loading=\"lazy\">",
+            "text": ""
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  Today's fashion influencers operate with unprecedented\n                  autonomy, building direct relationships with their audiences\n                  and creating authentic content that resonates on a personal\n                  level. This shift has forced established fashion media to\n                  adapt, with many traditional publications now collaborating\n                  with digital creators to maintain relevance.\n                </p>",
+            "text": "Today's fashion influencers operate with unprecedented autonomy, building direct relationships with their audiences and creating authentic content that resonates on a personal level. This shift has forced established fashion media to adapt, with many traditional publications now collaborating with digital creators to maintain relevance."
+          },
+          {
+            "tag": "h2",
+            "html": "<h2>The Anatomy of Modern Fashion Influence</h2>",
+            "text": "The Anatomy of Modern Fashion Influence"
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  Contemporary fashion influencers operate across multiple\n                  platforms, each serving different purposes in their overall\n                  strategy:\n                </p>",
+            "text": "Contemporary fashion influencers operate across multiple platforms, each serving different purposes in their overall strategy:"
+          },
+          {
+            "tag": "ul",
+            "html": "<ul>\n                  <li>\n                    <strong>Instagram:</strong> Visual storytelling through\n                    curated feeds and Stories\n                  </li>\n                  <li>\n                    <strong>TikTok:</strong> Trend creation and viral fashion\n                    content\n                  </li>\n                  <li>\n                    <strong>YouTube:</strong> Long-form content including\n                    lookbooks and shopping hauls\n                  </li>\n                  <li>\n                    <strong>Blogs:</strong> In-depth fashion analysis and\n                    personal narratives\n                  </li>\n                  <li>\n                    <strong>Pinterest:</strong> Style inspiration and trend\n                    forecasting\n                  </li>\n                </ul>",
+            "text": "Instagram: Visual storytelling through curated feeds and Stories TikTok: Trend creation and viral fashion content YouTube: Long-form content including lookbooks and shopping hauls Blogs: In-depth fashion analysis and personal narratives Pinterest: Style inspiration and trend forecasting"
+          },
+          {
+            "tag": "img",
+            "html": "<img src=\"/images/hero-image-xUp6gwWA.jpg\" alt=\"Multi-platform content creation setup\" loading=\"lazy\">",
+            "text": ""
+          },
+          {
+            "tag": "h2",
+            "html": "<h2>The Business of Fashion Blogging</h2>",
+            "text": "The Business of Fashion Blogging"
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  What started as passion projects have transformed into\n                  sophisticated business enterprises. Successful fashion\n                  influencers now operate as media companies, employing teams\n                  for content creation, brand partnerships, and business\n                  development.\n                </p>",
+            "text": "What started as passion projects have transformed into sophisticated business enterprises. Successful fashion influencers now operate as media companies, employing teams for content creation, brand partnerships, and business development."
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  The monetization strategies have diversified significantly:\n                </p>",
+            "text": "The monetization strategies have diversified significantly:"
+          },
+          {
+            "tag": "ul",
+            "html": "<ul>\n                  <li>\n                    <strong>Brand Partnerships:</strong> Sponsored content and\n                    ambassadorships\n                  </li>\n                  <li>\n                    <strong>Affiliate Marketing:</strong> Commission-based\n                    product recommendations\n                  </li>\n                  <li>\n                    <strong>Product Lines:</strong> Private label fashion and\n                    beauty collaborations\n                  </li>\n                  <li>\n                    <strong>Digital Products:</strong> Style guides, courses,\n                    and exclusive content\n                  </li>\n                  <li>\n                    <strong>Event Hosting:</strong> Fashion shows,\n                    meet-and-greets, and brand activations\n                  </li>\n                </ul>",
+            "text": "Brand Partnerships: Sponsored content and ambassadorships Affiliate Marketing: Commission-based product recommendations Product Lines: Private label fashion and beauty collaborations Digital Products: Style guides, courses, and exclusive content Event Hosting: Fashion shows, meet-and-greets, and brand activations"
+          },
+          {
+            "tag": "h2",
+            "html": "<h2>Impact on Consumer Behavior</h2>",
+            "text": "Impact on Consumer Behavior"
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  Fashion influencers have fundamentally altered how consumers\n                  discover and purchase clothing. The traditional seasonal\n                  fashion cycle has given way to constant content creation and\n                  immediate shopping opportunities through features like\n                  Instagram Shopping and \"link in bio\" tools.\n                </p>",
+            "text": "Fashion influencers have fundamentally altered how consumers discover and purchase clothing. The traditional seasonal fashion cycle has given way to constant content creation and immediate shopping opportunities through features like Instagram Shopping and \"link in bio\" tools."
+          },
+          {
+            "tag": "img",
+            "html": "<img src=\"/images/business-post-6IsrfXyD.jpg\" alt=\"Consumer shopping on mobile device\" loading=\"lazy\">",
+            "text": ""
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  Research indicates that 72% of Gen Z and millennial consumers\n                  have made fashion purchases directly influenced by social\n                  media content. This immediate connection between inspiration\n                  and purchase has created new challenges and opportunities for\n                  both brands and consumers.\n                </p>",
+            "text": "Research indicates that 72% of Gen Z and millennial consumers have made fashion purchases directly influenced by social media content. This immediate connection between inspiration and purchase has created new challenges and opportunities for both brands and consumers."
+          },
+          {
+            "tag": "h2",
+            "html": "<h2>Challenges in the Influencer Economy</h2>",
+            "text": "Challenges in the Influencer Economy"
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  Despite its growth, the fashion influencer industry faces\n                  significant challenges:\n                </p>",
+            "text": "Despite its growth, the fashion influencer industry faces significant challenges:"
+          },
+          {
+            "tag": "ul",
+            "html": "<ul>\n                  <li>\n                    <strong>Authenticity Concerns:</strong> Balancing genuine\n                    recommendations with commercial partnerships\n                  </li>\n                  <li>\n                    <strong>Market Saturation:</strong> Standing out in an\n                    increasingly crowded field\n                  </li>\n                  <li>\n                    <strong>Platform Dependencies:</strong> Vulnerability to\n                    algorithm changes and platform policies\n                  </li>\n                  <li>\n                    <strong>Sustainability Issues:</strong> Pressure to\n                    constantly showcase new products\n                  </li>\n                  <li>\n                    <strong>Mental Health:</strong> The psychological impact of\n                    constant public scrutiny\n                  </li>\n                </ul>",
+            "text": "Authenticity Concerns: Balancing genuine recommendations with commercial partnerships Market Saturation: Standing out in an increasingly crowded field Platform Dependencies: Vulnerability to algorithm changes and platform policies Sustainability Issues: Pressure to constantly showcase new products Mental Health: The psychological impact of constant public scrutiny"
+          },
+          {
+            "tag": "h2",
+            "html": "<h2>The Sustainability Movement</h2>",
+            "text": "The Sustainability Movement"
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  A growing number of fashion influencers are pivoting toward\n                  sustainable fashion advocacy, using their platforms to promote\n                  conscious consumption, vintage shopping, and ethical brands.\n                  This shift reflects broader consumer awareness about fashion's\n                  environmental impact.\n                </p>",
+            "text": "A growing number of fashion influencers are pivoting toward sustainable fashion advocacy, using their platforms to promote conscious consumption, vintage shopping, and ethical brands. This shift reflects broader consumer awareness about fashion's environmental impact."
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  Influencers like Venetia La Manna and Aditi Mayer have built\n                  substantial followings by focusing on sustainable fashion\n                  education, proving that conscious content can be both engaging\n                  and commercially successful.\n                </p>",
+            "text": "Influencers like Venetia La Manna and Aditi Mayer have built substantial followings by focusing on sustainable fashion education, proving that conscious content can be both engaging and commercially successful."
+          },
+          {
+            "tag": "h2",
+            "html": "<h2>Technology and the Future of Fashion Influence</h2>",
+            "text": "Technology and the Future of Fashion Influence"
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  Emerging technologies are reshaping the landscape once again.\n                  Virtual reality shopping experiences, AI-powered style\n                  recommendations, and augmented reality try-on features are\n                  creating new possibilities for fashion content creation and\n                  consumer engagement.\n                </p>",
+            "text": "Emerging technologies are reshaping the landscape once again. Virtual reality shopping experiences, AI-powered style recommendations, and augmented reality try-on features are creating new possibilities for fashion content creation and consumer engagement."
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  The rise of virtual influencers like Lil Miquela and the\n                  integration of NFTs in fashion are pushing the boundaries of\n                  what constitutes fashion influence in the digital age.\n                </p>",
+            "text": "The rise of virtual influencers like Lil Miquela and the integration of NFTs in fashion are pushing the boundaries of what constitutes fashion influence in the digital age."
+          },
+          {
+            "tag": "h2",
+            "html": "<h2>Looking Ahead: The Next Chapter</h2>",
+            "text": "Looking Ahead: The Next Chapter"
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  As we look toward the future, fashion blogging and influence\n                  will likely become even more integrated with e-commerce,\n                  sustainability initiatives, and immersive technologies. The\n                  most successful influencers will be those who can adapt to\n                  changing platforms while maintaining authentic connections\n                  with their audiences.\n                </p>",
+            "text": "As we look toward the future, fashion blogging and influence will likely become even more integrated with e-commerce, sustainability initiatives, and immersive technologies. The most successful influencers will be those who can adapt to changing platforms while maintaining authentic connections with their audiences."
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  The democratization of fashion influence has permanently\n                  changed the industry landscape, creating opportunities for\n                  diverse voices and perspectives that were previously\n                  marginalized. This evolution continues to challenge\n                  traditional fashion hierarchies and create new pathways for\n                  creative expression and commercial success.\n                </p>",
+            "text": "The democratization of fashion influence has permanently changed the industry landscape, creating opportunities for diverse voices and perspectives that were previously marginalized. This evolution continues to challenge traditional fashion hierarchies and create new pathways for creative expression and commercial success."
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  Fashion blogging has proven that influence in the digital age\n                  is not about gatekeeping access to style, but about fostering\n                  communities, inspiring creativity, and making fashion more\n                  accessible to everyone.\n                </p>",
+            "text": "Fashion blogging has proven that influence in the digital age is not about gatekeeping access to style, but about fostering communities, inspiring creativity, and making fashion more accessible to everyone."
+          }
+        ],
         "categories": [
           "Technology",
           "Lifestyle"
@@ -51,7 +555,175 @@
     {
       "name": "blog/blog-post-4.html",
       "type": "blog-post",
+      "editableElements": ".field-title        :field(title: Title, name: title, type:string, order:1, section: Content, sectionOrder:1),\n.field-image     \t:field(title: Image, name: image, type:image, order:2, col: 6, section:'Content'),\n.field-category  \t:field(title: Category, name: category, type:string, col:6, section:Meta, sectionOrder:2, options(vocab:categories)),\n.field-author    \t:field(title: Author, name: author, type:string, options(vocab:authors), col:6, section:'Meta', sectionOrder:2),\n.field-createdAt \t:field(title: Created, name: createdAt, type:string, format:date, options(dateFormat:'MMMM D, YYYY', dbField: createdAt)),\n.field-initial      :field(title: Initial, name: initial, type:string, order:5, col:6),\n.field-readTime  \t:field(title: Read time, name: readTime, type:string, order: 5, col: 6),\n.field-list         :field(title: List, name: list, type:array, options(layout:list)),\n.field-text      \t:field(title: Content, name: text, type:array, options(layout:blocks)),\n                 \t:field(title: Lead, name: lead, type:text, default: 'Blog post excerpt — Brief description of the article content for preview.', order:3, section:'Content', col: 6, options(layout:editor))",
       "content": {
+        "title": "En blogg för alla de som tycker det är kul att blogg",
+        "image": {
+          "src": "/images/hero-image-xUp6gwWA.jpg",
+          "alt": "En blogg för alla de som tycker det är kul att blosgg"
+        },
+        "category": "Technology",
+        "author": "Niklas Svensson",
+        "createdAt": "May 9, 2026",
+        "initial": "N",
+        "readTime": "7 min read",
+        "text": [
+          {
+            "tag": "p",
+            "html": "<p>\n                  The fashion industry has undergone a seismic shift in the past\n                  decade, with fashion blogging emerging as one of the most\n                  influential forces reshaping how we discover, consume, and\n                  interact with style. What began as personal style diaries has\n                  evolved into a billion-dollar industry that directly impacts\n                  fashion trends, consumer behavior, and brand strategies\n                  worldwide.\n                </p>",
+            "text": "The fashion industry has undergone a seismic shift in the past decade, with fashion blogging emerging as one of the most influential forces reshaping how we discover, consume, and interact with style. What began as personal style diaries has evolved into a billion-dollar industry that directly impacts fashion trends, consumer behavior, and brand strategies worldwide."
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  From the early days of pioneering bloggers like Susanna Lau of\n                  Style Bubble and Tavi Gevinson of Style Rookie, to today's\n                  Instagram influencers with millions of followers, fashion\n                  blogging has democratized fashion commentary and created new\n                  pathways to influence that bypass traditional gatekeepers.\n                </p>",
+            "text": "From the early days of pioneering bloggers like Susanna Lau of Style Bubble and Tavi Gevinson of Style Rookie, to today's Instagram influencers with millions of followers, fashion blogging has democratized fashion commentary and created new pathways to influence that bypass traditional gatekeepers."
+          },
+          {
+            "tag": "h2",
+            "html": "<h2>The Evolution of Fashion Influence</h2>",
+            "text": "The Evolution of Fashion Influence"
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  Traditional fashion journalism once held exclusive power over\n                  trend-setting and style validation. Magazine editors and\n                  fashion critics were the sole arbiters of what was considered\n                  fashionable. However, the rise of digital platforms has\n                  fundamentally disrupted this hierarchy.\n                </p>",
+            "text": "Traditional fashion journalism once held exclusive power over trend-setting and style validation. Magazine editors and fashion critics were the sole arbiters of what was considered fashionable. However, the rise of digital platforms has fundamentally disrupted this hierarchy."
+          },
+          {
+            "tag": "img",
+            "html": "<img src=\"/images/fashion-post-4m_ykv-I.jpg\" alt=\"Fashion blogger creating content\" loading=\"lazy\">",
+            "text": ""
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  Today's fashion influencers operate with unprecedented\n                  autonomy, building direct relationships with their audiences\n                  and creating authentic content that resonates on a personal\n                  level. This shift has forced established fashion media to\n                  adapt, with many traditional publications now collaborating\n                  with digital creators to maintain relevance.\n                </p>",
+            "text": "Today's fashion influencers operate with unprecedented autonomy, building direct relationships with their audiences and creating authentic content that resonates on a personal level. This shift has forced established fashion media to adapt, with many traditional publications now collaborating with digital creators to maintain relevance."
+          },
+          {
+            "tag": "h2",
+            "html": "<h2>The Anatomy of Modern Fashion Influence</h2>",
+            "text": "The Anatomy of Modern Fashion Influence"
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  Contemporary fashion influencers operate across multiple\n                  platforms, each serving different purposes in their overall\n                  strategy:\n                </p>",
+            "text": "Contemporary fashion influencers operate across multiple platforms, each serving different purposes in their overall strategy:"
+          },
+          {
+            "tag": "ul",
+            "html": "<ul>\n                  <li>\n                    <strong>Instagram:</strong> Visual storytelling through\n                    curated feeds and Stories\n                  </li>\n                  <li>\n                    <strong>TikTok:</strong> Trend creation and viral fashion\n                    content\n                  </li>\n                  <li>\n                    <strong>YouTube:</strong> Long-form content including\n                    lookbooks and shopping hauls\n                  </li>\n                  <li>\n                    <strong>Blogs:</strong> In-depth fashion analysis and\n                    personal narratives\n                  </li>\n                  <li>\n                    <strong>Pinterest:</strong> Style inspiration and trend\n                    forecasting\n                  </li>\n                </ul>",
+            "text": "Instagram: Visual storytelling through curated feeds and Stories TikTok: Trend creation and viral fashion content YouTube: Long-form content including lookbooks and shopping hauls Blogs: In-depth fashion analysis and personal narratives Pinterest: Style inspiration and trend forecasting"
+          },
+          {
+            "tag": "img",
+            "html": "<img src=\"/images/hero-image-xUp6gwWA.jpg\" alt=\"Multi-platform content creation setup\" loading=\"lazy\">",
+            "text": ""
+          },
+          {
+            "tag": "h2",
+            "html": "<h2>The Business of Fashion Blogging</h2>",
+            "text": "The Business of Fashion Blogging"
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  What started as passion projects have transformed into\n                  sophisticated business enterprises. Successful fashion\n                  influencers now operate as media companies, employing teams\n                  for content creation, brand partnerships, and business\n                  development.\n                </p>",
+            "text": "What started as passion projects have transformed into sophisticated business enterprises. Successful fashion influencers now operate as media companies, employing teams for content creation, brand partnerships, and business development."
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  The monetization strategies have diversified significantly:\n                </p>",
+            "text": "The monetization strategies have diversified significantly:"
+          },
+          {
+            "tag": "ul",
+            "html": "<ul>\n                  <li>\n                    <strong>Brand Partnerships:</strong> Sponsored content and\n                    ambassadorships\n                  </li>\n                  <li>\n                    <strong>Affiliate Marketing:</strong> Commission-based\n                    product recommendations\n                  </li>\n                  <li>\n                    <strong>Product Lines:</strong> Private label fashion and\n                    beauty collaborations\n                  </li>\n                  <li>\n                    <strong>Digital Products:</strong> Style guides, courses,\n                    and exclusive content\n                  </li>\n                  <li>\n                    <strong>Event Hosting:</strong> Fashion shows,\n                    meet-and-greets, and brand activations\n                  </li>\n                </ul>",
+            "text": "Brand Partnerships: Sponsored content and ambassadorships Affiliate Marketing: Commission-based product recommendations Product Lines: Private label fashion and beauty collaborations Digital Products: Style guides, courses, and exclusive content Event Hosting: Fashion shows, meet-and-greets, and brand activations"
+          },
+          {
+            "tag": "h2",
+            "html": "<h2>Impact on Consumer Behavior</h2>",
+            "text": "Impact on Consumer Behavior"
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  Fashion influencers have fundamentally altered how consumers\n                  discover and purchase clothing. The traditional seasonal\n                  fashion cycle has given way to constant content creation and\n                  immediate shopping opportunities through features like\n                  Instagram Shopping and \"link in bio\" tools.\n                </p>",
+            "text": "Fashion influencers have fundamentally altered how consumers discover and purchase clothing. The traditional seasonal fashion cycle has given way to constant content creation and immediate shopping opportunities through features like Instagram Shopping and \"link in bio\" tools."
+          },
+          {
+            "tag": "img",
+            "html": "<img src=\"/images/business-post-6IsrfXyD.jpg\" alt=\"Consumer shopping on mobile device\" loading=\"lazy\">",
+            "text": ""
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  Research indicates that 72% of Gen Z and millennial consumers\n                  have made fashion purchases directly influenced by social\n                  media content. This immediate connection between inspiration\n                  and purchase has created new challenges and opportunities for\n                  both brands and consumers.\n                </p>",
+            "text": "Research indicates that 72% of Gen Z and millennial consumers have made fashion purchases directly influenced by social media content. This immediate connection between inspiration and purchase has created new challenges and opportunities for both brands and consumers."
+          },
+          {
+            "tag": "h2",
+            "html": "<h2>Challenges in the Influencer Economy</h2>",
+            "text": "Challenges in the Influencer Economy"
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  Despite its growth, the fashion influencer industry faces\n                  significant challenges:\n                </p>",
+            "text": "Despite its growth, the fashion influencer industry faces significant challenges:"
+          },
+          {
+            "tag": "ul",
+            "html": "<ul>\n                  <li>\n                    <strong>Authenticity Concerns:</strong> Balancing genuine\n                    recommendations with commercial partnerships\n                  </li>\n                  <li>\n                    <strong>Market Saturation:</strong> Standing out in an\n                    increasingly crowded field\n                  </li>\n                  <li>\n                    <strong>Platform Dependencies:</strong> Vulnerability to\n                    algorithm changes and platform policies\n                  </li>\n                  <li>\n                    <strong>Sustainability Issues:</strong> Pressure to\n                    constantly showcase new products\n                  </li>\n                  <li>\n                    <strong>Mental Health:</strong> The psychological impact of\n                    constant public scrutiny\n                  </li>\n                </ul>",
+            "text": "Authenticity Concerns: Balancing genuine recommendations with commercial partnerships Market Saturation: Standing out in an increasingly crowded field Platform Dependencies: Vulnerability to algorithm changes and platform policies Sustainability Issues: Pressure to constantly showcase new products Mental Health: The psychological impact of constant public scrutiny"
+          },
+          {
+            "tag": "h2",
+            "html": "<h2>The Sustainability Movement</h2>",
+            "text": "The Sustainability Movement"
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  A growing number of fashion influencers are pivoting toward\n                  sustainable fashion advocacy, using their platforms to promote\n                  conscious consumption, vintage shopping, and ethical brands.\n                  This shift reflects broader consumer awareness about fashion's\n                  environmental impact.\n                </p>",
+            "text": "A growing number of fashion influencers are pivoting toward sustainable fashion advocacy, using their platforms to promote conscious consumption, vintage shopping, and ethical brands. This shift reflects broader consumer awareness about fashion's environmental impact."
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  Influencers like Venetia La Manna and Aditi Mayer have built\n                  substantial followings by focusing on sustainable fashion\n                  education, proving that conscious content can be both engaging\n                  and commercially successful.\n                </p>",
+            "text": "Influencers like Venetia La Manna and Aditi Mayer have built substantial followings by focusing on sustainable fashion education, proving that conscious content can be both engaging and commercially successful."
+          },
+          {
+            "tag": "h2",
+            "html": "<h2>Technology and the Future of Fashion Influence</h2>",
+            "text": "Technology and the Future of Fashion Influence"
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  Emerging technologies are reshaping the landscape once again.\n                  Virtual reality shopping experiences, AI-powered style\n                  recommendations, and augmented reality try-on features are\n                  creating new possibilities for fashion content creation and\n                  consumer engagement.\n                </p>",
+            "text": "Emerging technologies are reshaping the landscape once again. Virtual reality shopping experiences, AI-powered style recommendations, and augmented reality try-on features are creating new possibilities for fashion content creation and consumer engagement."
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  The rise of virtual influencers like Lil Miquela and the\n                  integration of NFTs in fashion are pushing the boundaries of\n                  what constitutes fashion influence in the digital age.\n                </p>",
+            "text": "The rise of virtual influencers like Lil Miquela and the integration of NFTs in fashion are pushing the boundaries of what constitutes fashion influence in the digital age."
+          },
+          {
+            "tag": "h2",
+            "html": "<h2>Looking Ahead: The Next Chapter</h2>",
+            "text": "Looking Ahead: The Next Chapter"
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  As we look toward the future, fashion blogging and influence\n                  will likely become even more integrated with e-commerce,\n                  sustainability initiatives, and immersive technologies. The\n                  most successful influencers will be those who can adapt to\n                  changing platforms while maintaining authentic connections\n                  with their audiences.\n                </p>",
+            "text": "As we look toward the future, fashion blogging and influence will likely become even more integrated with e-commerce, sustainability initiatives, and immersive technologies. The most successful influencers will be those who can adapt to changing platforms while maintaining authentic connections with their audiences."
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  The democratization of fashion influence has permanently\n                  changed the industry landscape, creating opportunities for\n                  diverse voices and perspectives that were previously\n                  marginalized. This evolution continues to challenge\n                  traditional fashion hierarchies and create new pathways for\n                  creative expression and commercial success.\n                </p>",
+            "text": "The democratization of fashion influence has permanently changed the industry landscape, creating opportunities for diverse voices and perspectives that were previously marginalized. This evolution continues to challenge traditional fashion hierarchies and create new pathways for creative expression and commercial success."
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  Fashion blogging has proven that influence in the digital age\n                  is not about gatekeeping access to style, but about fostering\n                  communities, inspiring creativity, and making fashion more\n                  accessible to everyone.\n                </p>",
+            "text": "Fashion blogging has proven that influence in the digital age is not about gatekeeping access to style, but about fostering communities, inspiring creativity, and making fashion more accessible to everyone."
+          }
+        ],
         "categories": [
           "Technology",
           "Podcast",
@@ -70,7 +742,175 @@
     {
       "name": "blog/blog-post-5.html",
       "type": "blog-post",
+      "editableElements": ".field-title        :field(title: Title, name: title, type:string, order:1, section: Content, sectionOrder:1),\n.field-image     \t:field(title: Image, name: image, type:image, order:2, col: 6, section:'Content'),\n.field-category  \t:field(title: Category, name: category, type:string, col:6, section:Meta, sectionOrder:2, options(vocab:categories)),\n.field-author    \t:field(title: Author, name: author, type:string, options(vocab:authors), col:6, section:'Meta', sectionOrder:2),\n.field-createdAt \t:field(title: Created, name: createdAt, type:string, format:date, options(dateFormat:'MMMM D, YYYY', dbField: createdAt)),\n.field-initial      :field(title: Initial, name: initial, type:string, order:5, col:6),\n.field-readTime  \t:field(title: Read time, name: readTime, type:string, order: 5, col: 6),\n.field-list         :field(title: List, name: list, type:array, options(layout:list)),\n.field-text      \t:field(title: Content, name: text, type:array, options(layout:blocks)),\n                 \t:field(title: Lead, name: lead, type:text, default: 'Blog post excerpt — Brief description of the article content for preview.', order:3, section:'Content', col: 6, options(layout:editor))",
       "content": {
+        "title": "En blogg för alla de som tycker det är kul att blogg",
+        "image": {
+          "src": "/images/lifestyle-post-B2o5gHGK.jpg",
+          "alt": "En blogg för alla de som tycker det är kul att blogg 1"
+        },
+        "category": "Business",
+        "author": "Lisa Eriksson",
+        "createdAt": "May 8, 2026",
+        "initial": "L",
+        "readTime": "4 min read",
+        "text": [
+          {
+            "tag": "p",
+            "html": "<p>\n                  The fashion industry has undergone a seismic shift in the past\n                  decade, with fashion blogging emerging as one of the most\n                  influential forces reshaping how we discover, consume, and\n                  interact with style. What began as personal style diaries has\n                  evolved into a billion-dollar industry that directly impacts\n                  fashion trends, consumer behavior, and brand strategies\n                  worldwide.\n                </p>",
+            "text": "The fashion industry has undergone a seismic shift in the past decade, with fashion blogging emerging as one of the most influential forces reshaping how we discover, consume, and interact with style. What began as personal style diaries has evolved into a billion-dollar industry that directly impacts fashion trends, consumer behavior, and brand strategies worldwide."
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  From the early days of pioneering bloggers like Susanna Lau of\n                  Style Bubble and Tavi Gevinson of Style Rookie, to today's\n                  Instagram influencers with millions of followers, fashion\n                  blogging has democratized fashion commentary and created new\n                  pathways to influence that bypass traditional gatekeepers.\n                </p>",
+            "text": "From the early days of pioneering bloggers like Susanna Lau of Style Bubble and Tavi Gevinson of Style Rookie, to today's Instagram influencers with millions of followers, fashion blogging has democratized fashion commentary and created new pathways to influence that bypass traditional gatekeepers."
+          },
+          {
+            "tag": "h2",
+            "html": "<h2>The Evolution of Fashion Influence</h2>",
+            "text": "The Evolution of Fashion Influence"
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  Traditional fashion journalism once held exclusive power over\n                  trend-setting and style validation. Magazine editors and\n                  fashion critics were the sole arbiters of what was considered\n                  fashionable. However, the rise of digital platforms has\n                  fundamentally disrupted this hierarchy.\n                </p>",
+            "text": "Traditional fashion journalism once held exclusive power over trend-setting and style validation. Magazine editors and fashion critics were the sole arbiters of what was considered fashionable. However, the rise of digital platforms has fundamentally disrupted this hierarchy."
+          },
+          {
+            "tag": "img",
+            "html": "<img src=\"/images/fashion-post-4m_ykv-I.jpg\" alt=\"Fashion blogger creating content\" loading=\"lazy\">",
+            "text": ""
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  Today's fashion influencers operate with unprecedented\n                  autonomy, building direct relationships with their audiences\n                  and creating authentic content that resonates on a personal\n                  level. This shift has forced established fashion media to\n                  adapt, with many traditional publications now collaborating\n                  with digital creators to maintain relevance.\n                </p>",
+            "text": "Today's fashion influencers operate with unprecedented autonomy, building direct relationships with their audiences and creating authentic content that resonates on a personal level. This shift has forced established fashion media to adapt, with many traditional publications now collaborating with digital creators to maintain relevance."
+          },
+          {
+            "tag": "h2",
+            "html": "<h2>The Anatomy of Modern Fashion Influence</h2>",
+            "text": "The Anatomy of Modern Fashion Influence"
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  Contemporary fashion influencers operate across multiple\n                  platforms, each serving different purposes in their overall\n                  strategy:\n                </p>",
+            "text": "Contemporary fashion influencers operate across multiple platforms, each serving different purposes in their overall strategy:"
+          },
+          {
+            "tag": "ul",
+            "html": "<ul>\n                  <li>\n                    <strong>Instagram:</strong> Visual storytelling through\n                    curated feeds and Stories\n                  </li>\n                  <li>\n                    <strong>TikTok:</strong> Trend creation and viral fashion\n                    content\n                  </li>\n                  <li>\n                    <strong>YouTube:</strong> Long-form content including\n                    lookbooks and shopping hauls\n                  </li>\n                  <li>\n                    <strong>Blogs:</strong> In-depth fashion analysis and\n                    personal narratives\n                  </li>\n                  <li>\n                    <strong>Pinterest:</strong> Style inspiration and trend\n                    forecasting\n                  </li>\n                </ul>",
+            "text": "Instagram: Visual storytelling through curated feeds and Stories TikTok: Trend creation and viral fashion content YouTube: Long-form content including lookbooks and shopping hauls Blogs: In-depth fashion analysis and personal narratives Pinterest: Style inspiration and trend forecasting"
+          },
+          {
+            "tag": "img",
+            "html": "<img src=\"/images/hero-image-xUp6gwWA.jpg\" alt=\"Multi-platform content creation setup\" loading=\"lazy\">",
+            "text": ""
+          },
+          {
+            "tag": "h2",
+            "html": "<h2>The Business of Fashion Blogging</h2>",
+            "text": "The Business of Fashion Blogging"
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  What started as passion projects have transformed into\n                  sophisticated business enterprises. Successful fashion\n                  influencers now operate as media companies, employing teams\n                  for content creation, brand partnerships, and business\n                  development.\n                </p>",
+            "text": "What started as passion projects have transformed into sophisticated business enterprises. Successful fashion influencers now operate as media companies, employing teams for content creation, brand partnerships, and business development."
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  The monetization strategies have diversified significantly:\n                </p>",
+            "text": "The monetization strategies have diversified significantly:"
+          },
+          {
+            "tag": "ul",
+            "html": "<ul>\n                  <li>\n                    <strong>Brand Partnerships:</strong> Sponsored content and\n                    ambassadorships\n                  </li>\n                  <li>\n                    <strong>Affiliate Marketing:</strong> Commission-based\n                    product recommendations\n                  </li>\n                  <li>\n                    <strong>Product Lines:</strong> Private label fashion and\n                    beauty collaborations\n                  </li>\n                  <li>\n                    <strong>Digital Products:</strong> Style guides, courses,\n                    and exclusive content\n                  </li>\n                  <li>\n                    <strong>Event Hosting:</strong> Fashion shows,\n                    meet-and-greets, and brand activations\n                  </li>\n                </ul>",
+            "text": "Brand Partnerships: Sponsored content and ambassadorships Affiliate Marketing: Commission-based product recommendations Product Lines: Private label fashion and beauty collaborations Digital Products: Style guides, courses, and exclusive content Event Hosting: Fashion shows, meet-and-greets, and brand activations"
+          },
+          {
+            "tag": "h2",
+            "html": "<h2>Impact on Consumer Behavior</h2>",
+            "text": "Impact on Consumer Behavior"
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  Fashion influencers have fundamentally altered how consumers\n                  discover and purchase clothing. The traditional seasonal\n                  fashion cycle has given way to constant content creation and\n                  immediate shopping opportunities through features like\n                  Instagram Shopping and \"link in bio\" tools.\n                </p>",
+            "text": "Fashion influencers have fundamentally altered how consumers discover and purchase clothing. The traditional seasonal fashion cycle has given way to constant content creation and immediate shopping opportunities through features like Instagram Shopping and \"link in bio\" tools."
+          },
+          {
+            "tag": "img",
+            "html": "<img src=\"/images/business-post-6IsrfXyD.jpg\" alt=\"Consumer shopping on mobile device\" loading=\"lazy\">",
+            "text": ""
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  Research indicates that 72% of Gen Z and millennial consumers\n                  have made fashion purchases directly influenced by social\n                  media content. This immediate connection between inspiration\n                  and purchase has created new challenges and opportunities for\n                  both brands and consumers.\n                </p>",
+            "text": "Research indicates that 72% of Gen Z and millennial consumers have made fashion purchases directly influenced by social media content. This immediate connection between inspiration and purchase has created new challenges and opportunities for both brands and consumers."
+          },
+          {
+            "tag": "h2",
+            "html": "<h2>Challenges in the Influencer Economy</h2>",
+            "text": "Challenges in the Influencer Economy"
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  Despite its growth, the fashion influencer industry faces\n                  significant challenges:\n                </p>",
+            "text": "Despite its growth, the fashion influencer industry faces significant challenges:"
+          },
+          {
+            "tag": "ul",
+            "html": "<ul>\n                  <li>\n                    <strong>Authenticity Concerns:</strong> Balancing genuine\n                    recommendations with commercial partnerships\n                  </li>\n                  <li>\n                    <strong>Market Saturation:</strong> Standing out in an\n                    increasingly crowded field\n                  </li>\n                  <li>\n                    <strong>Platform Dependencies:</strong> Vulnerability to\n                    algorithm changes and platform policies\n                  </li>\n                  <li>\n                    <strong>Sustainability Issues:</strong> Pressure to\n                    constantly showcase new products\n                  </li>\n                  <li>\n                    <strong>Mental Health:</strong> The psychological impact of\n                    constant public scrutiny\n                  </li>\n                </ul>",
+            "text": "Authenticity Concerns: Balancing genuine recommendations with commercial partnerships Market Saturation: Standing out in an increasingly crowded field Platform Dependencies: Vulnerability to algorithm changes and platform policies Sustainability Issues: Pressure to constantly showcase new products Mental Health: The psychological impact of constant public scrutiny"
+          },
+          {
+            "tag": "h2",
+            "html": "<h2>The Sustainability Movement</h2>",
+            "text": "The Sustainability Movement"
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  A growing number of fashion influencers are pivoting toward\n                  sustainable fashion advocacy, using their platforms to promote\n                  conscious consumption, vintage shopping, and ethical brands.\n                  This shift reflects broader consumer awareness about fashion's\n                  environmental impact.\n                </p>",
+            "text": "A growing number of fashion influencers are pivoting toward sustainable fashion advocacy, using their platforms to promote conscious consumption, vintage shopping, and ethical brands. This shift reflects broader consumer awareness about fashion's environmental impact."
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  Influencers like Venetia La Manna and Aditi Mayer have built\n                  substantial followings by focusing on sustainable fashion\n                  education, proving that conscious content can be both engaging\n                  and commercially successful.\n                </p>",
+            "text": "Influencers like Venetia La Manna and Aditi Mayer have built substantial followings by focusing on sustainable fashion education, proving that conscious content can be both engaging and commercially successful."
+          },
+          {
+            "tag": "h2",
+            "html": "<h2>Technology and the Future of Fashion Influence</h2>",
+            "text": "Technology and the Future of Fashion Influence"
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  Emerging technologies are reshaping the landscape once again.\n                  Virtual reality shopping experiences, AI-powered style\n                  recommendations, and augmented reality try-on features are\n                  creating new possibilities for fashion content creation and\n                  consumer engagement.\n                </p>",
+            "text": "Emerging technologies are reshaping the landscape once again. Virtual reality shopping experiences, AI-powered style recommendations, and augmented reality try-on features are creating new possibilities for fashion content creation and consumer engagement."
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  The rise of virtual influencers like Lil Miquela and the\n                  integration of NFTs in fashion are pushing the boundaries of\n                  what constitutes fashion influence in the digital age.\n                </p>",
+            "text": "The rise of virtual influencers like Lil Miquela and the integration of NFTs in fashion are pushing the boundaries of what constitutes fashion influence in the digital age."
+          },
+          {
+            "tag": "h2",
+            "html": "<h2>Looking Ahead: The Next Chapter</h2>",
+            "text": "Looking Ahead: The Next Chapter"
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  As we look toward the future, fashion blogging and influence\n                  will likely become even more integrated with e-commerce,\n                  sustainability initiatives, and immersive technologies. The\n                  most successful influencers will be those who can adapt to\n                  changing platforms while maintaining authentic connections\n                  with their audiences.\n                </p>",
+            "text": "As we look toward the future, fashion blogging and influence will likely become even more integrated with e-commerce, sustainability initiatives, and immersive technologies. The most successful influencers will be those who can adapt to changing platforms while maintaining authentic connections with their audiences."
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  The democratization of fashion influence has permanently\n                  changed the industry landscape, creating opportunities for\n                  diverse voices and perspectives that were previously\n                  marginalized. This evolution continues to challenge\n                  traditional fashion hierarchies and create new pathways for\n                  creative expression and commercial success.\n                </p>",
+            "text": "The democratization of fashion influence has permanently changed the industry landscape, creating opportunities for diverse voices and perspectives that were previously marginalized. This evolution continues to challenge traditional fashion hierarchies and create new pathways for creative expression and commercial success."
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  Fashion blogging has proven that influence in the digital age\n                  is not about gatekeeping access to style, but about fostering\n                  communities, inspiring creativity, and making fashion more\n                  accessible to everyone.\n                </p>",
+            "text": "Fashion blogging has proven that influence in the digital age is not about gatekeeping access to style, but about fostering communities, inspiring creativity, and making fashion more accessible to everyone."
+          }
+        ],
         "categories": [
           "Business",
           "Lifestyle"
@@ -84,7 +924,175 @@
     {
       "name": "blog/blog-post-6.html",
       "type": "blog-post",
+      "editableElements": ".field-title        :field(title: Title, name: title, type:string, order:1, section: Content, sectionOrder:1),\n.field-image     \t:field(title: Image, name: image, type:image, order:2, col: 6, section:'Content'),\n.field-category  \t:field(title: Category, name: category, type:string, col:6, section:Meta, sectionOrder:2, options(vocab:categories)),\n.field-author    \t:field(title: Author, name: author, type:string, options(vocab:authors), col:6, section:'Meta', sectionOrder:2),\n.field-createdAt \t:field(title: Created, name: createdAt, type:string, format:date, options(dateFormat:'MMMM D, YYYY', dbField: createdAt)),\n.field-initial      :field(title: Initial, name: initial, type:string, order:5, col:6),\n.field-readTime  \t:field(title: Read time, name: readTime, type:string, order: 5, col: 6),\n.field-list         :field(title: List, name: list, type:array, options(layout:list)),\n.field-text      \t:field(title: Content, name: text, type:array, options(layout:blocks)),\n                 \t:field(title: Lead, name: lead, type:text, default: 'Blog post excerpt — Brief description of the article content for preview.', order:3, section:'Content', col: 6, options(layout:editor))",
       "content": {
+        "title": "En blogg för alla de som tycker det är kul att blogg",
+        "image": {
+          "src": "/images/hero-image-xUp6gwWA.jpg",
+          "alt": "En blogg för alla de som tycker det är kul att blogg"
+        },
+        "category": "Technology",
+        "author": "Niklas Svensson",
+        "createdAt": "May 7, 2026",
+        "initial": "N",
+        "readTime": "9 min read",
+        "text": [
+          {
+            "tag": "p",
+            "html": "<p>\n                  The fashion industry has undergone a seismic shift in the past\n                  decade, with fashion blogging emerging as one of the most\n                  influential forces reshaping how we discover, consume, and\n                  interact with style. What began as personal style diaries has\n                  evolved into a billion-dollar industry that directly impacts\n                  fashion trends, consumer behavior, and brand strategies\n                  worldwide.\n                </p>",
+            "text": "The fashion industry has undergone a seismic shift in the past decade, with fashion blogging emerging as one of the most influential forces reshaping how we discover, consume, and interact with style. What began as personal style diaries has evolved into a billion-dollar industry that directly impacts fashion trends, consumer behavior, and brand strategies worldwide."
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  From the early days of pioneering bloggers like Susanna Lau of\n                  Style Bubble and Tavi Gevinson of Style Rookie, to today's\n                  Instagram influencers with millions of followers, fashion\n                  blogging has democratized fashion commentary and created new\n                  pathways to influence that bypass traditional gatekeepers.\n                </p>",
+            "text": "From the early days of pioneering bloggers like Susanna Lau of Style Bubble and Tavi Gevinson of Style Rookie, to today's Instagram influencers with millions of followers, fashion blogging has democratized fashion commentary and created new pathways to influence that bypass traditional gatekeepers."
+          },
+          {
+            "tag": "h2",
+            "html": "<h2>The Evolution of Fashion Influence</h2>",
+            "text": "The Evolution of Fashion Influence"
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  Traditional fashion journalism once held exclusive power over\n                  trend-setting and style validation. Magazine editors and\n                  fashion critics were the sole arbiters of what was considered\n                  fashionable. However, the rise of digital platforms has\n                  fundamentally disrupted this hierarchy.\n                </p>",
+            "text": "Traditional fashion journalism once held exclusive power over trend-setting and style validation. Magazine editors and fashion critics were the sole arbiters of what was considered fashionable. However, the rise of digital platforms has fundamentally disrupted this hierarchy."
+          },
+          {
+            "tag": "img",
+            "html": "<img src=\"/images/fashion-post-4m_ykv-I.jpg\" alt=\"Fashion blogger creating content\" loading=\"lazy\">",
+            "text": ""
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  Today's fashion influencers operate with unprecedented\n                  autonomy, building direct relationships with their audiences\n                  and creating authentic content that resonates on a personal\n                  level. This shift has forced established fashion media to\n                  adapt, with many traditional publications now collaborating\n                  with digital creators to maintain relevance.\n                </p>",
+            "text": "Today's fashion influencers operate with unprecedented autonomy, building direct relationships with their audiences and creating authentic content that resonates on a personal level. This shift has forced established fashion media to adapt, with many traditional publications now collaborating with digital creators to maintain relevance."
+          },
+          {
+            "tag": "h2",
+            "html": "<h2>The Anatomy of Modern Fashion Influence</h2>",
+            "text": "The Anatomy of Modern Fashion Influence"
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  Contemporary fashion influencers operate across multiple\n                  platforms, each serving different purposes in their overall\n                  strategy:\n                </p>",
+            "text": "Contemporary fashion influencers operate across multiple platforms, each serving different purposes in their overall strategy:"
+          },
+          {
+            "tag": "ul",
+            "html": "<ul>\n                  <li>\n                    <strong>Instagram:</strong> Visual storytelling through\n                    curated feeds and Stories\n                  </li>\n                  <li>\n                    <strong>TikTok:</strong> Trend creation and viral fashion\n                    content\n                  </li>\n                  <li>\n                    <strong>YouTube:</strong> Long-form content including\n                    lookbooks and shopping hauls\n                  </li>\n                  <li>\n                    <strong>Blogs:</strong> In-depth fashion analysis and\n                    personal narratives\n                  </li>\n                  <li>\n                    <strong>Pinterest:</strong> Style inspiration and trend\n                    forecasting\n                  </li>\n                </ul>",
+            "text": "Instagram: Visual storytelling through curated feeds and Stories TikTok: Trend creation and viral fashion content YouTube: Long-form content including lookbooks and shopping hauls Blogs: In-depth fashion analysis and personal narratives Pinterest: Style inspiration and trend forecasting"
+          },
+          {
+            "tag": "img",
+            "html": "<img src=\"/images/hero-image-xUp6gwWA.jpg\" alt=\"Multi-platform content creation setup\" loading=\"lazy\">",
+            "text": ""
+          },
+          {
+            "tag": "h2",
+            "html": "<h2>The Business of Fashion Blogging</h2>",
+            "text": "The Business of Fashion Blogging"
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  What started as passion projects have transformed into\n                  sophisticated business enterprises. Successful fashion\n                  influencers now operate as media companies, employing teams\n                  for content creation, brand partnerships, and business\n                  development.\n                </p>",
+            "text": "What started as passion projects have transformed into sophisticated business enterprises. Successful fashion influencers now operate as media companies, employing teams for content creation, brand partnerships, and business development."
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  The monetization strategies have diversified significantly:\n                </p>",
+            "text": "The monetization strategies have diversified significantly:"
+          },
+          {
+            "tag": "ul",
+            "html": "<ul>\n                  <li>\n                    <strong>Brand Partnerships:</strong> Sponsored content and\n                    ambassadorships\n                  </li>\n                  <li>\n                    <strong>Affiliate Marketing:</strong> Commission-based\n                    product recommendations\n                  </li>\n                  <li>\n                    <strong>Product Lines:</strong> Private label fashion and\n                    beauty collaborations\n                  </li>\n                  <li>\n                    <strong>Digital Products:</strong> Style guides, courses,\n                    and exclusive content\n                  </li>\n                  <li>\n                    <strong>Event Hosting:</strong> Fashion shows,\n                    meet-and-greets, and brand activations\n                  </li>\n                </ul>",
+            "text": "Brand Partnerships: Sponsored content and ambassadorships Affiliate Marketing: Commission-based product recommendations Product Lines: Private label fashion and beauty collaborations Digital Products: Style guides, courses, and exclusive content Event Hosting: Fashion shows, meet-and-greets, and brand activations"
+          },
+          {
+            "tag": "h2",
+            "html": "<h2>Impact on Consumer Behavior</h2>",
+            "text": "Impact on Consumer Behavior"
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  Fashion influencers have fundamentally altered how consumers\n                  discover and purchase clothing. The traditional seasonal\n                  fashion cycle has given way to constant content creation and\n                  immediate shopping opportunities through features like\n                  Instagram Shopping and \"link in bio\" tools.\n                </p>",
+            "text": "Fashion influencers have fundamentally altered how consumers discover and purchase clothing. The traditional seasonal fashion cycle has given way to constant content creation and immediate shopping opportunities through features like Instagram Shopping and \"link in bio\" tools."
+          },
+          {
+            "tag": "img",
+            "html": "<img src=\"/images/business-post-6IsrfXyD.jpg\" alt=\"Consumer shopping on mobile device\" loading=\"lazy\">",
+            "text": ""
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  Research indicates that 72% of Gen Z and millennial consumers\n                  have made fashion purchases directly influenced by social\n                  media content. This immediate connection between inspiration\n                  and purchase has created new challenges and opportunities for\n                  both brands and consumers.\n                </p>",
+            "text": "Research indicates that 72% of Gen Z and millennial consumers have made fashion purchases directly influenced by social media content. This immediate connection between inspiration and purchase has created new challenges and opportunities for both brands and consumers."
+          },
+          {
+            "tag": "h2",
+            "html": "<h2>Challenges in the Influencer Economy</h2>",
+            "text": "Challenges in the Influencer Economy"
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  Despite its growth, the fashion influencer industry faces\n                  significant challenges:\n                </p>",
+            "text": "Despite its growth, the fashion influencer industry faces significant challenges:"
+          },
+          {
+            "tag": "ul",
+            "html": "<ul>\n                  <li>\n                    <strong>Authenticity Concerns:</strong> Balancing genuine\n                    recommendations with commercial partnerships\n                  </li>\n                  <li>\n                    <strong>Market Saturation:</strong> Standing out in an\n                    increasingly crowded field\n                  </li>\n                  <li>\n                    <strong>Platform Dependencies:</strong> Vulnerability to\n                    algorithm changes and platform policies\n                  </li>\n                  <li>\n                    <strong>Sustainability Issues:</strong> Pressure to\n                    constantly showcase new products\n                  </li>\n                  <li>\n                    <strong>Mental Health:</strong> The psychological impact of\n                    constant public scrutiny\n                  </li>\n                </ul>",
+            "text": "Authenticity Concerns: Balancing genuine recommendations with commercial partnerships Market Saturation: Standing out in an increasingly crowded field Platform Dependencies: Vulnerability to algorithm changes and platform policies Sustainability Issues: Pressure to constantly showcase new products Mental Health: The psychological impact of constant public scrutiny"
+          },
+          {
+            "tag": "h2",
+            "html": "<h2>The Sustainability Movement</h2>",
+            "text": "The Sustainability Movement"
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  A growing number of fashion influencers are pivoting toward\n                  sustainable fashion advocacy, using their platforms to promote\n                  conscious consumption, vintage shopping, and ethical brands.\n                  This shift reflects broader consumer awareness about fashion's\n                  environmental impact.\n                </p>",
+            "text": "A growing number of fashion influencers are pivoting toward sustainable fashion advocacy, using their platforms to promote conscious consumption, vintage shopping, and ethical brands. This shift reflects broader consumer awareness about fashion's environmental impact."
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  Influencers like Venetia La Manna and Aditi Mayer have built\n                  substantial followings by focusing on sustainable fashion\n                  education, proving that conscious content can be both engaging\n                  and commercially successful.\n                </p>",
+            "text": "Influencers like Venetia La Manna and Aditi Mayer have built substantial followings by focusing on sustainable fashion education, proving that conscious content can be both engaging and commercially successful."
+          },
+          {
+            "tag": "h2",
+            "html": "<h2>Technology and the Future of Fashion Influence</h2>",
+            "text": "Technology and the Future of Fashion Influence"
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  Emerging technologies are reshaping the landscape once again.\n                  Virtual reality shopping experiences, AI-powered style\n                  recommendations, and augmented reality try-on features are\n                  creating new possibilities for fashion content creation and\n                  consumer engagement.\n                </p>",
+            "text": "Emerging technologies are reshaping the landscape once again. Virtual reality shopping experiences, AI-powered style recommendations, and augmented reality try-on features are creating new possibilities for fashion content creation and consumer engagement."
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  The rise of virtual influencers like Lil Miquela and the\n                  integration of NFTs in fashion are pushing the boundaries of\n                  what constitutes fashion influence in the digital age.\n                </p>",
+            "text": "The rise of virtual influencers like Lil Miquela and the integration of NFTs in fashion are pushing the boundaries of what constitutes fashion influence in the digital age."
+          },
+          {
+            "tag": "h2",
+            "html": "<h2>Looking Ahead: The Next Chapter</h2>",
+            "text": "Looking Ahead: The Next Chapter"
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  As we look toward the future, fashion blogging and influence\n                  will likely become even more integrated with e-commerce,\n                  sustainability initiatives, and immersive technologies. The\n                  most successful influencers will be those who can adapt to\n                  changing platforms while maintaining authentic connections\n                  with their audiences.\n                </p>",
+            "text": "As we look toward the future, fashion blogging and influence will likely become even more integrated with e-commerce, sustainability initiatives, and immersive technologies. The most successful influencers will be those who can adapt to changing platforms while maintaining authentic connections with their audiences."
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  The democratization of fashion influence has permanently\n                  changed the industry landscape, creating opportunities for\n                  diverse voices and perspectives that were previously\n                  marginalized. This evolution continues to challenge\n                  traditional fashion hierarchies and create new pathways for\n                  creative expression and commercial success.\n                </p>",
+            "text": "The democratization of fashion influence has permanently changed the industry landscape, creating opportunities for diverse voices and perspectives that were previously marginalized. This evolution continues to challenge traditional fashion hierarchies and create new pathways for creative expression and commercial success."
+          },
+          {
+            "tag": "p",
+            "html": "<p>\n                  Fashion blogging has proven that influence in the digital age\n                  is not about gatekeeping access to style, but about fostering\n                  communities, inspiring creativity, and making fashion more\n                  accessible to everyone.\n                </p>",
+            "text": "Fashion blogging has proven that influence in the digital age is not about gatekeeping access to style, but about fostering communities, inspiring creativity, and making fashion more accessible to everyone."
+          }
+        ],
         "categories": [
           "Technology"
         ],
