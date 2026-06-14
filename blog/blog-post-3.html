@@ -1,4 +1,6 @@
-<!DOCTYPE html><html lang="en" class="light"><head>
+<!DOCTYPE html>
+<html lang="en" class="light">
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
@@ -29,7 +31,7 @@
     <template data-for="related-articles" data-query="list('blog-post', {order: 'updated_at:desc', limit: 10})">
       {% assign matched = 0 %}
       {% for post in items %}
-      {% if matched &lt; 3
+      {% if matched < 3
           and post.filePath != page.filePath
           and post.content.category == page.content.category %}
       <article class="blog-card">
@@ -372,12 +374,6 @@
       
       
       
-      
-      
-      
-      
-      
-      
       <article class="blog-card">
         <a class="block" href="/blog/blog-post-5.html">
           <div class="blog-card__media">
@@ -397,6 +393,12 @@
           </div>
         </a>
       </article>
+      
+      
+      
+      
+      
+      
       
       
       
@@ -534,5 +536,5 @@
         </div>
       </footer>
     </div>
-  
-</body></html>
+  </body>
+</html>
