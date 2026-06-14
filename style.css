@@ -569,6 +569,18 @@ ul, ol { list-style: none; padding: 0; }
 }
 .cta .input { color: var(--foreground); }
 
+.cta .btn {
+  background-color: var(--primary-foreground);
+  color: var(--primary);
+  border-color: var(--primary-foreground);
+}
+
+.cta .btn:hover {
+  background-color: transparent;
+  color: var(--primary-foreground);
+  border-color: var(--primary-foreground);
+}
+
 /* ---- Prose (article body) ------------------------------------------- */
 .prose {
   max-width: 68ch;
