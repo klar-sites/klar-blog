@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en" class="light">
-  <head>
+<!DOCTYPE html><html lang="en" class="light"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
@@ -105,7 +103,7 @@
     <script crossorigin="" src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
     <script crossorigin="" src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
     <script type="module" src="/script.js"></script>
-    <script data-klar-config>
+    <script data-klar-config="">
       const config = {
         pageTypes: [{
           name: "blog-post",
@@ -186,6 +184,7 @@
               <a class="nav-link" href="/technology.html">TECHNOLOGY</a>
               <a class="nav-link" href="/podcast.html">PODCAST</a>
               <a class="nav-link" href="/react-apps/training-app.html">Workout</a>
+              <a class="nav-link" href="/react-apps/booking-calendar.html">Calendar</a>
             </nav>
             <div class="nav-desktop items-center gap-2">
               <a href="#" class="btn btn-icon" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -245,7 +244,7 @@
         <!-- Suzannes booking calendar -->
         <section aria-labelledby="suzannes-booking-calendar-heading">
           <div class="container py-16">
-            <div id="suzannes-booking-calendar-root" data-klar-readonly></div>
+            <div id="suzannes-booking-calendar-root" data-klar-readonly=""></div>
           </div>
         </section>
       </main>
@@ -621,5 +620,5 @@
         ReactDOM.createRoot(root).render(h(SuzannesBookingCalendar));
       })();
     </script>
-  </body>
-</html>
+  
+</body></html>

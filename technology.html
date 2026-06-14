@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en" class="light">
-  <head>
+<!DOCTYPE html><html lang="en" class="light"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
@@ -53,11 +51,12 @@
         <div class="container">
           <div class="site-header__bar">
             <a class="brand" href="/index.html">nexus</a>
-            <nav class="nav-desktop items-center gap-8" aria-label="Main navigation">
-              <a class="nav-link" href="/posts.html">ALL POST</a>
+            <nav class="nav-desktop items-center gap-8" aria-label="Main navigation"><a class="nav-link" href="/posts.html">ALL POST</a>
               <a class="nav-link" href="/business.html">BUSINESS</a>
               <a class="nav-link" href="/technology.html">TECHNOLOGY</a>
               <a class="nav-link" href="/podcast.html">PODCAST</a>
+              <a class="nav-link" href="/react-apps/training-app.html">Workout</a>
+              <a class="nav-link" href="/react-apps/booking-calendar.html">Calendar</a>
             </nav>
             <div class="nav-desktop items-center gap-2">
               <a href="#" class="btn btn-icon" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -93,11 +92,13 @@
                 </svg>
               </button>
             </div>
-            <button id="mobile-menu-toggle" class="btn btn-icon nav-mobile-toggle" aria-label="Toggle menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <button id="mobile-menu-toggle" class="btn btn-icon nav-mobile-toggle" aria-label="Toggle menu">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <line x1="4" x2="20" y1="12" y2="12"></line>
                 <line x1="4" x2="20" y1="6" y2="6"></line>
                 <line x1="4" x2="20" y1="18" y2="18"></line>
-              </svg></button>
+              </svg>
+            </button>
           </div>
           <div id="mobile-menu" class="hidden border-t py-4">
             <nav class="flex flex-col gap-4" aria-label="Mobile navigation">
@@ -130,7 +131,7 @@
             </button>
             <div class="filter__menu hidden" data-filter-menu="">
               <button class="filter__option is-selected" data-value="all">All Topics</button>
-              <div id="all-topics" data-klar-static><button class="filter__option" data-value="Personal Branding">Personal Branding <span class="text-muted-foreground">(2)</span></button><button class="filter__option" data-value="Digital Marketing">Digital Marketing <span class="text-muted-foreground">(1)</span></button></div>
+              <div id="all-topics" data-klar-static=""><button class="filter__option" data-value="Personal Branding">Personal Branding <span class="text-muted-foreground">(2)</span></button><button class="filter__option" data-value="Digital Marketing">Digital Marketing <span class="text-muted-foreground">(1)</span></button></div>
             </div>
             <!-- klar:strip-start -->
             <template id="all-topics-template"><button class="filter__option" data-value="${value}">${value} <span class="text-muted-foreground">(${count})</span></button></template>
@@ -154,7 +155,7 @@
             </button>
             <div class="filter__menu hidden" data-filter-menu="">
               <button class="filter__option is-selected" data-value="all">All Tags</button>
-              <div id="all-tags" data-klar-static><button class="filter__option" data-value="Leadership">Leadership <span class="text-muted-foreground">(5)</span></button><button class="filter__option" data-value="Authenticity">Authenticity <span class="text-muted-foreground">(4)</span></button></div>
+              <div id="all-tags" data-klar-static=""><button class="filter__option" data-value="Leadership">Leadership <span class="text-muted-foreground">(5)</span></button><button class="filter__option" data-value="Authenticity">Authenticity <span class="text-muted-foreground">(4)</span></button></div>
             </div>
             <!-- klar:strip-start -->
             <template id="all-tags-template"><button class="filter__option" data-value="${value}">${value} <span class="text-muted-foreground">(${count})</span></button></template>
@@ -176,7 +177,7 @@
         <p id="filter-info" class="text-sm text-muted-foreground mb-8 hidden"></p>
 
         <!-- Posts grid (static fallback; replaced by #all-posts-tpl render when CMS data loads) -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="all-posts" data-klar-static data-page-type="blog-post" data-category="Technology">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="all-posts" data-klar-static="" data-page-type="blog-post" data-category="Technology">
       
       <article class="blog-card">
         <a class="block" href="blog/blog-post-1.html" aria-label="Read article">
@@ -333,5 +334,5 @@
       </footer>
 
     </div>
-  </body>
-</html>
+  
+</body></html>
