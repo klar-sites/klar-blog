@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
     <title>Nexus - Personal Blog | Fashion, Technology &amp; Lifestyle</title>
-    <meta name="description"
-      content="Explore the latest in fashion trends, technology insights, business strategies, and lifestyle inspiration on Nexus personal blog.">
+    <meta name="description" content="Explore the latest in fashion trends, technology insights, business strategies, and lifestyle inspiration on Nexus personal blog.">
     <link rel="stylesheet" href="/style.css">
     <script>
       (function() {
@@ -35,9 +34,7 @@
       {% if matched < 3
           and post.filePath != page.filePath
           and post.content.category == page.content.category %}
-      {% forloop.index0 == 0 %}
-      <h3 class="section-title mb-8">Related Articles</h3>
-      {% endif %}
+      
       <div class="grid md:grid-cols-3 gap-8">
         <article class="blog-card">
           <a class="block" href="{{post.url}}">
@@ -46,8 +43,7 @@
             </div>
             <div class="blog-card__body">
               <div class="flex items-center gap-2">
-                <span class="blog-meta">{{post.content.category}}</span><span class="text-muted-foreground text-xs"
-                  aria-hidden="true">—</span><span class="blog-meta">{{post.content.readTime}}</span>
+                <span class="blog-meta">{{post.content.category}}</span><span class="text-muted-foreground text-xs" aria-hidden="true">—</span><span class="blog-meta">{{post.content.readTime}}</span>
               </div>
               <h4 class="blog-card__title">
                 {{post.content.title}}
@@ -72,8 +68,7 @@
         <div class="container">
           <div class="site-header__bar">
             <a class="brand" href="/index.html">nexus</a>
-            <nav class="nav-desktop items-center gap-8" aria-label="Main navigation"><a class="nav-link"
-                href="/posts.html">ALL POST</a>
+            <nav class="nav-desktop items-center gap-8" aria-label="Main navigation"><a class="nav-link" href="/posts.html">ALL POST</a>
               <a class="nav-link" href="/business.html">BUSINESS</a>
               <a class="nav-link" href="/technology.html">TECHNOLOGY</a>
               <a class="nav-link" href="/podcast.html">PODCAST</a>
@@ -100,15 +95,12 @@
                   <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
                 </svg></a>
               -->
-              <a href="/search.html" class="btn btn-icon" aria-label="Search articles"><svg
-                  xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <a href="/search.html" class="btn btn-icon" aria-label="Search articles"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <circle cx="11" cy="11" r="8"></circle>
                   <path d="m21 21-4.3-4.3"></path>
                 </svg></a>
               <button class="btn btn-icon" aria-label="Toggle theme">
-                <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <circle cx="12" cy="12" r="4"></circle>
                   <path d="M12 2v2"></path>
                   <path d="M12 20v2"></path>
@@ -119,15 +111,13 @@
                   <path d="m6.34 17.66-1.41 1.41"></path>
                   <path d="m19.07 4.93-1.41 1.41"></path>
                 </svg>
-                <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
                 </svg>
               </button>
             </div>
             <button id="mobile-menu-toggle" class="btn btn-icon nav-mobile-toggle" aria-label="Toggle menu">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <line x1="4" x2="20" y1="12" y2="12"></line>
                 <line x1="4" x2="20" y1="6" y2="6"></line>
                 <line x1="4" x2="20" y1="18" y2="18"></line>
@@ -166,8 +156,7 @@
                     </div>
                   </div>
                   <button class="btn btn-sm">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
-                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                       <circle cx="18" cy="5" r="3"></circle>
                       <circle cx="6" cy="12" r="3"></circle>
                       <circle cx="18" cy="19" r="3"></circle>
@@ -178,9 +167,7 @@
                   </button>
                 </div>
                 <div class="overflow-hidden rounded-lg aspect-photo mb-8">
-                  <img class="object-cover w-full h-full field-image" src="/images/work-lifestyle-Bg_wzXQT.jpg"
-                    alt="En blogg för alla de som älskar att skriva och skratta" width="800" height="600"
-                    fetchpriority="high">
+                  <img class="object-cover w-full h-full field-image" src="/images/work-lifestyle-Bg_wzXQT.jpg" alt="En blogg för alla de som älskar att skriva och skratta" width="800" height="600" fetchpriority="high">
                 </div>
               </header>
 
@@ -385,8 +372,69 @@
             </article>
 
             <section class="mt-12 lg:mt-16" id="related-articles">
-
-            </section>
+      
+      
+      
+      
+      
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        <article class="blog-card">
+          <a class="block" href="/blog/blog-post-5.html">
+            <div class="blog-card__media">
+              <img src="/images/lifestyle-post-B2o5gHGK.jpg" alt="" width="387" height="291" loading="lazy">
+            </div>
+            <div class="blog-card__body">
+              <div class="flex items-center gap-2">
+                <span class="blog-meta">Business</span><span class="text-muted-foreground text-xs" aria-hidden="true">—</span><span class="blog-meta">4 min read</span>
+              </div>
+              <h4 class="blog-card__title">
+                En blogg för alla de som tycker det är kul att blogg
+              </h4>
+              <time class="blog-meta" datetime="2023-09-12">May 8, 2026</time>
+              <p class="blog-card__excerpt">
+                
+              </p>
+            </div>
+          </a>
+        </article>
+      </div>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        <article class="blog-card">
+          <a class="block" href="/blog/blog-post-3.html">
+            <div class="blog-card__media">
+              <img src="/images/fashion-post-4m_ykv-I.jpg" alt="" width="387" height="291" loading="lazy">
+            </div>
+            <div class="blog-card__body">
+              <div class="flex items-center gap-2">
+                <span class="blog-meta">Business</span><span class="text-muted-foreground text-xs" aria-hidden="true">—</span><span class="blog-meta">5 min read</span>
+              </div>
+              <h4 class="blog-card__title">
+                En blogg för alla de som tycker det är kul att blogg
+              </h4>
+              <time class="blog-meta" datetime="2023-09-12">May 6, 2026</time>
+              <p class="blog-card__excerpt">
+                
+              </p>
+            </div>
+          </a>
+        </article>
+      </div>
+      
+      
+      
+      
+      
+    </section>
           </div>
 
           <!-- Sidebar: Table of contents -->
@@ -394,8 +442,7 @@
             <div class="toc card">
               <div class="card__header">
                 <h3 class="card__title text-lg">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <line x1="8" x2="21" y1="6" y2="6"></line>
                     <line x1="8" x2="21" y1="12" y2="12"></line>
                     <line x1="8" x2="21" y1="18" y2="18"></line>
@@ -461,8 +508,7 @@
       </main>
 
       <button id="back-to-top" class="back-to-top hidden" aria-label="Back to top">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="m18 15-6-6-6 6"></path>
         </svg>
       </button>
