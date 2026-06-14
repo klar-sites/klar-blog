@@ -35,7 +35,7 @@
       {% if matched < 3
           and post.filePath != page.filePath
           and post.content.category == page.content.category %}
-      {% index = 0 %}
+      {% forloop.index0 == 0 %}
       <h3 class="section-title mb-8">Related Articles</h3>
       {% endif %}
       <div class="grid md:grid-cols-3 gap-8" id="related-articles">
