@@ -31,7 +31,7 @@
     <template data-for="related-articles" data-query="list('blog-post', {order: 'updated_at:desc', limit: 10})">
       {% assign matched = 0 %}
       {% for post in items %}
-      {% if matched &lt; 3
+      {% if matched < 3
           and post.filePath != page.filePath
           and post.content.category == page.content.category %}
       <article class="blog-card">
@@ -172,10 +172,10 @@
             <article id="post">
       <header class="mb-8">
         <div class="flex items-center gap-3 mb-4">
-          <span class="badge badge-secondary field-category">Business</span>
-          <time class="blog-meta field-createdAt" datetime="2026-06-11">June 11, 2026</time>
+          <span class="badge badge-secondary field-category">{{page.content.category}}</span>
+          <time class="blog-meta field-createdAt" datetime="2026-05-05">{{ page.content.createdAt | date: '%B %-d, %Y' }}</time>
         </div>
-        <h1 class="page-title mb-6 field-title">En titel</h1>
+        <h1 class="page-title mb-6 field-title">{{page.content.title}}</h1>
         <div class="flex items-center justify-between mb-8">
           <div class="byline">
             <span class="avatar field-initial">{{page.content.initial}}</span>
