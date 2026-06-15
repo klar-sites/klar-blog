@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en" class="light">
-  <head>
+<!DOCTYPE html><html lang="en" class="light"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
@@ -31,7 +29,7 @@
     <template data-for="related-articles" data-query="list('blog-post', {order: 'updated_at:desc', limit: 10})">
       {% assign matched = 0 %}
       {% for post in items %}
-      {% if matched < 3
+      {% if matched &lt; 3
           and post.filePath != page.filePath
           and post.content.category == page.content.category %}
       <article class="blog-card">
@@ -46,7 +44,7 @@
             <h4 class="blog-card__title">
               {{post.content.title}}
             </h4>
-            <time class="blog-meta" datetime="2023-09-12">{{post.content.createdAt}}</time>
+            <time class="blog-meta" datetime="{{ post.content.createdAt }}">{{ post.content.createdAt | date: '%B %-d, %Y' | localeDate: 'en-US'  }}</time>
             <p class="blog-card__excerpt">
               {{post.content.lead}}
             </p>
@@ -379,7 +377,7 @@
       <header class="mb-8">
         <div class="flex items-center gap-3 mb-4">
           <span class="badge badge-secondary field-category">Podcast</span>
-          <time class="blog-meta field-createdAt" datetime="2026-05-05">June 13, 2026</time>
+          <time class="blog-meta field-createdAt" datetime="2026-06-13">June 13, 2026</time>
         </div>
         <h1 class="page-title mb-6 field-title">En blogg för alla de som älskar att skriva och skratta</h1>
         <div class="flex items-center justify-between mb-8">
@@ -639,27 +637,6 @@
       
       
       
-      <article class="blog-card">
-        <a class="block" href="/blog/blog-post-2.html">
-          <div class="blog-card__media">
-            <img src="/images/fashion-lifestyle-tBv1CS6f (1).jpg" alt="" width="387" height="291" loading="lazy">
-          </div>
-          <div class="blog-card__body">
-            <div class="flex items-center gap-2">
-              <span class="blog-meta">Podcast</span><span class="text-muted-foreground text-xs" aria-hidden="true">—</span><span class="blog-meta">6 min read</span>
-            </div>
-            <h4 class="blog-card__title">
-              En blogg för alla de som tycker det är kul att blogga
-            </h4>
-            <time class="blog-meta" datetime="2023-09-12">May 5, 2026</time>
-            <p class="blog-card__excerpt">
-              
-            </p>
-          </div>
-        </a>
-      </article>
-      
-      
       
       
       
@@ -797,5 +774,5 @@
         </div>
       </footer>
     </div>
-  </body>
-</html>
+  
+</body></html>
