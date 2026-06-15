@@ -89,7 +89,9 @@
         </div>
       </header>
       <div class="prose field-text" data-article-content="true">
-
+        {% for block in page.content.text %}
+          {{ block }}
+        {% endfor %}
       </div>
     </template>
 
@@ -202,7 +204,7 @@
         </div>
       </header>
       <div class="prose field-text" data-article-content="true">
-
+        
       </div>
     </article>
 
