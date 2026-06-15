@@ -39,15 +39,20 @@
           </div>
           <div class="blog-card__body">
             <div class="flex items-center gap-2">
-              <span class="blog-meta">{{post.content.category}}</span><span class="text-muted-foreground text-xs" aria-hidden="true">—</span><span class="blog-meta">{{post.content.readTime}}</span>
+              <!--
+              <span class="blog-meta">{{post.content.category}}</span><span class="text-muted-foreground text-xs"
+                aria-hidden="true">—</span><span class="blog-meta">{{post.content.readTime}}</span>
+              -->
+              <time class="blog-meta" datetime="{{ post.content.createdAt }}">{{ post.content.createdAt | date: '%B %-d, %Y' | localeDate: 'en-US'  }}</time>
             </div>
             <h4 class="blog-card__title">
               {{post.content.title}}
             </h4>
-            <time class="blog-meta" datetime="{{ post.content.createdAt }}">{{ post.content.createdAt | date: '%B %-d, %Y' | localeDate: 'en-US'  }}</time>
+            <!--
             <p class="blog-card__excerpt">
               {{post.content.lead}}
             </p>
+            -->
           </div>
         </a>
       </article>
@@ -55,8 +60,6 @@
       {% endif %}
       {% endfor %}
     </template>
-
-
 
     <template data-for="post" data-query="page()">
       <header class="mb-8">
