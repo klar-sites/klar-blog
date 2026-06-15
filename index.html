@@ -63,7 +63,7 @@
           </div>
           <div class="blog-card__body">
             <div class="flex items-center gap-2">
-              <span class="blog-meta">{{ post.category }}</span><span class="text-muted-foreground text-xs" aria-hidden="true">—</span><time class="blog-meta" datetime="2026-05-10">May 10, 2026</time>
+              <span class="blog-meta">{{ post.category }}</span><span class="text-muted-foreground text-xs" aria-hidden="true">—</span><time class="blog-meta" datetime="2026-05-10">{{ post.content.createdAt | date: '%B %-d, %Y' | localeDate: 'en-US'  }}</time>
             </div>
             <h3 class="blog-card__title">{{ post.title }}</h3>
             <p class="blog-card__excerpt">{{ post.lead }}</p>
@@ -153,14 +153,14 @@
       
       <div class="hero lg:grid-cols-2">
         <div class="hero__media">
-          <img src="{{page.content.image.src}}" alt="Featured article: {{page.content.title}}" width="592" height="444" fetchpriority="high">
+          <img src="/images/work-lifestyle-Bg_wzXQT.jpg" alt="Featured article: En blogg för alla de som älskar att skriva och skratta" width="592" height="444" fetchpriority="high">
         </div>
         <div class="hero__content">
-          <h1 class="featured-title">{{page.content.title}}</h1>
+          <h1 class="featured-title">En blogg för alla de som älskar att skriva och skratta</h1>
           <div class="flex items-center gap-4 text-sm">
-            <span class="blog-meta">{{page.content.author}} / Writer</span>
+            <span class="blog-meta">Per Oscarsson / Writer</span>
             <span class="text-muted-foreground" aria-hidden="true">—</span>
-            <span class="blog-meta">{{page.content.category}}</span>
+            <span class="blog-meta">Lifestyle</span>
             <span class="text-muted-foreground" aria-hidden="true">—</span>
             <time class="blog-meta" datetime="2026-05-02">May 2, 2026</time>
           </div>
@@ -185,13 +185,13 @@
       <article class="blog-card">
         <a class="block" href="blog/blog-post-5.html" aria-label="Read article">
           <div class="blog-card__media">
-            <img src="{{page.content.image.src}}" alt="" width="387" height="291" loading="lazy">
+            <img src="/images/work-lifestyle-Bg_wzXQT.jpg" alt="" width="387" height="291" loading="lazy">
           </div>
           <div class="blog-card__body">
             <div class="flex items-center gap-2">
-              <span class="blog-meta">{{page.content.category}}</span><span class="text-muted-foreground text-xs" aria-hidden="true">—</span><time class="blog-meta" datetime="2026-05-10">May 10, 2026</time>
+              <span class="blog-meta">Lifestyle</span><span class="text-muted-foreground text-xs" aria-hidden="true">—</span><time class="blog-meta" datetime="2026-05-10">maj 5, 2026</time>
             </div>
-            <h3 class="blog-card__title">{{page.content.title}}</h3>
+            <h3 class="blog-card__title">En blogg för alla de som älskar att skriva och skratta</h3>
             <p class="blog-card__excerpt"></p>
           </div>
         </a>
@@ -204,7 +204,7 @@
           </div>
           <div class="blog-card__body">
             <div class="flex items-center gap-2">
-              <span class="blog-meta">Lifestyle</span><span class="text-muted-foreground text-xs" aria-hidden="true">—</span><time class="blog-meta" datetime="2026-05-10">May 10, 2026</time>
+              <span class="blog-meta">Lifestyle</span><span class="text-muted-foreground text-xs" aria-hidden="true">—</span><time class="blog-meta" datetime="2026-05-10">June 14, 2026</time>
             </div>
             <h3 class="blog-card__title">En blogg för alla de som älskar att skriva och skratta</h3>
             <p class="blog-card__excerpt"></p>
@@ -219,7 +219,7 @@
           </div>
           <div class="blog-card__body">
             <div class="flex items-center gap-2">
-              <span class="blog-meta">Technology</span><span class="text-muted-foreground text-xs" aria-hidden="true">—</span><time class="blog-meta" datetime="2026-05-10">May 10, 2026</time>
+              <span class="blog-meta">Technology</span><span class="text-muted-foreground text-xs" aria-hidden="true">—</span><time class="blog-meta" datetime="2026-05-10">maj 7, 2026</time>
             </div>
             <h3 class="blog-card__title">En blogg för alla de som tycker det är kul att blogg</h3>
             <p class="blog-card__excerpt"></p>
@@ -234,7 +234,7 @@
           </div>
           <div class="blog-card__body">
             <div class="flex items-center gap-2">
-              <span class="blog-meta">Podcast</span><span class="text-muted-foreground text-xs" aria-hidden="true">—</span><time class="blog-meta" datetime="2026-05-10">May 10, 2026</time>
+              <span class="blog-meta">Podcast</span><span class="text-muted-foreground text-xs" aria-hidden="true">—</span><time class="blog-meta" datetime="2026-05-10">maj 5, 2026</time>
             </div>
             <h3 class="blog-card__title">En blogg för alla de som tycker det är kul att blogga</h3>
             <p class="blog-card__excerpt"></p>
@@ -249,7 +249,7 @@
           </div>
           <div class="blog-card__body">
             <div class="flex items-center gap-2">
-              <span class="blog-meta">Business</span><span class="text-muted-foreground text-xs" aria-hidden="true">—</span><time class="blog-meta" datetime="2026-05-10">May 10, 2026</time>
+              <span class="blog-meta">Business</span><span class="text-muted-foreground text-xs" aria-hidden="true">—</span><time class="blog-meta" datetime="2026-05-10">June 14, 2026</time>
             </div>
             <h3 class="blog-card__title">En blogg för alla de som tycker det är kul att blogg</h3>
             <p class="blog-card__excerpt"></p>
@@ -264,7 +264,7 @@
           </div>
           <div class="blog-card__body">
             <div class="flex items-center gap-2">
-              <span class="blog-meta">Technology</span><span class="text-muted-foreground text-xs" aria-hidden="true">—</span><time class="blog-meta" datetime="2026-05-10">May 10, 2026</time>
+              <span class="blog-meta">Technology</span><span class="text-muted-foreground text-xs" aria-hidden="true">—</span><time class="blog-meta" datetime="2026-05-10">maj 9, 2026</time>
             </div>
             <h3 class="blog-card__title">En blogg för alla de som tycker det är kul att blogg</h3>
             <p class="blog-card__excerpt"></p>
@@ -279,7 +279,7 @@
           </div>
           <div class="blog-card__body">
             <div class="flex items-center gap-2">
-              <span class="blog-meta">Business</span><span class="text-muted-foreground text-xs" aria-hidden="true">—</span><time class="blog-meta" datetime="2026-05-10">May 10, 2026</time>
+              <span class="blog-meta">Business</span><span class="text-muted-foreground text-xs" aria-hidden="true">—</span><time class="blog-meta" datetime="2026-05-10">June 13, 2026</time>
             </div>
             <h3 class="blog-card__title">En blogg för alla de som älskar att skriva och skratta</h3>
             <p class="blog-card__excerpt"></p>
