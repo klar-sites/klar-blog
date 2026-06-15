@@ -90,7 +90,7 @@
       </header>
       <div class="prose field-text" data-article-content="true">
         {% for block in page.content.text %}
-        {{ block.html | raw }}
+        {{ block.html }}
         {% else %}
         <p>Skriv en text</p>
         {% endfor %}
@@ -207,7 +207,7 @@
       </header>
       <div class="prose field-text" data-article-content="true">
         
-        <p>Skriv en text</p>
+        &lt;p&gt;Skriv en text&lt;/p&gt;
         
       </div>
     </article>
