@@ -58,7 +58,42 @@
       {% endfor %}
     </template>
 
-   
+
+<template data-for="post" data-query="page()">
+      <header class="mb-8">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="badge badge-secondary field-category">{{page.content.category}}</span>
+          <time class="blog-meta field-createdAt" datetime="2026-05-05">{{ page.content.createdAt | date: '%B %-d, %Y' }}</time>
+        </div>
+        <h1 class="page-title mb-6 field-title">{{page.content.title}}</h1>
+        <div class="flex items-center justify-between mb-8">
+          <div class="byline">
+            <span class="avatar field-initial">{{page.content.initial}}</span>
+            <div>
+              <p class="font-medium text-foreground field-author">{{page.content.author}}</p>
+              <p class="text-sm text-muted-foreground field-readTime">{{page.content.readTime}}</p>
+            </div>
+          </div>
+          <button class="btn btn-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="18" cy="5" r="3"></circle>
+              <circle cx="6" cy="12" r="3"></circle>
+              <circle cx="18" cy="19" r="3"></circle>
+              <line x1="8.59" x2="15.42" y1="13.51" y2="17.49"></line>
+              <line x1="15.41" x2="8.59" y1="6.51" y2="10.49"></line>
+            </svg>
+            Share
+          </button>
+        </div>
+        <div class="overflow-hidden rounded-lg aspect-photo mb-8">
+          <img class="object-cover w-full h-full field-image" src="{{page.content.image.src}}" alt="{{page.content.image.alt}}" width="800" height="600" fetchpriority="high">
+        </div>
+      </header>
+      <div class="prose field-text" data-article-content="true">
+        <p>Skriv en text</p>
+      </div>
+    </template>
+    
 
     <div class="min-h-screen bg-background">
       <!-- ===== Header ===== -->
@@ -364,39 +399,5 @@
         </div>
       </footer>
     </div>
-     <template data-for="post" data-query="page()">
-      <header class="mb-8">
-        <div class="flex items-center gap-3 mb-4">
-          <span class="badge badge-secondary field-category">{{page.content.category}}</span>
-          <time class="blog-meta field-createdAt" datetime="2026-05-05">{{ page.content.createdAt | date: '%B %-d, %Y' }}</time>
-        </div>
-        <h1 class="page-title mb-6 field-title">{{page.content.title}}</h1>
-        <div class="flex items-center justify-between mb-8">
-          <div class="byline">
-            <span class="avatar field-initial">{{page.content.initial}}</span>
-            <div>
-              <p class="font-medium text-foreground field-author">{{page.content.author}}</p>
-              <p class="text-sm text-muted-foreground field-readTime">{{page.content.readTime}}</p>
-            </div>
-          </div>
-          <button class="btn btn-sm">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="18" cy="5" r="3"></circle>
-              <circle cx="6" cy="12" r="3"></circle>
-              <circle cx="18" cy="19" r="3"></circle>
-              <line x1="8.59" x2="15.42" y1="13.51" y2="17.49"></line>
-              <line x1="15.41" x2="8.59" y1="6.51" y2="10.49"></line>
-            </svg>
-            Share
-          </button>
-        </div>
-        <div class="overflow-hidden rounded-lg aspect-photo mb-8">
-          <img class="object-cover w-full h-full field-image" src="{{page.content.image.src}}" alt="{{page.content.image.alt}}" width="800" height="600" fetchpriority="high">
-        </div>
-      </header>
-      <div class="prose field-text" data-article-content="true">
-        <p>Skriv en text</p>
-      </div>
-    </template>
   </body>
 </html>
