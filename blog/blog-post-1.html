@@ -1,4 +1,6 @@
-<!DOCTYPE html><html lang="en" class="light"><head>
+<!DOCTYPE html>
+<html lang="en" class="light">
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
@@ -29,7 +31,7 @@
     <template data-for="related-articles" data-query="list('blog-post', {order: 'updated_at:desc', limit: 10})">
       {% assign matched = 0 %}
       {% for post in items %}
-      {% if matched &lt; 3
+      {% if matched < 3
           and post.filePath != page.filePath
           and post.content.category == page.content.category %}
       <article class="blog-card">
@@ -167,15 +169,7 @@
               </header>
 
               <div class="prose field-text" data-article-content="true">
-                <p>
-                  The fashion industry has undergone a seismic shift in the past
-                  decade, with fashion blogging emerging as one of the most
-                  influential forces reshaping how we discover, consume, and
-                  interact with style. What began as personal style diaries has
-                  evolved into a billion-dollar industry that directly impacts
-                  fashion trends, consumer behavior, and brand strategies
-                  worldwide.
-                </p>
+                <p>1 The fashion industry has undergone a seismic shift in the past decade, with fashion blogging emerging as one of the most influential forces reshaping how we discover, consume, and interact with style. What began as personal style diaries has evolved into a billion-dollar industry that directly impacts fashion trends, consumer behavior, and brand strategies worldwide.</p>
                 <p>
                   From the early days of pioneering bloggers like Susanna Lau of
                   Style Bubble and Tavi Gevinson of Style Rookie, to today's
@@ -374,6 +368,8 @@
       
       
       
+      
+      
       <article class="blog-card">
         <a class="block" href="/blog/blog-post-5.html">
           <div class="blog-card__media">
@@ -393,8 +389,6 @@
           </div>
         </a>
       </article>
-      
-      
       
       
       
@@ -534,5 +528,5 @@
         </div>
       </footer>
     </div>
-  
-</body></html>
+  </body>
+</html>
