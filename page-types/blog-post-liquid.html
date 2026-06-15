@@ -58,7 +58,7 @@
       {% endfor %}
     </template>
 
-    <template data-for="post" data-query="currentPage()">
+    <template data-for="post" data-query="page()">
       <header class="mb-8">
         <div class="flex items-center gap-3 mb-4">
           <span class="badge badge-secondary field-category">{{page.content.category}}</span>
@@ -91,6 +91,8 @@
       <div class="prose field-text" data-article-content="true">
         {% for block in page.content.text %}
           {{ block }}
+        {% else %}
+          <p>test</p>
         {% endfor %}
       </div>
     </template>
@@ -204,6 +206,8 @@
         </div>
       </header>
       <div class="prose field-text" data-article-content="true">
+        
+          <p>test</p>
         
       </div>
     </article>
