@@ -59,7 +59,7 @@
     </template>
 
 
-<template data-for="post" data-query="page()">
+    <template data-for="post" data-query="page()">
       <header class="mb-8">
         <div class="flex items-center gap-3 mb-4">
           <span class="badge badge-secondary field-category">{{page.content.category}}</span>
@@ -90,10 +90,14 @@
         </div>
       </header>
       <div class="prose field-text" data-article-content="true">
+        {% for block in page.content.text %}
+        {{ block.html | raw }}
+        {% else %}
         <p>Skriv en text</p>
+        {% endfor %}
       </div>
     </template>
-    
+
 
     <div class="min-h-screen bg-background">
       <!-- ===== Header ===== -->
@@ -204,7 +208,11 @@
         </div>
       </header>
       <div class="prose field-text" data-article-content="true">
+        
         <p>Skriv en text</p>
+        
+        <h2>New heading</h2>
+        
       </div>
     </article>
 
