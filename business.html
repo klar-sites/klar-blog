@@ -198,13 +198,13 @@
       <article class="blog-card">
         <a class="block" href="blog/blog-post-5.html" aria-label="Read article">
           <div class="blog-card__media">
-            <img src="/images/lifestyle-post-B2o5gHGK.jpg" alt="" width="387" height="291" loading="lazy">
+            <img src="{{page.content.image.src}}" alt="" width="387" height="291" loading="lazy">
           </div>
           <div class="blog-card__body">
             <div class="flex items-center gap-2">
-              <span class="blog-meta">Business</span><span class="text-muted-foreground text-xs" aria-hidden="true">—</span><time class="blog-meta" datetime="2026-05-10">May 10, 2026</time>
+              <span class="blog-meta">{{page.content.category}}</span><span class="text-muted-foreground text-xs" aria-hidden="true">—</span><time class="blog-meta" datetime="2026-05-10">May 10, 2026</time>
             </div>
-            <h3 class="blog-card__title">En blogg för alla de som tycker det är kul att blogg</h3>
+            <h3 class="blog-card__title">{{page.content.title}}</h3>
             <p class="blog-card__excerpt"></p>
           </div>
         </a>
