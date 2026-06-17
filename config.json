@@ -84,18 +84,9 @@
         "createdAt": "2026-05-05",
         "initial": "L",
         "readTime": "6 min read",
-        "categories": [
-          "Technology",
-          "Business",
-          "Lifestyle"
-        ],
-        "tags": [
-          "Leadership"
-        ],
-        "topics": [
-          "Digital Marketing",
-          "Personal Branding"
-        ]
+        "categories": [],
+        "tags": [],
+        "topics": []
       }
     },
     {
@@ -113,13 +104,8 @@
         "createdAt": "2026-06-14",
         "initial": "K",
         "readTime": "5 min read",
-        "categories": [
-          "Technology",
-          "Lifestyle"
-        ],
-        "tags": [
-          "Authenticity"
-        ]
+        "categories": [],
+        "tags": []
       }
     },
     {
@@ -137,19 +123,9 @@
         "createdAt": "2026-05-09",
         "initial": "N",
         "readTime": "7 min read",
-        "categories": [
-          "Technology",
-          "Podcast",
-          "Business",
-          "Lifestyle"
-        ],
-        "topics": [
-          "Digital Marketing",
-          "Personal Branding"
-        ],
-        "tags": [
-          "Personal Branding"
-        ]
+        "categories": [],
+        "topics": [],
+        "tags": []
       }
     },
     {
@@ -167,17 +143,9 @@
         "createdAt": "2026-05-05",
         "initial": "P",
         "readTime": "8 min read",
-        "categories": [
-          "Business",
-          "Lifestyle"
-        ],
-        "tags": [
-          "Leadership",
-          "Authenticity"
-        ],
-        "topics": [
-          "Personal Branding"
-        ]
+        "categories": [],
+        "tags": [],
+        "topics": []
       }
     },
     {
@@ -195,19 +163,9 @@
         "createdAt": "May 7, 2026",
         "initial": "N",
         "readTime": "9 min read",
-        "categories": [
-          "Technology",
-          "Lifestyle",
-          "Podcast"
-        ],
-        "topics": [
-          "Personal Branding",
-          "Digital Marketing"
-        ],
-        "tags": [
-          "Leadership",
-          "Authenticity"
-        ]
+        "categories": [],
+        "topics": [],
+        "tags": []
       }
     },
     {
