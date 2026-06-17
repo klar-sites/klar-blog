@@ -27,10 +27,26 @@
           "src": "/images/work-lifestyle-Bg_wzXQT.jpg",
           "alt": "En blogg för alla de som älskar att skriva och skratta"
         },
-        "category": "Podcast",
+        "category": "Business",
         "author": "Per Oscarsson",
         "initial": "P",
-        "readTime": "8 min read"
+        "readTime": "8 min read",
+        "categories": [
+          "Technology",
+          "Lifestyle",
+          "Business",
+          "Podcast"
+        ],
+        "tags": [
+          "Authenticity",
+          "Leadership"
+        ],
+        "topics": [
+          "Digital Marketing"
+        ],
+        "authors": [
+          "Klar Karlsson"
+        ]
       }
     }
   ],
@@ -38,48 +54,34 @@
     {
       "name": "blog/blog-post-1.html",
       "type": "blog-post",
-      "editableElements": ".field-title        :field(title: Title, name: title, type:string, order:1, section: Content, sectionOrder:1),\n.field-image     \t:field(title: Image, name: image, type:image, order:2, col: 6, section:'Content'),\n.field-category  \t:field(title: Category, name: category, type:string, col:6, section:Meta, sectionOrder:2, options(vocab:categories)),\n.field-author    \t:field(title: Author, name: author, type:string, options(vocab:authors), col:6, section:'Meta', sectionOrder:2),\n.field-createdAt \t:field(title: Created, name: createdAt, type:string, format:date, default: now, readOnly: true, options(dateFormat:'MMMM D, YYYY')),\n.field-initial      :field(title: Initial, name: initial, type:string, order:5, col:6),\n.field-readTime  \t:field(title: Read time, name: readTime, type:string, order: 5, col: 6),\n.field-list         :field(title: List, name: list, type:array, options(layout:list)),\n.field-text      \t:field(title: Content, name: text, type:array, options(layout:blocks)),\n                 \t:field(title: Lead, name: lead, type:text, default: 'Blog post excerpt — Brief description of the article content for preview.', order:3, section:'Content', col: 6, options(layout:editor)),\n\n:field(title: Categories, name: categories, type: array, order: 6, col: 6, options(vocab: categories)),\n:field(title: Topics, name: topics, type: array, order: 7, col: 6, options(vocab: topics)),\n:field(title: Tags, name: tags, type: array, order: 6, col: 6, options(vocab: tags)),\n:field(title: Authors, name: authors, type: array, order: 6, col: 6, options(vocab: authors))",
+      "editableElements": ".field-title        :field(title: Title, name: title, type:string, order:1, section: Content, sectionOrder:1),\n.field-image     \t:field(title: Image, name: image, type:image, order:2, col: 6, section:'Content'),\n.field-category  \t:field(title: Category, name: category, type:string, col:6, section:Meta, sectionOrder:2, options(vocab:categories)),\n.field-author    \t:field(title: Author, name: author, type:string, options(vocab:authors), col:6, section:'Meta', sectionOrder:2),\n.field-createdAt \t:field(title: Created, name: createdAt, type:string, format:date, default: now, readOnly: false, options(dateFormat:'MMMM D, YYYY')),\n.field-initial      :field(title: Initial, name: initial, type:string, order:5, col:6),\n.field-readTime  \t:field(title: Read time, name: readTime, type:string, order: 5, col: 6),\n.field-list         :field(title: List, name: list, type:array, options(layout:list)),\n.field-text      \t:field(title: Content, name: text, type:array, options(layout:blocks)),\n                 \t:field(title: Lead, name: lead, type:text, default: 'Blog post excerpt — Brief description of the article content for preview.', order:3, section:'Content', col: 6, options(layout:editor)),\n\n:field(title: Categories, name: categories, type: array, order: 6, col: 6, options(vocab: categories)),\n:field(title: Topics, name: topics, type: array, order: 7, col: 6, options(vocab: topics)),\n:field(title: Tags, name: tags, type: array, order: 6, col: 6, options(vocab: tags)),\n:field(title: Authors, name: authors, type: array, order: 6, col: 6, options(vocab: authors))",
       "content": {
         "title": "En blogg för alla de som älskar att skriva och skratta",
         "image": {
           "src": "/images/work-lifestyle-Bg_wzXQT.jpg",
           "alt": "En blogg för alla de som älskar att skriva och skratta"
         },
-        "category": "Business",
+        "category": "Lifestyle",
         "author": "Per Oscarsson",
-        "createdAt": "2026-06-13",
+        "createdAt": "2026-06-15",
         "initial": "P",
         "readTime": "8 min read",
-        "categories": [
-          "Technology",
-          "Lifestyle",
-          "Podcast",
-          "Business"
-        ],
-        "tags": [
-          "Leadership",
-          "Authenticity"
-        ],
-        "eventAt": "2026-06-14T12:30:00.000Z",
-        "topics": [
-          "Personal Branding"
-        ],
-        "createdAt1": "2026-06-13"
+        "lead": "Blog post excerpt — Brief description of the article content for preview."
       }
     },
     {
       "name": "blog/blog-post-2.html",
       "type": "blog-post",
-      "editableElements": ".field-title        :field(title: Title, name: title, type:string, order:1, section: Content, sectionOrder:1),\n.field-image     \t:field(title: Image, name: image, type:image, order:2, col: 6, section:'Content'),\n.field-category  \t:field(title: Category, name: category, type:string, col:6, section:Meta, sectionOrder:2, options(vocab:categories)),\n.field-author    \t:field(title: Author, name: author, type:string, options(vocab:authors), col:6, section:'Meta', sectionOrder:2),\n.field-createdAt \t:field(title: Created, name: createdAt, type:string, format:date, default: now, readOnly: true, options(dateFormat:'MMMM D, YYYY')),\n.field-initial      :field(title: Initial, name: initial, type:string, order:5, col:6),\n.field-readTime  \t:field(title: Read time, name: readTime, type:string, order: 5, col: 6),\n.field-list         :field(title: List, name: list, type:array, options(layout:list)),\n.field-text      \t:field(title: Content, name: text, type:array, options(layout:blocks)),\n                 \t:field(title: Lead, name: lead, type:text, default: 'Blog post excerpt — Brief description of the article content for preview.', order:3, section:'Content', col: 6, options(layout:editor)),\n\n:field(title: Categories, name: categories, type: array, order: 6, col: 6, options(vocab: categories)),\n:field(title: Topics, name: topics, type: array, order: 7, col: 6, options(vocab: topics)),\n:field(title: Tags, name: tags, type: array, order: 6, col: 6, options(vocab: tags)),\n:field(title: Authors, name: authors, type: array, order: 6, col: 6, options(vocab: authors))",
+      "editableElements": ".field-title        :field(title: Title, name: title, type:string, order:1, section: Content, sectionOrder:1),\n.field-image     \t:field(title: Image, name: image, type:image, order:2, col: 6, section:'Content'),\n.field-category  \t:field(title: Category, name: category, type:string, col:6, section:Meta, sectionOrder:2, options(vocab:categories)),\n.field-author    \t:field(title: Author, name: author, type:string, options(vocab:authors), col:6, section:'Meta', sectionOrder:2),\n.field-createdAt \t:field(title: Created, name: createdAt, type:string, format:date, default: now, readOnly: false, options(dateFormat:'MMMM D, YYYY')),\n.field-initial      :field(title: Initial, name: initial, type:string, order:5, col:6),\n.field-readTime  \t:field(title: Read time, name: readTime, type:string, order: 5, col: 6),\n.field-list         :field(title: List, name: list, type:array, options(layout:list)),\n.field-text      \t:field(title: Content, name: text, type:array, options(layout:blocks)),\n                 \t:field(title: Lead, name: lead, type:text, default: 'Blog post excerpt — Brief description of the article content for preview.', order:3, section:'Content', col: 6, options(layout:editor)),\n\n:field(title: Categories, name: categories, type: array, order: 6, col: 6, options(vocab: categories)),\n:field(title: Topics, name: topics, type: array, order: 7, col: 6, options(vocab: topics)),\n:field(title: Tags, name: tags, type: array, order: 6, col: 6, options(vocab: tags)),\n:field(title: Authors, name: authors, type: array, order: 6, col: 6, options(vocab: authors))",
       "content": {
         "title": "En blogg för alla de som tycker det är kul att blogga",
         "image": {
           "src": "/images/fashion-lifestyle-tBv1CS6f (1).jpg",
           "alt": "En blogg för alla de som tycker det är kul att blogga"
         },
-        "category": "Podcast",
+        "category": "Business",
         "author": "Niklas Svensson",
-        "createdAt": "May 5, 2026",
+        "createdAt": "2026-05-05",
         "initial": "L",
         "readTime": "6 min read",
         "categories": [
@@ -99,7 +101,7 @@
     {
       "name": "blog/blog-post-3.html",
       "type": "blog-post",
-      "editableElements": ".field-title        :field(title: Title, name: title, type:string, order:1, section: Content, sectionOrder:1),\n.field-image     \t:field(title: Image, name: image, type:image, order:2, col: 6, section:'Content'),\n.field-category  \t:field(title: Category, name: category, type:string, col:6, section:Meta, sectionOrder:2, options(vocab:categories)),\n.field-author    \t:field(title: Author, name: author, type:string, options(vocab:authors), col:6, section:'Meta', sectionOrder:2),\n.field-createdAt \t:field(title: Created, name: createdAt, type:string, format:date, default: now, readOnly: true, options(dateFormat:'MMMM D, YYYY')),\n.field-initial      :field(title: Initial, name: initial, type:string, order:5, col:6),\n.field-readTime  \t:field(title: Read time, name: readTime, type:string, order: 5, col: 6),\n.field-list         :field(title: List, name: list, type:array, options(layout:list)),\n.field-text      \t:field(title: Content, name: text, type:array, options(layout:blocks)),\n                 \t:field(title: Lead, name: lead, type:text, default: 'Blog post excerpt — Brief description of the article content for preview.', order:3, section:'Content', col: 6, options(layout:editor)),\n\n:field(title: Categories, name: categories, type: array, order: 6, col: 6, options(vocab: categories)),\n:field(title: Topics, name: topics, type: array, order: 7, col: 6, options(vocab: topics)),\n:field(title: Tags, name: tags, type: array, order: 6, col: 6, options(vocab: tags)),\n:field(title: Authors, name: authors, type: array, order: 6, col: 6, options(vocab: authors))",
+      "editableElements": ".field-title        :field(title: Title, name: title, type:string, order:1, section: Content, sectionOrder:1),\n.field-image     \t:field(title: Image, name: image, type:image, order:2, col: 6, section:'Content'),\n.field-category  \t:field(title: Category, name: category, type:string, col:6, section:Meta, sectionOrder:2, options(vocab:categories)),\n.field-author    \t:field(title: Author, name: author, type:string, options(vocab:authors), col:6, section:'Meta', sectionOrder:2),\n.field-createdAt \t:field(title: Created, name: createdAt, type:string, format:date, default: now, readOnly: false, options(dateFormat:'MMMM D, YYYY')),\n.field-initial      :field(title: Initial, name: initial, type:string, order:5, col:6),\n.field-readTime  \t:field(title: Read time, name: readTime, type:string, order: 5, col: 6),\n.field-list         :field(title: List, name: list, type:array, options(layout:list)),\n.field-text      \t:field(title: Content, name: text, type:array, options(layout:blocks)),\n                 \t:field(title: Lead, name: lead, type:text, default: 'Blog post excerpt — Brief description of the article content for preview.', order:3, section:'Content', col: 6, options(layout:editor)),\n\n:field(title: Categories, name: categories, type: array, order: 6, col: 6, options(vocab: categories)),\n:field(title: Topics, name: topics, type: array, order: 7, col: 6, options(vocab: topics)),\n:field(title: Tags, name: tags, type: array, order: 6, col: 6, options(vocab: tags)),\n:field(title: Authors, name: authors, type: array, order: 6, col: 6, options(vocab: authors))",
       "content": {
         "title": "En blogg för alla de som tycker det är kul att blogg",
         "image": {
@@ -123,7 +125,7 @@
     {
       "name": "blog/blog-post-4.html",
       "type": "blog-post",
-      "editableElements": ".field-title        :field(title: Title, name: title, type:string, order:1, section: Content, sectionOrder:1),\n.field-image     \t:field(title: Image, name: image, type:image, order:2, col: 6, section:'Content'),\n.field-category  \t:field(title: Category, name: category, type:string, col:6, section:Meta, sectionOrder:2, options(vocab:categories)),\n.field-author    \t:field(title: Author, name: author, type:string, options(vocab:authors), col:6, section:'Meta', sectionOrder:2),\n.field-createdAt \t:field(title: Created, name: createdAt, type:string, format:date, default: now, readOnly: true, options(dateFormat:'MMMM D, YYYY')),\n.field-initial      :field(title: Initial, name: initial, type:string, order:5, col:6),\n.field-readTime  \t:field(title: Read time, name: readTime, type:string, order: 5, col: 6),\n.field-list         :field(title: List, name: list, type:array, options(layout:list)),\n.field-text      \t:field(title: Content, name: text, type:array, options(layout:blocks)),\n                 \t:field(title: Lead, name: lead, type:text, default: 'Blog post excerpt — Brief description of the article content for preview.', order:3, section:'Content', col: 6, options(layout:editor)),\n\n:field(title: Categories, name: categories, type: array, order: 6, col: 6, options(vocab: categories)),\n:field(title: Topics, name: topics, type: array, order: 7, col: 6, options(vocab: topics)),\n:field(title: Tags, name: tags, type: array, order: 6, col: 6, options(vocab: tags)),\n:field(title: Authors, name: authors, type: array, order: 6, col: 6, options(vocab: authors))",
+      "editableElements": ".field-title        :field(title: Title, name: title, type:string, order:1, section: Content, sectionOrder:1),\n.field-image     \t:field(title: Image, name: image, type:image, order:2, col: 6, section:'Content'),\n.field-category  \t:field(title: Category, name: category, type:string, col:6, section:Meta, sectionOrder:2, options(vocab:categories)),\n.field-author    \t:field(title: Author, name: author, type:string, options(vocab:authors), col:6, section:'Meta', sectionOrder:2),\n.field-createdAt \t:field(title: Created, name: createdAt, type:string, format:date, default: now, readOnly: false, options(dateFormat:'MMMM D, YYYY')),\n.field-initial      :field(title: Initial, name: initial, type:string, order:5, col:6),\n.field-readTime  \t:field(title: Read time, name: readTime, type:string, order: 5, col: 6),\n.field-list         :field(title: List, name: list, type:array, options(layout:list)),\n.field-text      \t:field(title: Content, name: text, type:array, options(layout:blocks)),\n                 \t:field(title: Lead, name: lead, type:text, default: 'Blog post excerpt — Brief description of the article content for preview.', order:3, section:'Content', col: 6, options(layout:editor)),\n\n:field(title: Categories, name: categories, type: array, order: 6, col: 6, options(vocab: categories)),\n:field(title: Topics, name: topics, type: array, order: 7, col: 6, options(vocab: topics)),\n:field(title: Tags, name: tags, type: array, order: 6, col: 6, options(vocab: tags)),\n:field(title: Authors, name: authors, type: array, order: 6, col: 6, options(vocab: authors))",
       "content": {
         "title": "En blogg för alla de som tycker det är kul att blogg",
         "image": {
@@ -153,7 +155,7 @@
     {
       "name": "blog/blog-post-5.html",
       "type": "blog-post",
-      "editableElements": ".field-title        :field(title: Title, name: title, type:string, order:1, section: Content, sectionOrder:1),\n.field-image     \t:field(title: Image, name: image, type:image, order:2, col: 6, section:'Content'),\n.field-category  \t:field(title: Category, name: category, type:string, col:6, section:Meta, sectionOrder:2, options(vocab:categories)),\n.field-author    \t:field(title: Author, name: author, type:string, options(vocab:authors), col:6, section:'Meta', sectionOrder:2),\n.field-createdAt \t:field(title: Created, name: createdAt, type:string, format:date, default: now, readOnly: true, options(dateFormat:'MMMM D, YYYY')),\n.field-initial      :field(title: Initial, name: initial, type:string, order:5, col:6),\n.field-readTime  \t:field(title: Read time, name: readTime, type:string, order: 5, col: 6),\n.field-list         :field(title: List, name: list, type:array, options(layout:list)),\n.field-text      \t:field(title: Content, name: text, type:array, options(layout:blocks)),\n                 \t:field(title: Lead, name: lead, type:text, default: 'Blog post excerpt — Brief description of the article content for preview.', order:3, section:'Content', col: 6, options(layout:editor)),\n\n:field(title: Categories, name: categories, type: array, order: 6, col: 6, options(vocab: categories)),\n:field(title: Topics, name: topics, type: array, order: 7, col: 6, options(vocab: topics)),\n:field(title: Tags, name: tags, type: array, order: 6, col: 6, options(vocab: tags)),\n:field(title: Authors, name: authors, type: array, order: 6, col: 6, options(vocab: authors))",
+      "editableElements": ".field-title        :field(title: Title, name: title, type:string, order:1, section: Content, sectionOrder:1),\n.field-image     \t:field(title: Image, name: image, type:image, order:2, col: 6, section:'Content'),\n.field-category  \t:field(title: Category, name: category, type:string, col:6, section:Meta, sectionOrder:2, options(vocab:categories)),\n.field-author    \t:field(title: Author, name: author, type:string, options(vocab:authors), col:6, section:'Meta', sectionOrder:2),\n.field-createdAt \t:field(title: Created, name: createdAt, type:string, format:date, default: now, readOnly: false, options(dateFormat:'MMMM D, YYYY')),\n.field-initial      :field(title: Initial, name: initial, type:string, order:5, col:6),\n.field-readTime  \t:field(title: Read time, name: readTime, type:string, order: 5, col: 6),\n.field-list         :field(title: List, name: list, type:array, options(layout:list)),\n.field-text      \t:field(title: Content, name: text, type:array, options(layout:blocks)),\n                 \t:field(title: Lead, name: lead, type:text, default: 'Blog post excerpt — Brief description of the article content for preview.', order:3, section:'Content', col: 6, options(layout:editor)),\n\n:field(title: Categories, name: categories, type: array, order: 6, col: 6, options(vocab: categories)),\n:field(title: Topics, name: topics, type: array, order: 7, col: 6, options(vocab: topics)),\n:field(title: Tags, name: tags, type: array, order: 6, col: 6, options(vocab: tags)),\n:field(title: Authors, name: authors, type: array, order: 6, col: 6, options(vocab: authors))",
       "content": {
         "title": "En blogg för alla de som älskar att skriva och skratta",
         "image": {
@@ -181,7 +183,7 @@
     {
       "name": "blog/blog-post-6.html",
       "type": "blog-post",
-      "editableElements": ".field-title        :field(title: Title, name: title, type:string, order:1, section: Content, sectionOrder:1),\n.field-image     \t:field(title: Image, name: image, type:image, order:2, col: 6, section:'Content'),\n.field-category  \t:field(title: Category, name: category, type:string, col:6, section:Meta, sectionOrder:2, options(vocab:categories)),\n.field-author    \t:field(title: Author, name: author, type:string, options(vocab:authors), col:6, section:'Meta', sectionOrder:2),\n.field-createdAt \t:field(title: Created, name: createdAt, type:string, format:date, default: now, readOnly: true, options(dateFormat:'MMMM D, YYYY')),\n.field-initial      :field(title: Initial, name: initial, type:string, order:5, col:6),\n.field-readTime  \t:field(title: Read time, name: readTime, type:string, order: 5, col: 6),\n.field-list         :field(title: List, name: list, type:array, options(layout:list)),\n.field-text      \t:field(title: Content, name: text, type:array, options(layout:blocks)),\n                 \t:field(title: Lead, name: lead, type:text, default: 'Blog post excerpt — Brief description of the article content for preview.', order:3, section:'Content', col: 6, options(layout:editor)),\n\n:field(title: Categories, name: categories, type: array, order: 6, col: 6, options(vocab: categories)),\n:field(title: Topics, name: topics, type: array, order: 7, col: 6, options(vocab: topics)),\n:field(title: Tags, name: tags, type: array, order: 6, col: 6, options(vocab: tags)),\n:field(title: Authors, name: authors, type: array, order: 6, col: 6, options(vocab: authors))",
+      "editableElements": ".field-title        :field(title: Title, name: title, type:string, order:1, section: Content, sectionOrder:1),\n.field-image     \t:field(title: Image, name: image, type:image, order:2, col: 6, section:'Content'),\n.field-category  \t:field(title: Category, name: category, type:string, col:6, section:Meta, sectionOrder:2, options(vocab:categories)),\n.field-author    \t:field(title: Author, name: author, type:string, options(vocab:authors), col:6, section:'Meta', sectionOrder:2),\n.field-createdAt \t:field(title: Created, name: createdAt, type:string, format:date, default: now, readOnly: false, options(dateFormat:'MMMM D, YYYY')),\n.field-initial      :field(title: Initial, name: initial, type:string, order:5, col:6),\n.field-readTime  \t:field(title: Read time, name: readTime, type:string, order: 5, col: 6),\n.field-list         :field(title: List, name: list, type:array, options(layout:list)),\n.field-text      \t:field(title: Content, name: text, type:array, options(layout:blocks)),\n                 \t:field(title: Lead, name: lead, type:text, default: 'Blog post excerpt — Brief description of the article content for preview.', order:3, section:'Content', col: 6, options(layout:editor)),\n\n:field(title: Categories, name: categories, type: array, order: 6, col: 6, options(vocab: categories)),\n:field(title: Topics, name: topics, type: array, order: 7, col: 6, options(vocab: topics)),\n:field(title: Tags, name: tags, type: array, order: 6, col: 6, options(vocab: tags)),\n:field(title: Authors, name: authors, type: array, order: 6, col: 6, options(vocab: authors))",
       "content": {
         "title": "En blogg för alla de som tycker det är kul att blogg",
         "image": {
@@ -209,18 +211,54 @@
       }
     },
     {
-      "name": "blog/blog-post-liquid.html",
+      "name": "blog/blog-post-liquid-1.html",
       "type": "blog-post-liquid",
       "editableElements": ".field-title        :field(title: Title, name: title, type:string, order:1, section: Content, sectionOrder:1),\n.field-image     \t:field(title: Image, name: image, type:image, order:2, col: 6, section:'Content'),\n.field-category  \t:field(title: Category, name: category, type:string, col:6, section:Meta, sectionOrder:2, options(vocab:categories)),\n.field-author    \t:field(title: Author, name: author, type:string, options(vocab:authors), col:6, section:'Meta', sectionOrder:2),\n.field-createdAt \t:field(title: Created, name: createdAt, type:string, format:date, default: now, readOnly: true, options(dateFormat:'MMMM D, YYYY', displayTimeZone:'Europe/Berlin')),\n.field-initial      :field(title: Initial, name: initial, type:string, order:5, col:6),\n.field-readTime  \t:field(title: Read time, name: readTime, type:string, order: 5, col: 6),\n.field-list         :field(title: List, name: list, type:array, options(layout:list)),\n.field-text      \t:field(title: Content, name: text, type:array, options(layout:blocks)),\n                 \t:field(title: Lead, name: lead, type:text, default: 'Blog post excerpt — Brief description of the article content for preview.', order:3, section:'Content', col: 6, options(layout:editor)),\n\n:field(title: Categories, name: categories, type: array, order: 6, col: 6, options(vocab: categories)),\n:field(title: Topics, name: topics, type: array, order: 7, col: 6, options(vocab: topics)),\n:field(title: Tags, name: tags, type: array, order: 6, col: 6, options(vocab: tags)),\n:field(title: Authors, name: authors, type: array, order: 6, col: 6, options(vocab: authors))",
       "content": {
-        "title": "En blogg för alla de som älskar att skriva",
+        "title": "En blogg för alla de som älskar att skriva och skratta",
         "image": {
           "src": "/images/work-lifestyle-Bg_wzXQT.jpg",
           "alt": "En blogg för alla de som älskar att skriva och skratta"
         },
-        "category": "Podcast",
+        "category": "Business",
         "author": "Per Oscarsson",
         "createdAt": "2026-06-15",
+        "initial": "P",
+        "readTime": "8 min read",
+        "lead": "Blog post excerpt — Brief description of the article content for preview."
+      }
+    },
+    {
+      "name": "blog/blog-post-liquid-2.html",
+      "type": "blog-post-liquid",
+      "editableElements": ".field-title        :field(title: Title, name: title, type:string, order:1, section: Content, sectionOrder:1),\n.field-image     \t:field(title: Image, name: image, type:image, order:2, col: 6, section:'Content'),\n.field-category  \t:field(title: Category, name: category, type:string, col:6, section:Meta, sectionOrder:2, options(vocab:categories)),\n.field-author    \t:field(title: Author, name: author, type:string, options(vocab:authors), col:6, section:'Meta', sectionOrder:2),\n.field-createdAt \t:field(title: Created, name: createdAt, type:string, format:date, default: now, readOnly: true, options(dateFormat:'MMMM D, YYYY', displayTimeZone:'Europe/Berlin')),\n.field-initial      :field(title: Initial, name: initial, type:string, order:5, col:6),\n.field-readTime  \t:field(title: Read time, name: readTime, type:string, order: 5, col: 6),\n.field-list         :field(title: List, name: list, type:array, options(layout:list)),\n.field-text      \t:field(title: Content, name: text, type:array, options(layout:blocks)),\n                 \t:field(title: Lead, name: lead, type:text, default: 'Blog post excerpt — Brief description of the article content for preview.', order:3, section:'Content', col: 6, options(layout:editor)),\n\n:field(title: Categories, name: categories, type: array, order: 6, col: 6, options(vocab: categories)),\n:field(title: Topics, name: topics, type: array, order: 7, col: 6, options(vocab: topics)),\n:field(title: Tags, name: tags, type: array, order: 6, col: 6, options(vocab: tags)),\n:field(title: Authors, name: authors, type: array, order: 6, col: 6, options(vocab: authors))",
+      "content": {
+        "title": "En blogg för alla de som älskar att skriva och skratta",
+        "image": {
+          "src": "/images/work-lifestyle-Bg_wzXQT.jpg",
+          "alt": "En blogg för alla de som älskar att skriva och skratta"
+        },
+        "category": "Business",
+        "author": "Per Oscarsson",
+        "createdAt": "2026-06-15",
+        "initial": "P",
+        "readTime": "8 min read",
+        "lead": "Blog post excerpt — Brief description of the article content for preview."
+      }
+    },
+    {
+      "name": "blog/blog-post-liquid-3.html",
+      "type": "blog-post-liquid",
+      "editableElements": ".field-title        :field(title: Title, name: title, type:string, order:1, section: Content, sectionOrder:1),\n.field-image     \t:field(title: Image, name: image, type:image, order:2, col: 6, section:'Content'),\n.field-category  \t:field(title: Category, name: category, type:string, col:6, section:Meta, sectionOrder:2, options(vocab:categories)),\n.field-author    \t:field(title: Author, name: author, type:string, options(vocab:authors), col:6, section:'Meta', sectionOrder:2),\n.field-createdAt \t:field(title: Created, name: createdAt, type:string, format:date, default: now, readOnly: true, options(dateFormat:'MMMM D, YYYY', displayTimeZone:'Europe/Berlin')),\n.field-initial      :field(title: Initial, name: initial, type:string, order:5, col:6),\n.field-readTime  \t:field(title: Read time, name: readTime, type:string, order: 5, col: 6),\n.field-list         :field(title: List, name: list, type:array, options(layout:list)),\n.field-text      \t:field(title: Content, name: text, type:array, options(layout:blocks)),\n                 \t:field(title: Lead, name: lead, type:text, default: 'Blog post excerpt — Brief description of the article content for preview.', order:3, section:'Content', col: 6, options(layout:editor)),\n\n:field(title: Categories, name: categories, type: array, order: 6, col: 6, options(vocab: categories)),\n:field(title: Topics, name: topics, type: array, order: 7, col: 6, options(vocab: topics)),\n:field(title: Tags, name: tags, type: array, order: 6, col: 6, options(vocab: tags)),\n:field(title: Authors, name: authors, type: array, order: 6, col: 6, options(vocab: authors))",
+      "content": {
+        "title": "En blogg för alla de som älskar att skriva och skratta",
+        "image": {
+          "src": "/images/tech-post-HXCQgDvH.jpg",
+          "alt": "En blogg för alla de som älskar att skriva och skratta"
+        },
+        "category": "Business",
+        "author": "Per Oscarsson",
+        "createdAt": "2026-06-16",
         "initial": "P",
         "readTime": "8 min read",
         "lead": "Blog post excerpt — Brief description of the article content for preview."
@@ -230,6 +268,10 @@
       "name": "index.html",
       "editableElements": "body,\nnav[]",
       "sharedSections": "#header"
+    },
+    {
+      "name": "nice.html",
+      "editableElements": "body"
     }
   ],
   "vocabularies": {
